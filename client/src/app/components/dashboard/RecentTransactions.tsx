@@ -1,5 +1,5 @@
 
-import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
+import DashboardCard from '@/app/components/shared/DashboardCard';
 import {
   Timeline,
   TimelineItem,

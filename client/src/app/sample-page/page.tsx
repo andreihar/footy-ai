@@ -1,12 +1,12 @@
 'use client';
 import { Avatar, Box, Button, CardContent, Typography } from '@mui/material';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
+import PageContainer from '@/app/components/container/PageContainer';
+import DashboardCard from '@/app/components/shared/DashboardCard';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
 
-import euro2024 from '../../../../public/data/euro2024.json';
+import euro2024 from '../../../public/data/euro2024.json';
 import { useEffect, useState } from 'react';
 import Match from '../types/match';
 
