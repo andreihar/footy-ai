@@ -21,19 +21,19 @@ const Menuitems = [
     id: uniqueId(),
     title: "Matches",
     icon: IconBallFootball,
-    href: "/utilities/typography",
+    href: "/matches",
   },
   {
     id: uniqueId(),
     title: "Group stage",
     icon: IconTableShare,
-    href: "/utilities/shadow",
+    href: "/group",
   },
   {
     id: uniqueId(),
     title: "Knockout stage",
     icon: IconTournament,
-    href: "/utilities/shadow",
+    href: "/knockout",
   },
   {
     navlabel: true,
@@ -43,17 +43,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "Custom Match",
     icon: IconSoccerField,
-    href: "/authentication/login",
-  },
-  {
-    id: uniqueId(),
-    title: "Register",
-    icon: IconUserPlus,
-    href: "/authentication/register",
-  },
-  {
-    navlabel: true,
-    subheader: "Extra",
+    href: "/custom",
   },
   {
     id: uniqueId(),
