@@ -10,21 +10,14 @@ import euro2024 from '../../../public/data/euro2024.json';
 import euro2024predsJson from '../../../public/data/euro2024preds.json';
 import { useEffect, useState } from 'react';
 import Match from '../types/match';
+import Preds from '../types/preds';
 
-interface Euro2024Preds {
-  [key: string]: {
-    predictions: number[];
-    scorePrediction: number[];
-  };
-}
+const euro2024preds: Preds = euro2024predsJson;
 
-const euro2024preds: Euro2024Preds = euro2024predsJson;
-
-const MatchCard = ({ match, predictions, scorePrediction }: { match: Match; predictions: number[]; scorePrediction: number[]; }) => {
+const MatchCard = ({ match }: { match: Match; }) => {
   const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
-  const [isTextVisible, setIsTextVisible] = useState(false);
 
-  const predictedOutcomeIndex = predictions.indexOf(Math.max(...predictions));
+  const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
   let predictedOutcome = "";
   if (predictedOutcomeIndex === 0) predictedOutcome = "home";
   else if (predictedOutcomeIndex === 1) predictedOutcome = "away";
@@ -39,7 +32,7 @@ const MatchCard = ({ match, predictions, scorePrediction }: { match: Match; pred
     else if (match.score.home < match.score.away) actualOutcome = "away";
     else if (match.score.home === match.score.away) actualOutcome = "draw";
     correctOutcome = predictedOutcome === actualOutcome ? "correct" : "incorrect";
-    correctScore = (scorePrediction[0] === match.score.home && scorePrediction[1] === match.score.away) ? "correct" : "incorrect";
+    correctScore = (match.scorePrediction[0] === match.score.home && match.scorePrediction[1] === match.score.away) ? "correct" : "incorrect";
   }
 
   useEffect(() => {
@@ -77,12 +70,12 @@ const MatchCard = ({ match, predictions, scorePrediction }: { match: Match; pred
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center" sx={{ marginX: 4 }}>
             <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
-              <Typography variant="h1" component="span">{scorePrediction[0]}</Typography>
+              <Typography variant="h1" component="span">{match.scorePrediction[0]}</Typography>
               <Typography variant="body1" component="span">({match.score.home})</Typography>
             </Box>
             <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
             <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
-              <Typography variant="h1" component="span">{scorePrediction[1]}</Typography>
+              <Typography variant="h1" component="span">{match.scorePrediction[1]}</Typography>
               <Typography variant="body1" component="span">({match.score.away})</Typography>
             </Box>
           </Box>
@@ -93,16 +86,16 @@ const MatchCard = ({ match, predictions, scorePrediction }: { match: Match; pred
           </Box>
         </Box>
         <Box mt={5} sx={{ width: '100%', bgcolor: 'grey.300', borderRadius: '10px', height: '24px', display: 'flex' }}>
-          <Box sx={{ bgcolor: 'primary.main', borderRadius: '6px 0 0 6px', width: `${predictions[0]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Typography variant="h6" color="white">{predictions[0]}%</Typography>
+          <Box sx={{ bgcolor: 'primary.main', borderRadius: '6px 0 0 6px', width: `${match.predictions[0]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="h6" color="white">{match.predictions[0]}%</Typography>
           </Box>
-          {predictions[2] > 0 && (
-            <Box sx={{ bgcolor: 'grey.300', width: `${predictions[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Typography variant="h6">{predictions[2]}%</Typography>
+          {match.predictions[2] > 0 && (
+            <Box sx={{ bgcolor: 'grey.300', width: `${match.predictions[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Typography variant="h6">{match.predictions[2]}%</Typography>
             </Box>
           )}
-          <Box sx={{ bgcolor: 'secondary.main', borderRadius: '0 6px 6px 0', width: `${predictions[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Typography variant="h6">{predictions[1]}%</Typography>
+          <Box sx={{ bgcolor: 'secondary.main', borderRadius: '0 6px 6px 0', width: `${match.predictions[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="h6">{match.predictions[1]}%</Typography>
           </Box>
         </Box>
         <Box mt={3} display="flex" justifyContent="center" width="100%">
@@ -144,7 +137,12 @@ const MatchesPage = () => {
 
   useEffect(() => {
     const allMatches = [...euro2024.groupStage, ...euro2024.knockoutStage]
-      .flatMap(stage => stage.matches.map(match => ({ ...match, stage: stage.round })))
+      .flatMap(stage => stage.matches.map(match => {
+        const predictionKey = `${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`;
+        const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
+        const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
+        return { ...match, stage: stage.round, predictions, scorePrediction };
+      }))
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     setMatches(allMatches);
@@ -154,12 +152,7 @@ const MatchesPage = () => {
     <PageContainer title="Matches" description="List of all matches and predictions">
       <>
         {matches.filter(match => match.teams.home !== "?" && match.teams.away !== "?")
-          .map(match => {
-            const predictionKey = `${match.teams.home}_${match.teams.away}`;
-            const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
-            const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
-            return <MatchCard match={match} predictions={predictions} scorePrediction={scorePrediction} />;
-          })}
+          .map(match => <MatchCard match={match} />)}
       </>
     </PageContainer>
   );

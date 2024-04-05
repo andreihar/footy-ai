@@ -10,4 +10,6 @@ export default interface Match {
 		home: number | null;
 		away: number | null;
 	};
+	predictions: number[];
+	scorePrediction: number[];
 }

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Select, MenuItem } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import dynamic from "next/dynamic";
+import Match from '../../types/match';
+import Preds from '../../types/preds';
+import euro2024 from '../../../../public/data/euro2024.json';
+import euro2024predsJson from '../../../../public/data/euro2024preds.json';
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-
+const euro2024preds: Preds = euro2024predsJson;
 
 const SalesOverview = () => {
 
@@ -12,6 +16,53 @@ const SalesOverview = () => {
     const theme = useTheme();
     const primary = theme.palette.primary.main;
     const secondary = theme.palette.error.main;
+
+    const [categories, setCategories] = useState<string[]>([]);
+    const [correct, setCorrect] = useState<number[]>();
+    const [incorrect, setIncorrect] = useState<number[]>();
+
+    useEffect(() => {
+        const allMatches = [...euro2024.groupStage, ...euro2024.knockoutStage]
+            .flatMap(stage => stage.matches.map(match => {
+                const predictionKey = `${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`;
+                const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
+                const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
+                const date = new Date(match.date);
+                const formattedDate = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}`;
+                return { ...match, stage: stage.round, predictions, scorePrediction, date: formattedDate };
+            }))
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        const formattedDates = Array.from(new Set(allMatches.map(match => match.date)))
+            .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+        setCategories(formattedDates);
+        const correctPredictionsPerDay = new Array(formattedDates.length).fill(0);
+        const incorrectPredictionsPerDay = new Array(formattedDates.length).fill(0);
+
+        allMatches.forEach(match => {
+            if (match.score.home === null || match.score.away === null) {
+                return;
+            }
+
+            const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
+            let predictedOutcome = "";
+            if (predictedOutcomeIndex === 0) predictedOutcome = "home";
+            else if (predictedOutcomeIndex === 1) predictedOutcome = "away";
+            else if (predictedOutcomeIndex === 2) predictedOutcome = "draw";
+
+            let actualOutcome = "";
+            if (match.score.home > match.score.away) actualOutcome = "home";
+            else if (match.score.home < match.score.away) actualOutcome = "away";
+            else if (match.score.home === match.score.away) actualOutcome = "draw";
+
+            if (predictedOutcome === actualOutcome) {
+                correctPredictionsPerDay[formattedDates.indexOf(match.date)]++;
+            } else {
+                incorrectPredictionsPerDay[formattedDates.indexOf(match.date)]++;
+            }
+            setCorrect(correctPredictionsPerDay);
+            setIncorrect(incorrectPredictionsPerDay);
+        });
+    }, []);
 
     // chart
     const optionscolumnchart: any = {
@@ -61,7 +112,7 @@ const SalesOverview = () => {
             tickAmount: 4,
         },
         xaxis: {
-            categories: ['16/08', '17/08', '18/08', '19/08', '20/08', '21/08', '22/08', '23/08'],
+            categories,
             axisBorder: {
                 show: false,
             },
@@ -74,11 +125,11 @@ const SalesOverview = () => {
     const seriescolumnchart: any = [
         {
             name: 'Predicted correct this day',
-            data: [355, 390, 300, 350, 390, 180, 355, 390],
+            data: correct,
         },
         {
             name: 'Predicted incorrect this day',
-            data: [280, 250, 325, 215, 250, 310, 280, 250],
+            data: incorrect,
         },
     ];
 
