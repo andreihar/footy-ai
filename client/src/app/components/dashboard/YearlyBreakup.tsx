@@ -4,7 +4,6 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { Grid, Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
-import Match from '../../types/match';
 import Preds from '../../types/preds';
 import euro2024 from '../../../../public/data/euro2024.json';
 import euro2024predsJson from '../../../../public/data/euro2024preds.json';
@@ -13,7 +12,6 @@ import { useEffect, useState } from "react";
 const euro2024preds: Preds = euro2024predsJson;
 
 const YearlyBreakup = () => {
-  // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
   const primarylight = '#ecf2ff';
@@ -41,15 +39,10 @@ const YearlyBreakup = () => {
       }
 
       const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
-      let predictedOutcome = "";
-      if (predictedOutcomeIndex === 0) predictedOutcome = "home";
-      else if (predictedOutcomeIndex === 1) predictedOutcome = "away";
-      else if (predictedOutcomeIndex === 2) predictedOutcome = "draw";
-
-      let actualOutcome = "";
-      if (match.score.home > match.score.away) actualOutcome = "home";
-      else if (match.score.home < match.score.away) actualOutcome = "away";
-      else if (match.score.home === match.score.away) actualOutcome = "draw";
+      const outcomes = ["home", "away", "draw"];
+      const predictedOutcome = outcomes[predictedOutcomeIndex];
+      const actualOutcome = match.score.home > match.score.away ? "home" :
+        match.score.home < match.score.away ? "away" : "draw";
 
       if (new Date(match.date).getTime() < new Date(allMatches[allMatches.length - 1].date).getTime()) {
         if (predictedOutcome === actualOutcome) {
@@ -68,7 +61,6 @@ const YearlyBreakup = () => {
     const lastDayPercentage = Number(((correctPredictions / (correctPredictions + incorrectPredictions)) * 100).toFixed(2));
     setCorrect(lastDayPercentage);
     setPercentageChange(Number((lastDayPercentage - prevDayPercentage).toFixed(2)));
-    console.log("correct", prevDayPercentage, "percentageChange", lastDayPercentage);
   }, []);
 
 
@@ -117,17 +109,15 @@ const YearlyBreakup = () => {
         },
       },
     ],
+    labels: ['Correct', 'Incorrect'],
   };
   const seriescolumnchart: any = [correct, 100 - correct];
 
   return (
     <DashboardCard title="Overall Statistics">
       <Grid container spacing={3}>
-        {/* column */}
         <Grid item xs={7} sm={7}>
-          <Typography variant="h3" fontWeight="700">
-            {correct}%
-          </Typography>
+          <Typography variant="h3" fontWeight="700">{correct}%</Typography>
           <Stack direction="row" spacing={1} mt={1} alignItems="center">
             {
               percentageChange >= 0 ? (
@@ -140,37 +130,22 @@ const YearlyBreakup = () => {
                 </Avatar>
               )
             }
-            <Typography variant="subtitle2" fontWeight="600">
-              {percentageChange}%
-            </Typography>
+            <Typography variant="subtitle2" fontWeight="600">{percentageChange}%</Typography>
           </Stack>
           <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
-              <Avatar
-                sx={{ width: 9, height: 9, bgcolor: primary, svg: { display: 'none' } }}
-              ></Avatar>
-              <Typography variant="subtitle2" color="textSecondary">
-                Correct
-              </Typography>
+              <Avatar sx={{ width: 9, height: 9, bgcolor: primary, svg: { display: 'none' } }}></Avatar>
+              <Typography variant="subtitle2" color="textSecondary">Correct</Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
-              <Avatar
-                sx={{ width: 9, height: 9, bgcolor: primarylight, svg: { display: 'none' } }}
-              ></Avatar>
-              <Typography variant="subtitle2" color="textSecondary">
-                Incorrect
-              </Typography>
+              <Avatar sx={{ width: 9, height: 9, bgcolor: primarylight, svg: { display: 'none' } }}></Avatar>
+              <Typography variant="subtitle2" color="textSecondary">Incorrect</Typography>
             </Stack>
           </Stack>
         </Grid>
         {/* column */}
         <Grid item xs={5} sm={5}>
-          <Chart
-            options={optionscolumnchart}
-            series={seriescolumnchart}
-            type="donut"
-            height={150} width={"100%"}
-          />
+          <Chart options={optionscolumnchart} series={seriescolumnchart} type="donut" height={150} width={"100%"} />
         </Grid>
       </Grid>
     </DashboardCard>
