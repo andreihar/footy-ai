@@ -1,67 +1,79 @@
 
 import DashboardCard from '@/app/components/shared/DashboardCard';
-import {
-  Timeline,
-  TimelineItem,
-  TimelineOppositeContent,
-  TimelineSeparator,
-  TimelineDot,
-  TimelineConnector,
-  TimelineContent,
-  timelineOppositeContentClasses,
-} from '@mui/lab';
+import { Timeline, TimelineItem, TimelineOppositeContent, TimelineSeparator, TimelineDot, TimelineConnector, TimelineContent, timelineOppositeContentClasses, } from '@mui/lab';
 import { Link, Typography } from '@mui/material';
+import Match from '../../types/match';
+import Preds from '../../types/preds';
+import euro2024 from '../../../../public/data/euro2024.json';
+import euro2024predsJson from '../../../../public/data/euro2024preds.json';
+import { useEffect, useState } from "react";
+const euro2024preds: Preds = euro2024predsJson;
 
 const RecentTransactions = () => {
+
+  const [matches, setMatches] = useState<(Match & { status: string; })[]>([]);
+
+  useEffect(() => {
+    const allMatches = [...euro2024.groupStage, ...euro2024.knockoutStage]
+      .flatMap(stage => stage.matches
+        .filter(match => match.score.home !== null && match.score.away !== null)
+        .map(match => {
+          const predictionKey = `${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`;
+          const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
+          const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
+          return { ...match, stage: stage.round, predictions, scorePrediction };
+        }))
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+      .slice(-6)
+      .map(match => {
+        if (match.score.home !== null && match.score.away !== null) {
+          const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
+          const outcomes = ["home", "away", "draw"];
+          const predictedOutcome = outcomes[predictedOutcomeIndex];
+          const actualOutcome = match.score.home > match.score.away ? "home" :
+            match.score.home < match.score.away ? "away" : "draw";
+          const isPerfect = predictedOutcome === actualOutcome && match.scorePrediction[0] === match.score.home && match.scorePrediction[1] === match.score.away;
+          const isCorrect = predictedOutcome === actualOutcome;
+          return { ...match, status: isPerfect ? "perfect" : isCorrect ? "correct" : "incorrect" };
+        } else {
+          return { ...match, status: "unknown" };
+        }
+      });
+
+    setMatches(allMatches);
+    console.log(allMatches);
+  }, []);
+
   return (
-    <DashboardCard title="Recent Transactions">
+    <DashboardCard title="Recent Predictions">
       <>
-        <Timeline
-          className="theme-timeline"
-          nonce={undefined}
-          onResize={undefined}
-          onResizeCapture={undefined}
+        <Timeline className="theme-timeline" nonce={undefined} onResize={undefined} onResizeCapture={undefined}
           sx={{
-            p: 0,
-            mb: '-40px',
-            '& .MuiTimelineConnector-root': {
-              width: '1px',
-              backgroundColor: '#efefef'
-            },
-            [`& .${timelineOppositeContentClasses.root}`]: {
-              flex: 0.5,
-              paddingLeft: 0,
-            },
+            p: 0, mb: '-40px',
+            '& .MuiTimelineConnector-root': { width: '1px', backgroundColor: '#efefef' },
+            [`& .${timelineOppositeContentClasses.root}`]: { flex: 0.5, paddingLeft: 0, },
           }}
         >
-          <TimelineItem>
+          {matches.map((match, index) => (
+            <TimelineItem key={index}>
+              <TimelineOppositeContent>{match.date.split(',')[0]}</TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot color={match.status === 'perfect' ? 'primary' : match.status === 'correct' ? 'success' : 'error'} variant="outlined" />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <Typography fontWeight="600">{`${match.teams.home} vs ${match.teams.away}`}</Typography>
+                predicted {match.status}ly
+              </TimelineContent>
+            </TimelineItem>
+          ))}
+          {/* <TimelineItem>
             <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color="primary" variant="outlined" />
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>Payment received from John Doe of $385.90</TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineOppositeContent>10:00 am</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot color="secondary" variant="outlined" />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              <Typography fontWeight="600">New sale recorded</Typography>{' '}
-              <Link href="/" underline="none">
-                #ML-3467
-              </Link>
-            </TimelineContent>
-          </TimelineItem>
-          <TimelineItem>
-            <TimelineOppositeContent>12:00 am</TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot color="success" variant="outlined" />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>Payment was made of $64.95 to Michael</TimelineContent>
           </TimelineItem>
           <TimelineItem>
             <TimelineOppositeContent>09:30 am</TimelineOppositeContent>
@@ -92,7 +104,7 @@ const RecentTransactions = () => {
               <TimelineDot color="success" variant="outlined" />
             </TimelineSeparator>
             <TimelineContent>Payment Received</TimelineContent>
-          </TimelineItem>
+          </TimelineItem> */}
         </Timeline>
       </>
     </DashboardCard>
