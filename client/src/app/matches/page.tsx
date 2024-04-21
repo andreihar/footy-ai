@@ -51,10 +51,6 @@ const MatchCard = ({ match }: { match: Match; }) => {
     fetchCountryCodes();
   }, []);
 
-  const getCountryCode = (countryName: string) => {
-    return countryCodes[countryName];
-  };
-
   return (
     <DashboardCard>
       <CardContent>
@@ -65,7 +61,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
         <Box display="flex" justifyContent="center" alignItems="center">
           {/* Home */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
-            <Avatar alt="?" src={`https://flagcdn.com/w640/${getCountryCode(match.teams.home)}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[match.teams.home]}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
             <Typography variant="h3">{match.teams.home}</Typography>
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center" sx={{ marginX: 4 }}>
@@ -81,7 +77,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
           </Box>
           {/* Away */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
-            <Avatar alt="?" src={`https://flagcdn.com/w640/${getCountryCode(match.teams.away)}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[match.teams.away]}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
             <Typography variant="h3">{match.teams.away}</Typography>
           </Box>
         </Box>

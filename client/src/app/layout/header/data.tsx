@@ -158,10 +158,6 @@ const pageLinks = [
     title: 'User Application'
   },
   {
-    href: '/apps/blog/posts',
-    title: 'Blog Design'
-  },
-  {
     href: '/apps/ecommerce/eco-checkout',
     title: 'Shopping Cart'
   },

@@ -29,10 +29,6 @@ const CustomPage = () => {
     fetchCountryCodes();
   }, []);
 
-  const getCountryCode = (countryName: string) => {
-    return countryCodes[countryName];
-  };
-
   return (
     <PageContainer title="Custom Match" description="Get the odds for the matchup that didn't happen during the tournament">
       <DashboardCard>
@@ -40,7 +36,7 @@ const CustomPage = () => {
           <Box display="flex" justifyContent="center" alignItems="center">
             {/* Home */}
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
-              <Avatar alt="?" src={`https://flagcdn.com/w640/${getCountryCode(home)}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+              <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[home]}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               <TextField id="filled-select-country" select defaultValue={home} variant="filled" onChange={(event) => setHome(event.target.value)}
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries.map((country) => (
@@ -61,7 +57,7 @@ const CustomPage = () => {
             </Box>
             {/* Away */}
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
-              <Avatar alt="?" src={`https://flagcdn.com/w640/${getCountryCode(away)}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+              <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[away]}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               <TextField id="filled-select-country" select defaultValue={away} variant="filled" onChange={(event) => setAway(event.target.value)}
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries.map((country) => (

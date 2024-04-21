@@ -11,7 +11,7 @@ import DashboardCard from '@/app/components/shared/DashboardCard';
 import { useEffect, useState } from "react";
 const euro2024preds: Preds = euro2024predsJson;
 
-const YearlyBreakup = () => {
+const OverallStatistics = () => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
   const primarylight = '#ecf2ff';
@@ -152,4 +152,4 @@ const YearlyBreakup = () => {
   );
 };
 
-export default YearlyBreakup;
+export default OverallStatistics;

@@ -9,7 +9,7 @@ import euro2024predsJson from '../../../../public/data/euro2024preds.json';
 import { useEffect, useState } from "react";
 const euro2024preds: Preds = euro2024predsJson;
 
-const RecentTransactions = () => {
+const RecentPredictions = () => {
 
   const [matches, setMatches] = useState<(Match & { status: string; })[]>([]);
 
@@ -72,4 +72,4 @@ const RecentTransactions = () => {
   );
 };
 
-export default RecentTransactions;
+export default RecentPredictions;

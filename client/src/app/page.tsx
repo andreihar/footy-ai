@@ -2,12 +2,11 @@
 import { Grid, Box } from '@mui/material';
 import PageContainer from '@/app/components/container/PageContainer';
 // components
-import SalesOverview from '@/app/components/dashboard/SalesOverview';
-import YearlyBreakup from '@/app/components/dashboard/YearlyBreakup';
-import RecentTransactions from '@/app/components/dashboard/RecentTransactions';
-import ProductPerformance from '@/app/components/dashboard/ProductPerformance';
-import Blog from '@/app/components/dashboard/Blog';
-import MonthlyEarnings from '@/app/components/dashboard/MonthlyEarnings';
+import PredictionsOverview from '@/app/components/dashboard/PredictionsOverview';
+import OverallStatistics from '@/app/components/dashboard/OverallStatistics';
+import RecentPredictions from '@/app/components/dashboard/RecentPredictions';
+import GroupPerformance from '@/app/components/dashboard/GroupPerformance';
+import DailyPredictions from '@/app/components/dashboard/DailyPredictions';
 
 const Dashboard = () => {
   return (
@@ -15,23 +14,20 @@ const Dashboard = () => {
       <Box>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={12}>
-            <SalesOverview />
+            <PredictionsOverview />
           </Grid>
           <Grid item xs={12} lg={6}>
-            <RecentTransactions />
+            <RecentPredictions />
           </Grid>
           <Grid item xs={12} lg={6}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <YearlyBreakup />
+                <OverallStatistics />
               </Grid>
               <Grid item xs={12}>
-                <MonthlyEarnings />
+                <DailyPredictions />
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <ProductPerformance group='Group A' />
           </Grid>
         </Grid>
       </Box>

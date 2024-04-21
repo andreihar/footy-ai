@@ -1,10 +1,9 @@
 
-import { Typography, Box, Table, TableBody, TableCell, TableHead, TableRow, IconButton, Avatar, Accordion, AccordionSummary, Button, AccordionDetails, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
+import { Typography, Box, Table, TableBody, TableCell, TableHead, TableRow, IconButton, Avatar, Accordion, AccordionSummary, Button, AccordionDetails, List, ListItem } from '@mui/material';
 import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBallFootball } from '@tabler/icons-react';
 import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import { useEffect, useState } from 'react';
-import Match from '../../types/match';
 import Preds from '../../types/preds';
 import euro2024 from '../../../../public/data/euro2024.json';
 import euro2024predsJson from '../../../../public/data/euro2024preds.json';
@@ -22,11 +21,11 @@ interface TeamStat {
     matches: string[];
 }
 
-type ProductPerformanceProps = {
+type GroupPerformanceProps = {
     group: string;
 };
 
-const ProductPerformance = ({ group }: ProductPerformanceProps) => {
+const GroupPerformance = ({ group }: GroupPerformanceProps) => {
     const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
     const [teamStats, setTeamStats] = useState<Array<TeamStat>>([]);
     const [correctRankings, setCorrectRankings] = useState(0);
@@ -127,10 +126,6 @@ const ProductPerformance = ({ group }: ProductPerformanceProps) => {
         fetchCountryCodes();
     }, []);
 
-    const getCountryCode = (countryName: string) => {
-        return countryCodes[countryName];
-    };
-
     return (
         <DashboardCard title={group}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
@@ -177,7 +172,7 @@ const ProductPerformance = ({ group }: ProductPerformanceProps) => {
                                 </TableCell>
                                 <TableCell>
                                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                                        <Avatar alt="?" src={`https://flagcdn.com/w640/${getCountryCode(product.team)}.png`} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
+                                        <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[product.team]}.png`} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
                                         <Typography variant="subtitle1" fontWeight={600}>{product.team}</Typography>
                                     </Box>
                                 </TableCell>
@@ -206,11 +201,11 @@ const ProductPerformance = ({ group }: ProductPerformanceProps) => {
                                     {product.matches.map((match) => {
                                         switch (match) {
                                             case "win":
-                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: 'success.dark', mr: '4px' }}><IconCheck /></IconButton>;
+                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: 'success.dark', mr: '4px', '&:hover': { backgroundColor: 'success.dark', opacity: 0.7 } }}><IconCheck /></IconButton>;
                                             case "loss":
-                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: 'error.main', mr: '4px' }}><IconX /></IconButton>;
+                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: 'error.main', mr: '4px', '&:hover': { backgroundColor: 'error.main', opacity: 0.7 } }}><IconX /></IconButton>;
                                             default:
-                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: grey[600], mr: '4px' }}><IconMinus /></IconButton>;
+                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: grey[600], mr: '4px', '&:hover': { backgroundColor: grey[600], opacity: 0.7 } }}><IconMinus /></IconButton>;
                                         }
                                     })}
                                 </TableCell>
@@ -252,4 +247,4 @@ const ProductPerformance = ({ group }: ProductPerformanceProps) => {
     );
 };
 
-export default ProductPerformance;
+export default GroupPerformance;

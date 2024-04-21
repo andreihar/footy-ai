@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { Stack, Typography, Avatar, Fab } from '@mui/material';
-import { IconArrowDownRight, IconArrowUpLeft, IconCurrencyDollar } from '@tabler/icons-react';
+import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
 import { useEffect, useState } from "react";
 import Preds from '../../types/preds';
 import euro2024 from '../../../../public/data/euro2024.json';
@@ -16,7 +16,7 @@ interface DailyStat {
   incorrect: number;
 }
 
-const MonthlyEarnings = () => {
+const DailyPredictions = () => {
   const theme = useTheme();
   const secondary = theme.palette.secondary.main;
   const secondarylight = '#f5fcff';
@@ -113,10 +113,10 @@ const MonthlyEarnings = () => {
 
   return (
     <DashboardCard
-      title="Monthly Earnings"
+      title="Daily Predictions"
       action={
         <Fab color="secondary" size="medium" sx={{ color: '#ffffff' }}>
-          <IconCurrencyDollar width={24} />
+          <IconPercentage width={24} />
         </Fab>
       }
       footer={
@@ -163,4 +163,4 @@ const MonthlyEarnings = () => {
   );
 };
 
-export default MonthlyEarnings;
+export default DailyPredictions;

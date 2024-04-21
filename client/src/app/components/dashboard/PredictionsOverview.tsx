@@ -10,7 +10,7 @@ import euro2024predsJson from '../../../../public/data/euro2024preds.json';
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const euro2024preds: Preds = euro2024predsJson;
 
-const SalesOverview = () => {
+const PredictionsOverview = () => {
 
     // chart color
     const theme = useTheme();
@@ -151,4 +151,4 @@ const SalesOverview = () => {
     );
 };
 
-export default SalesOverview;
+export default PredictionsOverview;
