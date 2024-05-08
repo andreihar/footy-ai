@@ -5,7 +5,6 @@ import PageContainer from '@/app/components/container/PageContainer';
 import PredictionsOverview from '@/app/components/dashboard/PredictionsOverview';
 import OverallStatistics from '@/app/components/dashboard/OverallStatistics';
 import RecentPredictions from '@/app/components/dashboard/RecentPredictions';
-import GroupPerformance from '@/app/components/dashboard/GroupPerformance';
 import DailyPredictions from '@/app/components/dashboard/DailyPredictions';
 
 const Dashboard = () => {

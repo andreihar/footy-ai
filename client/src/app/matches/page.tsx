@@ -86,7 +86,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
             <Typography variant="h6" color="white">{match.predictions[0]}%</Typography>
           </Box>
           {match.predictions[2] > 0 && (
-            <Box sx={{ bgcolor: 'grey.300', width: `${match.predictions[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Box sx={{ bgcolor: 'grey.300', width: `${match.predictions[2]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Typography variant="h6">{match.predictions[2]}%</Typography>
             </Box>
           )}
