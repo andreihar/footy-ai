@@ -1,5 +1,5 @@
 'use client';
-import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch } from '@mui/material';
+import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress } from '@mui/material';
 import PageContainer from '@/app/components/container/PageContainer';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 
@@ -15,9 +15,11 @@ const CustomPage = () => {
   const [allowDraw, setAllowDraw] = useState(true);
   const [homeScore, setHomeScore] = useState(1);
   const [awayScore, setAwayScore] = useState(2);
+  const [loading, setLoading] = useState(false);
 
   async function fetchMatchPrediction() {
     try {
+      setLoading(true);
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/predict`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ home, away, allow_draw: allowDraw })
@@ -26,7 +28,9 @@ const CustomPage = () => {
       setPredictions(data.predictions);
       setHomeScore(data.scorePrediction[0]);
       setAwayScore(data.scorePrediction[1]);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error('Failed to fetch match prediction:', error);
     }
   }
@@ -68,11 +72,11 @@ const CustomPage = () => {
             </Box>
             <Box display="flex" justifyContent="center" alignItems="center" sx={{ marginX: 4 }}>
               <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
-                <Typography variant="h1" component="span">{homeScore}</Typography>
+                {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{homeScore}</Typography>}
               </Box>
               <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
               <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
-                <Typography variant="h1" component="span">{awayScore}</Typography>
+                {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{awayScore}</Typography>}
               </Box>
             </Box>
             {/* Away */}
@@ -90,7 +94,7 @@ const CustomPage = () => {
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center">
             <FormControlLabel
-              control={<Switch checked={allowDraw} onChange={(event) => setAllowDraw(event.target.checked)} defaultChecked />}
+              control={<Switch checked={allowDraw} onChange={(event) => setAllowDraw(event.target.checked)} />}
               label="Allow Draw"
               sx={{ marginTop: 2, '& .MuiFormControlLabel-label': { fontSize: '1.25rem', fontWeight: 'bold' } }}
             />
