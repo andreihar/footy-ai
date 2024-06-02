@@ -25,14 +25,14 @@ const DailyPredictions = () => {
   useEffect(() => {
     const allMatches = [...euro2024.groupStage, ...euro2024.knockoutStage]
       .flatMap(stage => stage.matches
-        .filter(match => match.score.home !== null && match.score.away !== null)
-        .map(match => {
+        .flatMap(match => {
+          if (match.score.home === null || match.score.away === null) return [];
           const predictionKey = `${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`;
           const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
           const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
           const date = new Date(match.date);
           const formattedDate = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}`;
-          return { ...match, stage: stage.round, predictions, scorePrediction, date: formattedDate };
+          return [{ ...match, stage: stage.round, predictions, scorePrediction, date: formattedDate }];
         }))
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 

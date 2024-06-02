@@ -109,7 +109,7 @@ const GroupPerformance = ({ group }: GroupPerformanceProps) => {
         });
         setCorrectOutcomes(outcomesCount);
         setCorrectScores(scoresCount);
-    }, []);
+    }, [group]);
 
     useEffect(() => {
         const fetchCountryCodes = async () => {

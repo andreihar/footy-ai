@@ -148,7 +148,7 @@ const KnockoutPage = () => {
     <PageContainer title="Knockout Stage" description="List of matches and predictions for the Knockout Stage">
       <>
         {matches.filter(match => match.teams.home !== "?" && match.teams.away !== "?")
-          .map(match => <MatchCard match={match} />)}
+          .map((match, index) => <MatchCard key={index} match={match} />)}
       </>
     </PageContainer>
   );

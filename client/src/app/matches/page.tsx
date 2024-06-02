@@ -148,7 +148,7 @@ const MatchesPage = () => {
     <PageContainer title="Matches" description="List of all matches and predictions">
       <>
         {matches.filter(match => match.teams.home !== "?" && match.teams.away !== "?")
-          .map(match => <MatchCard match={match} />)}
+          .map((match, index) => <MatchCard key={index} match={match} />)}
       </>
     </PageContainer>
   );
