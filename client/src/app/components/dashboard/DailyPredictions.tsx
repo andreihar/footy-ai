@@ -18,7 +18,6 @@ interface DailyStat {
 
 const DailyPredictions = () => {
   const theme = useTheme();
-  const secondary = theme.palette.secondary.main;
   const secondarylight = '#f5fcff';
   const [dailyPercentages, setDailyPercentages] = useState<{ date: string; percentage: number; }[]>([]);
 
@@ -106,7 +105,7 @@ const DailyPredictions = () => {
   const seriescolumnchart: any = [
     {
       name: '',
-      color: secondary,
+      color: theme.palette.secondary.main,
       data: dailyPercentages.map(item => item.percentage),
     },
   ];

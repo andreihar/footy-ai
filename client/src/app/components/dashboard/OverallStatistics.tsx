@@ -13,19 +13,19 @@ const euro2024preds: Preds = euro2024predsJson;
 
 const OverallStatistics = () => {
   const theme = useTheme();
-  const primary = theme.palette.primary.main;
-  const primarylight = '#ecf2ff';
   const [correct, setCorrect] = useState<number>(0);
   const [percentageChange, setPercentageChange] = useState<number>(0);
 
   useEffect(() => {
     const allMatches = [...euro2024.groupStage, ...euro2024.knockoutStage]
-      .flatMap(stage => stage.matches.map(match => {
-        const predictionKey = `${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`;
-        const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
-        const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
-        return { ...match, stage: stage.round, predictions, scorePrediction };
-      }))
+      .flatMap(stage => stage.matches
+        .flatMap(match => {
+          if (match.score.home === null || match.score.away === null) return [];
+          const predictionKey = `${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`;
+          const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
+          const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
+          return { ...match, stage: stage.round, predictions, scorePrediction };
+        }))
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
     let incorrectPredictions = 0;
@@ -39,8 +39,7 @@ const OverallStatistics = () => {
       }
 
       const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
-      const outcomes = ["home", "away", "draw"];
-      const predictedOutcome = outcomes[predictedOutcomeIndex];
+      const predictedOutcome = ["home", "away", "draw"][predictedOutcomeIndex];
       const actualOutcome = match.score.home > match.score.away ? "home" :
         match.score.home < match.score.away ? "away" : "draw";
 
@@ -75,7 +74,7 @@ const OverallStatistics = () => {
       },
       height: 155,
     },
-    colors: [primary, primarylight],
+    colors: [theme.palette.primary.main, theme.palette.primary.light],
     plotOptions: {
       pie: {
         startAngle: 0,
@@ -134,11 +133,11 @@ const OverallStatistics = () => {
           </Stack>
           <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
-              <Avatar sx={{ width: 9, height: 9, bgcolor: primary, svg: { display: 'none' } }}></Avatar>
+              <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.main, svg: { display: 'none' } }}></Avatar>
               <Typography variant="subtitle2" color="textSecondary">Correct</Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
-              <Avatar sx={{ width: 9, height: 9, bgcolor: primarylight, svg: { display: 'none' } }}></Avatar>
+              <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.light, svg: { display: 'none' } }}></Avatar>
               <Typography variant="subtitle2" color="textSecondary">Incorrect</Typography>
             </Stack>
           </Stack>
