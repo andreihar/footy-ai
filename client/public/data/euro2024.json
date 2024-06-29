@@ -1,0 +1,368 @@
+{
+	"groupStage": [
+		{
+			"round": "Group A",
+			"standings": ["Germany", "Switzerland", "Hungary", "Scotland"],
+			"matches": [
+				{
+					"date": "14 June, 2024",
+					"location": "Allianz Arena",
+					"teams": {"home": "Germany", "away": "Scotland"},
+					"score": {"home": 5, "away": 1}
+				},
+				{
+					"date": "15 June, 2024",
+					"location": "RheinEnergieStadion",
+					"teams": {"home": "Hungary", "away": "Switzerland"},
+					"score": {"home": 1, "away": 3}
+				},
+				{
+					"date": "19 June, 2024",
+					"location": "MHPArena",
+					"teams": {"home": "Germany", "away": "Hungary"},
+					"score": {"home": 2, "away": 0}
+				},
+				{
+					"date": "19 June, 2024",
+					"location": "RheinEnergieStadion",
+					"teams": {"home": "Scotland", "away": "Switzerland"},
+					"score": {"home": 1, "away": 1}
+				},
+				{
+					"date": "23 June, 2024",
+					"location": "Deutsche Bank Park",
+					"teams": {"home": "Switzerland", "away": "Germany"},
+					"score": {"home": 1, "away": 1}
+				},
+				{
+					"date": "23 June, 2024",
+					"location": "MHPArena",
+					"teams": {"home": "Scotland", "away": "Hungary"},
+					"score": {"home": 0, "away": 1}
+				}
+			]
+		},
+		{
+			"round": "Group B",
+			"standings": ["Spain", "Italy", "Croatia", "Albania"],
+			"matches": [
+				{
+					"date": "15 June, 2024",
+					"location": "Olympiastadion Berlin",
+					"teams": {"home": "Spain", "away": "Croatia"},
+					"score": {"home": 3, "away": 0}
+				},
+				{
+					"date": "15 June, 2024",
+					"location": "Signal Iduna Park",
+					"teams": {"home": "Italy", "away": "Albania"},
+					"score": {"home": 2, "away": 1}
+				},
+				{
+					"date": "19 June, 2024",
+					"location": "Volksparkstadion",
+					"teams": {"home": "Croatia", "away": "Albania"},
+					"score": {"home": 2, "away": 2}
+				},
+				{
+					"date": "20 June, 2024",
+					"location": "Veltins-Arena",
+					"teams": {"home": "Spain", "away": "Italy"},
+					"score": {"home": 1, "away": 0}
+				},
+				{
+					"date": "24 June, 2024",
+					"location": "Merkur Spiel-Arena",
+					"teams": {"home": "Albania", "away": "Spain"},
+					"score": {"home": 0, "away": 1}
+				},
+				{
+					"date": "24 June, 2024",
+					"location": "Red Bull Arena",
+					"teams": {"home": "Croatia", "away": "Italy"},
+					"score": {"home": 1, "away": 1}
+				}
+			]
+		},
+		{
+			"round": "Group C",
+			"standings": ["England", "Denmark", "Slovenia", "Serbia"],
+			"matches": [
+				{
+					"date": "16 June, 2024",
+					"location": "MHPArena",
+					"teams": {"home": "Slovenia", "away": "Denmark"},
+					"score": {"home": 1, "away": 1}
+				},
+				{
+					"date": "16 June, 2024",
+					"location": "Veltins-Arena",
+					"teams": {"home": "Serbia", "away": "England"},
+					"score": {"home": 0, "away": 1}
+				},
+				{
+					"date": "20 June, 2024",
+					"location": "Allianz Arena",
+					"teams": {"home": "Slovenia", "away": "Serbia"},
+					"score": {"home": 1, "away": 1}
+				},
+				{
+					"date": "20 June, 2024",
+					"location": "Deutsche Bank Park",
+					"teams": {"home": "Denmark", "away": "England"},
+					"score": {"home": 1, "away": 1}
+				},
+				{
+					"date": "25 June, 2024",
+					"location": "RheinEnergieStadion",
+					"teams": {"home": "England", "away": "Slovenia"},
+					"score": {"home": 0, "away": 0}
+				},
+				{
+					"date": "25 June, 2024",
+					"location": "Allianz Arena",
+					"teams": {"home": "Denmark", "away": "Serbia"},
+					"score": {"home": 0, "away": 0}
+				}
+			]
+		},
+		{
+			"round": "Group D",
+			"standings": ["Austria", "France", "Netherlands", "Poland"],
+			"matches": [
+				{
+					"date": "16 June, 2024",
+					"location": "Volksparkstadion",
+					"teams": {"home": "Poland", "away": "Netherlands"},
+					"score": {"home": 1, "away": 2}
+				},
+				{
+					"date": "17 June, 2024",
+					"location": "Merkur Spiel-Arena",
+					"teams": {"home": "Austria", "away": "France"},
+					"score": {"home": 0, "away": 1}
+				},
+				{
+					"date": "21 June, 2024",
+					"location": "Olympiastadion Berlin",
+					"teams": {"home": "Poland", "away": "Austria"},
+					"score": {"home": 1, "away": 3}
+				},
+				{
+					"date": "21 June, 2024",
+					"location": "Red Bull Arena",
+					"teams": {"home": "Netherlands", "away": "France"},
+					"score": {"home": 0, "away": 0}
+				},
+				{
+					"date": "25 June, 2024",
+					"location": "Olympiastadion Berlin",
+					"teams": {"home": "Netherlands", "away": "Austria"},
+					"score": {"home": 2, "away": 3}
+				},
+				{
+					"date": "25 June, 2024",
+					"location": "Signal Iduna Park",
+					"teams": {"home": "France", "away": "Poland"},
+					"score": {"home": 1, "away": 1}
+				}
+			]
+		},
+		{
+			"round": "Group E",
+			"standings": ["Romania", "Belgium", "Slovakia", "Ukraine"],
+			"matches": [
+				{
+					"date": "17 June, 2024",
+					"location": "Allianz Arena",
+					"teams": {"home": "Romania", "away": "Ukraine"},
+					"score": {"home": 3, "away": 0}
+				},
+				{
+					"date": "17 June, 2024",
+					"location": "Deutsche Bank Park",
+					"teams": {"home": "Belgium", "away": "Slovakia"},
+					"score": {"home": 0, "away": 1}
+				},
+				{
+					"date": "21 June, 2024",
+					"location": "Merkur Spiel-Arena",
+					"teams": {"home": "Slovakia", "away": "Ukraine"},
+					"score": {"home": 1, "away": 2}
+				},
+				{
+					"date": "22 June, 2024",
+					"location": "RheinEnergieStadion",
+					"teams": {"home": "Belgium", "away": "Romania"},
+					"score": {"home": 2, "away": 0}
+				},
+				{
+					"date": "26 June, 2024",
+					"location": "Deutsche Bank Park",
+					"teams": {"home": "Slovakia", "away": "Romania"},
+					"score": {"home": 1, "away": 1}
+				},
+				{
+					"date": "26 June, 2024",
+					"location": "MHPArena",
+					"teams": {"home": "Ukraine", "away": "Belgium"},
+					"score": {"home": 0, "away": 0}
+				}
+			]
+		},
+		{
+			"round": "Group F",
+			"standings": ["Portugal", "Turkey", "Georgia", "Czechia"],
+			"matches": [
+				{
+					"date": "18 June, 2024",
+					"location": "Signal Iduna Park",
+					"teams": {"home": "Turkey", "away": "Georgia"},
+					"score": {"home": 3, "away": 1}
+				},
+				{
+					"date": "18 June, 2024",
+					"location": "Red Bull Arena",
+					"teams": {"home": "Portugal", "away": "Czechia"},
+					"score": {"home": 2, "away": 1}
+				},
+				{
+					"date": "22 June, 2024",
+					"location": "Volksparkstadion",
+					"teams": {"home": "Georgia", "away": "Czechia"},
+					"score": {"home": 1, "away": 1}
+				},
+				{
+					"date": "22 June, 2024",
+					"location": "Signal Iduna Park",
+					"teams": {"home": "Turkey", "away": "Portugal"},
+					"score": {"home": 0, "away": 3}
+				},
+				{
+					"date": "26 June, 2024",
+					"location": "Veltins-Arena",
+					"teams": {"home": "Georgia", "away": "Portugal"},
+					"score": {"home": 2, "away": 0}
+				},
+				{
+					"date": "26 June, 2024",
+					"location": "Volksparkstadion",
+					"teams": {"home": "Czechia", "away": "Turkey"},
+					"score": {"home": 1, "away": 2}
+				}
+			]
+		}
+	],
+	"knockoutStage": [
+		{
+			"round": "Round of 16",
+			"matches": [
+				{
+					"date": "29 June, 2024",
+					"location": "Olympiastadion Berlin",
+					"teams": {"home": "Switzerland", "away": "Italy"},
+					"score": {"home": 2, "away": 0}
+				},
+				{
+					"date": "29 June, 2024",
+					"location": "Signal Iduna Park",
+					"teams": {"home": "Germany", "away": "Denmark"},
+					"score": {"home": 2, "away": 0}
+				},
+				{
+					"date": "30 June, 2024",
+					"location": "Veltins-Arena",
+					"teams": {"home": "England", "away": "Slovakia"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "30 June, 2024",
+					"location": "RheinEnergieStadion",
+					"teams": {"home": "Spain", "away": "Georgia"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "1 July, 2024",
+					"location": "Merkur Spiel-Arena",
+					"teams": {"home": "France", "away": "Belgium"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "1 July, 2024",
+					"location": "Deutsche Bank Park",
+					"teams": {"home": "Portugal", "away": "Slovenia"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "2 July, 2024",
+					"location": "Allianz Arena",
+					"teams": {"home": "Romania", "away": "Netherlands"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "2 July, 2024",
+					"location": "Red Bull Arena",
+					"teams": {"home": "Austria", "away": "Turkey"},
+					"score": {"home": null, "away": null}
+				}
+			]
+		},
+		{
+			"round": "Quarter-final",
+			"matches": [
+				{
+					"date": "5 July, 2024",
+					"location": "MHPArena",
+					"teams": {"home": "?", "away": "Germany"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "5 July, 2024",
+					"location": "Volksparkstadion",
+					"teams": {"home": "?", "away": "?"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "6 July, 2024",
+					"location": "Merkur Spiel-Arena",
+					"teams": {"home": "?", "away": "Switzerland"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "6 July, 2024",
+					"location": "Olympiastadion Berlin",
+					"teams": {"home": "?", "away": "?"},
+					"score": {"home": null, "away": null}
+				}
+			]
+		},
+		{
+			"round": "Semi-final",
+			"matches": [
+				{
+					"date": "9 July, 2024",
+					"location": "Allianz Arena",
+					"teams": {"home": "?", "away": "?"},
+					"score": {"home": null, "away": null}
+				},
+				{
+					"date": "10 July, 2024",
+					"location": "Signal Iduna Park",
+					"teams": {"home": "?", "away": "?"},
+					"score": {"home": null, "away": null}
+				}
+			]
+		},
+		{
+			"round": "Final",
+			"matches": [
+				{
+					"date": "14 July, 2024",
+					"location": "Olympiastadion Berlin",
+					"teams": {"home": "?", "away": "?"},
+					"score": {"home": null, "away": null}
+				}
+			]
+		}
+	]
+  }
