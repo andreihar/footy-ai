@@ -273,13 +273,13 @@
 					"date": "30 June, 2024",
 					"location": "Veltins-Arena",
 					"teams": {"home": "England", "away": "Slovakia"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 2, "away": 1}
 				},
 				{
 					"date": "30 June, 2024",
 					"location": "RheinEnergieStadion",
 					"teams": {"home": "Spain", "away": "Georgia"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 4, "away": 1}
 				},
 				{
 					"date": "1 July, 2024",
