@@ -285,13 +285,13 @@
 					"date": "1 July, 2024",
 					"location": "Merkur Spiel-Arena",
 					"teams": {"home": "France", "away": "Belgium"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 1, "away": 0}
 				},
 				{
 					"date": "1 July, 2024",
 					"location": "Deutsche Bank Park",
 					"teams": {"home": "Portugal", "away": "Slovenia"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 3, "away": 0}
 				},
 				{
 					"date": "2 July, 2024",
