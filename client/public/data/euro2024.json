@@ -297,13 +297,13 @@
 					"date": "2 July, 2024",
 					"location": "Allianz Arena",
 					"teams": {"home": "Romania", "away": "Netherlands"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 0, "away": 3}
 				},
 				{
 					"date": "2 July, 2024",
 					"location": "Red Bull Arena",
 					"teams": {"home": "Austria", "away": "Turkey"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 1, "away": 2}
 				}
 			]
 		},
