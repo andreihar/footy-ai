@@ -313,25 +313,25 @@
 				{
 					"date": "5 July, 2024",
 					"location": "MHPArena",
-					"teams": {"home": "?", "away": "Germany"},
+					"teams": {"home": "Spain", "away": "Germany"},
 					"score": {"home": null, "away": null}
 				},
 				{
 					"date": "5 July, 2024",
 					"location": "Volksparkstadion",
-					"teams": {"home": "?", "away": "?"},
+					"teams": {"home": "Portugal", "away": "France"},
 					"score": {"home": null, "away": null}
 				},
 				{
 					"date": "6 July, 2024",
 					"location": "Merkur Spiel-Arena",
-					"teams": {"home": "?", "away": "Switzerland"},
+					"teams": {"home": "England", "away": "Switzerland"},
 					"score": {"home": null, "away": null}
 				},
 				{
 					"date": "6 July, 2024",
 					"location": "Olympiastadion Berlin",
-					"teams": {"home": "?", "away": "?"},
+					"teams": {"home": "Netherlands", "away": "Turkey"},
 					"score": {"home": null, "away": null}
 				}
 			]
