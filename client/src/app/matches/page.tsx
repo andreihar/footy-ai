@@ -9,13 +9,14 @@ import HelpIcon from '@mui/icons-material/Help';
 import euro2024 from '../../../public/data/euro2024.json';
 import euro2024predsJson from '../../../public/data/euro2024preds.json';
 import { useEffect, useState } from 'react';
+import useCountryFlags from '../../utils/countryUtils';
 import Match from '../types/match';
 import Preds from '../types/preds';
 
 const euro2024preds: Preds = euro2024predsJson;
 
 const MatchCard = ({ match }: { match: Match; }) => {
-  const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
+  const { getFlag } = useCountryFlags();
 
   const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
   let predictedOutcome = "";
@@ -35,22 +36,6 @@ const MatchCard = ({ match }: { match: Match; }) => {
     correctScore = (match.scorePrediction[0] === match.score.home && match.scorePrediction[1] === match.score.away) ? "correct" : "incorrect";
   }
 
-  useEffect(() => {
-    const fetchCountryCodes = async () => {
-      const response = await fetch('https://flagcdn.com/en/codes.json');
-      const data = await response.json();
-      const invertedData = Object.entries(data).reduce((obj, [code, country]) => {
-        if (!code.startsWith('us-')) {
-          obj[country as string] = code;
-        }
-        return obj;
-      }, {} as { [key: string]: string; });
-      setCountryCodes(invertedData);
-    };
-
-    fetchCountryCodes();
-  }, []);
-
   return (
     <DashboardCard>
       <CardContent>
@@ -61,7 +46,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
         <Box display="flex" justifyContent="center" alignItems="center">
           {/* Home */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
-            <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[match.teams.home]}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Avatar alt="?" src={getFlag(match.teams.home)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
             <Typography variant="h3">{match.teams.home}</Typography>
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center" sx={{ marginX: 4 }}>
@@ -77,7 +62,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
           </Box>
           {/* Away */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
-            <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[match.teams.away]}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Avatar alt="?" src={getFlag(match.teams.away)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
             <Typography variant="h3">{match.teams.away}</Typography>
           </Box>
         </Box>

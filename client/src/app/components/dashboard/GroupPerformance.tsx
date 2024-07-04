@@ -4,6 +4,8 @@ import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBa
 import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import { useEffect, useState } from 'react';
+import useCountryFlags from '../../../utils/countryUtils';
+import Match from '../../types/match';
 import Preds from '../../types/preds';
 import euro2024 from '../../../../public/data/euro2024.json';
 import euro2024predsJson from '../../../../public/data/euro2024preds.json';
@@ -25,8 +27,48 @@ type GroupPerformanceProps = {
     group: string;
 };
 
+function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => [number, number])) {
+    const teamStats: { [key: string]: TeamStat; } = {};
+
+    function updateTeamStats(team: string, goalsFor: number, goalsAgainst: number, result: string) {
+        teamStats[team].goalsFor += goalsFor;
+        teamStats[team].goalsAgainst += goalsAgainst;
+        switch (result) {
+            case 'win': teamStats[team].wins++; teamStats[team].points += 3; break;
+            case 'loss': teamStats[team].losses++; break;
+            case 'draw': teamStats[team].draws++; teamStats[team].points += 1; break;
+        }
+        teamStats[team].matches.push(result);
+    }
+
+    allMatches.forEach(match => {
+        const { home, away } = match.teams;
+        const [homeGoals, awayGoals] = scoreExtractor(match);
+
+        if (!teamStats[home]) teamStats[home] = { team: home, rank: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0, points: 0, matches: [] };
+        if (!teamStats[away]) teamStats[away] = { team: away, rank: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0, points: 0, matches: [] };
+
+        if (homeGoals > awayGoals) {
+            updateTeamStats(home, homeGoals, awayGoals, 'win');
+            updateTeamStats(away, awayGoals, homeGoals, 'loss');
+        } else if (homeGoals < awayGoals) {
+            updateTeamStats(home, homeGoals, awayGoals, 'loss');
+            updateTeamStats(away, awayGoals, homeGoals, 'win');
+        } else {
+            updateTeamStats(home, homeGoals, awayGoals, 'draw');
+            updateTeamStats(away, awayGoals, homeGoals, 'draw');
+        }
+    });
+
+    const teamsWithRank = Object.values(teamStats)
+        .sort((a, b) => b.points - a.points || (b.goalsFor - b.goalsAgainst) - (a.goalsFor - a.goalsAgainst))
+        .map((teamStat, index) => ({ ...teamStat, rank: index + 1 }));
+
+    return teamsWithRank;
+}
+
 const GroupPerformance = ({ group }: GroupPerformanceProps) => {
-    const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
+    const { getFlag } = useCountryFlags();
     const [teamStats, setTeamStats] = useState<Array<TeamStat>>([]);
     const [correctRankings, setCorrectRankings] = useState(0);
     const [correctOutcomes, setCorrectOutcomes] = useState(0);
@@ -44,49 +86,18 @@ const GroupPerformance = ({ group }: GroupPerformanceProps) => {
             }).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
             : [];
 
-        const teamStats: { [key: string]: TeamStat; } = {};
-
-        allMatches.forEach(match => {
-            const { home, away } = match.teams;
-            const [goalsHome, goalsAway] = match.scorePrediction;
-
-            if (!teamStats[home]) teamStats[home] = { team: home, rank: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0, points: 0, matches: [] };
-            if (!teamStats[away]) teamStats[away] = { team: away, rank: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0, points: 0, matches: [] };
-
-            teamStats[home].goalsFor += goalsHome;
-            teamStats[home].goalsAgainst += goalsAway;
-            teamStats[away].goalsFor += goalsAway;
-            teamStats[away].goalsAgainst += goalsHome;
-
-            if (goalsHome > goalsAway) {
-                teamStats[home].wins++;
-                teamStats[home].matches.push("win");
-                teamStats[home].points += 3;
-                teamStats[away].losses++;
-                teamStats[away].matches.push("loss");
-            } else if (goalsHome < goalsAway) {
-                teamStats[away].wins++;
-                teamStats[away].matches.push("win");
-                teamStats[away].points += 3;
-                teamStats[home].losses++;
-                teamStats[home].matches.push("loss");
-            } else {
-                teamStats[home].draws++;
-                teamStats[home].matches.push("draw");
-                teamStats[away].draws++;
-                teamStats[away].matches.push("draw");
-                teamStats[home].points += 1;
-                teamStats[away].points += 1;
-            }
+        const teamsStandings = processMatches(allMatches, match => {
+            const homeScore = match.score.home !== null ? match.score.home : 0;
+            const awayScore = match.score.away !== null ? match.score.away : 0;
+            return [homeScore, awayScore];
+        });
+        const teamsPredicted = processMatches(allMatches, match => {
+            const [homePrediction, awayPrediction] = match.scorePrediction;
+            return [homePrediction, awayPrediction];
         });
 
-        const teamsWithRank = Object.values(teamStats)
-            .sort((a, b) => b.points - a.points || (b.goalsFor - b.goalsAgainst) - (a.goalsFor - a.goalsAgainst))
-            .map((teamStat, index) => ({ ...teamStat, rank: index + 1 }));
-
-        setTeamStats(teamsWithRank);
-
-        const correctRankingsCount = teamsWithRank.filter((team, index) => team.team === foundStage.standings[index]).length;
+        const correctRankingsCount = teamsPredicted.filter((team, index) => team.team === teamsStandings[index].team).length;
+        setTeamStats(teamsPredicted);
         setCorrectRankings(correctRankingsCount);
 
         let outcomesCount = 0;
@@ -110,21 +121,6 @@ const GroupPerformance = ({ group }: GroupPerformanceProps) => {
         setCorrectOutcomes(outcomesCount);
         setCorrectScores(scoresCount);
     }, [group]);
-
-    useEffect(() => {
-        const fetchCountryCodes = async () => {
-            const response = await fetch('https://flagcdn.com/en/codes.json');
-            const data = await response.json();
-            const invertedData = Object.entries(data).reduce((obj, [code, country]) => {
-                if (!code.startsWith('us-')) {
-                    obj[country as string] = code;
-                }
-                return obj;
-            }, {} as { [key: string]: string; });
-            setCountryCodes(invertedData);
-        };
-        fetchCountryCodes();
-    }, []);
 
     return (
         <DashboardCard title={group}>
@@ -172,7 +168,7 @@ const GroupPerformance = ({ group }: GroupPerformanceProps) => {
                                 </TableCell>
                                 <TableCell>
                                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                                        <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[product.team]}.png`} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
+                                        <Avatar alt="?" src={getFlag(product.team)} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
                                         <Typography variant="subtitle1" fontWeight={600}>{product.team}</Typography>
                                     </Box>
                                 </TableCell>

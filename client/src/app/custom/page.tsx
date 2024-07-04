@@ -3,12 +3,13 @@ import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, Form
 import PageContainer from '@/app/components/container/PageContainer';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import useCountryFlags from '../../utils/countryUtils';
 
 const countries = ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czechia", "Denmark", "England", "Estonia", "Faroe Islands", "Finland", "France", "Georgia", "Germany", "Gibraltar", "Greece", "Hungary", "Iceland", "Israel", "Italy", "Kazakhstan", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Northern Ireland", "Norway", "Poland", "Portugal", "Ireland", "Romania", "Russia", "San Marino", "Scotland", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "Wales"];
 
 const CustomPage = () => {
-  const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
+  const { getFlag } = useCountryFlags();
   const [predictions, setPredictions] = useState([37.27, 43.33, 19.4]);
   const [home, setHome] = useState('England');
   const [away, setAway] = useState('France');
@@ -35,24 +36,6 @@ const CustomPage = () => {
     }
   }
 
-  // fetchMatchPrediction();
-
-  useEffect(() => {
-    const fetchCountryCodes = async () => {
-      const response = await fetch('https://flagcdn.com/en/codes.json');
-      const data = await response.json();
-      const invertedData = Object.entries(data).reduce((obj, [code, country]) => {
-        if (!code.startsWith('us-')) {
-          obj[country as string] = code;
-        }
-        return obj;
-      }, {} as { [key: string]: string; });
-      setCountryCodes(invertedData);
-    };
-
-    fetchCountryCodes();
-  }, []);
-
   return (
     <PageContainer title="Custom Match" description="Get the odds for the matchup that didn't happen during the tournament">
       <DashboardCard>
@@ -60,7 +43,7 @@ const CustomPage = () => {
           <Box display="flex" justifyContent="center" alignItems="center">
             {/* Home */}
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
-              <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[home]}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+              <Avatar alt="?" src={getFlag(home)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               <TextField id="filled-select-country" select defaultValue={home} variant="filled" onChange={(event) => setHome(event.target.value)}
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries.map((country) => (
@@ -81,7 +64,7 @@ const CustomPage = () => {
             </Box>
             {/* Away */}
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
-              <Avatar alt="?" src={`https://flagcdn.com/w640/${countryCodes[away]}.png`} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+              <Avatar alt="?" src={getFlag(away)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               <TextField id="filled-select-country" select defaultValue={away} variant="filled" onChange={(event) => setAway(event.target.value)}
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries.map((country) => (
