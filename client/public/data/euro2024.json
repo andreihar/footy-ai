@@ -314,13 +314,13 @@
 					"date": "5 July, 2024",
 					"location": "MHPArena",
 					"teams": {"home": "Spain", "away": "Germany"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 2, "away": 1}
 				},
 				{
 					"date": "5 July, 2024",
 					"location": "Volksparkstadion",
 					"teams": {"home": "Portugal", "away": "France"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 3, "away": 5}
 				},
 				{
 					"date": "6 July, 2024",
@@ -342,7 +342,7 @@
 				{
 					"date": "9 July, 2024",
 					"location": "Allianz Arena",
-					"teams": {"home": "?", "away": "?"},
+					"teams": {"home": "Spain", "away": "France"},
 					"score": {"home": null, "away": null}
 				},
 				{
