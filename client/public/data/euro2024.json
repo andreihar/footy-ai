@@ -326,13 +326,13 @@
 					"date": "6 July, 2024",
 					"location": "Merkur Spiel-Arena",
 					"teams": {"home": "England", "away": "Switzerland"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 5, "away": 3}
 				},
 				{
 					"date": "6 July, 2024",
 					"location": "Olympiastadion Berlin",
 					"teams": {"home": "Netherlands", "away": "Turkey"},
-					"score": {"home": null, "away": null}
+					"score": {"home": 2, "away": 1}
 				}
 			]
 		},
@@ -348,7 +348,7 @@
 				{
 					"date": "10 July, 2024",
 					"location": "Signal Iduna Park",
-					"teams": {"home": "?", "away": "?"},
+					"teams": {"home": "Netherlands", "away": "England"},
 					"score": {"home": null, "away": null}
 				}
 			]
