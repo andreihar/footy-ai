@@ -13,7 +13,7 @@ interface StatsContextType {
   incorrectPredictionsPerDay: number[];
 }
 
-interface Row {
+interface DataRow {
   home_team: string;
   away_team: string;
   home_score: string;
@@ -28,6 +28,18 @@ interface Row {
   city: string;
 }
 
+interface PredsRow {
+  home_team: string;
+  [key: string]: string;
+}
+
+interface Predictions {
+  [key: string]: {
+    predictions: number[];
+    scorePrediction: number[];
+  };
+}
+
 const StatsContext = createContext<StatsContextType | undefined>(undefined);
 
 export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ children }) => {
@@ -38,15 +50,38 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('/data/2024.csv');
-      if (response.body) {
-        const reader = response.body.getReader();
-        const result = await reader.read();
+      const responseData = await fetch('/data/matches/2024.csv');
+      const responsePreds = await fetch('/data/predictions/2024.csv');
+      if (responseData.body && responsePreds.body) {
+        const readerData = responseData.body.getReader();
+        const readerPreds = responsePreds.body.getReader();
+        const resultData = await readerData.read();
+        const resultPreds = await readerPreds.read();
         const decoder = new TextDecoder('utf-8');
-        const csv = decoder.decode(result.value);
-        Papa.parse(csv, {
+        const csvData = decoder.decode(resultData.value);
+        const csvPreds = decoder.decode(resultPreds.value);
+
+        let preds: Predictions = {};
+        Papa.parse(csvPreds, {
+          header: true,
           complete: (result) => {
-            const modifiedData: Match[] = (result.data as Row[]).map((row: Row): Match => {
+            (result.data as PredsRow[]).forEach((row) => {
+              const homeTeam = row.home_team;
+              Object.keys(row).forEach(key => {
+                if (key !== 'home_team' && row[key] !== '') {
+                  const [awayTeam, groupIndicator] = key.split('_');
+                  const matchKey = `${homeTeam}_${awayTeam}_${groupIndicator}`;
+                  preds[matchKey] = JSON.parse(row[key]);
+                }
+              });
+            });
+          }
+        });
+        console.log(preds);
+
+        Papa.parse(csvData, {
+          complete: (result) => {
+            const modifiedData: Match[] = (result.data as DataRow[]).map((row: DataRow): Match => {
               const toInt = (value: string | undefined | null): number => {
                 if (value === undefined || value === null) return NaN;
                 return parseInt(value, 10);

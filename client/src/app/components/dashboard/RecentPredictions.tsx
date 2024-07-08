@@ -3,7 +3,6 @@ import DashboardCard from '@/app/components/shared/DashboardCard';
 import { Timeline, TimelineItem, TimelineOppositeContent, TimelineSeparator, TimelineDot, TimelineConnector, TimelineContent, timelineOppositeContentClasses, } from '@mui/lab';
 import { Typography } from '@mui/material';
 import Match from '../../types/match';
-import Preds from '../../types/preds';
 import { useEffect, useState } from "react";
 import { useStats } from '../../../utils/StatsContext';
 
@@ -14,18 +13,14 @@ const RecentPredictions = () => {
   useEffect(() => {
     const allMatches = data.filter(match => !isNaN(match.home_score_total) && !isNaN(match.away_score_total))
       .slice(-6).map(match => {
-        if (match.home_score_total !== null && match.away_score_total !== null) {
-          const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
-          const outcomes = ["home", "away", "draw"];
-          const predictedOutcome = outcomes[predictedOutcomeIndex];
-          const actualOutcome = match.home_score_total > match.away_score_total ? "home" :
-            match.home_score_total < match.away_score_total ? "away" : "draw";
-          const isPerfect = predictedOutcome === actualOutcome && match.scorePrediction[0] === match.home_score_total && match.scorePrediction[1] === match.away_score_total;
-          const isCorrect = predictedOutcome === actualOutcome;
-          return { ...match, status: isPerfect ? "perfect" : isCorrect ? "correct" : "incorrect" };
-        } else {
-          return { ...match, status: "unknown" };
-        }
+        const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
+        const outcomes = ["home", "away", "draw"];
+        const predictedOutcome = outcomes[predictedOutcomeIndex];
+        const actualOutcome = match.home_score_total > match.away_score_total ? "home" :
+          match.home_score_total < match.away_score_total ? "away" : "draw";
+        const isPerfect = predictedOutcome === actualOutcome && match.scorePrediction[0] === match.home_score_total && match.scorePrediction[1] === match.away_score_total;
+        const isCorrect = predictedOutcome === actualOutcome;
+        return { ...match, status: isPerfect ? "perfect" : isCorrect ? "correct" : "incorrect" };
       });
 
     setMatches(allMatches);

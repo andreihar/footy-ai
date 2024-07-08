@@ -22,7 +22,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
   let correctOutcome = "unknown";
   let correctScore = "unknown";
 
-  if (match.home_score_total !== null && match.away_score_total !== null) {
+  if (!isNaN(match.home_score_total) && !isNaN(match.away_score_total)) {
     let actualOutcome = "";
     if (match.home_score_total > match.away_score_total) actualOutcome = "home";
     else if (match.home_score_total < match.away_score_total) actualOutcome = "away";
