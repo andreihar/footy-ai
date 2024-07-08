@@ -4,12 +4,9 @@ import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBa
 import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import { useEffect, useState } from 'react';
+import { useStats } from '../../../utils/StatsContext';
 import useCountryFlags from '../../../utils/countryUtils';
 import Match from '../../types/match';
-import Preds from '../../types/preds';
-import euro2024 from '../../../../public/data/euro2024.json';
-import euro2024predsJson from '../../../../public/data/euro2024preds.json';
-const euro2024preds: Preds = euro2024predsJson;
 
 interface TeamStat {
     team: string;
@@ -42,7 +39,7 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
     }
 
     allMatches.forEach(match => {
-        const { home, away } = match.teams;
+        const { home_team: home, away_team: away } = match;
         const [homeGoals, awayGoals] = scoreExtractor(match);
 
         if (!teamStats[home]) teamStats[home] = { team: home, rank: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0, points: 0, matches: [] };
@@ -69,26 +66,18 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
 
 const GroupPerformance = ({ group }: GroupPerformanceProps) => {
     const { getFlag } = useCountryFlags();
+    const { data } = useStats();
     const [teamStats, setTeamStats] = useState<Array<TeamStat>>([]);
     const [correctRankings, setCorrectRankings] = useState(0);
     const [correctOutcomes, setCorrectOutcomes] = useState(0);
     const [correctScores, setCorrectScores] = useState(0);
 
     useEffect(() => {
-        const foundStage = euro2024.groupStage.find(stage => stage.round === group);
-        if (!foundStage) return;
-        const allMatches = foundStage
-            ? foundStage.matches.map(match => {
-                const predictionKey = `${match.teams.home}_${match.teams.away}_${foundStage.round.startsWith("Group") ? "1" : "0"}`;
-                const predictions = euro2024preds[predictionKey]?.predictions || [0, 0, 0];
-                const scorePrediction = euro2024preds[predictionKey]?.scorePrediction || [0, 0];
-                return { ...match, stage: foundStage.round, predictions, scorePrediction };
-            }).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-            : [];
+        const allMatches = data.filter(match => match.stage === group);
 
         const teamsStandings = processMatches(allMatches, match => {
-            const homeScore = match.score.home !== null ? match.score.home : 0;
-            const awayScore = match.score.away !== null ? match.score.away : 0;
+            const homeScore = !isNaN(match.home_score_total) ? match.home_score_total : 0;
+            const awayScore = !isNaN(match.away_score_total) ? match.away_score_total : 0;
             return [homeScore, awayScore];
         });
         const teamsPredicted = processMatches(allMatches, match => {
@@ -103,16 +92,16 @@ const GroupPerformance = ({ group }: GroupPerformanceProps) => {
         let outcomesCount = 0;
         let scoresCount = 0;
         allMatches.forEach(match => {
-            const actualMatch = foundStage.matches.find(m => m.teams.home === match.teams.home && m.teams.away === match.teams.away);
+            const actualMatch = allMatches.find(m => m.home_team === match.home_team && m.away_team === match.away_team);
             if (actualMatch) {
                 const predictedOutcome = match.scorePrediction[0] > match.scorePrediction[1] ? 'win' :
                     match.scorePrediction[0] < match.scorePrediction[1] ? 'loss' : 'draw';
-                const actualOutcome = actualMatch.score.home > actualMatch.score.away ? 'win' :
-                    actualMatch.score.home < actualMatch.score.away ? 'loss' : 'draw';
+                const actualOutcome = actualMatch.home_score_total > actualMatch.away_score_total ? 'win' :
+                    actualMatch.home_score_total < actualMatch.away_score_total ? 'loss' : 'draw';
 
                 if (predictedOutcome === actualOutcome) {
                     outcomesCount++;
-                    if (match.scorePrediction[0] === actualMatch.score.home && match.scorePrediction[1] === actualMatch.score.away) {
+                    if (match.scorePrediction[0] === actualMatch.home_score_total && match.scorePrediction[1] === actualMatch.away_score_total) {
                         scoresCount++;
                     }
                 }

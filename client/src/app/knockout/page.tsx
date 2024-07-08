@@ -6,14 +6,9 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
 
-import euro2024 from '../../../public/data/euro2024.json';
-import euro2024predsJson from '../../../public/data/euro2024preds.json';
-import { useEffect, useState } from 'react';
+import { useStats } from '../../utils/StatsContext';
 import useCountryFlags from '../../utils/countryUtils';
 import Match from '../types/match';
-import Preds from '../types/preds';
-
-const euro2024preds: Preds = euro2024predsJson;
 
 const MatchCard = ({ match }: { match: Match; }) => {
   const { getFlag } = useCountryFlags();
@@ -27,13 +22,13 @@ const MatchCard = ({ match }: { match: Match; }) => {
   let correctOutcome = "unknown";
   let correctScore = "unknown";
 
-  if (match.score.home !== null && match.score.away !== null) {
+  if (match.home_score_total !== null && match.away_score_total !== null) {
     let actualOutcome = "";
-    if (match.score.home > match.score.away) actualOutcome = "home";
-    else if (match.score.home < match.score.away) actualOutcome = "away";
-    else if (match.score.home === match.score.away) actualOutcome = "draw";
+    if (match.home_score_total > match.away_score_total) actualOutcome = "home";
+    else if (match.home_score_total < match.away_score_total) actualOutcome = "away";
+    else if (match.home_score_total === match.away_score_total) actualOutcome = "draw";
     correctOutcome = predictedOutcome === actualOutcome ? "correct" : "incorrect";
-    correctScore = (match.scorePrediction[0] === match.score.home && match.scorePrediction[1] === match.score.away) ? "correct" : "incorrect";
+    correctScore = (match.scorePrediction[0] === match.home_score_total && match.scorePrediction[1] === match.away_score_total) ? "correct" : "incorrect";
   }
 
   return (
@@ -51,24 +46,24 @@ const MatchCard = ({ match }: { match: Match; }) => {
         <Box display="flex" justifyContent="center" alignItems="center">
           {/* Home */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
-            <Avatar alt="?" src={getFlag(match.teams.home)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-            <Typography variant="h3">{match.teams.home}</Typography>
+            <Avatar alt="?" src={getFlag(match.home_team)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Typography variant="h3">{match.home_team}</Typography>
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center" sx={{ marginX: 4 }}>
             <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
               <Typography variant="h1" component="span">{match.scorePrediction[0]}</Typography>
-              <Typography variant="body1" component="span">({match.score.home})</Typography>
+              <Typography variant="body1" component="span">({match.home_score_total})</Typography>
             </Box>
             <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
             <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
               <Typography variant="h1" component="span">{match.scorePrediction[1]}</Typography>
-              <Typography variant="body1" component="span">({match.score.away})</Typography>
+              <Typography variant="body1" component="span">({match.away_score_total})</Typography>
             </Box>
           </Box>
           {/* Away */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
-            <Avatar alt="?" src={getFlag(match.teams.away)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-            <Typography variant="h3">{match.teams.away}</Typography>
+            <Avatar alt="?" src={getFlag(match.away_team)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Typography variant="h3">{match.away_team}</Typography>
           </Box>
         </Box>
         <Box mt={5} sx={{ width: '100%', bgcolor: 'grey.300', borderRadius: '10px', height: '24px', display: 'flex' }}>
@@ -119,26 +114,13 @@ const MatchCard = ({ match }: { match: Match; }) => {
 };
 
 const KnockoutPage = () => {
-  const [matches, setMatches] = useState<Match[]>([]);
-
-  useEffect(() => {
-    const allMatches = euro2024.knockoutStage
-      .flatMap(stage => stage.matches.map(match => {
-        const predictionKey = `${match.teams.home}_${match.teams.away}_0`;
-        const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
-        const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
-        return { ...match, stage: stage.round, predictions, scorePrediction };
-      }))
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-    setMatches(allMatches);
-  }, []);
+  const { data } = useStats();
 
   return (
     <PageContainer title="Knockout Stage" description="List of matches and predictions for the Knockout Stage">
       <>
-        {matches.filter(match => match.teams.home !== "?" && match.teams.away !== "?")
-          .map((match, index) => <MatchCard key={index} match={match} />)}
+        {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
+          .reverse().map((match, index) => <MatchCard key={index} match={match} />)}
       </>
     </PageContainer>
   );

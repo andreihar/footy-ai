@@ -7,6 +7,7 @@ import predsJson from '../../public/data/euro2024preds.json';
 const preds: Preds = predsJson;
 
 interface StatsContextType {
+  data: Match[];
   categories: string[];
   correctPredictionsPerDay: number[];
   incorrectPredictionsPerDay: number[];
@@ -33,7 +34,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   const [categories, setCategories] = useState<string[]>([]);
   const [correctPredictionsPerDay, setCorrectPredictionsPerDay] = useState<number[]>([]);
   const [incorrectPredictionsPerDay, setIncorrectPredictionsPerDay] = useState<number[]>([]);
-  const [data2, setData] = useState<Match[]>([]);
+  const [data, setData] = useState<Match[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -51,15 +52,18 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
                 return parseInt(value, 10);
               };
 
+              const predictionKey = `${row.home_team}_${row.away_team}_${row.stage.startsWith("Group") ? "1" : "0"}`;
+              const predictions = preds[predictionKey] ? preds[predictionKey].predictions : [0, 0, 0];
+              const scorePrediction = preds[predictionKey] ? preds[predictionKey].scorePrediction : [0, 0];
+
               const modifiedRow: Match = {
-                ...row, date: new Date(row.date), predictions: [], scorePrediction: [],
+                ...row, date: new Date(row.date), predictions, scorePrediction,
                 home_score: toInt(row.home_score), away_score: toInt(row.away_score), home_penalty: toInt(row.home_penalty), away_penalty: toInt(row.away_penalty), home_score_total: toInt(row.home_score_total), away_score_total: toInt(row.away_score_total),
               };
 
               return modifiedRow;
             });
-            setData(modifiedData);
-            console.log(modifiedData);
+            setData(modifiedData.sort((a, b) => a.date.getTime() - b.date.getTime()));
           },
           header: true
         });
@@ -71,15 +75,12 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   }, []);
 
   useEffect(() => {
-    const allMatches = data2
-      .flatMap(match =>
-        !isNaN(match.home_score_total) && !isNaN(match.away_score_total) ? [{
-          ...match,
-          predictions: preds[`${match.home_team}_${match.away_team}_${match.stage.startsWith("Group") ? "1" : "0"}`]?.predictions || [0, 0, 0],
-          scorePrediction: preds[`${match.home_team}_${match.away_team}_${match.stage.startsWith("Group") ? "1" : "0"}`]?.scorePrediction || [0, 0],
-          date: `${String(match.date.getDate()).padStart(2, '0')}/${String(match.date.getMonth() + 1).padStart(2, '0')}`
-        }] : []
-      )
+    const allMatches = data.flatMap(match =>
+      !isNaN(match.home_score_total) && !isNaN(match.away_score_total) ? [{
+        ...match,
+        date: `${String(match.date.getDate()).padStart(2, '0')}/${String(match.date.getMonth() + 1).padStart(2, '0')}`
+      }] : []
+    )
       .sort((a, b) => {
         const [dayA, monthA] = a.date.split('/').map(Number);
         const [dayB, monthB] = b.date.split('/').map(Number);
@@ -91,7 +92,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
     const incorrectPredictionsPerDay = new Array(formattedDates.length).fill(0);
 
     allMatches.forEach(match => {
-      if (isNaN(match.home_score_total) || isNaN(match.away_score_total)) {
+      if (Number.isNaN(match.home_score_total) || Number.isNaN(match.away_score_total)) {
         return;
       }
 
@@ -114,10 +115,10 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
       setCorrectPredictionsPerDay(correctPredictionsPerDay);
       setIncorrectPredictionsPerDay(incorrectPredictionsPerDay);
     });
-  }, [data2]);
+  }, [data]);
 
   return (
-    <StatsContext.Provider value={{ categories, correctPredictionsPerDay, incorrectPredictionsPerDay }}>
+    <StatsContext.Provider value={{ data, categories, correctPredictionsPerDay, incorrectPredictionsPerDay }}>
       {children}
     </StatsContext.Provider>
   );

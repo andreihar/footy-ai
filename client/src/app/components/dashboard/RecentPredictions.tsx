@@ -4,37 +4,23 @@ import { Timeline, TimelineItem, TimelineOppositeContent, TimelineSeparator, Tim
 import { Typography } from '@mui/material';
 import Match from '../../types/match';
 import Preds from '../../types/preds';
-import euro2024 from '../../../../public/data/euro2024.json';
-import euro2024predsJson from '../../../../public/data/euro2024preds.json';
 import { useEffect, useState } from "react";
-const euro2024preds: Preds = euro2024predsJson;
+import { useStats } from '../../../utils/StatsContext';
 
 const RecentPredictions = () => {
-
+  const { data } = useStats();
   const [matches, setMatches] = useState<(Match & { status: string; })[]>([]);
 
   useEffect(() => {
-    const allMatches = [...euro2024.groupStage, ...euro2024.knockoutStage]
-      .flatMap(stage => stage.matches
-        .flatMap(match =>
-          match.score.home !== null && match.score.away !== null ? [{
-            ...match,
-            stage: stage.round,
-            predictions: euro2024preds[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.predictions || [0, 0, 0],
-            scorePrediction: euro2024preds[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.scorePrediction || [0, 0]
-          }] : []
-        )
-      )
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-      .slice(-6)
-      .map(match => {
-        if (match.score.home !== null && match.score.away !== null) {
+    const allMatches = data.filter(match => !isNaN(match.home_score_total) && !isNaN(match.away_score_total))
+      .slice(-6).map(match => {
+        if (match.home_score_total !== null && match.away_score_total !== null) {
           const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
           const outcomes = ["home", "away", "draw"];
           const predictedOutcome = outcomes[predictedOutcomeIndex];
-          const actualOutcome = match.score.home > match.score.away ? "home" :
-            match.score.home < match.score.away ? "away" : "draw";
-          const isPerfect = predictedOutcome === actualOutcome && match.scorePrediction[0] === match.score.home && match.scorePrediction[1] === match.score.away;
+          const actualOutcome = match.home_score_total > match.away_score_total ? "home" :
+            match.home_score_total < match.away_score_total ? "away" : "draw";
+          const isPerfect = predictedOutcome === actualOutcome && match.scorePrediction[0] === match.home_score_total && match.scorePrediction[1] === match.away_score_total;
           const isCorrect = predictedOutcome === actualOutcome;
           return { ...match, status: isPerfect ? "perfect" : isCorrect ? "correct" : "incorrect" };
         } else {
@@ -43,7 +29,7 @@ const RecentPredictions = () => {
       });
 
     setMatches(allMatches);
-  }, []);
+  }, [data]);
 
   return (
     <DashboardCard title="Recent Predictions">
@@ -63,7 +49,7 @@ const RecentPredictions = () => {
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent>
-                <Typography fontWeight="600">{`${match.teams.home} vs ${match.teams.away}`}</Typography>
+                <Typography fontWeight="600">{`${match.home_team} vs ${match.away_team}`}</Typography>
                 predicted {match.status}ly
               </TimelineContent>
             </TimelineItem>
