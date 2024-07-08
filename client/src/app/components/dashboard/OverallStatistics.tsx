@@ -5,12 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { useStats } from '../../../utils/StatsContext';
 import { Grid, Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
-import Preds from '../../types/preds';
-import euro2024 from '../../../../public/data/euro2024.json';
-import euro2024predsJson from '../../../../public/data/euro2024preds.json';
 import DashboardCard from '@/app/components/shared/DashboardCard';
-import { useEffect, useState } from "react";
-const euro2024preds: Preds = euro2024predsJson;
 
 const OverallStatistics = () => {
   const theme = useTheme();

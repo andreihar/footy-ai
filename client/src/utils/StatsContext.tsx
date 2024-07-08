@@ -2,9 +2,9 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 import Match from '../app/types/match';
 import Preds from '../app/types/preds';
-import euro2024 from '../../public/data/euro2024.json';
-import euro2024predsJson from '../../public/data/euro2024preds.json';
-const euro2024preds: Preds = euro2024predsJson;
+import data from '../../public/data/euro2024.json';
+import predsJson from '../../public/data/euro2024preds.json';
+const predictions: Preds = predsJson;
 
 interface StatsContextType {
   categories: string[];
@@ -20,14 +20,14 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   const [incorrectPredictionsPerDay, setIncorrectPredictionsPerDay] = useState<number[]>([]);
 
   useEffect(() => {
-    const allMatches = [...euro2024.groupStage, ...euro2024.knockoutStage]
+    const allMatches = [...data.groupStage, ...data.knockoutStage]
       .flatMap(stage => stage.matches
         .flatMap(match =>
           match.score.home !== null && match.score.away !== null ? [{
             ...match,
             stage: stage.round,
-            predictions: euro2024preds[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.predictions || [0, 0, 0],
-            scorePrediction: euro2024preds[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.scorePrediction || [0, 0],
+            predictions: predictions[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.predictions || [0, 0, 0],
+            scorePrediction: predictions[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.scorePrediction || [0, 0],
             date: `${String(new Date(match.date).getDate()).padStart(2, '0')}/${String(new Date(match.date).getMonth() + 1).padStart(2, '0')}`
           }] : []
         )

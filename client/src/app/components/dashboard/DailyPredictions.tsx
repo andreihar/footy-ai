@@ -5,17 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { useStats } from '../../../utils/StatsContext';
 import { Stack, Typography, Avatar, Fab } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
-import { useEffect, useState } from "react";
-import Preds from '../../types/preds';
-import euro2024 from '../../../../public/data/euro2024.json';
-import euro2024predsJson from '../../../../public/data/euro2024preds.json';
-const euro2024preds: Preds = euro2024predsJson;
 import DashboardCard from '@/app/components/shared/DashboardCard';
-
-interface DailyStat {
-  correct: number;
-  incorrect: number;
-}
 
 const DailyPredictions = () => {
   const theme = useTheme();

@@ -8,7 +8,6 @@ const PredictionsOverview = () => {
     const theme = useTheme();
     const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
 
-    // chart
     const optionscolumnchart: any = {
         chart: {
             type: 'bar',
@@ -45,20 +44,15 @@ const PredictionsOverview = () => {
         },
         tooltip: { theme: 'dark', fillSeriesColor: false },
     };
+
     const seriescolumnchart: any = [
         { name: 'Predicted correct this day', data: correctPredictionsPerDay },
         { name: 'Predicted incorrect this day', data: incorrectPredictionsPerDay }
     ];
 
     return (
-
         <DashboardCard title="Predictions Overview">
-            <Chart
-                options={optionscolumnchart}
-                series={seriescolumnchart}
-                type="bar"
-                height={370} width={"100%"}
-            />
+            <Chart options={optionscolumnchart} series={seriescolumnchart} type="bar" height={370} width={"100%"} />
         </DashboardCard>
     );
 };
