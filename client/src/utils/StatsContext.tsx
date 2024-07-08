@@ -2,9 +2,6 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import Papa from 'papaparse';
 
 import Match from '../app/types/match';
-import Preds from '../app/types/preds';
-import predsJson from '../../public/data/euro2024preds.json';
-const preds: Preds = predsJson;
 
 interface StatsContextType {
   data: Match[];
