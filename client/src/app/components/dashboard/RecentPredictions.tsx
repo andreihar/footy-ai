@@ -57,7 +57,7 @@ const RecentPredictions = () => {
         >
           {matches.map((match, index) => (
             <TimelineItem key={index}>
-              <TimelineOppositeContent>{match.date.split(',')[0]}</TimelineOppositeContent>
+              <TimelineOppositeContent>{new Date(match.date).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color={match.status === 'perfect' ? 'primary' : match.status === 'correct' ? 'success' : 'error'} variant="outlined" />
                 <TimelineConnector />

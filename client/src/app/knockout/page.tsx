@@ -40,8 +40,13 @@ const MatchCard = ({ match }: { match: Match; }) => {
     <DashboardCard>
       <CardContent>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mb={2}>
-          <Typography variant="h6">{match.date} &nbsp; • &nbsp; {match.stage}</Typography>
-          <Typography sx={{ textTransform: "uppercase" }} mt={2}>{match.location}</Typography>
+          <Typography variant="h6">
+            {new Date(match.date).toLocaleString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+            &nbsp; • &nbsp;
+            {new Date(match.date).toLocaleString(undefined, { hour: 'numeric', minute: 'numeric' })}
+          </Typography>
+          <Typography variant="h5" mt={2} >{match.stage}</Typography>
+          <Typography sx={{ textTransform: "uppercase" }} mt={2}>{match.stadium}, {match.city}</Typography>
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center">
           {/* Home */}

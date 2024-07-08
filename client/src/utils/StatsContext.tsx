@@ -4,7 +4,7 @@ import Match from '../app/types/match';
 import Preds from '../app/types/preds';
 import data from '../../public/data/euro2024.json';
 import predsJson from '../../public/data/euro2024preds.json';
-const predictions: Preds = predsJson;
+const preds: Preds = predsJson;
 
 interface StatsContextType {
   categories: string[];
@@ -26,8 +26,8 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
           match.score.home !== null && match.score.away !== null ? [{
             ...match,
             stage: stage.round,
-            predictions: predictions[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.predictions || [0, 0, 0],
-            scorePrediction: predictions[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.scorePrediction || [0, 0],
+            predictions: preds[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.predictions || [0, 0, 0],
+            scorePrediction: preds[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.scorePrediction || [0, 0],
             date: `${String(new Date(match.date).getDate()).padStart(2, '0')}/${String(new Date(match.date).getMonth() + 1).padStart(2, '0')}`
           }] : []
         )

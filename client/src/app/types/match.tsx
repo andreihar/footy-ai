@@ -1,7 +1,8 @@
 export default interface Match {
 	stage: string;
 	date: string;
-	location: string;
+	stadium: string;
+	city: string;
 	teams: {
 		home: string;
 		away: string;
