@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import Papa from 'papaparse';
 
 import Match from '../app/types/match';
 import Preds from '../app/types/preds';
-import data from '../../public/data/euro2024.json';
 import predsJson from '../../public/data/euro2024preds.json';
 const preds: Preds = predsJson;
 
@@ -12,25 +12,73 @@ interface StatsContextType {
   incorrectPredictionsPerDay: number[];
 }
 
+interface Row {
+  home_team: string;
+  away_team: string;
+  home_score: string;
+  away_score: string;
+  home_penalty: string;
+  away_penalty: string;
+  home_score_total: string;
+  away_score_total: string;
+  date: string;
+  stage: string;
+  stadium: string;
+  city: string;
+}
+
 const StatsContext = createContext<StatsContextType | undefined>(undefined);
 
 export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ children }) => {
   const [categories, setCategories] = useState<string[]>([]);
   const [correctPredictionsPerDay, setCorrectPredictionsPerDay] = useState<number[]>([]);
   const [incorrectPredictionsPerDay, setIncorrectPredictionsPerDay] = useState<number[]>([]);
+  const [data2, setData] = useState<Match[]>([]);
 
   useEffect(() => {
-    const allMatches = [...data.groupStage, ...data.knockoutStage]
-      .flatMap(stage => stage.matches
-        .flatMap(match =>
-          match.score.home !== null && match.score.away !== null ? [{
-            ...match,
-            stage: stage.round,
-            predictions: preds[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.predictions || [0, 0, 0],
-            scorePrediction: preds[`${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`]?.scorePrediction || [0, 0],
-            date: `${String(new Date(match.date).getDate()).padStart(2, '0')}/${String(new Date(match.date).getMonth() + 1).padStart(2, '0')}`
-          }] : []
-        )
+    async function fetchData() {
+      const response = await fetch('/data/2024.csv');
+      if (response.body) {
+        const reader = response.body.getReader();
+        const result = await reader.read();
+        const decoder = new TextDecoder('utf-8');
+        const csv = decoder.decode(result.value);
+        Papa.parse(csv, {
+          complete: (result) => {
+            const modifiedData: Match[] = (result.data as Row[]).map((row: Row): Match => {
+              const toInt = (value: string | undefined | null): number => {
+                if (value === undefined || value === null) return NaN;
+                return parseInt(value, 10);
+              };
+
+              const modifiedRow: Match = {
+                ...row, date: new Date(row.date), predictions: [], scorePrediction: [],
+                home_score: toInt(row.home_score), away_score: toInt(row.away_score), home_penalty: toInt(row.home_penalty), away_penalty: toInt(row.away_penalty), home_score_total: toInt(row.home_score_total), away_score_total: toInt(row.away_score_total),
+              };
+
+              return modifiedRow;
+            });
+            setData(modifiedData);
+            console.log(modifiedData);
+          },
+          header: true
+        });
+      } else {
+        console.error('Response body is null');
+      }
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const allMatches = data2
+      .flatMap(match =>
+        !isNaN(match.home_score_total) && !isNaN(match.away_score_total) ? [{
+          ...match,
+          predictions: preds[`${match.home_team}_${match.away_team}_${match.stage.startsWith("Group") ? "1" : "0"}`]?.predictions || [0, 0, 0],
+          scorePrediction: preds[`${match.home_team}_${match.away_team}_${match.stage.startsWith("Group") ? "1" : "0"}`]?.scorePrediction || [0, 0],
+          date: `${String(match.date.getDate()).padStart(2, '0')}/${String(match.date.getMonth() + 1).padStart(2, '0')}`
+        }] : []
       )
       .sort((a, b) => {
         const [dayA, monthA] = a.date.split('/').map(Number);
@@ -43,7 +91,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
     const incorrectPredictionsPerDay = new Array(formattedDates.length).fill(0);
 
     allMatches.forEach(match => {
-      if (match.score.home === null || match.score.away === null) {
+      if (isNaN(match.home_score_total) || isNaN(match.away_score_total)) {
         return;
       }
 
@@ -54,9 +102,9 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
       else if (predictedOutcomeIndex === 2) predictedOutcome = "draw";
 
       let actualOutcome = "";
-      if (match.score.home > match.score.away) actualOutcome = "home";
-      else if (match.score.home < match.score.away) actualOutcome = "away";
-      else if (match.score.home === match.score.away) actualOutcome = "draw";
+      if (match.home_score_total > match.away_score_total) actualOutcome = "home";
+      else if (match.home_score_total < match.away_score_total) actualOutcome = "away";
+      else if (match.home_score_total === match.away_score_total) actualOutcome = "draw";
 
       if (predictedOutcome === actualOutcome) {
         correctPredictionsPerDay[formattedDates.indexOf(match.date)]++;
@@ -66,7 +114,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
       setCorrectPredictionsPerDay(correctPredictionsPerDay);
       setIncorrectPredictionsPerDay(incorrectPredictionsPerDay);
     });
-  }, []);
+  }, [data2]);
 
   return (
     <StatsContext.Provider value={{ categories, correctPredictionsPerDay, incorrectPredictionsPerDay }}>
