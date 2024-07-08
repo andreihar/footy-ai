@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
+import { useStats } from '../../../utils/StatsContext';
 import { Stack, Typography, Avatar, Fab } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
 import { useEffect, useState } from "react";
@@ -18,55 +19,9 @@ interface DailyStat {
 
 const DailyPredictions = () => {
   const theme = useTheme();
+  const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
   const secondarylight = '#f5fcff';
-  const [dailyPercentages, setDailyPercentages] = useState<{ date: string; percentage: number; }[]>([]);
-
-  useEffect(() => {
-    const allMatches = [...euro2024.groupStage, ...euro2024.knockoutStage]
-      .flatMap(stage => stage.matches
-        .flatMap(match => {
-          if (match.score.home === null || match.score.away === null) return [];
-          const predictionKey = `${match.teams.home}_${match.teams.away}_${stage.round.startsWith("Group") ? "1" : "0"}`;
-          const predictions = euro2024preds[predictionKey] ? euro2024preds[predictionKey].predictions : [0, 0, 0];
-          const scorePrediction = euro2024preds[predictionKey] ? euro2024preds[predictionKey].scorePrediction : [0, 0];
-          const date = new Date(match.date);
-          const formattedDate = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}`;
-          return [{ ...match, stage: stage.round, predictions, scorePrediction, date: formattedDate }];
-        }))
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-
-    const dailyStats: Record<string, DailyStat> = {};
-
-    allMatches.forEach(match => {
-      const homeScore = match.score.home as number;
-      const awayScore = match.score.away as number;
-
-      const outcomes = ["home", "away", "draw"];
-      const actualOutcome = homeScore > awayScore ? "home" :
-        homeScore < awayScore ? "away" : "draw";
-
-      if (!dailyStats[match.date]) {
-        dailyStats[match.date] = { correct: 0, incorrect: 0 };
-      }
-
-      if (outcomes[match.predictions.indexOf(Math.max(...match.predictions))] === actualOutcome) {
-        dailyStats[match.date].correct++;
-      } else {
-        dailyStats[match.date].incorrect++;
-      }
-    });
-
-    const dailyPercentages = Object.keys(dailyStats).map(date => {
-      const { correct, incorrect } = dailyStats[date];
-      const percentage = Number(((correct / (correct + incorrect)) * 100).toFixed(2));
-      return { date, percentage };
-    }).sort((a, b) => {
-      const [dayA, monthA] = a.date.split('/').map(Number);
-      const [dayB, monthB] = b.date.split('/').map(Number);
-      return monthA - monthB || dayA - dayB;
-    });
-    setDailyPercentages(dailyPercentages);
-  }, []);
+  const dailyPercentages = correctPredictionsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredictionsPerDay[index])).toFixed(2)));
 
   // chart
   const optionscolumnchart: any = {
@@ -99,14 +54,14 @@ const DailyPredictions = () => {
       theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
     },
     xaxis: {
-      categories: dailyPercentages.map(item => item.date),
+      categories,
     },
   };
   const seriescolumnchart: any = [
     {
       name: '',
       color: theme.palette.secondary.main,
-      data: dailyPercentages.map(item => item.percentage),
+      data: dailyPercentages,
     },
   ];
 
@@ -126,13 +81,11 @@ const DailyPredictions = () => {
         {dailyPercentages.length >= 2 && (
           <>
             <Typography variant="h3" fontWeight="700" mt="-20px">
-              {dailyPercentages[dailyPercentages.length - 1].percentage}%
+              {dailyPercentages[dailyPercentages.length - 1]}%
             </Typography>
             <Stack direction="row" spacing={1} my={1} alignItems="center">
               {(() => {
-                const latestPercentage = dailyPercentages[dailyPercentages.length - 1].percentage;
-                const previousPercentage = dailyPercentages[dailyPercentages.length - 2].percentage;
-                const percentageChange = latestPercentage - previousPercentage;
+                const percentageChange = dailyPercentages[dailyPercentages.length - 1] - dailyPercentages[dailyPercentages.length - 2];
 
                 return (
                   <>
@@ -148,9 +101,7 @@ const DailyPredictions = () => {
                     <Typography variant="subtitle2" fontWeight="600">
                       {percentageChange >= 0 ? '+' : ''}{percentageChange.toFixed(2)}%
                     </Typography>
-                    <Typography variant="subtitle2" color="textSecondary">
-                      from the day before
-                    </Typography>
+                    <Typography variant="subtitle2" color="textSecondary">from the day before</Typography>
                   </>
                 );
               })()}

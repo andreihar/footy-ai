@@ -2,6 +2,7 @@
 import { styled, Container, Box, ThemeProvider, CssBaseline } from "@mui/material";
 import { baselightTheme } from "@/utils/theme/DefaultColors";
 import React, { useState } from "react";
+import { StatsProvider } from "@/utils/StatsContext";
 import Header from "@/app/layout/header/Header";
 import Sidebar from "@/app/layout/sidebar/Sidebar";
 
@@ -34,27 +35,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider theme={baselightTheme}>
-          <CssBaseline />
-          <MainWrapper className="mainwrapper">
-            <Sidebar
-              isSidebarOpen={isSidebarOpen}
-              isMobileSidebarOpen={isMobileSidebarOpen}
-              onSidebarClose={() => setMobileSidebarOpen(false)}
-            />
-            <PageWrapper className="page-wrapper">
-              <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
-              <Container
-                sx={{
-                  paddingTop: "20px",
-                  maxWidth: "1200px",
-                }}
-              >
-                <Box sx={{ minHeight: "calc(100vh - 170px)" }}>{children}</Box>
-              </Container>
-            </PageWrapper>
-          </MainWrapper>
-        </ThemeProvider>
+        <StatsProvider>
+          <ThemeProvider theme={baselightTheme}>
+            <CssBaseline />
+            <MainWrapper className="mainwrapper">
+              <Sidebar
+                isSidebarOpen={isSidebarOpen}
+                isMobileSidebarOpen={isMobileSidebarOpen}
+                onSidebarClose={() => setMobileSidebarOpen(false)}
+              />
+              <PageWrapper className="page-wrapper">
+                <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
+                <Container
+                  sx={{
+                    paddingTop: "20px",
+                    maxWidth: "1200px",
+                  }}
+                >
+                  <Box sx={{ minHeight: "calc(100vh - 170px)" }}>{children}</Box>
+                </Container>
+              </PageWrapper>
+            </MainWrapper>
+          </ThemeProvider>
+        </StatsProvider>
       </body>
     </html>
   );

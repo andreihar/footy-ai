@@ -12,7 +12,7 @@ const LinkStyled = styled(Link)(() => ({
 const Logo = () => {
   return (
     <LinkStyled href="/">
-      <Image src="/images/logos/logo.svg" alt="logo" height={70} width={174} priority />
+      <Image src="https://upload.wikimedia.org/wikipedia/commons/6/6c/UEFA_Euro_2024_logo.svg" alt="logo" height={70} width={174} priority />
     </LinkStyled>
   );
 };
