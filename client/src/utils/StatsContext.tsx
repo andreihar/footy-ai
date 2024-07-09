@@ -7,6 +7,7 @@ interface StatsContextType {
   categories: string[];
   correctPredictionsPerDay: number[];
   incorrectPredictionsPerDay: number[];
+  fetchMatch: (home_team: string, away_team: string, allowDraw: boolean) => Promise<PredictionResult | null>;
 }
 
 interface DataRow {
@@ -35,6 +36,11 @@ interface Predictions {
     scorePrediction: number[];
   };
 }
+
+type PredictionResult = {
+  scorePrediction: number[];
+  predictions: number[];
+} | null;
 
 const StatsContext = createContext<StatsContextType | undefined>(undefined);
 
@@ -150,8 +156,40 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
     });
   }, [data]);
 
+  async function fetchMatch(home_team: string, away_team: string, allowDraw: boolean): Promise<PredictionResult> {
+    try {
+      const response = await fetch('/data/predictions/2024.csv');
+      if (!response.ok) throw new Error('Failed to fetch predictions');
+
+      const csvText = await response.text();
+
+      let matchPrediction: PredictionResult = null;
+      Papa.parse(csvText, {
+        header: true,
+        complete: (result) => {
+          const parsedData = result.data as any[];
+          const homeTeamRow = parsedData.find(row => row.home_team === home_team);
+          if (homeTeamRow) {
+            const predictionString = homeTeamRow[`${away_team}_${allowDraw ? '1' : '0'}`];
+            if (predictionString) {
+              const prediction = JSON.parse(predictionString);
+              matchPrediction = {
+                scorePrediction: prediction.scorePrediction,
+                predictions: prediction.predictions,
+              };
+            }
+          }
+        }
+      });
+      return matchPrediction;
+    } catch (error) {
+      console.error('Error fetching or processing predictions:', error);
+      return null;
+    }
+  }
+
   return (
-    <StatsContext.Provider value={{ data, categories, correctPredictionsPerDay, incorrectPredictionsPerDay }}>
+    <StatsContext.Provider value={{ data, categories, correctPredictionsPerDay, incorrectPredictionsPerDay, fetchMatch }}>
       {children}
     </StatsContext.Provider>
   );

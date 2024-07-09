@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useStats } from '../../../utils/StatsContext';
 
 const RecentPredictions = () => {
-  const { data } = useStats();
+  const { data, fetchMatch } = useStats();
   const [matches, setMatches] = useState<(Match & { status: string; })[]>([]);
 
   useEffect(() => {

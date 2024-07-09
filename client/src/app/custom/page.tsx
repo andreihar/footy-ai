@@ -4,12 +4,14 @@ import PageContainer from '@/app/components/container/PageContainer';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 
 import { useState } from 'react';
+import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '../../utils/countryUtils';
 
 const countries = ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czechia", "Denmark", "England", "Estonia", "Faroe Islands", "Finland", "France", "Georgia", "Germany", "Gibraltar", "Greece", "Hungary", "Iceland", "Israel", "Italy", "Kazakhstan", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Northern Ireland", "Norway", "Poland", "Portugal", "Ireland", "Romania", "Russia", "San Marino", "Scotland", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "Wales"];
 
 const CustomPage = () => {
   const { getFlag } = useCountryFlags();
+  const { fetchMatch } = useStats();
   const [predictions, setPredictions] = useState([37.27, 43.33, 19.4]);
   const [home, setHome] = useState('England');
   const [away, setAway] = useState('France');
@@ -21,14 +23,12 @@ const CustomPage = () => {
   async function fetchMatchPrediction() {
     try {
       setLoading(true);
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/predict`, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ home, away, allow_draw: allowDraw })
-      });
-      const data = await response.json();
-      setPredictions(data.predictions);
-      setHomeScore(data.scorePrediction[0]);
-      setAwayScore(data.scorePrediction[1]);
+      const result = await fetchMatch(home, away, allowDraw);
+      if (result) {
+        setPredictions(result.predictions);
+        setHomeScore(result.scorePrediction[0]);
+        setAwayScore(result.scorePrediction[1]);
+      }
       setLoading(false);
     } catch (error) {
       setLoading(false);
