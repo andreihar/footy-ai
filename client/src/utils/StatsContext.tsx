@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import Papa from 'papaparse';
-
 import Match from '../app/types/match';
 
 interface StatsContextType {
@@ -66,19 +65,21 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
               const homeTeam = row.home_team;
               Object.keys(row).forEach(key => {
                 if (key !== 'home_team' && row[key] !== '') {
-                  const [awayTeam, groupIndicator] = key.split('_');
-                  const matchKey = `${homeTeam}_${awayTeam}_${groupIndicator}`;
-                  preds[matchKey] = JSON.parse(row[key]);
+                  try {
+                    preds[`${homeTeam}_${key}`] = JSON.parse(row[key]);
+                  } catch (error) {
+                    console.error(`Error parsing JSON for key ${key} in row with home_team ${homeTeam}:`, row[key]);
+                    console.error(error);
+                  }
                 }
               });
             });
           }
         });
-        console.log(preds);
 
         Papa.parse(csvData, {
           complete: (result) => {
-            const modifiedData: Match[] = (result.data as DataRow[]).map((row: DataRow): Match => {
+            const modifiedData: Match[] = (result.data as DataRow[]).filter((row: DataRow) => row.date).map((row: DataRow): Match => {
               const toInt = (value: string | undefined | null): number => {
                 if (value === undefined || value === null) return NaN;
                 return parseInt(value, 10);

@@ -12,7 +12,7 @@ const RecentPredictions = () => {
 
   useEffect(() => {
     const allMatches = data.filter(match => !isNaN(match.home_score_total) && !isNaN(match.away_score_total))
-      .slice(-6).map(match => {
+      .slice(-6).reverse().map(match => {
         const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
         const outcomes = ["home", "away", "draw"];
         const predictedOutcome = outcomes[predictedOutcomeIndex];

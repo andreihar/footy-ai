@@ -119,7 +119,7 @@ const KnockoutPage = () => {
   return (
     <PageContainer title="Knockout Stage" description="List of matches and predictions for the Knockout Stage">
       <>
-        {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
+        {data.filter(match => match.home_team !== "?" && match.away_team !== "?" && !match.stage.startsWith("Group"))
           .reverse().map((match, index) => <MatchCard key={index} match={match} />)}
       </>
     </PageContainer>
