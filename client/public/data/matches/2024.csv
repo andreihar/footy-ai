@@ -2,51 +2,51 @@ home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_t
 ?,?,,,,,,,2024-07-14T19:00:00Z,Final,Olympiastadion,Berlin
 Netherlands,England,,,,,,,2024-07-10T19:00:00Z,Semi-finals,BVB Stadion Dortmund,Dortmund
 Spain,France,,,,,,,2024-07-09T19:00:00Z,Semi-finals,Munich Football Arena,Munich
-Netherlands,Turkey,2,1,0,0,2,1,2024-07-06T19:00:00Z,Quarter-finals,Olympiastadion,Berlin
+Netherlands,Turkey,2,1,,,2,1,2024-07-06T19:00:00Z,Quarter-finals,Olympiastadion,Berlin
 England,Switzerland,1,1,5,3,6,4,2024-07-06T16:00:00Z,Quarter-finals,Düsseldorf Arena,Dusseldorf
 Portugal,France,0,0,3,5,3,5,2024-07-05T19:00:00Z,Quarter-finals,Volksparkstadion,Hamburg
-Spain,Germany,2,1,0,0,2,1,2024-07-05T16:00:00Z,Quarter-finals,Stuttgart Arena,Stuttgart
-Austria,Turkey,1,2,0,0,1,2,2024-07-02T19:00:00Z,Round of 16,Leipzig Stadium,Leipzig
-Romania,Netherlands,0,3,0,0,0,3,2024-07-02T16:00:00Z,Round of 16,Munich Football Arena,Munich
+Spain,Germany,2,1,,,2,1,2024-07-05T16:00:00Z,Quarter-finals,Stuttgart Arena,Stuttgart
+Austria,Turkey,1,2,,,1,2,2024-07-02T19:00:00Z,Round of 16,Leipzig Stadium,Leipzig
+Romania,Netherlands,0,3,,,0,3,2024-07-02T16:00:00Z,Round of 16,Munich Football Arena,Munich
 Portugal,Slovenia,0,0,3,0,3,0,2024-07-01T19:00:00Z,Round of 16,Frankfurt Arena,Frankfurt am Main
-France,Belgium,1,0,0,0,1,0,2024-07-01T16:00:00Z,Round of 16,Düsseldorf Arena,Dusseldorf
-Spain,Georgia,4,1,0,0,4,1,2024-06-30T19:00:00Z,Round of 16,Cologne Stadium,Cologne
-England,Slovakia,1,1,0,0,2,1,2024-06-30T16:00:00Z,Round of 16,Arena AufSchalke,Gelsenkirchen
-Germany,Denmark,2,0,0,0,2,0,2024-06-29T19:00:00Z,Round of 16,BVB Stadion Dortmund,Dortmund
-Switzerland,Italy,2,0,0,0,2,0,2024-06-29T16:00:00Z,Round of 16,Olympiastadion,Berlin
-Czechia,Turkey,1,2,0,0,1,2,2024-06-26T19:00:00Z,Group F,Volksparkstadion,Hamburg
-Georgia,Portugal,2,0,0,0,2,0,2024-06-26T19:00:00Z,Group F,Arena AufSchalke,Gelsenkirchen
-Ukraine,Belgium,0,0,0,0,0,0,2024-06-26T16:00:00Z,Group E,Stuttgart Arena,Stuttgart
-Slovakia,Romania,1,1,0,0,1,1,2024-06-26T16:00:00Z,Group E,Frankfurt Arena,Frankfurt am Main
-Denmark,Serbia,0,0,0,0,0,0,2024-06-25T19:00:00Z,Group C,Munich Football Arena,Munich
-England,Slovenia,0,0,0,0,0,0,2024-06-25T19:00:00Z,Group C,Cologne Stadium,Cologne
-France,Poland,1,1,0,0,1,1,2024-06-25T16:00:00Z,Group D,BVB Stadion Dortmund,Dortmund
-Netherlands,Austria,2,3,0,0,2,3,2024-06-25T16:00:00Z,Group D,Olympiastadion,Berlin
-Croatia,Italy,1,1,0,0,1,1,2024-06-24T19:00:00Z,Group B,Leipzig Stadium,Leipzig
-Albania,Spain,0,1,0,0,0,1,2024-06-24T19:00:00Z,Group B,Düsseldorf Arena,Dusseldorf
-Scotland,Hungary,0,1,0,0,0,1,2024-06-23T19:00:00Z,Group A,Stuttgart Arena,Stuttgart
-Switzerland,Germany,1,1,0,0,1,1,2024-06-23T19:00:00Z,Group A,Frankfurt Arena,Frankfurt am Main
-Belgium,Romania,2,0,0,0,2,0,2024-06-22T19:00:00Z,Group E,Cologne Stadium,Cologne
-Turkey,Portugal,0,3,0,0,0,3,2024-06-22T16:00:00Z,Group F,BVB Stadion Dortmund,Dortmund
-Georgia,Czechia,1,1,0,0,1,1,2024-06-22T13:00:00Z,Group F,Volksparkstadion,Hamburg
-Netherlands,France,0,0,0,0,0,0,2024-06-21T19:00:00Z,Group D,Leipzig Stadium,Leipzig
-Poland,Austria,1,3,0,0,1,3,2024-06-21T16:00:00Z,Group D,Olympiastadion,Berlin
-Slovakia,Ukraine,1,2,0,0,1,2,2024-06-21T13:00:00Z,Group E,Düsseldorf Arena,Dusseldorf
-Spain,Italy,1,0,0,0,1,0,2024-06-20T19:00:00Z,Group B,Arena AufSchalke,Gelsenkirchen
-Denmark,England,1,1,0,0,1,1,2024-06-20T16:00:00Z,Group C,Frankfurt Arena,Frankfurt am Main
-Slovenia,Serbia,1,1,0,0,1,1,2024-06-20T13:00:00Z,Group C,Munich Football Arena,Munich
-Scotland,Switzerland,1,1,0,0,1,1,2024-06-19T19:00:00Z,Group A,Cologne Stadium,Cologne
-Germany,Hungary,2,0,0,0,2,0,2024-06-19T16:00:00Z,Group A,Stuttgart Arena,Stuttgart
-Croatia,Albania,2,2,0,0,2,2,2024-06-19T13:00:00Z,Group B,Volksparkstadion,Hamburg
-Portugal,Czechia,2,1,0,0,2,1,2024-06-18T19:00:00Z,Group F,Leipzig Stadium,Leipzig
-Turkey,Georgia,3,1,0,0,3,1,2024-06-18T16:00:00Z,Group F,BVB Stadion Dortmund,Dortmund
-Austria,France,0,1,0,0,0,1,2024-06-17T19:00:00Z,Group D,Düsseldorf Arena,Dusseldorf
-Belgium,Slovakia,0,1,0,0,0,1,2024-06-17T16:00:00Z,Group E,Frankfurt Arena,Frankfurt am Main
-Romania,Ukraine,3,0,0,0,3,0,2024-06-17T13:00:00Z,Group E,Munich Football Arena,Munich
-Serbia,England,0,1,0,0,0,1,2024-06-16T19:00:00Z,Group C,Arena AufSchalke,Gelsenkirchen
-Slovenia,Denmark,1,1,0,0,1,1,2024-06-16T16:00:00Z,Group C,Stuttgart Arena,Stuttgart
-Poland,Netherlands,1,2,0,0,1,2,2024-06-16T13:00:00Z,Group D,Volksparkstadion,Hamburg
-Italy,Albania,2,1,0,0,2,1,2024-06-15T19:00:00Z,Group B,BVB Stadion Dortmund,Dortmund
-Spain,Croatia,3,0,0,0,3,0,2024-06-15T16:00:00Z,Group B,Olympiastadion,Berlin
-Hungary,Switzerland,1,3,0,0,1,3,2024-06-15T13:00:00Z,Group A,Cologne Stadium,Cologne
-Germany,Scotland,5,1,0,0,5,1,2024-06-14T19:00:00Z,Group A,Munich Football Arena,Munich
+France,Belgium,1,0,,,1,0,2024-07-01T16:00:00Z,Round of 16,Düsseldorf Arena,Dusseldorf
+Spain,Georgia,4,1,,,4,1,2024-06-30T19:00:00Z,Round of 16,Cologne Stadium,Cologne
+England,Slovakia,1,1,,,2,1,2024-06-30T16:00:00Z,Round of 16,Arena AufSchalke,Gelsenkirchen
+Germany,Denmark,2,0,,,2,0,2024-06-29T19:00:00Z,Round of 16,BVB Stadion Dortmund,Dortmund
+Switzerland,Italy,2,0,,,2,0,2024-06-29T16:00:00Z,Round of 16,Olympiastadion,Berlin
+Czechia,Turkey,1,2,,,1,2,2024-06-26T19:00:00Z,Group F,Volksparkstadion,Hamburg
+Georgia,Portugal,2,0,,,2,0,2024-06-26T19:00:00Z,Group F,Arena AufSchalke,Gelsenkirchen
+Ukraine,Belgium,0,0,,,0,0,2024-06-26T16:00:00Z,Group E,Stuttgart Arena,Stuttgart
+Slovakia,Romania,1,1,,,1,1,2024-06-26T16:00:00Z,Group E,Frankfurt Arena,Frankfurt am Main
+Denmark,Serbia,0,0,,,0,0,2024-06-25T19:00:00Z,Group C,Munich Football Arena,Munich
+England,Slovenia,0,0,,,0,0,2024-06-25T19:00:00Z,Group C,Cologne Stadium,Cologne
+France,Poland,1,1,,,1,1,2024-06-25T16:00:00Z,Group D,BVB Stadion Dortmund,Dortmund
+Netherlands,Austria,2,3,,,2,3,2024-06-25T16:00:00Z,Group D,Olympiastadion,Berlin
+Croatia,Italy,1,1,,,1,1,2024-06-24T19:00:00Z,Group B,Leipzig Stadium,Leipzig
+Albania,Spain,0,1,,,0,1,2024-06-24T19:00:00Z,Group B,Düsseldorf Arena,Dusseldorf
+Scotland,Hungary,0,1,,,0,1,2024-06-23T19:00:00Z,Group A,Stuttgart Arena,Stuttgart
+Switzerland,Germany,1,1,,,1,1,2024-06-23T19:00:00Z,Group A,Frankfurt Arena,Frankfurt am Main
+Belgium,Romania,2,0,,,2,0,2024-06-22T19:00:00Z,Group E,Cologne Stadium,Cologne
+Turkey,Portugal,0,3,,,0,3,2024-06-22T16:00:00Z,Group F,BVB Stadion Dortmund,Dortmund
+Georgia,Czechia,1,1,,,1,1,2024-06-22T13:00:00Z,Group F,Volksparkstadion,Hamburg
+Netherlands,France,0,0,,,0,0,2024-06-21T19:00:00Z,Group D,Leipzig Stadium,Leipzig
+Poland,Austria,1,3,,,1,3,2024-06-21T16:00:00Z,Group D,Olympiastadion,Berlin
+Slovakia,Ukraine,1,2,,,1,2,2024-06-21T13:00:00Z,Group E,Düsseldorf Arena,Dusseldorf
+Spain,Italy,1,0,,,1,0,2024-06-20T19:00:00Z,Group B,Arena AufSchalke,Gelsenkirchen
+Denmark,England,1,1,,,1,1,2024-06-20T16:00:00Z,Group C,Frankfurt Arena,Frankfurt am Main
+Slovenia,Serbia,1,1,,,1,1,2024-06-20T13:00:00Z,Group C,Munich Football Arena,Munich
+Scotland,Switzerland,1,1,,,1,1,2024-06-19T19:00:00Z,Group A,Cologne Stadium,Cologne
+Germany,Hungary,2,0,,,2,0,2024-06-19T16:00:00Z,Group A,Stuttgart Arena,Stuttgart
+Croatia,Albania,2,2,,,2,2,2024-06-19T13:00:00Z,Group B,Volksparkstadion,Hamburg
+Portugal,Czechia,2,1,,,2,1,2024-06-18T19:00:00Z,Group F,Leipzig Stadium,Leipzig
+Turkey,Georgia,3,1,,,3,1,2024-06-18T16:00:00Z,Group F,BVB Stadion Dortmund,Dortmund
+Austria,France,0,1,,,0,1,2024-06-17T19:00:00Z,Group D,Düsseldorf Arena,Dusseldorf
+Belgium,Slovakia,0,1,,,0,1,2024-06-17T16:00:00Z,Group E,Frankfurt Arena,Frankfurt am Main
+Romania,Ukraine,3,0,,,3,0,2024-06-17T13:00:00Z,Group E,Munich Football Arena,Munich
+Serbia,England,0,1,,,0,1,2024-06-16T19:00:00Z,Group C,Arena AufSchalke,Gelsenkirchen
+Slovenia,Denmark,1,1,,,1,1,2024-06-16T16:00:00Z,Group C,Stuttgart Arena,Stuttgart
+Poland,Netherlands,1,2,,,1,2,2024-06-16T13:00:00Z,Group D,Volksparkstadion,Hamburg
+Italy,Albania,2,1,,,2,1,2024-06-15T19:00:00Z,Group B,BVB Stadion Dortmund,Dortmund
+Spain,Croatia,3,0,,,3,0,2024-06-15T16:00:00Z,Group B,Olympiastadion,Berlin
+Hungary,Switzerland,1,3,,,1,3,2024-06-15T13:00:00Z,Group A,Cologne Stadium,Cologne
+Germany,Scotland,5,1,,,5,1,2024-06-14T19:00:00Z,Group A,Munich Football Arena,Munich

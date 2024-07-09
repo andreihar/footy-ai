@@ -1,11 +1,11 @@
 home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
-W49,W50,,,,,0,0,2024-07-14T19:00:00Z,Final,Olympiastadion,Berlin
-NED/TUR,ENG/SUI,,,,,0,0,2024-07-10T19:00:00Z,Semi-finals,BVB Stadion Dortmund,Dortmund
-ESP/GER,POR/FRA,,,,,0,0,2024-07-09T19:00:00Z,Semi-finals,Munich Football Arena,Munich
-Netherlands,Turkey,,,,,0,0,2024-07-06T19:00:00Z,Quarter-finals,Olympiastadion,Berlin
-England,Switzerland,,,,,0,0,2024-07-06T16:00:00Z,Quarter-finals,Düsseldorf Arena,Dusseldorf
-Portugal,France,,,,,0,0,2024-07-05T19:00:00Z,Quarter-finals,Volksparkstadion,Hamburg
-Spain,Germany,,,,,0,0,2024-07-05T16:00:00Z,Quarter-finals,Stuttgart Arena,Stuttgart
+?,?,,,,,0,0,2024-07-14T19:00:00Z,Final,Olympiastadion,Berlin
+Netherlands,England,,,,,0,0,2024-07-10T19:00:00Z,Semi-finals,BVB Stadion Dortmund,Dortmund
+Spain,France,,,,,0,0,2024-07-09T19:00:00Z,Semi-finals,Munich Football Arena,Munich
+Netherlands,Turkey,2,1,,,2,1,2024-07-06T19:00:00Z,Quarter-finals,Olympiastadion,Berlin
+England,Switzerland,1,1,5,3,6,4,2024-07-06T16:00:00Z,Quarter-finals,Düsseldorf Arena,Dusseldorf
+Portugal,France,0,0,3,5,3,5,2024-07-05T19:00:00Z,Quarter-finals,Volksparkstadion,Hamburg
+Spain,Germany,2,1,,,2,1,2024-07-05T16:00:00Z,Quarter-finals,Stuttgart Arena,Stuttgart
 Austria,Turkey,1,2,,,1,2,2024-07-02T19:00:00Z,Round of 16,Leipzig Stadium,Leipzig
 Romania,Netherlands,0,3,,,0,3,2024-07-02T16:00:00Z,Round of 16,Munich Football Arena,Munich
 Portugal,Slovenia,0,0,3,0,3,0,2024-07-01T19:00:00Z,Round of 16,Frankfurt Arena,Frankfurt am Main

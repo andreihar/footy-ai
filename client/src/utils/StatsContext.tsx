@@ -53,55 +53,35 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   useEffect(() => {
     async function fetchData() {
       const responseData = await fetch('/data/matches/2024.csv');
-      const responsePreds = await fetch('/data/predictions/2024.csv');
-      if (responseData.body && responsePreds.body) {
+      if (responseData.body) {
         const readerData = responseData.body.getReader();
-        const readerPreds = responsePreds.body.getReader();
         const resultData = await readerData.read();
-        const resultPreds = await readerPreds.read();
         const decoder = new TextDecoder('utf-8');
         const csvData = decoder.decode(resultData.value);
-        const csvPreds = decoder.decode(resultPreds.value);
-
-        let preds: Predictions = {};
-        Papa.parse(csvPreds, {
-          header: true,
-          complete: (result) => {
-            (result.data as PredsRow[]).forEach((row) => {
-              const homeTeam = row.home_team;
-              Object.keys(row).forEach(key => {
-                if (key !== 'home_team' && row[key] !== '') {
-                  try {
-                    preds[`${homeTeam}_${key}`] = JSON.parse(row[key]);
-                  } catch (error) {
-                    console.error(`Error parsing JSON for key ${key} in row with home_team ${homeTeam}:`, row[key]);
-                    console.error(error);
-                  }
-                }
-              });
-            });
-          }
-        });
 
         Papa.parse(csvData, {
-          complete: (result) => {
-            const modifiedData: Match[] = (result.data as DataRow[]).filter((row: DataRow) => row.date).map((row: DataRow): Match => {
+          complete: async (result) => {
+            const dataRows = (result.data as DataRow[]).filter((row: DataRow) => row.date);
+            const modifiedData: Match[] = [];
+
+            for (const row of dataRows) {
               const toInt = (value: string | undefined | null): number => {
                 if (value === undefined || value === null) return NaN;
                 return parseInt(value, 10);
               };
 
-              const predictionKey = `${row.home_team}_${row.away_team}_${row.stage.startsWith("Group") ? "1" : "0"}`;
-              const predictions = preds[predictionKey] ? preds[predictionKey].predictions : [0, 0, 0];
-              const scorePrediction = preds[predictionKey] ? preds[predictionKey].scorePrediction : [0, 0];
+              const predictionResult = await fetchMatch(row.home_team, row.away_team, row.stage.startsWith("Group"));
+              const predictions = predictionResult ? predictionResult.predictions : [0, 0, 0];
+              const scorePrediction = predictionResult ? predictionResult.scorePrediction : [0, 0];
 
               const modifiedRow: Match = {
                 ...row, date: new Date(row.date), predictions, scorePrediction,
                 home_score: toInt(row.home_score), away_score: toInt(row.away_score), home_penalty: toInt(row.home_penalty), away_penalty: toInt(row.away_penalty), home_score_total: toInt(row.home_score_total), away_score_total: toInt(row.away_score_total),
               };
 
-              return modifiedRow;
-            });
+              modifiedData.push(modifiedRow);
+            }
+
             setData(modifiedData.sort((a, b) => a.date.getTime() - b.date.getTime()));
           },
           header: true
