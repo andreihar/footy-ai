@@ -8,6 +8,8 @@ interface StatsContextType {
   correctPredictionsPerDay: number[];
   incorrectPredictionsPerDay: number[];
   fetchMatch: (home_team: string, away_team: string, allowDraw: boolean) => Promise<PredictionResult | null>;
+  year: number;
+  setYear: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface DataRow {
@@ -25,18 +27,6 @@ interface DataRow {
   city: string;
 }
 
-interface PredsRow {
-  home_team: string;
-  [key: string]: string;
-}
-
-interface Predictions {
-  [key: string]: {
-    predictions: number[];
-    scorePrediction: number[];
-  };
-}
-
 type PredictionResult = {
   scorePrediction: number[];
   predictions: number[];
@@ -49,10 +39,11 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   const [correctPredictionsPerDay, setCorrectPredictionsPerDay] = useState<number[]>([]);
   const [incorrectPredictionsPerDay, setIncorrectPredictionsPerDay] = useState<number[]>([]);
   const [data, setData] = useState<Match[]>([]);
+  const [year, setYear] = useState<number>(2024);
 
   useEffect(() => {
     async function fetchData() {
-      const responseData = await fetch('/data/matches/2024.csv');
+      const responseData = await fetch(`/data/matches/${year}.csv`);
       if (responseData.body) {
         const readerData = responseData.body.getReader();
         const resultData = await readerData.read();
@@ -91,7 +82,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
       }
     }
     fetchData();
-  }, []);
+  }, [year]);
 
   useEffect(() => {
     const allMatches = data.flatMap(match =>
@@ -138,7 +129,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
 
   async function fetchMatch(home_team: string, away_team: string, allowDraw: boolean): Promise<PredictionResult> {
     try {
-      const response = await fetch('/data/predictions/2024.csv');
+      const response = await fetch(`/data/predictions/${year}.csv`);
       if (!response.ok) throw new Error('Failed to fetch predictions');
 
       const csvText = await response.text();
@@ -169,7 +160,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   }
 
   return (
-    <StatsContext.Provider value={{ data, categories, correctPredictionsPerDay, incorrectPredictionsPerDay, fetchMatch }}>
+    <StatsContext.Provider value={{ data, categories, correctPredictionsPerDay, incorrectPredictionsPerDay, fetchMatch, year, setYear }}>
       {children}
     </StatsContext.Provider>
   );

@@ -13,6 +13,7 @@ const PageContainer = ({ title, description, children }: Props) => (
     <div>
       <Helmet>
         <title>{title} | Footy AI</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="description" content={description} />
       </Helmet>
       {children}

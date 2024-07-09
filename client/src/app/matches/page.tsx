@@ -11,7 +11,7 @@ import useCountryFlags from '../../utils/countryUtils';
 import Match from '../types/match';
 
 const MatchCard = ({ match }: { match: Match; }) => {
-  const { getFlag } = useCountryFlags();
+  const { getFlag, getHistoricalName } = useCountryFlags();
 
   const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
   let predictedOutcome = "";
@@ -47,7 +47,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
           {/* Home */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
             <Avatar alt="?" src={getFlag(match.home_team)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-            <Typography variant="h3">{match.home_team}</Typography>
+            <Typography variant="h3">{getHistoricalName(match.home_team)}</Typography>
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center" sx={{ marginX: 4 }}>
             <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
@@ -63,7 +63,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
           {/* Away */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
             <Avatar alt="?" src={getFlag(match.away_team)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-            <Typography variant="h3">{match.away_team}</Typography>
+            <Typography variant="h3">{getHistoricalName(match.away_team)}</Typography>
           </Box>
         </Box>
         <Box mt={5} sx={{ width: '100%', bgcolor: 'grey.300', borderRadius: '10px', height: '24px', display: 'flex' }}>

@@ -4,10 +4,12 @@ import { Timeline, TimelineItem, TimelineOppositeContent, TimelineSeparator, Tim
 import { Typography } from '@mui/material';
 import Match from '../../types/match';
 import { useEffect, useState } from "react";
+import useCountryFlags from '@/utils/countryUtils';
 import { useStats } from '../../../utils/StatsContext';
 
 const RecentPredictions = () => {
   const { data, fetchMatch } = useStats();
+  const { getHistoricalName } = useCountryFlags();
   const [matches, setMatches] = useState<(Match & { status: string; })[]>([]);
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const RecentPredictions = () => {
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent>
-                <Typography fontWeight="600">{`${match.home_team} vs ${match.away_team}`}</Typography>
+                <Typography fontWeight="600">{`${getHistoricalName(match.home_team)} vs ${getHistoricalName(match.away_team)}`}</Typography>
                 predicted {match.status}ly
               </TimelineContent>
             </TimelineItem>

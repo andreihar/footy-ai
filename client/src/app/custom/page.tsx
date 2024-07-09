@@ -7,10 +7,9 @@ import { useState } from 'react';
 import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '../../utils/countryUtils';
 
-const countries = ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czechia", "Denmark", "England", "Estonia", "Faroe Islands", "Finland", "France", "Georgia", "Germany", "Gibraltar", "Greece", "Hungary", "Iceland", "Israel", "Italy", "Kazakhstan", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Northern Ireland", "Norway", "Poland", "Portugal", "Ireland", "Romania", "Russia", "San Marino", "Scotland", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "Wales"];
-
 const CustomPage = () => {
-  const { getFlag } = useCountryFlags();
+  const { getFlag, getUefaCountries, getHistoricalName } = useCountryFlags();
+  const countries = getUefaCountries();
   const { fetchMatch } = useStats();
   const [predictions, setPredictions] = useState([37.27, 43.33, 19.4]);
   const [home, setHome] = useState('England');
@@ -48,7 +47,7 @@ const CustomPage = () => {
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries.map((country) => (
                   <MenuItem key={country} value={country}>
-                    {country}
+                    {getHistoricalName(country)}
                   </MenuItem>
                 ))}
               </TextField>
@@ -69,7 +68,7 @@ const CustomPage = () => {
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries.map((country) => (
                   <MenuItem key={country} value={country}>
-                    {country}
+                    {getHistoricalName(country)}
                   </MenuItem>
                 ))}
               </TextField>
