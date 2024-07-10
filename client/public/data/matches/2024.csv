@@ -1,6 +1,6 @@
 home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
-Spain,?,,,,,,,2024-07-14T19:00:00Z,Final,Olympiastadion,Berlin
-Netherlands,England,,,,,,,2024-07-10T19:00:00Z,Semi-finals,BVB Stadion Dortmund,Dortmund
+Spain,England,,,,,,,2024-07-14T19:00:00Z,Final,Olympiastadion,Berlin
+Netherlands,England,1,2,,,1,2,2024-07-10T19:00:00Z,Semi-finals,BVB Stadion Dortmund,Dortmund
 Spain,France,2,1,,,2,1,2024-07-09T19:00:00Z,Semi-finals,Munich Football Arena,Munich
 Netherlands,Turkey,2,1,,,2,1,2024-07-06T19:00:00Z,Quarter-finals,Olympiastadion,Berlin
 England,Switzerland,1,1,5,3,6,4,2024-07-06T16:00:00Z,Quarter-finals,Düsseldorf Arena,Dusseldorf
