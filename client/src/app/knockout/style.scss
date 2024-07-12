@@ -1,0 +1,65 @@
+$match-height: 62px;
+$match-spacing: 24px;
+$border-size: 3px;
+
+.score {
+	&::before {
+		content: '';
+		position: absolute;
+		background: rgba(0, 0, 0, 0.20);
+		min-height: 50px;
+		min-width: 70px;
+		transform: translate(-12px, 0) rotate(25deg);
+	}
+}
+
+.angled-image {
+	height: 28px;
+	width: 50px;
+	clip-path: polygon(0% 100%, 80.48% 100%, 100% 0%, 0% 0%);
+}
+
+.match-lines {
+	margin-top: ($border-size - 1) * -1;
+	right: $border-size * -1;
+	right: ($match-spacing/2) * -1;
+
+	.line {
+		&.one {
+			height: $border-size;
+			width: ($match-spacing / 2);
+		}
+
+		&.two {
+			height: ($match-height + $match-spacing) / 2 + $border-size;
+			width: $border-size;
+			left: ($match-spacing / 2) - $border-size;
+		}
+	}
+
+	&.alt {
+		left: ($match-spacing) * -1;
+	}
+}
+
+.match:nth-child(odd) .match-lines .line.two {
+	transform: translate(0, -100%);
+}
+
+.stage-column:first-child>div.match .match-lines.alt {
+	display: none;
+}
+
+.stage-column:last-child>div.match .match-lines {
+	display: none;
+
+	&.alt {
+		display: block;
+	}
+}
+
+@for $i from 2 through 7 {
+	.stage-column:nth-child(#{$i})>div.match .match-lines .line.two {
+		height: ($match-height + $match-spacing) * ($i - 1) + $border-size * $i;
+	}
+}
