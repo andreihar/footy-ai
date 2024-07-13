@@ -24,11 +24,7 @@ const PageWrapper = styled("div")(() => ({
 
 
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode; }) {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
@@ -39,13 +35,13 @@ export default function RootLayout({
           <ThemeProvider theme={baselightTheme}>
             <CssBaseline />
             <MainWrapper className="mainwrapper">
-              <Sidebar
+              {/* <Sidebar
                 isSidebarOpen={isSidebarOpen}
                 isMobileSidebarOpen={isMobileSidebarOpen}
                 onSidebarClose={() => setMobileSidebarOpen(false)}
-              />
+              /> */}
               <PageWrapper className="page-wrapper">
-                <Header toggleMobileSidebar={() => setMobileSidebarOpen(true)} />
+                <Header />
                 <Container
                   sx={{
                     paddingTop: "20px",

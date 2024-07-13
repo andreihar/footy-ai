@@ -39,9 +39,13 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   const [correctPredictionsPerDay, setCorrectPredictionsPerDay] = useState<number[]>([]);
   const [incorrectPredictionsPerDay, setIncorrectPredictionsPerDay] = useState<number[]>([]);
   const [data, setData] = useState<Match[]>([]);
-  const [year, setYear] = useState<number>(2024);
+  const [year, setYear] = useState<number>(() => {
+    const storedYear = localStorage.getItem('year');
+    return storedYear ? Number(storedYear) : 2024;
+  });
 
   useEffect(() => {
+    localStorage.setItem('year', year.toString());
     async function fetchData() {
       const responseData = await fetch(`/data/matches/${year}.csv`);
       if (responseData.body) {
@@ -49,6 +53,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
         const resultData = await readerData.read();
         const decoder = new TextDecoder('utf-8');
         const csvData = decoder.decode(resultData.value);
+        console.log("We're pulling data lol");
 
         Papa.parse(csvData, {
           complete: async (result) => {
