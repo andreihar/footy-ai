@@ -46,6 +46,10 @@ $border-size: 3px;
 	transform: translate(0, -100%);
 }
 
+.match {
+	height: 62px;
+}
+
 .stage-column:first-child>div.match .match-lines.alt {
 	display: none;
 }

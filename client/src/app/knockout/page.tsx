@@ -6,6 +6,7 @@ import { useStats } from '../../utils/StatsContext';
 import useCountryFlags from '../../utils/countryUtils';
 import Match from '../types/match';
 import './style.scss';
+import { Image } from '@mui/icons-material';
 
 const MatchBracket = ({ match }: { match: Match; }) => {
   const { getFlag, getHistoricalName } = useCountryFlags();
@@ -18,7 +19,7 @@ const MatchBracket = ({ match }: { match: Match; }) => {
       <Box mb={0.2} display="flex" alignItems="center" width="100%" height="100%" border="2px solid transparent" position="relative" overflow="hidden"
         sx={{ background: result === 'home' ? theme.palette.primary.main : '#fff', color: result === 'home' ? '#fff' : '#000' }}>
         <Box pr={0.5} position="relative" display="inline-block" height="100%">
-          <Avatar variant="square" alt="?" className="angled-image" src={getFlag(match.home_team)} />
+          <img alt="?" className="angled-image" src={getFlag(match.home_team)} style={{ objectFit: 'cover', objectPosition: 'center' }} />
         </Box>
         <Typography textTransform="uppercase" letterSpacing={0.5}>{getHistoricalName(match.home_team)}</Typography>
         <Typography className="score" ml="auto" pr={1.5} fontWeight={900}>{match.scorePrediction[0]}</Typography>
@@ -26,7 +27,7 @@ const MatchBracket = ({ match }: { match: Match; }) => {
       <Box mt={0.2} display="flex" alignItems="center" width="100%" height="100%" border="2px solid transparent" position="relative" overflow="hidden"
         sx={{ background: result === 'away' ? theme.palette.primary.main : '#fff', color: result === 'away' ? '#fff' : '#000' }}>
         <Box pr={0.5} position="relative" display="inline-block" height="100%">
-          <Avatar variant="square" alt="?" className="angled-image" src={getFlag(match.away_team)} />
+          <img className="angled-image" src={getFlag(match.away_team)} style={{ objectFit: 'cover', objectPosition: 'center' }} />
         </Box>
         <Typography textTransform="uppercase" letterSpacing={0.5}>{getHistoricalName(match.away_team)}</Typography>
         <Typography className="score" ml="auto" pr={1.5} fontWeight={900}>{match.scorePrediction[1]}</Typography>

@@ -39,13 +39,25 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   const [correctPredictionsPerDay, setCorrectPredictionsPerDay] = useState<number[]>([]);
   const [incorrectPredictionsPerDay, setIncorrectPredictionsPerDay] = useState<number[]>([]);
   const [data, setData] = useState<Match[]>([]);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => { setIsClient(true); }, []);
+
   const [year, setYear] = useState<number>(() => {
-    const storedYear = localStorage.getItem('year');
-    return storedYear ? Number(storedYear) : 2024;
+    if (typeof window !== 'undefined') {
+      const storedYear = localStorage.getItem('year');
+      return storedYear ? Number(storedYear) : 2024;
+    }
+    return 2024;
   });
 
   useEffect(() => {
-    localStorage.setItem('year', year.toString());
+    if (isClient) {
+      localStorage.setItem('year', year.toString());
+    }
+  }, [year, isClient]);
+
+  useEffect(() => {
     async function fetchData() {
       const responseData = await fetch(`/data/matches/${year}.csv`);
       if (responseData.body) {
@@ -53,7 +65,6 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
         const resultData = await readerData.read();
         const decoder = new TextDecoder('utf-8');
         const csvData = decoder.decode(resultData.value);
-        console.log("We're pulling data lol");
 
         Papa.parse(csvData, {
           complete: async (result) => {
@@ -86,8 +97,10 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
         console.error('Response body is null');
       }
     }
-    fetchData();
-  }, [year]);
+    if (isClient) {
+      fetchData();
+    }
+  }, [year, isClient]);
 
   useEffect(() => {
     const allMatches = data.flatMap(match =>
@@ -162,6 +175,10 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
       console.error('Error fetching or processing predictions:', error);
       return null;
     }
+  }
+
+  if (!isClient) {
+    return <div>Loading...</div>; // Or any other placeholder content for server-side rendering
   }
 
   return (
