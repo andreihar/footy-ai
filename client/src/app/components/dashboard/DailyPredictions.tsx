@@ -3,12 +3,14 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '../../../utils/StatsContext';
+import { useIntl } from 'react-intl';
 import { Stack, Typography, Avatar, Fab } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 
 const DailyPredictions = () => {
   const theme = useTheme();
+  const { formatMessage } = useIntl();
   const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
   const secondarylight = '#f5fcff';
   const dailyPercentages = correctPredictionsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredictionsPerDay[index])).toFixed(2)));
@@ -57,7 +59,7 @@ const DailyPredictions = () => {
 
   return (
     <DashboardCard
-      title="Daily Predictions"
+      title={formatMessage({ id: 'dailyPredictions.title' })}
       action={
         <Fab color="secondary" size="medium" sx={{ color: '#ffffff' }}>
           <IconPercentage width={24} />
@@ -91,7 +93,7 @@ const DailyPredictions = () => {
                     <Typography variant="subtitle2" fontWeight="600">
                       {percentageChange >= 0 ? '+' : ''}{percentageChange.toFixed(2)}%
                     </Typography>
-                    <Typography variant="subtitle2" color="textSecondary">from the day before</Typography>
+                    <Typography variant="subtitle2" color="textSecondary">{formatMessage({ id: 'overallStatistics.before' })}</Typography>
                   </>
                 );
               })()}

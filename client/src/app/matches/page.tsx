@@ -8,10 +8,14 @@ import HelpIcon from '@mui/icons-material/Help';
 
 import { useStats } from '../../utils/StatsContext';
 import useCountryFlags from '../../utils/countryUtils';
+import { useIntl } from 'react-intl';
+import { useLanguage } from '@/utils/LanguageProvider';
 import Match from '../types/match';
 
 const MatchCard = ({ match }: { match: Match; }) => {
   const { getFlag, getHistoricalName } = useCountryFlags();
+  const { formatMessage } = useIntl();
+  const { language } = useLanguage();
 
   const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
   let predictedOutcome = "";
@@ -36,11 +40,11 @@ const MatchCard = ({ match }: { match: Match; }) => {
       <CardContent>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mb={2}>
           <Typography variant="h6">
-            {new Date(match.date).toLocaleString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+            {new Date(match.date).toLocaleString(language, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
             &nbsp; • &nbsp;
-            {new Date(match.date).toLocaleString(undefined, { hour: 'numeric', minute: 'numeric' })}
+            {new Date(match.date).toLocaleString(language, { hour: 'numeric', minute: 'numeric' })}
           </Typography>
-          <Typography variant="h5" mt={2} >{match.stage}</Typography>
+          <Typography variant="h5" mt={2} >{formatMessage({ id: `matches.${match.stage}` })}</Typography>
           <Typography sx={{ textTransform: "uppercase" }} mt={2}>{match.stadium}, {match.city}</Typography>
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center">
@@ -87,7 +91,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
               sx={{ justifyContent: 'center', display: 'flex', width: '100%' }}
             >
               <Button variant="contained" color="primary" component="div" sx={{ mx: 'auto' }}>
-                Prediction Results
+                {formatMessage({ id: 'groupPerformance.results' })}
               </Button>
             </AccordionSummary>
             <AccordionDetails>
@@ -96,13 +100,13 @@ const MatchCard = ({ match }: { match: Match; }) => {
                   {correctOutcome === "correct" && <CheckCircleIcon color="success" />}
                   {correctOutcome === "incorrect" && <CancelIcon color="error" />}
                   {correctOutcome === "unknown" && <HelpIcon sx={{ color: 'gray' }} />}
-                  <Typography ml={1}>Correct Outcome Prediction</Typography>
+                  <Typography ml={1}>{formatMessage({ id: 'matches.outcome' })}</Typography>
                 </Box>
                 <Box display="flex">
                   {correctScore === "correct" && <CheckCircleIcon color="success" />}
                   {correctScore === "incorrect" && <CancelIcon color="error" />}
                   {correctScore === "unknown" && <HelpIcon sx={{ color: 'gray' }} />}
-                  <Typography ml={1}>Correct Score Prediction</Typography>
+                  <Typography ml={1}>{formatMessage({ id: 'matches.score' })}</Typography>
                 </Box>
               </Box>
             </AccordionDetails>

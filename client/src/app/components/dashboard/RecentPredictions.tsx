@@ -6,10 +6,14 @@ import Match from '../../types/match';
 import { useEffect, useState } from "react";
 import useCountryFlags from '@/utils/countryUtils';
 import { useStats } from '../../../utils/StatsContext';
+import { useIntl } from 'react-intl';
+import { useLanguage } from '@/utils/LanguageProvider';
 
 const RecentPredictions = () => {
   const { data, fetchMatch } = useStats();
   const { getHistoricalName } = useCountryFlags();
+  const { formatMessage } = useIntl();
+  const { language } = useLanguage();
   const [matches, setMatches] = useState<(Match & { status: string; })[]>([]);
 
   useEffect(() => {
@@ -29,7 +33,7 @@ const RecentPredictions = () => {
   }, [data]);
 
   return (
-    <DashboardCard title="Recent Predictions">
+    <DashboardCard title={formatMessage({ id: 'recentPredictions.title' })}>
       <>
         <Timeline className="theme-timeline" nonce={undefined} onResize={undefined} onResizeCapture={undefined}
           sx={{
@@ -40,14 +44,14 @@ const RecentPredictions = () => {
         >
           {matches.map((match, index) => (
             <TimelineItem key={index}>
-              <TimelineOppositeContent>{new Date(match.date).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</TimelineOppositeContent>
+              <TimelineOppositeContent>{new Date(match.date).toLocaleString(language, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color={match.status === 'perfect' ? 'primary' : match.status === 'correct' ? 'success' : 'error'} variant="outlined" />
                 <TimelineConnector />
               </TimelineSeparator>
               <TimelineContent>
                 <Typography fontWeight="600">{`${getHistoricalName(match.home_team)} vs ${getHistoricalName(match.away_team)}`}</Typography>
-                predicted {match.status}ly
+                {formatMessage({ id: `recentPredictions.${match.status}` })}
               </TimelineContent>
             </TimelineItem>
           ))}

@@ -4,6 +4,7 @@ import PageContainer from '@/app/components/container/PageContainer';
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '../../utils/StatsContext';
 import useCountryFlags from '../../utils/countryUtils';
+import { useIntl } from 'react-intl';
 import Match from '../types/match';
 import './style.scss';
 import { Image } from '@mui/icons-material';
@@ -49,6 +50,7 @@ const MatchBracket = ({ match }: { match: Match; }) => {
 
 const KnockoutPage = () => {
   const { data } = useStats();
+  const { formatMessage } = useIntl();
 
   const sortTournamentMatches = (data: Match[]): { [stage: string]: Match[]; } => {
     const stages = ['Round of 16', 'Quarter-finals', 'Semi-finals', 'Final', 'Third-place play-off'];
@@ -82,7 +84,7 @@ const KnockoutPage = () => {
             matches.length > 0 && (
               <Box className="stage-column" key={stageName} display="flex" flexDirection="column" minHeight="100%" justifyContent="space-around" alignItems="center" position="relative" pt={5}>
                 <Typography variant="h5" position="absolute" zIndex={1} top={0} left="50%" sx={{ transform: 'translateX(-50%)' }}>
-                  {stageName}
+                  {formatMessage({ id: `matches.${stageName}` })}
                 </Typography>
                 {matches.map((match, index) => (
                   <MatchBracket key={`${stageName}-${index}`} match={match} />

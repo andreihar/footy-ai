@@ -6,11 +6,13 @@ import DashboardCard from '@/app/components/shared/DashboardCard';
 import { useState } from 'react';
 import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '../../utils/countryUtils';
+import { useIntl } from 'react-intl';
 
 const CustomPage = () => {
   const { getFlag, getUefaCountries, getHistoricalName } = useCountryFlags();
   const countries = getUefaCountries();
   const { fetchMatch } = useStats();
+  const { formatMessage } = useIntl();
   const [predictions, setPredictions] = useState([37.27, 43.33, 19.4]);
   const [home, setHome] = useState('England');
   const [away, setAway] = useState('France');
@@ -77,7 +79,7 @@ const CustomPage = () => {
           <Box display="flex" justifyContent="center" alignItems="center">
             <FormControlLabel
               control={<Switch checked={allowDraw} onChange={(event) => setAllowDraw(event.target.checked)} />}
-              label="Allow Draw"
+              label={formatMessage({ id: 'custom.draw' })}
               sx={{ marginTop: 2, '& .MuiFormControlLabel-label': { fontSize: '1.25rem', fontWeight: 'bold' } }}
             />
           </Box>
@@ -96,7 +98,7 @@ const CustomPage = () => {
           </Box>
           <Box mt={3} display="flex" justifyContent="center" width="100%">
             <Button variant="contained" onClick={fetchMatchPrediction} disableElevation color="primary" size="large">
-              Predict
+              {formatMessage({ id: 'custom.predict' })}
             </Button>
           </Box>
         </CardContent>

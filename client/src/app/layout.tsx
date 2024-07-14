@@ -3,6 +3,7 @@ import { styled, Container, Box, ThemeProvider, CssBaseline } from "@mui/materia
 import { baselightTheme } from "@/utils/theme/DefaultColors";
 import React, { useState } from "react";
 import { StatsProvider } from "@/utils/StatsContext";
+import { LanguageProvider, useLanguage } from '@/utils/LanguageProvider';
 import Header from "@/app/layout/header/Header";
 import Sidebar from "@/app/layout/sidebar/Sidebar";
 
@@ -33,25 +34,27 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       <body>
         <StatsProvider>
           <ThemeProvider theme={baselightTheme}>
-            <CssBaseline />
-            <MainWrapper className="mainwrapper">
-              {/* <Sidebar
+            <LanguageProvider>
+              <CssBaseline />
+              <MainWrapper className="mainwrapper">
+                {/* <Sidebar
                 isSidebarOpen={isSidebarOpen}
                 isMobileSidebarOpen={isMobileSidebarOpen}
                 onSidebarClose={() => setMobileSidebarOpen(false)}
               /> */}
-              <PageWrapper className="page-wrapper">
-                <Header />
-                <Container
-                  sx={{
-                    paddingTop: "20px",
-                    maxWidth: "1200px",
-                  }}
-                >
-                  <Box sx={{ minHeight: "calc(100vh - 170px)" }}>{children}</Box>
-                </Container>
-              </PageWrapper>
-            </MainWrapper>
+                <PageWrapper className="page-wrapper">
+                  <Header />
+                  <Container
+                    sx={{
+                      paddingTop: "20px",
+                      maxWidth: "1200px",
+                    }}
+                  >
+                    <Box sx={{ minHeight: "calc(100vh - 170px)" }}>{children}</Box>
+                  </Container>
+                </PageWrapper>
+              </MainWrapper>
+            </LanguageProvider>
           </ThemeProvider>
         </StatsProvider>
       </body>

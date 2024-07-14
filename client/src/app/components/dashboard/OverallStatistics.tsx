@@ -3,12 +3,14 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '../../../utils/StatsContext';
+import { useIntl } from "react-intl";
 import { Grid, Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 
 const OverallStatistics = () => {
   const theme = useTheme();
+  const { formatMessage } = useIntl();
   const { correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
 
   const correctPrev = Number((100 * correctPredictionsPerDay.slice(0, -1).reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.slice(0, -1).concat(incorrectPredictionsPerDay.slice(0, -1)).reduce((a, c) => a + c, 0))).toFixed(2));
@@ -60,12 +62,12 @@ const OverallStatistics = () => {
         },
       },
     ],
-    labels: ['Correct', 'Incorrect'],
+    labels: [formatMessage({ id: 'overallStatistics.correct' }), formatMessage({ id: 'overallStatistics.incorrect' })],
   };
   const seriescolumnchart: any = [correct, 100 - correct];
 
   return (
-    <DashboardCard title="Overall Statistics">
+    <DashboardCard title={formatMessage({ id: 'overallStatistics.title' })}>
       <Grid container spacing={3}>
         <Grid item xs={7} sm={7}>
           <Typography variant="h3" fontWeight="700">{correct}%</Typography>
@@ -82,16 +84,16 @@ const OverallStatistics = () => {
               )
             }
             <Typography variant="subtitle2" fontWeight="600">{(correct - correctPrev).toFixed(2)}%</Typography>
-            <Typography variant="subtitle2" color="textSecondary">from the day before</Typography>
+            <Typography variant="subtitle2" color="textSecondary">{formatMessage({ id: 'overallStatistics.before' })}</Typography>
           </Stack>
           <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.main, svg: { display: 'none' } }}></Avatar>
-              <Typography variant="subtitle2" color="textSecondary">Correct</Typography>
+              <Typography variant="subtitle2" color="textSecondary">{formatMessage({ id: 'overallStatistics.correct' })}</Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.light, svg: { display: 'none' } }}></Avatar>
-              <Typography variant="subtitle2" color="textSecondary">Incorrect</Typography>
+              <Typography variant="subtitle2" color="textSecondary">{formatMessage({ id: 'overallStatistics.incorrect' })}</Typography>
             </Stack>
           </Stack>
         </Grid>

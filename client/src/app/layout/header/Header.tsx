@@ -2,20 +2,24 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Button, Divider, Drawer, 
 import { Adb as AdbIcon, Menu as MenuIcon } from '@mui/icons-material';
 import { useState } from 'react';
 import { useStats } from '@/utils/StatsContext';
+import { useLanguage } from '@/utils/LanguageProvider';
+import { useIntl } from 'react-intl';
 
 const drawerWidth = 240;
-const menuItems = [
-  { title: "Overview", href: "/", },
-  { title: "Matches", href: "/matches", },
-  { title: "Group stage", href: "/group", },
-  { title: "Knockout stage", href: "/knockout", },
-  { title: "Custom Match", href: "/custom", },
-];
 
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [language, setLanguage] = useState('en');
   const { year, setYear } = useStats();
+  const { language, setLanguage } = useLanguage();
+  const { formatMessage } = useIntl();
+
+  const menuItems = [
+    { title: formatMessage({ id: 'header.overview' }), href: "/", },
+    { title: formatMessage({ id: 'header.matches' }), href: "/matches", },
+    { title: formatMessage({ id: 'header.group' }), href: "/group", },
+    { title: formatMessage({ id: 'header.knockout' }), href: "/knockout", },
+    { title: formatMessage({ id: 'header.custom' }), href: "/custom", },
+  ];
 
   return (
     <>

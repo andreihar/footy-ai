@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useStats } from './StatsContext';
+import { useIntl } from 'react-intl';
 
 const useCountryFlags = () => {
   const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
   const { year } = useStats();
+  const { formatMessage } = useIntl();
 
   const uefaChanges = {
     1960: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Czechia', 'Denmark', 'East Germany', 'England', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Luxembourg', 'Netherlands', 'Northern Ireland', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Serbia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Wales'],
@@ -90,11 +92,11 @@ const useCountryFlags = () => {
     if (historicalNames[country]) {
       for (const { year: historicalYear, name } of historicalNames[country]) {
         if (year < historicalYear) {
-          return name;
+          return formatMessage({ id: `country.${name}` });
         }
       }
     }
-    return country;
+    return formatMessage({ id: `country.${country}` });
   };
 
   return { countryCodes, getFlag, getUefaCountries, getHistoricalName };

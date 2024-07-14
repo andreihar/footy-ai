@@ -1,0 +1,113 @@
+{
+	"header": {
+		"overview": "Übersicht",
+		"matches": "Spiele",
+		"group": "Gruppenphase",
+		"knockout": "K.-o.-Phase",
+		"custom": "Benutzerdefiniertes Spiel"
+	},
+	"predictionsOverview": {
+		"title": "Vorhersageübersicht",
+		"correct": "An diesem Tag korrekt vorhergesagt",
+		"incorrect": "An diesem Tag falsch vorhergesagt"
+	},
+	"recentPredictions": {
+		"title": "Neueste Vorhersagen",
+		"perfect": "Perfekt vorhergesagt",
+		"correct": "Korrekt vorhergesagt",
+		"incorrect": "Falsch vorhergesagt"
+	},
+	"overallStatistics": {
+		"title": "Gesamtstatistik",
+		"before": "vom Vortag",
+		"correct": "Korrekt",
+		"incorrect": "Falsch"
+	},
+	"dailyPredictions": {
+		"title": "Tägliche Vorhersagen"
+	},
+	"groupPerformance": {
+		"group": "Gruppe",
+		"team": "Mannschaft",
+		"results": "Vorhersageergebnisse",
+		"ranking": "Korrekte Platzierungen",
+		"outcomes": "Korrekte Spielergebnisse",
+		"scores": "Korrekte Spielstände"
+	},
+	"matches": {
+		"Final": "Finale",
+		"Semi-finals": "Halbfinale",
+		"Quarter-finals": "Viertelfinale",
+		"Round of 16": "Achtelfinale",
+		"Third-place play-off": "Spiel um Platz drei",
+		"outcome": "Korrekte Ergebnisvorhersage",
+		"score": "Korrekte Spielstandvorhersage"
+	},
+	"custom": {
+		"draw": "Unentschieden erlauben",
+		"predict": "Vorhersagen"
+	},
+	"country": {
+		"Albania": "Albanien",
+		"Andorra": "Andorra",
+		"Armenia": "Armenien",
+		"Austria": "Österreich",
+		"Azerbaijan": "Aserbaidschan",
+		"Belarus": "Weißrussland",
+		"Belgium": "Belgien",
+		"Bosnia and Herzegovina": "Bosnien und Herzegowina",
+		"Bulgaria": "Bulgarien",
+		"CIS": "GUS",
+		"Croatia": "Kroatien",
+		"Cyprus": "Zypern",
+		"Czechia": "Tschechien",
+		"Czechoslovakia": "Tschechoslowakei",
+		"Denmark": "Dänemark",
+		"East Germany": "Ostdeutschland",
+		"England": "England",
+		"Estonia": "Estland",
+		"Faroe Islands": "Färöer Inseln",
+		"Finland": "Finnland",
+		"France": "Frankreich",
+		"Georgia": "Georgien",
+		"Germany": "Deutschland",
+		"Gibraltar": "Gibraltar",
+		"Greece": "Griechenland",
+		"Hungary": "Ungarn",
+		"Iceland": "Island",
+		"Ireland": "Irland",
+		"Israel": "Israel",
+		"Italy": "Italien",
+		"Kazakhstan": "Kasachstan",
+		"Kosovo": "Kosovo",
+		"Latvia": "Lettland",
+		"Liechtenstein": "Liechtenstein",
+		"Lithuania": "Litauen",
+		"Luxembourg": "Luxemburg",
+		"Malta": "Malta",
+		"Moldova": "Moldawien",
+		"Montenegro": "Montenegro",
+		"Netherlands": "Niederlande",
+		"Northern Ireland": "Nordirland",
+		"North Macedonia": "Nordmazedonien",
+		"Norway": "Norwegen",
+		"Poland": "Polen",
+		"Portugal": "Portugal",
+		"Romania": "Rumänien",
+		"Russia": "Russland",
+		"San Marino": "San Marino",
+		"Scotland": "Schottland",
+		"Serbia": "Serbien",
+		"Slovakia": "Slowakei",
+		"Slovenia": "Slowenien",
+		"Soviet Union": "Sowjetunion",
+		"Spain": "Spanien",
+		"Sweden": "Schweden",
+		"Switzerland": "Schweiz",
+		"Turkey": "Türkei",
+		"Ukraine": "Ukraine",
+		"Wales": "Wales",
+		"West Germany": "Westdeutschland",
+		"Yugoslavia": "Jugoslawien"
+	}	
+}
