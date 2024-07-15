@@ -66,7 +66,7 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
 }
 
 const GroupPerformance = ({ group }: GroupPerformanceProps) => {
-    const { getFlag } = useCountryFlags();
+    const { getFlag, getHistoricalName } = useCountryFlags();
     const { data } = useStats();
     const { formatMessage } = useIntl();
     const [teamStats, setTeamStats] = useState<Array<TeamStat>>([]);
@@ -152,40 +152,40 @@ const GroupPerformance = ({ group }: GroupPerformanceProps) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {teamStats.map((product) => (
-                            <TableRow key={product.team}>
+                        {teamStats.map((team) => (
+                            <TableRow key={team.team}>
                                 <TableCell>
-                                    <Typography sx={{ fontSize: "15px", fontWeight: "500" }}>{product.rank}</Typography>
+                                    <Typography sx={{ fontSize: "15px", fontWeight: "500" }}>{team.rank}</Typography>
                                 </TableCell>
                                 <TableCell>
                                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                                        <Avatar alt="?" src={getFlag(product.team)} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
-                                        <Typography variant="subtitle1" fontWeight={600}>{product.team}</Typography>
+                                        <Avatar alt="?" src={getFlag(team.team)} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
+                                        <Typography variant="subtitle1" fontWeight={600}>{getHistoricalName(team.team)}</Typography>
                                     </Box>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{product.wins}</Typography>
+                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.wins}</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{product.draws}</Typography>
+                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.draws}</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{product.losses}</Typography>
+                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.losses}</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{product.goalsFor}</Typography>
+                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.goalsFor}</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{product.goalsAgainst}</Typography>
+                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.goalsAgainst}</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{product.goalsFor - product.goalsAgainst}</Typography>
+                                    <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.goalsFor - team.goalsAgainst}</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6">{product.points}</Typography>
+                                    <Typography variant="h6">{team.points}</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    {product.matches.map((match) => {
+                                    {team.matches.map((match) => {
                                         switch (match) {
                                             case "win":
                                                 return <IconButton size="small" sx={{ color: '#fff', backgroundColor: 'success.dark', mr: '4px', '&:hover': { backgroundColor: 'success.dark', opacity: 0.7 } }}><IconCheck /></IconButton>;
