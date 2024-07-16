@@ -1,0 +1,16 @@
+home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
+Denmark,Germany,2,0,,,2,0,1992-06-26T18:15:00Z,Final,Ullevi,Gothenburg
+Netherlands,Denmark,2,2,4,5,6,7,1992-06-22T18:15:00Z,Semi-finals,Ullevi,Gothenburg
+Sweden,Germany,2,3,,,2,3,1992-06-21T18:15:00Z,Semi-finals,Råsunda,Solna
+Scotland,Russia,3,0,,,3,0,1992-06-18T18:15:00Z,Group 2,NYA Parken,Norrkoping
+Netherlands,Germany,3,1,,,3,1,1992-06-18T18:15:00Z,Group 2,Ullevi,Gothenburg
+France,Denmark,1,2,,,1,2,1992-06-17T18:15:00Z,Group 1,Malmö Idrottsplats,Malmö
+Sweden,England,2,1,,,2,1,1992-06-17T18:15:00Z,Group 1,Råsunda,Solna
+Netherlands,Russia,0,0,,,0,0,1992-06-15T18:15:00Z,Group 2,Ullevi,Gothenburg
+Scotland,Germany,0,2,,,0,2,1992-06-15T15:15:00Z,Group 2,NYA Parken,Norrkoping
+Sweden,Denmark,1,0,,,1,0,1992-06-14T18:15:00Z,Group 1,Råsunda,Solna
+France,England,0,0,,,0,0,1992-06-14T15:15:00Z,Group 1,Malmö Idrottsplats,Malmö
+Russia,Germany,1,1,,,1,1,1992-06-12T18:15:00Z,Group 2,NYA Parken,Norrkoping
+Netherlands,Scotland,1,0,,,1,0,1992-06-12T15:15:00Z,Group 2,Ullevi,Gothenburg
+Denmark,England,0,0,,,0,0,1992-06-11T18:15:00Z,Group 1,Malmö Idrottsplats,Malmö
+Sweden,France,1,1,,,1,1,1992-06-10T18:15:00Z,Group 1,Råsunda,Solna

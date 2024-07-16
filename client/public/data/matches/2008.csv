@@ -1,0 +1,32 @@
+home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
+Germany,Spain,0,1,,,0,1,2008-06-29T18:45:00Z,Final,Ernst-Happel-Stadion,Vienna
+Russia,Spain,0,3,,,0,3,2008-06-26T18:45:00Z,Semi-finals,Ernst-Happel-Stadion,Vienna
+Germany,Turkey,3,2,,,3,2,2008-06-25T18:45:00Z,Semi-finals,St. Jakob-Park,Basel
+Spain,Italy,0,0,4,2,4,2,2008-06-22T18:45:00Z,Quarter-finals,Ernst-Happel-Stadion,Vienna
+Netherlands,Russia,1,1,,,1,3,2008-06-21T18:45:00Z,Quarter-finals,St. Jakob-Park,Basel
+Croatia,Turkey,0,0,1,3,1,3,2008-06-20T18:45:00Z,Quarter-finals,Ernst-Happel-Stadion,Vienna
+Portugal,Germany,2,3,,,2,3,2008-06-19T18:45:00Z,Quarter-finals,St. Jakob-Park,Basel
+Russia,Sweden,2,0,,,2,0,2008-06-18T18:45:00Z,Group D,Tivoli Stadion Tirol,Innsbruck
+Greece,Spain,1,2,,,1,2,2008-06-18T18:45:00Z,Group D,Stadion Salzburg,Salzburg
+France,Italy,0,2,,,0,2,2008-06-17T18:45:00Z,Group C,Stadion Letzigrund,Zurich
+Netherlands,Romania,2,0,,,2,0,2008-06-17T18:45:00Z,Group C,Stadion Wankdorf,Bern
+Austria,Germany,0,1,,,0,1,2008-06-16T18:45:00Z,Group B,Ernst-Happel-Stadion,Vienna
+Poland,Croatia,0,1,,,0,1,2008-06-16T18:45:00Z,Group B,Wörthersee Stadion,Klagenfurt
+Turkey,Czechia,3,2,,,3,2,2008-06-15T18:45:00Z,Group A,Stade de Genève,Geneva
+Switzerland,Portugal,2,0,,,2,0,2008-06-15T18:45:00Z,Group A,St. Jakob-Park,Basel
+Greece,Russia,0,1,,,0,1,2008-06-14T18:45:00Z,Group D,Stadion Salzburg,Salzburg
+Sweden,Spain,1,2,,,1,2,2008-06-14T16:00:00Z,Group D,Tivoli Stadion Tirol,Innsbruck
+Netherlands,France,4,1,,,4,1,2008-06-13T18:45:00Z,Group C,Stadion Wankdorf,Bern
+Italy,Romania,1,1,,,1,1,2008-06-13T16:00:00Z,Group C,Stadion Letzigrund,Zurich
+Austria,Poland,1,1,,,1,1,2008-06-12T18:45:00Z,Group B,Ernst-Happel-Stadion,Vienna
+Croatia,Germany,2,1,,,2,1,2008-06-12T16:00:00Z,Group B,Wörthersee Stadion,Klagenfurt
+Switzerland,Turkey,1,2,,,1,2,2008-06-11T18:45:00Z,Group A,St. Jakob-Park,Basel
+Czechia,Portugal,1,3,,,1,3,2008-06-11T16:00:00Z,Group A,Stade de Genève,Geneva
+Greece,Sweden,0,2,,,0,2,2008-06-10T18:45:00Z,Group D,Stadion Salzburg,Salzburg
+Spain,Russia,4,1,,,4,1,2008-06-10T16:00:00Z,Group D,Tivoli Stadion Tirol,Innsbruck
+Netherlands,Italy,3,0,,,3,0,2008-06-09T18:45:00Z,Group C,Stadion Wankdorf,Bern
+Romania,France,0,0,,,0,0,2008-06-09T16:00:00Z,Group C,Stadion Letzigrund,Zurich
+Germany,Poland,2,0,,,2,0,2008-06-08T18:45:00Z,Group B,Wörthersee Stadion,Klagenfurt
+Austria,Croatia,0,1,,,0,1,2008-06-08T16:00:00Z,Group B,Ernst-Happel-Stadion,Vienna
+Portugal,Turkey,2,0,,,2,0,2008-06-07T18:45:00Z,Group A,Stade de Genève,Geneva
+Switzerland,Czechia,0,1,,,0,1,2008-06-07T16:00:00Z,Group A,St. Jakob-Park,Basel

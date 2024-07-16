@@ -1,0 +1,52 @@
+home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
+Italy,England,1,1,3,2,4,3,2021-07-11T19:00:00Z,Final,Wembley Stadium,London
+England,Denmark,1,1,,,2,1,2021-07-07T19:00:00Z,Semi-finals,Wembley Stadium,London
+Italy,Spain,1,1,4,2,5,3,2021-07-06T19:00:00Z,Semi-finals,Wembley Stadium,London
+Ukraine,England,0,4,,,0,4,2021-07-03T19:00:00Z,Quarter-finals,Olimpico in Rome,Rome
+Czechia,Denmark,1,2,,,1,2,2021-07-03T16:00:00Z,Quarter-finals,Baku Olympic Stadium,Baku
+Belgium,Italy,1,2,,,1,2,2021-07-02T19:00:00Z,Quarter-finals,Munich Football Arena,Munich
+Switzerland,Spain,1,1,1,3,2,4,2021-07-02T16:00:00Z,Quarter-finals,Gazprom Arena,St Petersburg
+Sweden,Ukraine,1,1,,,1,2,2021-06-29T19:00:00Z,Round of 16,Hampden Park,Glasgow
+England,Germany,2,0,,,2,0,2021-06-29T16:00:00Z,Round of 16,Wembley Stadium,London
+France,Switzerland,3,3,4,5,7,8,2021-06-28T19:00:00Z,Round of 16,National Arena Bucharest,Bucharest
+Croatia,Spain,3,3,,,3,5,2021-06-28T16:00:00Z,Round of 16,Parken Stadium,Copenhagen
+Belgium,Portugal,1,0,,,1,0,2021-06-27T19:00:00Z,Round of 16,La Cartuja Stadium,Seville
+Netherlands,Czechia,0,2,,,0,2,2021-06-27T16:00:00Z,Round of 16,Puskás Aréna,Budapest
+Italy,Austria,0,0,,,2,1,2021-06-26T19:00:00Z,Round of 16,Wembley Stadium,London
+Wales,Denmark,0,4,,,0,4,2021-06-26T16:00:00Z,Round of 16,Johan Cruijff ArenA,Amsterdam
+Germany,Hungary,2,2,,,2,2,2021-06-23T19:00:00Z,Group F,Munich Football Arena,Munich
+Portugal,France,2,2,,,2,2,2021-06-23T19:00:00Z,Group F,Puskás Aréna,Budapest
+Sweden,Poland,3,2,,,3,2,2021-06-23T16:00:00Z,Group E,Gazprom Arena,St Petersburg
+Slovakia,Spain,0,5,,,0,5,2021-06-23T16:00:00Z,Group E,La Cartuja Stadium,Seville
+Czechia,England,0,1,,,0,1,2021-06-22T19:00:00Z,Group D,Wembley Stadium,London
+Croatia,Scotland,3,1,,,3,1,2021-06-22T19:00:00Z,Group D,Hampden Park,Glasgow
+Finland,Belgium,0,2,,,0,2,2021-06-21T19:00:00Z,Group B,Gazprom Arena,St Petersburg
+Russia,Denmark,1,4,,,1,4,2021-06-21T19:00:00Z,Group B,Parken Stadium,Copenhagen
+Ukraine,Austria,0,1,,,0,1,2021-06-21T16:00:00Z,Group C,National Arena Bucharest,Bucharest
+North Macedonia,Netherlands,0,3,,,0,3,2021-06-21T16:00:00Z,Group C,Johan Cruijff ArenA,Amsterdam
+Italy,Wales,1,0,,,1,0,2021-06-20T16:00:00Z,Group A,Olimpico in Rome,Rome
+Switzerland,Turkey,3,1,,,3,1,2021-06-20T16:00:00Z,Group A,Baku Olympic Stadium,Baku
+Spain,Poland,1,1,,,1,1,2021-06-19T19:00:00Z,Group E,La Cartuja Stadium,Seville
+Portugal,Germany,2,4,,,2,4,2021-06-19T16:00:00Z,Group F,Munich Football Arena,Munich
+Hungary,France,1,1,,,1,1,2021-06-19T13:00:00Z,Group F,Puskás Aréna,Budapest
+England,Scotland,0,0,,,0,0,2021-06-18T19:00:00Z,Group D,Wembley Stadium,London
+Croatia,Czechia,1,1,,,1,1,2021-06-18T16:00:00Z,Group D,Hampden Park,Glasgow
+Sweden,Slovakia,1,0,,,1,0,2021-06-18T13:00:00Z,Group E,Gazprom Arena,St Petersburg
+Netherlands,Austria,2,0,,,2,0,2021-06-17T19:00:00Z,Group C,Johan Cruijff ArenA,Amsterdam
+Denmark,Belgium,1,2,,,1,2,2021-06-17T16:00:00Z,Group B,Parken Stadium,Copenhagen
+Ukraine,North Macedonia,2,1,,,2,1,2021-06-17T13:00:00Z,Group C,National Arena Bucharest,Bucharest
+Italy,Switzerland,3,0,,,3,0,2021-06-16T19:00:00Z,Group A,Olimpico in Rome,Rome
+Turkey,Wales,0,2,,,0,2,2021-06-16T16:00:00Z,Group A,Baku Olympic Stadium,Baku
+Finland,Russia,0,1,,,0,1,2021-06-16T13:00:00Z,Group B,Gazprom Arena,St Petersburg
+France,Germany,1,0,,,1,0,2021-06-15T19:00:00Z,Group F,Munich Football Arena,Munich
+Hungary,Portugal,0,3,,,0,3,2021-06-15T16:00:00Z,Group F,Puskás Aréna,Budapest
+Spain,Sweden,0,0,,,0,0,2021-06-14T19:00:00Z,Group E,La Cartuja Stadium,Seville
+Poland,Slovakia,1,2,,,1,2,2021-06-14T16:00:00Z,Group E,Gazprom Arena,St Petersburg
+Scotland,Czechia,0,2,,,0,2,2021-06-14T13:00:00Z,Group D,Hampden Park,Glasgow
+Netherlands,Ukraine,3,2,,,3,2,2021-06-13T19:00:00Z,Group C,Johan Cruijff ArenA,Amsterdam
+Austria,North Macedonia,3,1,,,3,1,2021-06-13T16:00:00Z,Group C,National Arena Bucharest,Bucharest
+England,Croatia,1,0,,,1,0,2021-06-13T13:00:00Z,Group D,Wembley Stadium,London
+Belgium,Russia,3,0,,,3,0,2021-06-12T19:00:00Z,Group B,Gazprom Arena,St Petersburg
+Denmark,Finland,0,1,,,0,1,2021-06-12T16:00:00Z,Group B,Parken Stadium,Copenhagen
+Wales,Switzerland,1,1,,,1,1,2021-06-12T13:00:00Z,Group A,Baku Olympic Stadium,Baku
+Turkey,Italy,0,3,,,0,3,2021-06-11T19:00:00Z,Group A,Olimpico in Rome,Rome
