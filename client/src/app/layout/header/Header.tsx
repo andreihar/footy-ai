@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme } from '@mui/material';
+import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme } from '@mui/material';
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
 import { useEffect, useState, useRef } from 'react';
 import { useStats } from '@/utils/StatsContext';
@@ -32,6 +32,8 @@ function Header() {
     { title: formatMessage({ id: 'header.custom' }), href: "/custom", },
   ];
 
+  const languages = { en: 'English', fr: 'Français', de: 'Deutsch', };
+
   const handleClick = (title: string): void => {
     if (open === title) {
       setOpen(null);
@@ -51,8 +53,12 @@ function Header() {
     return (
       <>
         <Button aria-controls={Boolean(anchorEl) ? 'menu-list-grow' : undefined} aria-haspopup="true" sx={sx}
-          onClick={(event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget)}>
-          {item.title}
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => setAnchorEl(event.currentTarget)}
+        >
+          <Box display="flex" alignItems="center" gap="8px">
+            {item.title}
+            {Boolean(anchorEl) ? <ExpandLess /> : <ExpandMore />}
+          </Box>
         </Button>
         <Menu id="menu-list-grow" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={() => setAnchorEl(null)}
           sx={{ '& .MuiPaper-root': { borderRadius: '0 !important', '& .MuiMenu-list': { padding: '0px !important' }, }, }}
@@ -94,9 +100,9 @@ function Header() {
             <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)}
               sx={{ color: 'white', borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: 'white' }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
             >
-              <MenuItem value="en">English</MenuItem>
-              <MenuItem value="fr">Français</MenuItem>
-              <MenuItem value="de">Deutsch</MenuItem>
+              {Object.entries(languages).map(([code, name]) => (
+                <MenuItem key={code} value={code}>{name}</MenuItem>
+              ))}
             </Select>
           </Toolbar>
         </Container>
@@ -137,19 +143,12 @@ function Header() {
                 )
               ))}
               <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: 'white' }}>
-                <Typography variant="body1">
-                  EURO
-                </Typography>
-                <Select
-                  variant="outlined"
-                  value={year}
-                  onChange={(event) => setYear(Number(event.target.value))}
+                <Typography variant="body1">EURO</Typography>
+                <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))}
                   sx={{
                     paddingTop: '1px', color: 'white', borderColor: 'white', height: '32px',
                     '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
-                    '.MuiSvgIcon-root': { fontSize: '1rem' },
-                    '.MuiSelect-icon': { color: 'white' },
-                    '&& fieldset': { border: 'none' }
+                    '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: 'white' }, '&& fieldset': { border: 'none' }
                   }}
                 >
                   {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
@@ -162,48 +161,80 @@ function Header() {
         </Container>
       </AppBar >
       <Drawer variant="temporary" open={mobileOpen} onClick={() => setMobileOpen((prevState) => !prevState)} ModalProps={{ keepMounted: true }}
-        sx={{
-          display: { xs: 'block', sm: 'none' }
-        }}
+        sx={{ display: { xs: 'block', sm: 'none' }, '& .MuiDrawer-paper': { minWidth: '240px' } }}
       >
-        <Box onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ textAlign: 'center' }}>
+        <Box height="100%" onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ textAlign: 'center' }}>
           <Box display="flex" m={2} mb={0} alignItems="center" component="a" href="/" sx={{ textDecoration: 'none' }}>
             <SvgIcon component={Logo} sx={{ width: 34, height: 34, color: 'black', mr: 2 }} />
             <Typography fontFamily="Logo" className="custom-font-element" variant="h4" noWrap sx={{ color: 'inherit', lineHeight: 'normal', mt: '12px' }}>
               Footy AI
             </Typography>
           </Box>
-          <List>
-            {menuItems.map((item) => (
-              item.children ? (
-                <>
+          <Box display="flex" flexDirection="column" height='calc(100vh - 56px)'>
+            <List style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+              {menuItems.map((item) => (
+                item.children ? (
+                  <>
+                    <ListItem key={item.title} disablePadding>
+                      <ListItemButton onClick={() => handleClick(item.title)} sx={{ padding: '16px 32px' }}>
+                        <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                        {open === item.title ? <ExpandLess /> : <ExpandMore />}
+                      </ListItemButton>
+                    </ListItem>
+                    <Collapse in={open === item.title} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding>
+                        {item.children.map((child) => (
+                          <ListItem key={child.title} disablePadding>
+                            <ListItemButton href={child.href} sx={{ padding: '16px 32px 16px 50px' }}>
+                              <ListItemText primary={child.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                            </ListItemButton>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Collapse>
+                  </>
+                ) : (
                   <ListItem key={item.title} disablePadding>
-                    <ListItemButton onClick={() => handleClick(item.title)} sx={{ padding: '16px 32px' }}>
+                    <ListItemButton href={item.href} sx={{ padding: '16px 32px' }}>
                       <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
-                      {open === item.title ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                   </ListItem>
-                  <Collapse in={open === item.title} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                      {item.children.map((child) => (
-                        <ListItem key={child.title} disablePadding>
-                          <ListItemButton href={child.href} sx={{ padding: '16px 32px 16px 50px' }}>
-                            <ListItemText primary={child.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
-                          </ListItemButton>
-                        </ListItem>
+                )
+              ))}
+              <ListItem disablePadding>
+                <ListItemButton sx={{ padding: '16px 32px' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <ListItemText primary="EURO" primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                    <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))}
+                      sx={{
+                        paddingTop: '1px', fontWeight: '900', borderColor: 'white', height: '32px',
+                        '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
+                        '.MuiSvgIcon-root': { fontSize: '1rem' }, '&& fieldset': { border: 'none' }
+                      }}
+                    >
+                      {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
+                        <MenuItem key={year} value={year.toString()}>{year}</MenuItem>
                       ))}
-                    </List>
-                  </Collapse>
-                </>
-              ) : (
-                <ListItem key={item.title} disablePadding>
-                  <ListItemButton href={item.href} sx={{ padding: '16px 32px' }}>
-                    <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
-                  </ListItemButton>
-                </ListItem>
-              )
-            ))}
-          </List>
+                    </Select>
+                  </Box>
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding style={{ marginTop: 'auto' }}>
+                <ListItemButton sx={{ padding: '0px', width: '100%', '&:hover': { bgcolor: 'transparent' } }}>
+                  <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)} fullWidth
+                    sx={{
+                      color: 'inherit', fontWeight: '900', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiOutlinedInput-input': { paddingLeft: '0px', textAlign: 'center' },
+                      '&& fieldset': { border: 'none' }, '& .MuiSelect-select': { padding: '16px 32px' },
+                    }}
+                  >
+                    {Object.entries(languages).map(([code, name]) => (
+                      <MenuItem key={code} value={code}>{name}</MenuItem>
+                    ))}
+                  </Select>
+                </ListItemButton>
+              </ListItem>
+            </List>
+          </Box>
         </Box>
       </Drawer>
     </>
