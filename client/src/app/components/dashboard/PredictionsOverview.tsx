@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material/styles';
-import { useStats } from '../../../utils/StatsContext';
+import { useStats } from '@/utils/StatsContext';
 import { useIntl } from 'react-intl';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import dynamic from "next/dynamic";

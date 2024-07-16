@@ -6,8 +6,8 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
 
-import { useStats } from '../../utils/StatsContext';
-import useCountryFlags from '../../utils/countryUtils';
+import { useStats } from '@/utils/StatsContext';
+import useCountryFlags from '@/utils/countryUtils';
 import { useIntl } from 'react-intl';
 import { useLanguage } from '@/utils/LanguageProvider';
 import Match from '../types/match';

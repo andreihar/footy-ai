@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
-import { useStats } from '../../../utils/StatsContext';
+import { useStats } from '@/utils/StatsContext';
 import { useIntl } from 'react-intl';
 import { Stack, Typography, Avatar, Fab } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';

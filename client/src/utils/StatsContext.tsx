@@ -5,6 +5,7 @@ import Match from '../app/types/match';
 interface StatsContextType {
   data: Match[];
   categories: string[];
+  groups: string[];
   correctPredictionsPerDay: number[];
   incorrectPredictionsPerDay: number[];
   fetchMatch: (home_team: string, away_team: string, allowDraw: boolean) => Promise<PredictionResult | null>;
@@ -36,6 +37,7 @@ const StatsContext = createContext<StatsContextType | undefined>(undefined);
 
 export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ children }) => {
   const [categories, setCategories] = useState<string[]>([]);
+  const [groups, setGroups] = useState<string[]>([]);
   const [correctPredictionsPerDay, setCorrectPredictionsPerDay] = useState<number[]>([]);
   const [incorrectPredictionsPerDay, setIncorrectPredictionsPerDay] = useState<number[]>([]);
   const [data, setData] = useState<Match[]>([]);
@@ -119,6 +121,12 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
     const correctPredictionsPerDay = new Array(formattedDates.length).fill(0);
     const incorrectPredictionsPerDay = new Array(formattedDates.length).fill(0);
 
+    const groupStages = Array.from(new Set(
+      data.filter((match: Match) => match.stage.startsWith("Group"))
+        .map((match: Match) => match.stage)
+    )).sort();
+    setGroups(groupStages);
+
     allMatches.forEach(match => {
       if (Number.isNaN(match.home_score_total) || Number.isNaN(match.away_score_total)) {
         return;
@@ -178,11 +186,11 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   }
 
   if (!isClient) {
-    return <div>Loading...</div>; // Or any other placeholder content for server-side rendering
+    return <div>Loading...</div>;
   }
 
   return (
-    <StatsContext.Provider value={{ data, categories, correctPredictionsPerDay, incorrectPredictionsPerDay, fetchMatch, year, setYear }}>
+    <StatsContext.Provider value={{ data, categories, groups, correctPredictionsPerDay, incorrectPredictionsPerDay, fetchMatch, year, setYear }}>
       {children}
     </StatsContext.Provider>
   );

@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 import Match from '../../types/match';
 import { useEffect, useState } from "react";
 import useCountryFlags from '@/utils/countryUtils';
-import { useStats } from '../../../utils/StatsContext';
+import { useStats } from '@/utils/StatsContext';
 import { useIntl } from 'react-intl';
 import { useLanguage } from '@/utils/LanguageProvider';
 

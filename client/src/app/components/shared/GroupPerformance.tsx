@@ -4,9 +4,9 @@ import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBa
 import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import { useEffect, useState } from 'react';
-import { useStats } from '../../../utils/StatsContext';
+import { useStats } from '@/utils/StatsContext';
 import { useIntl } from 'react-intl';
-import useCountryFlags from '../../../utils/countryUtils';
+import useCountryFlags from '@/utils/countryUtils';
 import Match from '../../types/match';
 
 interface TeamStat {

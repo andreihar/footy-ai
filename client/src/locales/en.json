@@ -1,10 +1,12 @@
 {
 	"header": {
 		"overview": "Overview",
-		"matches": "Matches",
+		"fixtures": "Fixtures",
+		"allMatches": "All Matches",
 		"group": "Group Stage",
 		"knockout": "Knockout Stage",
-		"custom": "Custom Match"
+		"custom": "Custom Match",
+		"about": "About"
 	},
 	"predictionsOverview": {
 	  "title": "Predictions Overview",

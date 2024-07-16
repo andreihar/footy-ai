@@ -5,7 +5,7 @@ import DashboardCard from '@/app/components/shared/DashboardCard';
 
 import { useState } from 'react';
 import { useStats } from '@/utils/StatsContext';
-import useCountryFlags from '../../utils/countryUtils';
+import useCountryFlags from '@/utils/countryUtils';
 import { useIntl } from 'react-intl';
 
 const CustomPage = () => {

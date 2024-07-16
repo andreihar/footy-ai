@@ -1,10 +1,12 @@
 {
 	"header": {
 		"overview": "Übersicht",
-		"matches": "Spiele",
+		"fixtures": "Spielplan",
+		"allMatches": "Alle Spiele",
 		"group": "Gruppenphase",
-		"knockout": "K.-o.-Phase",
-		"custom": "Benutzerdefiniertes Spiel"
+		"knockout": "Ausscheidungsrunde",
+		"custom": "Angepasstes Spiel",
+		"about": "Über"
 	},
 	"predictionsOverview": {
 		"title": "Vorhersageübersicht",

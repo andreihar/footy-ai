@@ -2,8 +2,8 @@
 import { Avatar, Box, Typography } from '@mui/material';
 import PageContainer from '@/app/components/container/PageContainer';
 import { useTheme } from '@mui/material/styles';
-import { useStats } from '../../utils/StatsContext';
-import useCountryFlags from '../../utils/countryUtils';
+import { useStats } from '@/utils/StatsContext';
+import useCountryFlags from '@/utils/countryUtils';
 import { useIntl } from 'react-intl';
 import Match from '../types/match';
 import './style.scss';

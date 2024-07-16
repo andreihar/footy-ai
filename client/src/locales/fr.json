@@ -1,10 +1,12 @@
 {
 	"header": {
 		"overview": "Aperçu",
-		"matches": "Matchs",
+		"fixtures": "Calendrier",
+		"allMatches": "Tous les Matchs",
 		"group": "Phase de Groupes",
 		"knockout": "Phase à Élimination Directe",
-		"custom": "Match Personnalisé"
+		"custom": "Match Personnalisé",
+		"about": "À propos"
 	},
 	"predictionsOverview": {
 	  "title": "Aperçu des Prédictions",
