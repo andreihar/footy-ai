@@ -118,10 +118,11 @@ const MatchCard = ({ match }: { match: Match; }) => {
 };
 
 const MatchesPage = () => {
+  const { formatMessage } = useIntl();
   const { data } = useStats();
 
   return (
-    <PageContainer title="Matches" description="List of all matches and predictions">
+    <PageContainer title={formatMessage({ id: 'header.allMatches' })} description="List of all matches and predictions">
       <>
         {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
           .reverse().map((match, index) => <MatchCard key={index} match={match} />)}

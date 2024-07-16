@@ -77,7 +77,7 @@ const KnockoutPage = () => {
   };
 
   return (
-    <PageContainer title="Knockout Stage" description="List of matches and predictions for the Knockout Stage">
+    <PageContainer title={formatMessage({ id: 'header.knockout' })} description="List of matches and predictions for the Knockout Stage">
       <Box display="flex">
         {Object.entries(sortTournamentMatches(data)).map(([stageName, matches]) => {
           return (

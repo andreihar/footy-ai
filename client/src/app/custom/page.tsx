@@ -38,7 +38,7 @@ const CustomPage = () => {
   }
 
   return (
-    <PageContainer title="Custom Match" description="Get the odds for the matchup that didn't happen during the tournament">
+    <PageContainer title={formatMessage({ id: 'header.custom' })} description="Get the odds for the matchup that didn't happen during the tournament">
       <DashboardCard>
         <CardContent>
           <Box display="flex" justifyContent="center" alignItems="center">

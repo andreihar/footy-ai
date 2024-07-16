@@ -1,5 +1,6 @@
 'use client';
 import { Grid, Box } from '@mui/material';
+import { useIntl } from 'react-intl';
 import PageContainer from '@/app/components/container/PageContainer';
 // components
 import PredictionsOverview from '@/app/components/dashboard/PredictionsOverview';
@@ -8,8 +9,10 @@ import RecentPredictions from '@/app/components/dashboard/RecentPredictions';
 import DailyPredictions from '@/app/components/dashboard/DailyPredictions';
 
 const Dashboard = () => {
+  const { formatMessage } = useIntl();
+
   return (
-    <PageContainer title="Dashboard" description="this is Dashboard">
+    <PageContainer title={formatMessage({ id: 'header.overview' })} description="this is Dashboard">
       <Box>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={12}>
