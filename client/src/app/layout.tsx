@@ -1,9 +1,9 @@
 "use client";
 import { styled, Container, Box, ThemeProvider, CssBaseline } from "@mui/material";
-import { baselightTheme } from "@/utils/theme/DefaultColors";
 import React from "react";
 import { StatsProvider } from "@/utils/StatsContext";
 import { LanguageProvider } from '@/utils/LanguageProvider';
+import DynamicTheme from "@/utils/DynamicTheme";
 import Header from "@/app/layout/header/Header";
 import './global.css';
 
@@ -27,9 +27,10 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
     <html lang="en">
       <body>
         <StatsProvider>
-          <ThemeProvider theme={baselightTheme}>
-            <LanguageProvider>
-              <CssBaseline />
+          <LanguageProvider>
+            <DynamicTheme>
+              {/* <ThemeProvider theme={baselightTheme}> */}
+              {/* <CssBaseline /> */}
               <MainWrapper className="mainwrapper">
                 <PageWrapper className="page-wrapper">
                   <Header />
@@ -38,8 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
                   </Container>
                 </PageWrapper>
               </MainWrapper>
-            </LanguageProvider>
-          </ThemeProvider>
+            </DynamicTheme>
+            {/* </ThemeProvider> */}
+          </LanguageProvider>
         </StatsProvider>
       </body>
     </html>

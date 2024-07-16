@@ -12,7 +12,6 @@ const DailyPredictions = () => {
   const theme = useTheme();
   const { formatMessage } = useIntl();
   const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
-  const secondarylight = '#f5fcff';
   const dailyPercentages = correctPredictionsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredictionsPerDay[index])).toFixed(2)));
 
   // chart
@@ -35,7 +34,6 @@ const DailyPredictions = () => {
       width: 2,
     },
     fill: {
-      colors: [secondarylight],
       type: 'solid',
       opacity: 0.05,
     },
