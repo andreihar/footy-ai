@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme } from '@mui/material';
+import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Divider, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme } from '@mui/material';
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
 import { useEffect, useState, useRef } from 'react';
 import { useStats } from '@/utils/StatsContext';
@@ -30,6 +30,7 @@ function Header() {
       ],
     },
     { title: formatMessage({ id: 'header.custom' }), href: "/custom", },
+    { title: formatMessage({ id: 'header.about' }), href: "/about", },
   ];
 
   const languages = { en: 'English', fr: 'Français', de: 'Deutsch', };
@@ -65,7 +66,7 @@ function Header() {
         >
           {item.children?.map((child) => (
             <MenuItem sx={{ padding: '0px' }} key={child.title} onClick={() => setAnchorEl(null)}>
-              <Button href={child.href} sx={{ ...sx, color: 'white', backgroundColor: 'primary.main' }} fullWidth>
+              <Button href={child.href} sx={sx} fullWidth>
                 {child.title}
               </Button>
             </MenuItem>
@@ -75,6 +76,9 @@ function Header() {
     );
   };
 
+  const getColour = () => {
+    return year === 1972 ? '#000000' : '#FFFFFF';
+  };
 
   useEffect(() => {
     const updateAppBarState = () => {
@@ -91,14 +95,14 @@ function Header() {
       <Box id="box-id" py={2} color="white" sx={{ bgcolor: lighten(theme.palette.primary.main, 0.12), display: { xs: 'none', sm: 'flex' } }}>
         <Container sx={{ maxWidth: "1200px" }}>
           <Toolbar sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-            <Box display="flex" alignItems="center" component="a" href="/" color="white" sx={{ textDecoration: 'none' }}>
+            <Box display="flex" alignItems="center" component="a" href="/" color={getColour()} sx={{ textDecoration: 'none' }}>
               <SvgIcon component={Logo} sx={{ width: 68, height: 68, color: 'black', mr: 2 }} />
               <Typography fontFamily="Logo" className="custom-font-element" variant="h2" noWrap sx={{ color: 'inherit', lineHeight: 'normal', mt: '14px', }}>
                 Footy AI
               </Typography>
             </Box>
             <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)}
-              sx={{ color: 'white', borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: 'white' }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
+              sx={{ color: getColour(), borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
             >
               {Object.entries(languages).map(([code, name]) => (
                 <MenuItem key={code} value={code}>{name}</MenuItem>
@@ -106,11 +110,11 @@ function Header() {
             </Select>
           </Toolbar>
         </Container>
-      </Box >
-      <AppBar component="nav" position="sticky">
+      </Box>
+      <AppBar component="nav" position="sticky" elevation={isStuck ? 4 : 0}>
         <Container sx={{ maxWidth: "1200px" }}>
           <Toolbar variant='dense' ref={containerRef}>
-            <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ mr: 2, display: { sm: 'none' } }}>
+            <IconButton aria-label="open drawer" edge="start" onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ mr: 2, display: { sm: 'none' }, color: getColour() }}>
               <MenuIcon />
             </IconButton>
             <Box display="flex" alignItems="center" component="a" href="/" color="white" sx={{ textDecoration: 'none' }}>
@@ -126,14 +130,14 @@ function Header() {
               {menuItems.map((item) => (
                 item.children ? (
                   <DropdownMenu key={item.title} item={item} sx={{
-                    color: 'inherit', display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
+                    color: getColour(), backgroundColor: 'primary.main', display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
                     '&:hover': {
                       backgroundColor: darken(theme.palette.primary.main, 0.2)
                     },
                   }} />
                 ) : (
                   <Button key={item.title} href={item.href} sx={{
-                    color: 'inherit', display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
+                    color: getColour(), display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
                     '&:hover': {
                       backgroundColor: darken(theme.palette.primary.main, 0.2)
                     },
@@ -142,13 +146,12 @@ function Header() {
                   </Button>
                 )
               ))}
-              <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: 'white' }}>
-                <Typography variant="body1">EURO</Typography>
-                <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))}
+              <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: getColour() }}>
+                <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))} renderValue={(selectedValue) => `EURO ${selectedValue}`}
                   sx={{
-                    paddingTop: '1px', color: 'white', borderColor: 'white', height: '32px',
+                    paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px',
                     '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
-                    '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: 'white' }, '&& fieldset': { border: 'none' }
+                    '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '&& fieldset': { border: 'none' }
                   }}
                 >
                   {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
@@ -161,80 +164,78 @@ function Header() {
         </Container>
       </AppBar >
       <Drawer variant="temporary" open={mobileOpen} onClick={() => setMobileOpen((prevState) => !prevState)} ModalProps={{ keepMounted: true }}
-        sx={{ display: { xs: 'block', sm: 'none' }, '& .MuiDrawer-paper': { minWidth: '240px' } }}
+        sx={{ display: { xs: 'block', sm: 'none' }, '& .MuiDrawer-paper': { minWidth: '300px' } }}
       >
-        <Box height="100%" onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ textAlign: 'center' }}>
+        <Box onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ textAlign: 'center' }}>
           <Box display="flex" m={2} mb={0} alignItems="center" component="a" href="/" sx={{ textDecoration: 'none' }}>
             <SvgIcon component={Logo} sx={{ width: 34, height: 34, color: 'black', mr: 2 }} />
-            <Typography fontFamily="Logo" className="custom-font-element" variant="h4" noWrap sx={{ color: 'inherit', lineHeight: 'normal', mt: '12px' }}>
+            <Typography fontFamily="Logo" className="custom-font-element" variant="h4" noWrap sx={{ color: 'primary.main', lineHeight: 'normal', mt: '12px' }}>
               Footy AI
             </Typography>
           </Box>
-          <Box display="flex" flexDirection="column" height='calc(100vh - 56px)'>
-            <List style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-              {menuItems.map((item) => (
-                item.children ? (
-                  <>
-                    <ListItem key={item.title} disablePadding>
-                      <ListItemButton onClick={() => handleClick(item.title)} sx={{ padding: '16px 32px' }}>
-                        <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
-                        {open === item.title ? <ExpandLess /> : <ExpandMore />}
-                      </ListItemButton>
-                    </ListItem>
-                    <Collapse in={open === item.title} timeout="auto" unmountOnExit>
-                      <List component="div" disablePadding>
-                        {item.children.map((child) => (
-                          <ListItem key={child.title} disablePadding>
-                            <ListItemButton href={child.href} sx={{ padding: '16px 32px 16px 50px' }}>
-                              <ListItemText primary={child.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
-                            </ListItemButton>
-                          </ListItem>
-                        ))}
-                      </List>
-                    </Collapse>
-                  </>
-                ) : (
+          <List style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            {menuItems.map((item) => (
+              item.children ? (
+                <>
                   <ListItem key={item.title} disablePadding>
-                    <ListItemButton href={item.href} sx={{ padding: '16px 32px' }}>
+                    <ListItemButton onClick={() => handleClick(item.title)} sx={{ padding: '16px 32px' }}>
                       <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                      {open === item.title ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                   </ListItem>
-                )
-              ))}
-              <ListItem disablePadding>
-                <ListItemButton sx={{ padding: '16px 32px' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <ListItemText primary="EURO" primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
-                    <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))}
-                      sx={{
-                        paddingTop: '1px', fontWeight: '900', borderColor: 'white', height: '32px',
-                        '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
-                        '.MuiSvgIcon-root': { fontSize: '1rem' }, '&& fieldset': { border: 'none' }
-                      }}
-                    >
-                      {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
-                        <MenuItem key={year} value={year.toString()}>{year}</MenuItem>
+                  <Collapse in={open === item.title} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                      {item.children.map((child) => (
+                        <ListItem key={child.title} disablePadding>
+                          <ListItemButton href={child.href} sx={{ padding: '16px 32px 16px 50px' }}>
+                            <ListItemText primary={child.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                          </ListItemButton>
+                        </ListItem>
                       ))}
-                    </Select>
-                  </Box>
-                </ListItemButton>
-              </ListItem>
-              <ListItem disablePadding style={{ marginTop: 'auto' }}>
-                <ListItemButton sx={{ padding: '0px', width: '100%', '&:hover': { bgcolor: 'transparent' } }}>
-                  <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)} fullWidth
+                    </List>
+                  </Collapse>
+                </>
+              ) : (
+                <ListItem key={item.title} disablePadding>
+                  <ListItemButton href={item.href} sx={{ padding: '16px 32px' }}>
+                    <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                  </ListItemButton>
+                </ListItem>
+              )
+            ))}
+            <ListItem disablePadding>
+              <ListItemButton sx={{ padding: '16px 32px' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))} renderValue={(selectedValue) => `EURO ${selectedValue}`}
                     sx={{
-                      color: 'inherit', fontWeight: '900', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiOutlinedInput-input': { paddingLeft: '0px', textAlign: 'center' },
-                      '&& fieldset': { border: 'none' }, '& .MuiSelect-select': { padding: '16px 32px' },
+                      paddingTop: '1px', fontWeight: '900', borderColor: 'white', height: '32px',
+                      '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
+                      '.MuiSvgIcon-root': { fontSize: '1rem' }, '&& fieldset': { border: 'none' }
                     }}
                   >
-                    {Object.entries(languages).map(([code, name]) => (
-                      <MenuItem key={code} value={code}>{name}</MenuItem>
+                    {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
+                      <MenuItem key={year} value={year.toString()}>{year}</MenuItem>
                     ))}
                   </Select>
-                </ListItemButton>
-              </ListItem>
-            </List>
-          </Box>
+                </Box>
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+            <ListItem disablePadding>
+              <ListItemButton sx={{ padding: '0px', width: '100%', '&:hover': { bgcolor: 'transparent' } }}>
+                <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)} fullWidth
+                  sx={{
+                    color: 'inherit', fontWeight: '900', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiOutlinedInput-input': { paddingLeft: '0px', textAlign: 'center' },
+                    '&& fieldset': { border: 'none' }, '& .MuiSelect-select': { padding: '16px 32px' },
+                  }}
+                >
+                  {Object.entries(languages).map(([code, name]) => (
+                    <MenuItem key={code} value={code}>{name}</MenuItem>
+                  ))}
+                </Select>
+              </ListItemButton>
+            </ListItem>
+          </List>
         </Box>
       </Drawer>
     </>
