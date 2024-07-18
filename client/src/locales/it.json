@@ -1,0 +1,141 @@
+{
+	"header": {
+		"overview": "Panoramica",
+		"fixtures": "Calendario",
+		"allMatches": "Tutte le partite",
+		"group": "Fase a gironi",
+		"knockout": "Fase a eliminazione diretta",
+		"custom": "Partita personalizzata",
+		"about": "Informazioni"
+	},
+	"predictionsOverview": {
+		"title": "Panoramica delle previsioni",
+		"correct": "Previsione corretta oggi",
+		"incorrect": "Previsione errata oggi"
+	},
+	"recentPredictions": {
+		"title": "Previsioni recenti",
+		"prediction": "Previsione {outcome}",
+		"perfect": "perfetta",
+		"correct": "corretta",
+		"incorrect": "errata"
+	},
+	"overallStatistics": {
+		"title": "Statistiche generali",
+		"before": "del giorno prima"
+	},
+	"dailyPredictions": {
+		"title": "Previsioni giornaliere"
+	},
+	"groupPerformance": {
+		"group": "Gruppo",
+		"team": "Squadra",
+		"results": "Risultati delle previsioni",
+		"ranking": "Classifiche corrette",
+		"outcomes": "Esiti delle partite corretti",
+		"scores": "Punteggi delle partite corretti"
+	},
+	"matches": {
+		"Final": "Finale",
+		"Semi-finals": "Semifinali",
+		"Quarter-finals": "Quarti di finale",
+		"Round of 16": "Ottavi di finale",
+		"Third-place play-off": "Play-off per il terzo posto",
+		"outcome": "Previsione esito corretto",
+		"score": "Previsione punteggio corretto"
+	},
+	"custom": {
+		"draw": "Consenti pareggio",
+		"predict": "Previsione"
+	},
+	"about": {
+		"title": "Informazioni su",
+		"text1": "Benvenuti a Footy AI! Ispirata dall'entusiasmo e dall'imprevedibilità dei tornei UEFA Euro, Footy AI mira a portare un mix unico di analisi storica e tecnologia moderna agli appassionati di calcio di tutto il mondo.",
+		"title2": "La mia storia",
+		"text2": "L'idea di Footy AI è nata dal mio amore per il calcio e dal fascino per il potenziale dell'intelligenza artificiale. Con l'avvicinarsi del torneo UEFA Euro 2024, ho deciso di creare un'IA in grado di prevedere i risultati delle partite di calcio tra qualsiasi squadra nazionale, di qualsiasi periodo storico. Il mio obiettivo era vedere quanto bene l'IA potesse prevedere l'attuale torneo Euro ed esplorare le probabilità storiche delle squadre che vincevano nei tornei passati.",
+		"title3": "Cosa offro",
+		"text3": "Footy AI fornisce una piattaforma completa per visualizzare e interagire con le previsioni generate dall'IA. Ecco cosa puoi esplorare sul sito web:",
+		"list": {
+			"title1": "Statistiche generali del torneo",
+			"text1": "Tieni traccia di quanto bene l'IA prevede i risultati dell'attuale Euro 2024 o di qualsiasi torneo precedente.",
+			"title2": "Pronostici fase a gironi",
+			"text2": "Immergiti nei pronostici dettagliati per ogni partita della fase a gironi, dai punti totali alla differenza reti.",
+			"title3": "Pronostici fase a eliminazione diretta",
+			"text3": "Scopri come l'IA prevede i risultati delle partite della fase a eliminazione diretta.",
+			"title4": "Incontri personalizzati",
+			"text4": "Crea incontri personalizzati tra due nazioni UEFA che erano membri dell'associazione durante uno specifico torneo europeo."
+		},
+		"title4": "Come funziona",
+		"text4": "L'IA sfrutta dati storici e algoritmi avanzati di apprendimento automatico per generare previsioni. Il modello viene addestrato sui risultati storici con l'assistenza del sistema ELO. Ciò consente di fornire previsioni accurate e approfondite per gli incontri storici e contemporanei, mantenendo al contempo il modello di previsione minimo per garantire prestazioni rapide ed efficienti.",
+		"text4.1": "Puoi trovare il notebook Jupyter contenente il modello AI nella cartella \"server\" del <b>repository GitHub<b>. Questo repository contiene anche il codice per il sito Web, consentendoti di esplorare e contribuire al progetto.",
+		"title5": "La mia missione",
+		"text5": "In Footy AI, la mia missione è migliorare l'esperienza dei tifosi di calcio combinando la ricca storia di questo sport con la tecnologia all'avanguardia. Che tu sia curioso dei tornei passati o entusiasta dell'attuale Euro, il mio obiettivo è fornire una piattaforma divertente e informativa per tutti gli appassionati di calcio.",
+		"text6": "Grazie per aver visitato Footy AI. Spero che ti diverta a esplorare le previsioni e le intuizioni tanto quanto mi è piaciuto crearle. Se hai domande, feedback o suggerimenti, non esitare a contattarmi!"
+	},
+	"footer": {
+		"rights": "Tutti i diritti riservati."
+	},
+	"country": {
+		"Albania": "Albania",
+		"Andorra": "Andorra",
+		"Armenia": "Armenia",
+		"Austria": "Austria",
+		"Azerbaijan": "Azerbaigian",
+		"Belarus": "Bielorussia",
+		"Belgium": "Belgio",
+		"Bosnia and Herzegovina": "Bosnia ed Erzegovina",
+		"Bulgaria": "Bulgaria",
+		"CIS": "CSI",
+		"Croatia": "Croazia",
+		"Cyprus": "Cipro",
+		"Czechia": "Repubblica Ceca",
+		"Czechoslovakia": "Cecoslovacchia",
+		"Denmark": "Danimarca",
+		"East Germany": "Germania dell'Est",
+		"England": "Inghilterra",
+		"Estonia": "Estonia",
+		"Faroe Islands": "Isole Faroe",
+		"Finland": "Finlandia",
+		"France": "Francia",
+		"Georgia": "Georgia",
+		"Germany": "Germania",
+		"Gibraltar": "Gibilterra",
+		"Greece": "Grecia",
+		"Hungary": "Ungheria",
+		"Iceland": "Islanda",
+		"Ireland": "Irlanda",
+		"Israel": "Israele",
+		"Italy": "Italia",
+		"Kazakhstan": "Kazakistan",
+		"Kosovo": "Kosovo",
+		"Latvia": "Lettonia",
+		"Liechtenstein": "Liechtenstein",
+		"Lithuania": "Lituania",
+		"Luxembourg": "Lussemburgo",
+		"Malta": "Malta",
+		"Moldova": "Moldavia",
+		"Montenegro": "Montenegro",
+		"Netherlands": "Paesi Bassi",
+		"Northern Ireland": "Irlanda del Nord",
+		"North Macedonia": "Macedonia del Nord",
+		"Norway": "Norvegia",
+		"Poland": "Polonia",
+		"Portugal": "Portogallo",
+		"Romania": "Romania",
+		"Russia": "Russia",
+		"San Marino": "San Marino",
+		"Scotland": "Scozia",
+		"Serbia": "Serbia",
+		"Slovakia": "Slovacchia",
+		"Slovenia": "Slovenia",
+		"Soviet Union": "Unione Sovietica",
+		"Spain": "Spagna",
+		"Sweden": "Svezia",
+		"Switzerland": "Svizzera",
+		"Turkey": "Turchia",
+		"Ukraine": "Ucraina",
+		"Wales": "Galles",
+		"West Germany": "Germania dell'Ovest",
+		"Yugoslavia": "Jugoslavia"
+	}
+}

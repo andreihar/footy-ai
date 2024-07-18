@@ -62,7 +62,7 @@ const OverallStatistics = () => {
         },
       },
     ],
-    labels: [formatMessage({ id: 'overallStatistics.correct' }), formatMessage({ id: 'overallStatistics.incorrect' })],
+    labels: [formatMessage({ id: 'recentPredictions.correct' }), formatMessage({ id: 'recentPredictions.incorrect' })],
   };
   const seriescolumnchart: any = [correct, 100 - correct];
 

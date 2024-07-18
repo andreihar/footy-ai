@@ -15,15 +15,14 @@
 	},
 	"recentPredictions": {
 		"title": "Neueste Vorhersagen",
-		"perfect": "Perfekt vorhergesagt",
-		"correct": "Korrekt vorhergesagt",
-		"incorrect": "Falsch vorhergesagt"
+		"prediction": "{outcome} vorhergesagt",
+		"perfect": "Perfekt",
+		"correct": "Korrekt",
+		"incorrect": "Falsch"
 	},
 	"overallStatistics": {
 		"title": "Gesamtstatistik",
-		"before": "vom Vortag",
-		"correct": "Korrekt",
-		"incorrect": "Falsch"
+		"before": "vom Vortag"
 	},
 	"dailyPredictions": {
 		"title": "Tägliche Vorhersagen"
@@ -48,6 +47,33 @@
 	"custom": {
 		"draw": "Unentschieden erlauben",
 		"predict": "Vorhersagen"
+	},
+	"about": {
+		"title": "Über",
+		"text1": "Willkommen bei Footy AI! Inspiriert von der Spannung und Unvorhersehbarkeit der UEFA-Euro-Turniere möchte Footy AI Fußballfans auf der ganzen Welt eine einzigartige Mischung aus historischer Analyse und moderner Technologie bieten.",
+		"title2": "Meine Geschichte",
+		"text2": "Die Idee für Footy AI entstand aus meiner Liebe zum Fußball und meiner Faszination für das Potenzial künstlicher Intelligenz. Mit der bevorstehenden UEFA Euro 2024 machte ich mich daran, eine KI zu entwickeln, die die Ergebnisse von Fußballspielen zwischen beliebigen Nationalmannschaften aus jeder beliebigen Epoche der Geschichte vorhersagen kann. Mein Ziel war es, herauszufinden, wie gut die KI das aktuelle Euro-Turnier vorhersagen kann, und die historischen Gewinnchancen der Teams in vergangenen Turnieren zu untersuchen.",
+		"title3": "Mein Angebot",
+		"text3": "Footy AI bietet eine umfassende Plattform zur Visualisierung und Interaktion mit den von der KI generierten Vorhersagen. Folgendes können Sie auf der Website erkunden:",
+		"list": {
+			"title1": "Gesamtstatistik des Turniers",
+			"text1": "Verfolgen Sie, wie gut die KI die Ergebnisse der aktuellen Euro 2024 oder eines früheren Turniers vorhersagt.",
+			"title2": "Vorhersagen für die Gruppenphase",
+			"text2": "Tauchen Sie ein in detaillierte Vorhersagen für jedes Gruppenphasenspiel, von der Gesamtpunktzahl bis zur Tordifferenz.",
+			"title3": "Vorhersagen für die Ausscheidungsrunde",
+			"text3": "Sehen Sie, wie die KI die Ergebnisse von Spielen in der Ausscheidungsrunde vorhersagt.",
+			"title4": "Benutzerdefinierte Begegnungen",
+			"text4": "Erstellen Sie benutzerdefinierte Begegnungen zwischen zwei beliebigen UEFA-Ländern, die während eines bestimmten EM-Turniers Mitglieder des Verbands waren."
+		},
+		"title4": "So funktioniert es",
+		"text4": "Die KI nutzt historische Daten und fortschrittliche Algorithmen des maschinellen Lernens, um Vorhersagen zu generieren. Das Modell wird mithilfe des ELO-Systems anhand der historischen Ergebnisse trainiert. Dies ermöglicht genaue und aufschlussreiche Vorhersagen für sowohl historische als auch aktuelle Begegnungen, während das Vorhersagemodell minimal gehalten wird, um eine schnelle und effiziente Leistung zu gewährleisten.",
+		"text4.1": "Sie finden das Jupyter-Notebook mit dem KI-Modell im Ordner \"Server\" des <b>GitHub-Repositorys<b>. Dieses Repository enthält auch den Code für die Website, sodass Sie das Projekt erkunden und dazu beitragen können.",
+		"title5": "Meine Mission",
+		"text5": "Bei Footy AI besteht meine Mission darin, das Erlebnis der Fußballfans zu verbessern, indem ich die reiche Geschichte des Sports mit modernster Technologie kombiniere. Egal, ob Sie neugierig auf vergangene Turniere sind oder sich auf die aktuelle EM freuen, ich möchte allen Fußballfans eine unterhaltsame und informative Plattform bieten.",
+		"text6": "Vielen Dank für Ihren Besuch bei Footy AI. Ich hoffe, Sie haben beim Erkunden der Vorhersagen und Erkenntnisse genauso viel Spaß wie ich beim Erstellen. Wenn Sie Fragen, Feedback oder Vorschläge haben, zögern Sie bitte nicht, sich an uns zu wenden!"
+	},
+	"footer": {
+		"rights": "Alle Rechte vorbehalten."
 	},
 	"country": {
 		"Albania": "Albanien",
@@ -111,5 +137,5 @@
 		"Wales": "Wales",
 		"West Germany": "Westdeutschland",
 		"Yugoslavia": "Jugoslawien"
-	}	
+	}
 }

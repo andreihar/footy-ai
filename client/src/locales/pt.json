@@ -1,0 +1,141 @@
+{
+	"header": {
+		"overview": "Visão geral",
+		"fixtures": "Jogos",
+		"allMatches": "Todas as partidas",
+		"group": "Fase de grupos",
+		"knockout": "Fase a eliminar",
+		"custom": "Partida personalizada",
+		"about": "Sobre"
+	},
+	"predictionsOverview": {
+		"title": "Visão geral das previsões",
+		"correct": "Previsão correta neste dia",
+		"incorrect": "Previsão incorreta neste dia"
+	},
+	"recentPredictions": {
+		"title": "Previsões recentes",
+		"prediction": "Previsão {outcome}",
+		"perfect": "perfeita",
+		"correct": "correta",
+		"incorrect": "incorreta"
+	},
+	"overallStatistics": {
+		"title": "Estatísticas Gerais",
+		"before": "desde o dia anterior"
+	},
+	"dailyPredictions": {
+		"title": "Previsões Diárias"
+	},
+	"groupPerformance": {
+		"group": "Grupo",
+		"team": "Equipa",
+		"results": "Resultados de previsão",
+		"ranking": "Classificações corretas",
+		"outcomes": "Resultados corretos da partida",
+		"scores": "Pontuações corretas das partidas"
+	},
+	"matches": {
+		"Final": "Final",
+		"Semi-finals": "Semifinais",
+		"Quarter-finals": "Quartas de final",
+		"Round of 16": "Rondas de 16",
+		"Third-place play-off": "Eliminatória do terceiro lugar",
+		"outcome": "Previsão correta de resultados",
+		"score": "Previsão de pontuação correta"
+	},
+	"custom": {
+		"draw": "Permitir sorteio",
+		"predict": "Prever"
+	},
+	"about": {
+		"title": "Sobre o",
+		"text1": "Bem-vindo ao Footy AI! Inspirado na emoção e imprevisibilidade dos torneios do UEFA Euro, o Footy AI pretende trazer uma combinação única de análise histórica e tecnologia moderna aos entusiastas do futebol de todo o mundo.",
+		"title2": "A minha história",
+		"text2": "A ideia do Footy AI nasceu do meu amor pelo futebol e do fascínio pelo potencial da inteligência artificial. Com o aproximar do torneio UEFA Euro 2024, decidi criar uma IA que pudesse prever os resultados dos jogos de futebol entre quaisquer seleções nacionais, de qualquer período da história. O meu objetivo era ver até que ponto a IA poderia prever o atual torneio europeu e explorar as probabilidades históricas de equipas vencedoras em torneios anteriores.",
+		"title3": "O que ofereço",
+		"text3": "O Footy AI fornece uma plataforma abrangente para visualizar e interagir com as previsões geradas pela IA. Eis o que pode explorar no site:",
+		"list": {
+			"title1": "Estatísticas gerais do torneio",
+			"text1": "Acompanhe o quão bem a IA prevê os resultados do atual Euro 2024 ou de qualquer torneio anterior.",
+			"title2": "Previsões da fase de grupos",
+			"text2": "Mergulhe nas previsões detalhadas para cada jogo da fase de grupos, desde o total de pontos até à diferença de golos.",
+			"title3": "Previsões da fase a eliminar",
+			"text3": "Veja como a IA prevê os resultados dos jogos da fase a eliminar.",
+			"title4": "Combinações personalizadas",
+			"text4": "Crie confrontos personalizados entre quaisquer dois países da UEFA que tenham sido membros da associação durante um torneio europeu específico."
+		},
+		"title4": "Como funciona",
+		"text4": "A IA aproveita dados históricos e algoritmos avançados de aprendizagem automática para gerar previsões. O modelo é treinado nos resultados históricos com a ajuda do sistema ELO. Isto permite fornecer previsões precisas e perspicazes para correspondências históricas e contemporâneas, ao mesmo tempo que mantém o modelo de previsão mínimo para garantir um desempenho rápido e eficiente.",
+		"text4.1": "Pode encontrar o Jupyter notebook contendo o modelo de IA na pasta \"server\" do <b>repositório GitHub<b>. Este repositório contém também o código do site, permitindo explorar e contribuir para o projeto.",
+		"title5": "A minha missão",
+		"text5": "Na Footy AI, a minha missão é melhorar a experiência dos fãs de futebol, combinando a rica história do desporto com tecnologia de ponta. Quer esteja curioso sobre os torneios anteriores ou entusiasmado com o Euro atual, o meu objetivo é proporcionar uma plataforma divertida e informativa para todos os entusiastas do futebol.",
+		"text6": "Obrigado por visitar o Footy AI. Espero que goste de explorar as previsões e os insights tanto quanto eu gostei de os criar. Se tiver alguma dúvida, feedback ou sugestão, não hesite em contactar!"
+	},
+	"footer": {
+		"rights": "Todos os direitos reservados."
+	},
+	"country": {
+		"Albania": "Albânia",
+		"Andorra": "Andorra",
+		"Armenia": "Arménia",
+		"Austria": "Áustria",
+		"Azerbaijan": "Azerbaijão",
+		"Belarus": "Belarus",
+		"Belgium": "Bélgica",
+		"Bosnia and Herzegovina": "Bósnia e Herzegovina",
+		"Bulgaria": "Bulgária",
+		"CIS": "CEI",
+		"Croatia": "Croácia",
+		"Cyprus": "Chipre",
+		"Czechia": "República Checa",
+		"Czechoslovakia": "Checoslováquia",
+		"Denmark": "Dinamarca",
+		"East Germany": "Alemanha de Leste",
+		"England": "Inglaterra",
+		"Estonia": "Estónia",
+		"Faroe Islands": "Ilhas Faroé",
+		"Finland": "Finlândia",
+		"France": "França",
+		"Georgia": "Geórgia",
+		"Germany": "Alemanha",
+		"Gibraltar": "Gibraltar",
+		"Greece": "Grécia",
+		"Hungary": "Hungria",
+		"Iceland": "Islândia",
+		"Ireland": "Irlanda",
+		"Israel": "Israel",
+		"Italy": "Itália",
+		"Kazakhstan": "Cazaquistão",
+		"Kosovo": "Kosovo",
+		"Latvia": "Letónia",
+		"Liechtenstein": "Liechtenstein",
+		"Lithuania": "Lituânia",
+		"Luxembourg": "Luxemburgo",
+		"Malta": "Malta",
+		"Moldova": "Moldávia",
+		"Montenegro": "Montenegro",
+		"Netherlands": "Países Baixos",
+		"Northern Ireland": "Irlanda do Norte",
+		"North Macedonia": "Macedónia do Norte",
+		"Norway": "Noruega",
+		"Poland": "Polónia",
+		"Portugal": "Portugal",
+		"Romania": "Roménia",
+		"Russia": "Rússia",
+		"San Marino": "São Marino",
+		"Scotland": "Escócia",
+		"Serbia": "Sérvia",
+		"Slovakia": "Eslováquia",
+		"Slovenia": "Eslovénia",
+		"Soviet Union": "União Soviética",
+		"Spain": "Espanha",
+		"Sweden": "Suécia",
+		"Switzerland": "Suíça",
+		"Turkey": "Turquia",
+		"Ukraine": "Ucrânia",
+		"Wales": "País de Gales",
+		"West Germany": "Alemanha Ocidental",
+		"Yugoslavia": "Jugoslávia"
+	}
+}

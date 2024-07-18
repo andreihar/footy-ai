@@ -58,7 +58,7 @@ const AboutPage = () => {
 
   return (
     <PageContainer title={formatMessage({ id: 'header.about' })} description="List of all matches and predictions">
-      <DashboardCard title={`${formatMessage({ id: 'header.about' })} Footy AI`}>
+      <DashboardCard title={`${formatMessage({ id: 'about.title' })} Footy AI`}>
         <CardContent>
           <Typography paragraph variant="body1">{formatMessage({ id: 'about.text1' })}</Typography>
           <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title2' })}</Typography>

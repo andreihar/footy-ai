@@ -33,7 +33,7 @@ function Header() {
     { title: formatMessage({ id: 'header.about' }), href: "/about", },
   ];
 
-  const languages = { en: 'English', fr: 'Français', de: 'Deutsch', };
+  const languages = { en: 'English', fr: 'Français', de: 'Deutsch', es: 'Español', it: 'Italiano', pt: 'Português' };
 
   const handleClick = (title: string): void => {
     if (open === title) {

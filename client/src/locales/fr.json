@@ -9,24 +9,23 @@
 		"about": "À propos"
 	},
 	"predictionsOverview": {
-	  "title": "Aperçu des Prédictions",
-	  "correct": "Prédiction correcte ce jour",
-	  "incorrect": "Prédiction incorrecte ce jour"
+		"title": "Aperçu des Prédictions",
+		"correct": "Prédiction correcte ce jour",
+		"incorrect": "Prédiction incorrecte ce jour"
 	},
 	"recentPredictions": {
-	  "title": "Prédictions Récentes",
-	  "perfect": "Prédiction parfaite",
-	  "correct": "Prédiction correcte",
-	  "incorrect": "Prédiction incorrecte"
+		"title": "Prédictions Récentes",
+		"prediction": "Prédiction {outcome}e",
+		"perfect": "parfait",
+		"correct": "correct",
+		"incorrect": "incorrect"
 	},
 	"overallStatistics": {
-	  "title": "Statistiques Globales",
-	  "before": "du jour précédent",
-	  "correct": "Correct",
-	  "incorrect": "Incorrect"
+		"title": "Statistiques Globales",
+		"before": "du jour précédent"
 	},
 	"dailyPredictions": {
-	  "title": "Prédictions Quotidiennes"
+		"title": "Prédictions Quotidiennes"
 	},
 	"groupPerformance": {
 		"group": "Groupe",
@@ -48,6 +47,33 @@
 	"custom": {
 		"draw": "Permettre le Match Nul",
 		"predict": "Prédire"
+	},
+	"about": {
+		"title": "À propos de",
+		"text1": "Bienvenue sur Footy AI! Inspiré par l'excitation et l'imprévisibilité des tournois de l'Euro de l'UEFA, Footy AI vise à apporter un mélange unique d'analyse historique et de technologie moderne aux passionnés de football du monde entier.",
+		"title2": "Mon histoire",
+		"text2": "L'idée de Footy AI est née de mon amour pour le football et d'une fascination pour le potentiel de l'intelligence artificielle. À l'approche du tournoi de l'Euro 2024 de l'UEFA, j'ai décidé de créer une IA capable de prédire les résultats des matchs de football entre n'importe quelle équipe nationale, de n'importe quelle période de l'histoire. Mon objectif était de voir dans quelle mesure l'IA pouvait prédire le tournoi de l'Euro en cours et d'explorer les chances historiques de victoire des équipes lors des tournois passés.",
+		"title3": "Ce que j'offre",
+		"text3": "Footy AI fournit une plate-forme complète pour visualiser et interagir avec les prédictions générées par l'IA. Voici ce que vous pouvez explorer sur le site Web:",
+		"list": {
+			"title1": "Statistiques globales du tournoi",
+			"text1": "Suivez dans quelle mesure l'IA prédit les résultats de l'Euro 2024 en cours ou de tout tournoi précédent.",
+			"title2": "Prédictions de la phase de groupe",
+			"text2": "Plongez dans les prévisions détaillées pour chaque match de la phase de groupe, du total des points à la différence de buts.",
+			"title3": "Prédictions de la phase à élimination directe",
+			"text3": "Découvrez comment l'IA prévoit les résultats des matchs de la phase à élimination directe.",
+			"title4": "Confrontations personnalisées",
+			"text4": "Créez des confrontations personnalisées entre deux pays de l'UEFA qui étaient membres de l'association lors d'un tournoi Euro spécifique."
+		},
+		"title4": "Comment ça marche",
+		"text4": "L'IA exploite les données historiques et les algorithmes avancés d'apprentissage automatique pour générer des prévisions. Le modèle est formé sur les résultats historiques avec l'aide du système ELO. Cela permet de fournir des prévisions précises et pertinentes pour les confrontations historiques et contemporaines, tout en gardant le modèle de prédiction minimal pour garantir des performances rapides et efficaces.",
+		"text4.1": "Vous pouvez trouver le notebook Jupyter contenant le modèle d'IA dans le dossier \"serveur\" du <b>référentiel GitHub<b>. Ce référentiel contient également le code du site Web, vous permettant d'explorer et de contribuer au projet.",
+		"title5": "Ma mission",
+		"text5": "Chez Footy AI, ma mission est d'améliorer l'expérience des fans de football en combinant la riche histoire du sport avec une technologie de pointe. Que vous soyez curieux des tournois passés ou enthousiasmé par l'Euro actuel, mon objectif est de fournir une plate-forme amusante et informative à tous les passionnés de football.",
+		"text6": "Merci de visiter Footy AI. J'espère que vous apprécierez d'explorer les prévisions et les informations autant que j'ai aimé les créer. Si vous avez des questions, des commentaires ou des suggestions, n'hésitez pas à me contacter!"
+	},
+	"footer": {
+		"rights": "Tous droits réservés."
 	},
 	"country": {
 		"Albania": "Albanie",
