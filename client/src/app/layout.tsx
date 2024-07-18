@@ -4,7 +4,8 @@ import React from "react";
 import { StatsProvider } from "@/utils/StatsContext";
 import { LanguageProvider } from '@/utils/LanguageProvider';
 import DynamicTheme from "@/utils/DynamicTheme";
-import Header from "@/app/layout/header/Header";
+import Header from "@/app/layout/Header";
+import Footer from "@/app/layout/Footer";
 import './global.css';
 
 const MainWrapper = styled("div")(() => ({
@@ -16,7 +17,6 @@ const MainWrapper = styled("div")(() => ({
 const PageWrapper = styled("div")(() => ({
   display: "flex",
   flexGrow: 1,
-  paddingBottom: "60px",
   flexDirection: "column",
   zIndex: 1,
   backgroundColor: "#EDEFF4",
@@ -32,9 +32,10 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
               <MainWrapper className="mainwrapper">
                 <PageWrapper className="page-wrapper">
                   <Header />
-                  <Container sx={{ paddingTop: "20px", maxWidth: "1200px" }}>
+                  <Container sx={{ paddingTop: "20px", paddingBottom: "60px", maxWidth: "1200px" }}>
                     <Box sx={{ minHeight: "calc(100vh - 170px)" }}>{children}</Box>
                   </Container>
+                  <Footer />
                 </PageWrapper>
               </MainWrapper>
             </DynamicTheme>

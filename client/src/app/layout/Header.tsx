@@ -5,8 +5,8 @@ import { useStats } from '@/utils/StatsContext';
 import { useLanguage } from '@/utils/LanguageProvider';
 import { useIntl } from 'react-intl';
 import { useTheme, lighten, darken } from '@mui/material/styles';
-import Logo from '../shared/logo/Logo';
-import EuroLogo from '../shared/logo/EuroLogo';
+import Logo from './Logo';
+import EuroLogo from './EuroLogo';
 
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -97,7 +97,7 @@ function Header() {
           <Toolbar sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
             <Box display="flex" alignItems="center" component="a" href="/" color={getColour()} sx={{ textDecoration: 'none' }}>
               <SvgIcon component={Logo} sx={{ width: 68, height: 68, color: 'black', mr: 2 }} />
-              <Typography fontFamily="Logo" className="custom-font-element" variant="h2" noWrap sx={{ color: 'inherit', lineHeight: 'normal', mt: '14px', }}>
+              <Typography fontFamily="Logo" variant="h2" noWrap sx={{ color: 'inherit', lineHeight: 'normal', mt: '14px', }}>
                 Footy AI
               </Typography>
             </Box>

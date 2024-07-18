@@ -22,13 +22,6 @@ const AboutPage = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  const listItems = [
-    { title: formatMessage({ id: 'about.list.title1' }), description: formatMessage({ id: 'about.list.text1' }), Icon: IconBrain },
-    { title: formatMessage({ id: 'about.list.title2' }), description: formatMessage({ id: 'about.list.text2' }), Icon: IconTableShare },
-    { title: formatMessage({ id: 'about.list.title3' }), description: formatMessage({ id: 'about.list.text3' }), Icon: IconTournament },
-    { title: formatMessage({ id: 'about.list.title4' }), description: formatMessage({ id: 'about.list.text4' }), Icon: IconBallFootball }
-  ];
-
   const GithubCard = () => (
     <Card sx={{ maxWidth: 345, my: '20px', mx: "auto" }}>
       <CardActionArea onClick={() => window.open('https://github.com/andreihar', '_blank')}>
@@ -56,51 +49,45 @@ const AboutPage = () => {
     </Card>
   );
 
-  const AboutContent = () => (
-    <>
-      <Typography paragraph variant="body1">{formatMessage({ id: 'about.text1' })}</Typography>
-      <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title2' })}</Typography>
-      <Typography paragraph>{formatMessage({ id: 'about.text2' })}</Typography>
-      <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title3' })}</Typography>
-      <Typography paragraph>{formatMessage({ id: 'about.text3' })}</Typography>
-      <Box pl={2} mb={2}>
-        <Grid container spacing={2}>
-          {listItems.map((item, index) => (
-            <Grid item xs={12} md={6} key={index}>
-              <ListItem>
-                <ListItemIcon sx={{ color: "inherit" }}>
-                  <item.Icon />
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.title}
-                  secondary={item.description}
-                  primaryTypographyProps={{ sx: { fontWeight: '900', fontSize: '1.15rem' } }}
-                  secondaryTypographyProps={{ sx: { fontSize: '1rem' } }}
-                />
-              </ListItem>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-      <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title4' })}</Typography>
-      <Typography paragraph>{formatMessage({ id: 'about.text4' })}</Typography>
-      <Typography paragraph>
-        <FormattedMessage id="about.text4.1"
-          values={{ b: chunks => <Link href="https://github.com/andreihar/footy-ai" target="_blank">{chunks}</Link> }}
-        />
-      </Typography>
-      <GithubCard />
-      <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title5' })}</Typography>
-      <Typography paragraph>{formatMessage({ id: 'about.text5' })}</Typography>
-      <Typography paragraph>{formatMessage({ id: 'about.text6' })}</Typography>
-    </>
-  );
+  const listItems = [
+    { title: formatMessage({ id: 'about.list.title1' }), description: formatMessage({ id: 'about.list.text1' }), Icon: IconBrain },
+    { title: formatMessage({ id: 'about.list.title2' }), description: formatMessage({ id: 'about.list.text2' }), Icon: IconTableShare },
+    { title: formatMessage({ id: 'about.list.title3' }), description: formatMessage({ id: 'about.list.text3' }), Icon: IconTournament },
+    { title: formatMessage({ id: 'about.list.title4' }), description: formatMessage({ id: 'about.list.text4' }), Icon: IconBallFootball }
+  ];
 
   return (
     <PageContainer title={formatMessage({ id: 'header.about' })} description="List of all matches and predictions">
       <DashboardCard title={`${formatMessage({ id: 'header.about' })} Footy AI`}>
         <CardContent>
-          <AboutContent />
+          <Typography paragraph variant="body1">{formatMessage({ id: 'about.text1' })}</Typography>
+          <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title2' })}</Typography>
+          <Typography paragraph>{formatMessage({ id: 'about.text2' })}</Typography>
+          <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title3' })}</Typography>
+          <Typography paragraph>{formatMessage({ id: 'about.text3' })}</Typography>
+          <Box pl={2} mb={2}>
+            <Grid container spacing={2}>
+              {listItems.map((item, index) => (
+                <Grid item xs={12} md={6} key={index}>
+                  <ListItem>
+                    <ListItemIcon sx={{ color: "inherit" }}><item.Icon /></ListItemIcon>
+                    <ListItemText primary={item.title} secondary={item.description} primaryTypographyProps={{ sx: { fontWeight: '900', fontSize: '1.15rem' } }} secondaryTypographyProps={{ sx: { fontSize: '1rem' } }} />
+                  </ListItem>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+          <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title4' })}</Typography>
+          <Typography paragraph>{formatMessage({ id: 'about.text4' })}</Typography>
+          <Typography paragraph>
+            <FormattedMessage id="about.text4.1"
+              values={{ b: chunks => <Link href="https://github.com/andreihar/footy-ai" target="_blank">{chunks}</Link> }}
+            />
+          </Typography>
+          <GithubCard />
+          <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title5' })}</Typography>
+          <Typography paragraph>{formatMessage({ id: 'about.text5' })}</Typography>
+          <Typography paragraph>{formatMessage({ id: 'about.text6' })}</Typography>
         </CardContent>
       </DashboardCard>
     </PageContainer>
