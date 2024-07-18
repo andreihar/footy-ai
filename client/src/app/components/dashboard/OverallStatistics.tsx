@@ -89,11 +89,11 @@ const OverallStatistics = () => {
           <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.main, svg: { display: 'none' } }}></Avatar>
-              <Typography variant="subtitle2" color="textSecondary">{formatMessage({ id: 'overallStatistics.correct' })}</Typography>
+              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{formatMessage({ id: 'recentPredictions.correct' })}</Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.light, svg: { display: 'none' } }}></Avatar>
-              <Typography variant="subtitle2" color="textSecondary">{formatMessage({ id: 'overallStatistics.incorrect' })}</Typography>
+              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{formatMessage({ id: 'recentPredictions.incorrect' })}</Typography>
             </Stack>
           </Stack>
         </Grid>

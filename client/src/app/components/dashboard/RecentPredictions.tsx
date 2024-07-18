@@ -6,7 +6,7 @@ import Match from '../../types/match';
 import { useEffect, useState } from "react";
 import useCountryFlags from '@/utils/countryUtils';
 import { useStats } from '@/utils/StatsContext';
-import { useIntl } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 import { useLanguage } from '@/utils/LanguageProvider';
 
 const RecentPredictions = () => {
@@ -51,7 +51,7 @@ const RecentPredictions = () => {
               </TimelineSeparator>
               <TimelineContent>
                 <Typography fontWeight="600">{`${getHistoricalName(match.home_team)} vs ${getHistoricalName(match.away_team)}`}</Typography>
-                {formatMessage({ id: `recentPredictions.${match.status}` })}
+                <FormattedMessage id="recentPredictions.prediction" values={{ outcome: formatMessage({ id: `recentPredictions.${match.status}` }) }} />
               </TimelineContent>
             </TimelineItem>
           ))}
@@ -61,4 +61,4 @@ const RecentPredictions = () => {
   );
 };
 
-export default RecentPredictions;
+export default RecentPredictions;;
