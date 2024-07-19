@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Papa from 'papaparse';
 import Match from '../app/types/match';
+import Loading from '@/app/loading';
 
 interface StatsContextType {
   data: Match[];
@@ -225,7 +226,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   }
 
   if (!isClient) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

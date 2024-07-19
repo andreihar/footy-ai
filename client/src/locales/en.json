@@ -80,6 +80,11 @@
 	"footer": {
 		"rights": "All rights reserved."
 	},
+	"404": {
+		"title": "Sorry, page not found!",
+		"text": "Sorry, we couldn’t find the page you're looking for. Perhaps you’ve mistyped the URL? Be sure to check your spelling.",
+		"button": "Back to Home"
+	},
 	"country": {
 		"Albania": "Albania",
 		"Andorra": "Andorra",
