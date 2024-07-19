@@ -34,7 +34,7 @@ const AboutPage = () => {
         />
       </CardActionArea>
       <CardActionArea onClick={() => window.open('https://github.com/andreihar/footy-ai', '_blank')}>
-        <CardMedia component="img" height="140" image="/images/banner.jpg" alt="Banner" />
+        <CardMedia component="img" height="140" image="/img/banner.jpg" alt="Banner" />
         <CardContent>
           <Box display="flex" justifyContent="space-between" alignItems="center">
             <Typography gutterBottom variant="h3" component="div">Footy AI</Typography>
