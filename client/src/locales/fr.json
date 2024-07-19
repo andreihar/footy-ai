@@ -8,6 +8,11 @@
 		"custom": "Match Personnalisé",
 		"about": "À propos"
 	},
+	"generalStats": {
+		"perfect": "Scores de Match Exactes",
+		"group": "Précision Phase de Groupes",
+		"knockout": "Précision Phase à Élimination"
+	},
 	"predictionsOverview": {
 		"title": "Aperçu des Prédictions",
 		"correct": "Prédiction correcte ce jour",
@@ -74,6 +79,11 @@
 	},
 	"footer": {
 		"rights": "Tous droits réservés."
+	},
+	"404": {
+		"title": "Désolé, page introuvable!",
+		"text": "Désolé, nous n'avons pas pu trouver la page que vous cherchez. Peut-être avez-vous mal tapé l'URL? Assurez-vous de vérifier votre orthographe.",
+		"button": "Retour à l'accueil"
 	},
 	"country": {
 		"Albania": "Albanie",

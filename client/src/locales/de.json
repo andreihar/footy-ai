@@ -8,6 +8,11 @@
 		"custom": "Angepasstes Spiel",
 		"about": "Über"
 	},
+	"generalStats": {
+		"perfect": "Exakte Spielergebnisse",
+		"group": "Genauigkeit Gruppenphase",
+		"knockout": "Genauigkeit Ausscheidungsrunde"
+	},
 	"predictionsOverview": {
 		"title": "Vorhersageübersicht",
 		"correct": "An diesem Tag korrekt vorhergesagt",
@@ -74,6 +79,11 @@
 	},
 	"footer": {
 		"rights": "Alle Rechte vorbehalten."
+	},
+	"404": {
+		"title": "Entschuldigung, Seite nicht gefunden!",
+		"text": "Entschuldigung, wir konnten die Seite, die Sie suchen, nicht finden. Vielleicht haben Sie die URL falsch eingegeben? Überprüfen Sie bitte Ihre Schreibweise.",
+		"button": "Zurück zur Startseite"
 	},
 	"country": {
 		"Albania": "Albanien",

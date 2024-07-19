@@ -8,6 +8,11 @@
 		"custom": "Partita personalizzata",
 		"about": "Informazioni"
 	},
+	"generalStats": {
+		"perfect": "Punteggi Esatti delle Partite",
+		"group": "Accuratezza Fase a Gironi",
+		"knockout": "Accuratezza Fase a Eliminazione"
+	},
 	"predictionsOverview": {
 		"title": "Panoramica delle previsioni",
 		"correct": "Previsione corretta oggi",
@@ -74,6 +79,11 @@
 	},
 	"footer": {
 		"rights": "Tutti i diritti riservati."
+	},
+	"404": {
+		"title": "Spiacenti, pagina non trovata!",
+		"text": "Spiacenti, non abbiamo trovato la pagina che stai cercando. Forse hai digitato male l'URL? Assicurati di controllare la tua ortografia.",
+		"button": "Torna alla Home"
 	},
 	"country": {
 		"Albania": "Albania",

@@ -8,6 +8,11 @@
 		"custom": "Partida personalizada",
 		"about": "Sobre"
 	},
+	"generalStats": {
+		"perfect": "Resultados Exatos dos Jogos",
+		"group": "Precisão Fase de Grupos",
+		"knockout": "Precisão Fase a Eliminar"
+	},
 	"predictionsOverview": {
 		"title": "Visão geral das previsões",
 		"correct": "Previsão correta neste dia",
@@ -74,6 +79,11 @@
 	},
 	"footer": {
 		"rights": "Todos os direitos reservados."
+	},
+	"404": {
+		"title": "Desculpe, página não encontrada!",
+		"text": "Desculpe, não conseguimos encontrar a página que procura. Talvez tenha digitado o URL incorretamente? Verifique a sua ortografia.",
+		"button": "Voltar à Página Inicial"
 	},
 	"country": {
 		"Albania": "Albânia",
