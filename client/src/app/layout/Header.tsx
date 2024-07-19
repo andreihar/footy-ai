@@ -149,10 +149,11 @@ function Header() {
               <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: getColour() }}>
                 <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))} renderValue={(selectedValue) => `EURO ${selectedValue}`}
                   sx={{
-                    paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px',
+                    paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px', fontWeight: '500', fontSize: '14px',
                     '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
                     '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '&& fieldset': { border: 'none' }
                   }}
+                  MenuProps={{ PaperProps: { style: { maxHeight: 250 } } }}
                 >
                   {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
                     <MenuItem key={year} value={year.toString()}>{year}</MenuItem>
@@ -212,6 +213,7 @@ function Header() {
                       '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
                       '.MuiSvgIcon-root': { fontSize: '1rem' }, '&& fieldset': { border: 'none' }
                     }}
+                    MenuProps={{ PaperProps: { style: { maxHeight: 250 } } }}
                   >
                     {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
                       <MenuItem key={year} value={year.toString()}>{year}</MenuItem>

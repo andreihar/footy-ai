@@ -8,6 +8,11 @@
 		"custom": "Custom Match",
 		"about": "About"
 	},
+	"generalStats": {
+		"perfect": "Exact Match Scores",
+		"group": "Group Stage Accuracy",
+		"knockout": "Knockout Stage Accuracy"
+	},
 	"predictionsOverview": {
 		"title": "Predictions Overview",
 		"correct": "Predicted correct this day",

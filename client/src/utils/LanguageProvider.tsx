@@ -30,9 +30,13 @@ const flattenMessages = (nestedMessages: any, prefix = '') => {
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode; }> = ({ children }) => {
+	type Language = 'en' | 'fr' | 'de' | 'es' | 'it' | 'pt';
+
 	const getInitialLanguage = () => {
 		if (typeof window !== "undefined") {
-			return localStorage.getItem('appLanguage') || 'en';
+			const storedLang = localStorage.getItem('lang');
+			const browserLang = navigator.language.split('-')[0];
+			return storedLang || (['en', 'fr', 'de', 'es', 'it', 'pt'].includes(browserLang) && browserLang) || 'en';
 		}
 		return 'en';
 	};
@@ -40,12 +44,11 @@ export const LanguageProvider: React.FC<{ children: ReactNode; }> = ({ children 
 	const [language, setLanguage] = useState(getInitialLanguage);
 	const handleSetLanguage = (language: string) => {
 		if (typeof window !== "undefined") {
-			localStorage.setItem('appLanguage', language);
+			localStorage.setItem('lang', language);
 		}
 		setLanguage(language);
 	};
 
-	type Language = 'en' | 'fr' | 'de' | 'es' | 'it' | 'pt';
 	const messagesMap: { [key in Language]: { [key: string]: string; } } = {
 		en: flattenMessages(EnglishMessages),
 		fr: flattenMessages(FrenchMessages),

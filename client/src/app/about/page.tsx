@@ -71,7 +71,7 @@ const AboutPage = () => {
                 <Grid item xs={12} md={6} key={index}>
                   <ListItem>
                     <ListItemIcon sx={{ color: "inherit" }}><item.Icon /></ListItemIcon>
-                    <ListItemText primary={item.title} secondary={item.description} primaryTypographyProps={{ sx: { fontWeight: '900', fontSize: '1.15rem' } }} secondaryTypographyProps={{ sx: { fontSize: '1rem' } }} />
+                    <ListItemText primary={item.title} secondary={item.description} primaryTypographyProps={{ sx: { fontWeight: '900', fontSize: '1.15rem' } }} secondaryTypographyProps={{ sx: { fontSize: '1rem', lineHeight: "1.3rem" } }} />
                   </ListItem>
                 </Grid>
               ))}

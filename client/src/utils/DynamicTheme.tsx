@@ -40,7 +40,7 @@ const baselightTheme = createTheme({
 		h5: { fontWeight: 600, fontSize: "1.125rem", lineHeight: "1.6rem" },
 		h6: { fontWeight: 600, fontSize: "1rem", lineHeight: "1.2rem" },
 		button: { textTransform: "capitalize", fontWeight: 500 },
-		body1: { fontSize: "1rem", fontWeight: 400, lineHeight: "1.334rem" },
+		body1: { fontWeight: 400, lineHeight: "1.7rem" },
 		body2: { fontSize: "0.75rem", letterSpacing: "0rem", fontWeight: 400, lineHeight: "1rem" },
 		subtitle1: { fontSize: "0.875rem", fontWeight: 400 },
 		subtitle2: { fontSize: "0.875rem", fontWeight: 400 },

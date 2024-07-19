@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Papa from 'papaparse';
 import Match from '../app/types/match';
 
@@ -8,6 +9,11 @@ interface StatsContextType {
   groups: string[];
   correctPredictionsPerDay: number[];
   incorrectPredictionsPerDay: number[];
+  perfectScores: number,
+  correctGroups: number,
+  matchesPlayedGroups: number,
+  correctKnockouts: number,
+  matchesPlayedKnockouts: number,
   fetchMatch: (home_team: string, away_team: string, allowDraw: boolean) => Promise<PredictionResult | null>;
   year: number;
   setYear: React.Dispatch<React.SetStateAction<number>>;
@@ -36,19 +42,26 @@ type PredictionResult = {
 const StatsContext = createContext<StatsContextType | undefined>(undefined);
 
 export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ children }) => {
+  const [data, setData] = useState<Match[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [groups, setGroups] = useState<string[]>([]);
   const [correctPredictionsPerDay, setCorrectPredictionsPerDay] = useState<number[]>([]);
   const [incorrectPredictionsPerDay, setIncorrectPredictionsPerDay] = useState<number[]>([]);
-  const [data, setData] = useState<Match[]>([]);
+  const [perfectScores, setPerfectScores] = useState<number>(0);
+  const [correctGroups, setCorrectGroups] = useState<number>(0);
+  const [matchesPlayedGroups, setMatchesGroupsPlayed] = useState<number>(0);
+  const [correctKnockouts, setCorrectKnockouts] = useState<number>(0);
+  const [matchesPlayedKnockouts, setMatchesKnockoutsPlayed] = useState<number>(0);
   const [isClient, setIsClient] = useState(false);
+  const searchParams = useSearchParams();
 
   useEffect(() => { setIsClient(true); }, []);
 
   const [year, setYear] = useState<number>(() => {
     if (typeof window !== 'undefined') {
       const storedYear = localStorage.getItem('year');
-      return storedYear ? Number(storedYear) : 2024;
+      const urlYear = searchParams.get('year');
+      return urlYear ? Number(urlYear) : (storedYear ? Number(storedYear) : 2024);
     }
     return 2024;
   });
@@ -56,6 +69,9 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   useEffect(() => {
     if (isClient) {
       localStorage.setItem('year', year.toString());
+      const params = new URLSearchParams(searchParams.toString());
+      params.set('year', year.toString());
+      window.history.pushState(null, '', `?${params.toString()}`);
     }
   }, [year, isClient]);
 
@@ -116,10 +132,6 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
         const [dayB, monthB] = b.date.split('/').map(Number);
         return monthA - monthB || dayA - dayB;
       });
-    const formattedDates = Array.from(new Set(allMatches.map(match => match.date)));
-    setCategories(formattedDates);
-    const correctPredictionsPerDay = new Array(formattedDates.length).fill(0);
-    const incorrectPredictionsPerDay = new Array(formattedDates.length).fill(0);
 
     const groupStages = Array.from(new Set(
       data.filter((match: Match) => match.stage.startsWith("Group"))
@@ -127,10 +139,23 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
     )).sort();
     setGroups(groupStages);
 
+    const formattedDates = Array.from(new Set(allMatches.map(match => match.date)));
+    const correctPredictionsPerDay = new Array(formattedDates.length).fill(0);
+    const incorrectPredictionsPerDay = new Array(formattedDates.length).fill(0);
+    let perfectScores = 0;
+    let correctGroups = 0;
+    let correctKnockouts = 0;
+    let matchesPlayedGroups = 0;
+    let matchesPlayedKnockouts = 0;
+
     allMatches.forEach(match => {
       if (Number.isNaN(match.home_score_total) || Number.isNaN(match.away_score_total)) {
         return;
       }
+
+      const isGroupStage = match.stage.startsWith("Group");
+      if (isGroupStage) matchesPlayedGroups++;
+      else matchesPlayedKnockouts++;
 
       const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
       let predictedOutcome = "";
@@ -145,12 +170,26 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
 
       if (predictedOutcome === actualOutcome) {
         correctPredictionsPerDay[formattedDates.indexOf(match.date)]++;
+        if (isGroupStage) correctGroups++;
+        else correctKnockouts++;
       } else {
         incorrectPredictionsPerDay[formattedDates.indexOf(match.date)]++;
       }
-      setCorrectPredictionsPerDay(correctPredictionsPerDay);
-      setIncorrectPredictionsPerDay(incorrectPredictionsPerDay);
+
+      // Check for perfect score prediction
+      if (match.scorePrediction[0] === match.home_score_total && match.scorePrediction[1] === match.away_score_total) {
+        perfectScores++;
+      }
     });
+
+    setCategories(formattedDates);
+    setCorrectPredictionsPerDay(correctPredictionsPerDay);
+    setIncorrectPredictionsPerDay(incorrectPredictionsPerDay);
+    setPerfectScores(perfectScores);
+    setCorrectGroups(correctGroups);
+    setMatchesGroupsPlayed(matchesPlayedGroups);
+    setCorrectKnockouts(correctKnockouts);
+    setMatchesKnockoutsPlayed(matchesPlayedKnockouts);
   }, [data]);
 
   async function fetchMatch(home_team: string, away_team: string, allowDraw: boolean): Promise<PredictionResult> {
@@ -190,7 +229,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   }
 
   return (
-    <StatsContext.Provider value={{ data, categories, groups, correctPredictionsPerDay, incorrectPredictionsPerDay, fetchMatch, year, setYear }}>
+    <StatsContext.Provider value={{ data, categories, groups, correctPredictionsPerDay, incorrectPredictionsPerDay, perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts, fetchMatch, year, setYear }}>
       {children}
     </StatsContext.Provider>
   );
