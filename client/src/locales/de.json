@@ -9,9 +9,9 @@
 		"about": "Über"
 	},
 	"generalStats": {
-		"perfect": "Exakte Spielergebnisse",
-		"group": "Genauigkeit Gruppenphase",
-		"knockout": "Genauigkeit Ausscheidungsrunde"
+		"perfect": "Exakte Ergebnisse",
+		"group": "Gruppen-Genauigkeit",
+		"knockout": "Ausscheidungs-Genauigkeit"
 	},
 	"predictionsOverview": {
 		"title": "Vorhersageübersicht",

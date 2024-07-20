@@ -110,6 +110,16 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
 
   useEffect(() => {
     async function fetchData() {
+      const predictionsResponse = await fetch(`/data/predictions/${year}.csv`);
+      const predictionsCsvText = await predictionsResponse.text();
+      let predictionsData: any[] = [];
+      Papa.parse(predictionsCsvText, {
+        header: true,
+        complete: (result) => {
+          predictionsData = result.data;
+        }
+      });
+
       const responseData = await fetch(`/data/matches/${year}.csv`);
       if (responseData.body) {
         const readerData = responseData.body.getReader();
@@ -127,8 +137,13 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
                 if (value === undefined || value === null) return NaN;
                 return parseInt(value, 10);
               };
-
-              const predictionResult = await fetchMatch(row.home_team, row.away_team, row.stage.startsWith("Group"));
+              const homeTeamRow = predictionsData.find(predictionRow => predictionRow.home_team === row.home_team);
+              let predictionResult: PredictionResult = null;
+              if (homeTeamRow) {
+                const predictionKey = `${row.away_team}_${row.stage.startsWith("Group") ? '1' : '0'}`;
+                const predictionString = homeTeamRow[predictionKey];
+                predictionResult = predictionString ? JSON.parse(predictionString) : null;
+              }
               const predictions = predictionResult ? predictionResult.predictions : [0, 0, 0];
               const scorePrediction = predictionResult ? predictionResult.scorePrediction : [0, 0];
 

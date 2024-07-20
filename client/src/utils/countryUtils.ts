@@ -30,21 +30,24 @@ const useCountryFlags = () => {
     'Serbia': [{ year: 2008, name: 'Yugoslavia' }]
   };
 
-  const historicalFlags: { [country: string]: { year: number; flagUrl: string; }[]; } = {
-    'Russia': [
-      { year: 1992, flagUrl: 'https://cdn.britannica.com/36/22536-050-E22B1D13/Flag-Union-of-Soviet-Socialist-Republics.jpg?w=400&h=300&c=crop' }
-    ],
-    'Serbia': [
-      { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Yugoslavia_%281946-1992%29.svg' },
-      { year: 2008, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Flag_of_Yugoslavia_%281918%E2%80%931941%29.svg' },
-    ]
-  };
+  // const historicalFlags: { [country: string]: { year: number; flagUrl: string; }[]; } = {
+  //   'Russia': [
+  //     { year: 1992, flagUrl: 'https://cdn.britannica.com/36/22536-050-E22B1D13/Flag-Union-of-Soviet-Socialist-Republics.jpg?w=400&h=300&c=crop' },
+  //     { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_the_CIS.svg' }
+  //   ],
+  //   'Serbia': [
+  //     { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Yugoslavia_%281946-1992%29.svg' },
+  //     { year: 2008, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Flag_of_Yugoslavia_%281918%E2%80%931941%29.svg' },
+  //   ]
+  // };
 
   const historicCountriesCodes = {
+    'Czechoslovakia': 'cz',
     'Soviet Union': 'su',
     'CIS': 'su',
     'Yugoslavia': 'yu',
-    'East Germany': 'de'
+    'East Germany': 'de',
+    'West Germany': 'de'
   };
 
   useEffect(() => {
@@ -65,25 +68,21 @@ const useCountryFlags = () => {
     fetchCountryCodes();
   }, []);
 
-  const getFlag = (country: string, circle: boolean) => {
-    if (circle) {
-      const histName = getHistoricalNameEnglish(country);
-      if (countryCodes[histName]) {
-        return `https://hatscripts.github.io/circle-flags/flags/${countryCodes[histName]}.svg`;
-      } else {
-        const countryCode = countryCodes[country];
-        return countryCode ? `https://hatscripts.github.io/circle-flags/flags/${countryCode}.svg` : '';
-      }
-    }
-    if (historicalFlags[country]) {
-      const customFlag = historicalFlags[country].filter(entry => year < entry.year)[0];
-      if (customFlag) {
-        return customFlag.flagUrl;
-      }
-    }
+  const historicalFlags: { [country: string]: { year: number; flagUrl: string; }[]; } = {
+    'Russia': [
+      { year: 1992, flagUrl: 'https://cdn.britannica.com/36/22536-050-E22B1D13/Flag-Union-of-Soviet-Socialist-Republics.jpg?w=400&h=300&c=crop' },
+      { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_the_CIS.svg' }
+    ],
+    'Serbia': [
+      { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Yugoslavia_%281946-1992%29.svg' },
+      { year: 2008, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Flag_of_Yugoslavia_%281918%E2%80%931941%29.svg' },
+    ]
+  };
 
-    const countryCode = countryCodes[country];
-    return countryCode ? `https://raw.githubusercontent.com/lipis/flag-icons/b919a036693ee1ee0434ef5ae05f93543fc4f437/flags/4x3/${countryCode}.svg` : '';
+  const getFlag = (country: string, circle: boolean) => {
+    const customFlag = (country === 'Russia' && year >= 1992 && year < 1996) || (country === 'Serbia' && year >= 1996 && year < 2008) || !circle
+      ? historicalFlags[country]?.find(entry => year < entry.year) : undefined;
+    return customFlag ? customFlag.flagUrl : `${circle ? 'https://hatscripts.github.io/circle-flags/flags/' : 'https://raw.githubusercontent.com/lipis/flag-icons/b919a036693ee1ee0434ef5ae05f93543fc4f437/flags/4x3/'}${countryCodes[(getHistoricalNameEnglish(country) || country)]}.svg`;
   };
 
   const getUefaCountries = (): string[] => {
@@ -104,17 +103,6 @@ const useCountryFlags = () => {
     return Array.from(uefaCountries).sort();
   };
 
-  const getHistoricalName = (country: string): string => {
-    if (historicalNames[country]) {
-      for (const { year: historicalYear, name } of historicalNames[country]) {
-        if (year < historicalYear) {
-          return formatMessage({ id: `country.${name}` });
-        }
-      }
-    }
-    return formatMessage({ id: `country.${country}` });
-  };
-
   const getHistoricalNameEnglish = (country: string): string => {
     if (historicalNames[country]) {
       for (const { year: historicalYear, name } of historicalNames[country]) {
@@ -126,7 +114,11 @@ const useCountryFlags = () => {
     return country;
   };
 
-  return { countryCodes, getFlag, getUefaCountries, getHistoricalName };
+  const getHistoricalName = (country: string): string => {
+    return formatMessage({ id: `country.${getHistoricalNameEnglish(country)}` });
+  };
+
+  return { getFlag, getUefaCountries, getHistoricalName };
 };
 
 export default useCountryFlags;

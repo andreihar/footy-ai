@@ -9,9 +9,9 @@
 		"about": "Informazioni"
 	},
 	"generalStats": {
-		"perfect": "Punteggi Esatti delle Partite",
-		"group": "Accuratezza Fase a Gironi",
-		"knockout": "Accuratezza Fase a Eliminazione"
+		"perfect": "Punteggi Esatti",
+		"group": "Precisione Gruppo",
+		"knockout": "Precisione Eliminazione"
 	},
 	"predictionsOverview": {
 		"title": "Panoramica delle previsioni",

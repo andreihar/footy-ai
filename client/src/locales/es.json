@@ -9,9 +9,9 @@
 		"about": "Acerca de"
 	},
 	"generalStats": {
-		"perfect": "Marcadores Exactos de Partidos",
-		"group": "Precisión Fase de Grupos",
-		"knockout": "Precisión Fase Eliminatoria"
+		"perfect": "Marcadores Exactos",
+		"group": "Precisión Grupo",
+		"knockout": "Precisión Eliminación"
 	},
 	"predictionsOverview": {
 		"title": "Resumen de pronósticos",

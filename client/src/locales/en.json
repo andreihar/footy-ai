@@ -9,9 +9,9 @@
 		"about": "About"
 	},
 	"generalStats": {
-		"perfect": "Exact Match Scores",
-		"group": "Group Stage Accuracy",
-		"knockout": "Knockout Stage Accuracy"
+		"perfect": "Exact Scores",
+		"group": "Group Accuracy",
+		"knockout": "Knockout Accuracy"
 	},
 	"predictionsOverview": {
 		"title": "Predictions Overview",
