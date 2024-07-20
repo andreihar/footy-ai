@@ -16,16 +16,13 @@ const OverallStatistics = () => {
   const correctPrev = Number((100 * correctPredictionsPerDay.slice(0, -1).reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.slice(0, -1).concat(incorrectPredictionsPerDay.slice(0, -1)).reduce((a, c) => a + c, 0))).toFixed(2));
   const correct = Number((100 * correctPredictionsPerDay.reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.concat(incorrectPredictionsPerDay).reduce((a, c) => a + c, 0))).toFixed(2));
 
-
   // chart
   const optionscolumnchart: any = {
     chart: {
       type: 'donut',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
       foreColor: '#adb0bb',
-      toolbar: {
-        show: false,
-      },
+      toolbar: { show: false },
       height: 155,
     },
     colors: [theme.palette.primary.main, theme.palette.primary.light],
@@ -33,38 +30,26 @@ const OverallStatistics = () => {
       pie: {
         startAngle: 0,
         endAngle: 360,
-        donut: {
-          size: '75%',
-          background: 'transparent',
-        },
+        donut: { size: '75%', background: 'transparent' },
       },
     },
     tooltip: {
       theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
       fillSeriesColor: false,
     },
-    stroke: {
-      show: false,
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    legend: {
-      show: false,
-    },
+    stroke: { show: false },
+    dataLabels: { enabled: false },
+    legend: { show: false },
     responsive: [
       {
         breakpoint: 991,
         options: {
-          chart: {
-            width: 120,
-          },
+          chart: { width: 120 },
         },
       },
     ],
     labels: [formatMessage({ id: 'recentPredictions.correct' }), formatMessage({ id: 'recentPredictions.incorrect' })],
   };
-  const seriescolumnchart: any = [correct, 100 - correct];
 
   return (
     <DashboardCard title={formatMessage({ id: 'overallStatistics.title' })}>
@@ -97,9 +82,8 @@ const OverallStatistics = () => {
             </Stack>
           </Stack>
         </Grid>
-        {/* column */}
         <Grid item xs={5} sm={5}>
-          <Chart options={optionscolumnchart} series={seriescolumnchart} type="donut" height={150} width={"100%"} />
+          <Chart options={optionscolumnchart} series={[correct, 100 - correct]} type="donut" height={150} width={"100%"} />
         </Grid>
       </Grid>
     </DashboardCard>

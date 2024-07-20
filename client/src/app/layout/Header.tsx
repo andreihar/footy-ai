@@ -1,6 +1,6 @@
 import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Divider, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme } from '@mui/material';
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Fragment } from 'react';
 import { useStats } from '@/utils/StatsContext';
 import { useLanguage } from '@/utils/LanguageProvider';
 import { useIntl } from 'react-intl';
@@ -177,8 +177,8 @@ function Header() {
           <List style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
             {menuItems.map((item) => (
               item.children ? (
-                <>
-                  <ListItem key={item.title} disablePadding>
+                <Fragment key={item.title}>
+                  <ListItem disablePadding>
                     <ListItemButton onClick={() => handleClick(item.title)} sx={{ padding: '16px 32px' }}>
                       <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
                       {open === item.title ? <ExpandLess /> : <ExpandMore />}
@@ -187,7 +187,7 @@ function Header() {
                   <Collapse in={open === item.title} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                       {item.children.map((child) => (
-                        <ListItem key={child.title} disablePadding>
+                        <ListItem key={child.title} disablePadding> {/* Key is correctly added here */}
                           <ListItemButton href={child.href} sx={{ padding: '16px 32px 16px 50px' }}>
                             <ListItemText primary={child.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
                           </ListItemButton>
@@ -195,7 +195,7 @@ function Header() {
                       ))}
                     </List>
                   </Collapse>
-                </>
+                </Fragment>
               ) : (
                 <ListItem key={item.title} disablePadding>
                   <ListItemButton href={item.href} sx={{ padding: '16px 32px' }}>

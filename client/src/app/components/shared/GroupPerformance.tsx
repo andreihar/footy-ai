@@ -21,10 +21,6 @@ interface TeamStat {
     matches: string[];
 }
 
-type GroupPerformanceProps = {
-    group: string;
-};
-
 function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => [number, number])) {
     const teamStats: { [key: string]: TeamStat; } = {};
 
@@ -65,7 +61,7 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
     return teamsWithRank;
 }
 
-const GroupPerformance = ({ group }: GroupPerformanceProps) => {
+const GroupPerformance = ({ group }: { group: string; }) => {
     const { getFlag, getHistoricalName } = useCountryFlags();
     const { data } = useStats();
     const { formatMessage } = useIntl();
@@ -114,7 +110,7 @@ const GroupPerformance = ({ group }: GroupPerformanceProps) => {
     }, [group, data]);
 
     return (
-        <DashboardCard title={`${formatMessage({ id: 'groupPerformance.group' })} ${group.split(' ')[1]}`}>
+        <DashboardCard title={`${formatMessage({ id: 'matches.Group' })} ${group.split(' ')[1]}`}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
                     <TableHead>
@@ -185,14 +181,14 @@ const GroupPerformance = ({ group }: GroupPerformanceProps) => {
                                     <Typography variant="h6">{team.points}</Typography>
                                 </TableCell>
                                 <TableCell>
-                                    {team.matches.map((match) => {
+                                    {team.matches.map((match, index) => {
                                         switch (match) {
                                             case "win":
-                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: 'success.dark', mr: '4px', '&:hover': { backgroundColor: 'success.dark', opacity: 0.7 } }}><IconCheck /></IconButton>;
+                                                return <IconButton key={index} size="small" sx={{ color: '#fff', backgroundColor: 'success.dark', mr: '4px', '&:hover': { backgroundColor: 'success.dark', opacity: 0.7 } }}><IconCheck /></IconButton>;
                                             case "loss":
-                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: 'error.main', mr: '4px', '&:hover': { backgroundColor: 'error.main', opacity: 0.7 } }}><IconX /></IconButton>;
+                                                return <IconButton key={index} size="small" sx={{ color: '#fff', backgroundColor: 'error.main', mr: '4px', '&:hover': { backgroundColor: 'error.main', opacity: 0.7 } }}><IconX /></IconButton>;
                                             default:
-                                                return <IconButton size="small" sx={{ color: '#fff', backgroundColor: grey[600], mr: '4px', '&:hover': { backgroundColor: grey[600], opacity: 0.7 } }}><IconMinus /></IconButton>;
+                                                return <IconButton key={index} size="small" sx={{ color: '#fff', backgroundColor: grey[600], mr: '4px', '&:hover': { backgroundColor: grey[600], opacity: 0.7 } }}><IconMinus /></IconButton>;
                                         }
                                     })}
                                 </TableCell>

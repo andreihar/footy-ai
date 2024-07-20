@@ -33,7 +33,6 @@
 		"title": "Tägliche Vorhersagen"
 	},
 	"groupPerformance": {
-		"group": "Gruppe",
 		"team": "Mannschaft",
 		"results": "Vorhersageergebnisse",
 		"ranking": "Korrekte Platzierungen",
@@ -45,6 +44,7 @@
 		"Semi-finals": "Halbfinale",
 		"Quarter-finals": "Viertelfinale",
 		"Round of 16": "Achtelfinale",
+		"Group": "Gruppe",
 		"Third-place play-off": "Spiel um Platz drei",
 		"outcome": "Korrekte Ergebnisvorhersage",
 		"score": "Korrekte Spielstandvorhersage"

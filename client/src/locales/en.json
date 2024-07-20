@@ -33,7 +33,6 @@
 		"title": "Daily Predictions"
 	},
 	"groupPerformance": {
-		"group": "Group",
 		"team": "Team",
 		"results": "Prediction Results",
 		"ranking": "Correct Rankings",
@@ -45,6 +44,7 @@
 		"Semi-finals": "Semi-finals",
 		"Quarter-finals": "Quarter-finals",
 		"Round of 16": "Round of 16",
+		"Group": "Group",
 		"Third-place play-off": "Third-place play-off",
 		"outcome": "Correct Outcome Prediction",
 		"score": "Correct Score Prediction"

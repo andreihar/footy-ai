@@ -96,7 +96,7 @@ const DynamicTheme: React.FC<{ children: ReactNode; }> = ({ children }) => {
 				}
 			});
 		}
-		return baselightTheme; // Use baselightTheme directly if no specific year match
+		return baselightTheme;
 	};
 
 	const theme = getThemeForYear();

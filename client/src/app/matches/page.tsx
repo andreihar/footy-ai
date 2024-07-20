@@ -44,7 +44,11 @@ const MatchCard = ({ match }: { match: Match; }) => {
             &nbsp; • &nbsp;
             {new Date(match.date).toLocaleString(language, { hour: 'numeric', minute: 'numeric' })}
           </Typography>
-          <Typography variant="h5" mt={2} >{formatMessage({ id: `matches.${match.stage}` })}</Typography>
+          <Typography variant="h5" mt={2} >{
+            match.stage.startsWith('Group')
+              ? `${formatMessage({ id: `matches.${match.stage.split(" ")[0]}` })} ${match.stage.split(" ")[1]}`
+              : formatMessage({ id: `matches.${match.stage}` })
+          }</Typography>
           <Typography sx={{ textTransform: "uppercase" }} mt={2}>{match.stadium}, {match.city}</Typography>
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center">

@@ -20,32 +20,16 @@ const DailyPredictions = () => {
       type: 'area',
       fontFamily: "'Plus Jakarta Sans', sans-serif;",
       foreColor: '#adb0bb',
-      toolbar: {
-        show: false,
-      },
+      toolbar: { show: false },
       height: 60,
-      sparkline: {
-        enabled: true,
-      },
+      sparkline: { enabled: true },
       group: 'sparklines',
     },
-    stroke: {
-      curve: 'smooth',
-      width: 2,
-    },
-    fill: {
-      type: 'solid',
-      opacity: 0.05,
-    },
-    markers: {
-      size: 0,
-    },
-    tooltip: {
-      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
-    },
-    xaxis: {
-      categories,
-    },
+    stroke: { curve: 'smooth', width: 2 },
+    fill: { type: 'solid', opacity: 0.05 },
+    markers: { size: 0 },
+    tooltip: { theme: theme.palette.mode === 'dark' ? 'dark' : 'light' },
+    xaxis: { categories },
   };
   const seriescolumnchart: any = [
     {

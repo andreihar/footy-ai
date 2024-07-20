@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Papa from 'papaparse';
 import Match from '../app/types/match';
@@ -74,7 +74,39 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
       params.set('year', year.toString());
       window.history.pushState(null, '', `?${params.toString()}`);
     }
-  }, [year, isClient]);
+  }, [year, isClient, searchParams]);
+
+  const fetchMatch = useCallback(async (home_team: string, away_team: string, allowDraw: boolean): Promise<PredictionResult> => {
+    try {
+      const response = await fetch(`/data/predictions/${year}.csv`);
+      if (!response.ok) throw new Error('Failed to fetch predictions');
+
+      const csvText = await response.text();
+
+      let matchPrediction: PredictionResult = null;
+      Papa.parse(csvText, {
+        header: true,
+        complete: (result) => {
+          const parsedData = result.data as any[];
+          const homeTeamRow = parsedData.find(row => row.home_team === home_team);
+          if (homeTeamRow) {
+            const predictionString = homeTeamRow[`${away_team}_${allowDraw ? '1' : '0'}`];
+            if (predictionString) {
+              const prediction = JSON.parse(predictionString);
+              matchPrediction = {
+                scorePrediction: prediction.scorePrediction,
+                predictions: prediction.predictions,
+              };
+            }
+          }
+        }
+      });
+      return matchPrediction;
+    } catch (error) {
+      console.error('Error fetching or processing predictions:', error);
+      return null;
+    }
+  }, [year]);
 
   useEffect(() => {
     async function fetchData() {
@@ -119,7 +151,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
     if (isClient) {
       fetchData();
     }
-  }, [year, isClient]);
+  }, [year, isClient, fetchMatch]);
 
   useEffect(() => {
     const allMatches = data.flatMap(match =>
@@ -177,7 +209,6 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
         incorrectPredictionsPerDay[formattedDates.indexOf(match.date)]++;
       }
 
-      // Check for perfect score prediction
       if (match.scorePrediction[0] === match.home_score_total && match.scorePrediction[1] === match.away_score_total) {
         perfectScores++;
       }
@@ -192,38 +223,6 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
     setCorrectKnockouts(correctKnockouts);
     setMatchesKnockoutsPlayed(matchesPlayedKnockouts);
   }, [data]);
-
-  async function fetchMatch(home_team: string, away_team: string, allowDraw: boolean): Promise<PredictionResult> {
-    try {
-      const response = await fetch(`/data/predictions/${year}.csv`);
-      if (!response.ok) throw new Error('Failed to fetch predictions');
-
-      const csvText = await response.text();
-
-      let matchPrediction: PredictionResult = null;
-      Papa.parse(csvText, {
-        header: true,
-        complete: (result) => {
-          const parsedData = result.data as any[];
-          const homeTeamRow = parsedData.find(row => row.home_team === home_team);
-          if (homeTeamRow) {
-            const predictionString = homeTeamRow[`${away_team}_${allowDraw ? '1' : '0'}`];
-            if (predictionString) {
-              const prediction = JSON.parse(predictionString);
-              matchPrediction = {
-                scorePrediction: prediction.scorePrediction,
-                predictions: prediction.predictions,
-              };
-            }
-          }
-        }
-      });
-      return matchPrediction;
-    } catch (error) {
-      console.error('Error fetching or processing predictions:', error);
-      return null;
-    }
-  }
 
   if (!isClient) {
     return <Loading />;

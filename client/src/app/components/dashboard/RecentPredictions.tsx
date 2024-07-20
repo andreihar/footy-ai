@@ -61,4 +61,4 @@ const RecentPredictions = () => {
   );
 };
 
-export default RecentPredictions;;
+export default RecentPredictions;

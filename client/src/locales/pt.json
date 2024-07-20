@@ -33,7 +33,6 @@
 		"title": "Previsões Diárias"
 	},
 	"groupPerformance": {
-		"group": "Grupo",
 		"team": "Equipa",
 		"results": "Resultados de previsão",
 		"ranking": "Classificações corretas",
@@ -45,6 +44,7 @@
 		"Semi-finals": "Semifinais",
 		"Quarter-finals": "Quartas de final",
 		"Round of 16": "Rondas de 16",
+		"Group": "Grupo",
 		"Third-place play-off": "Eliminatória do terceiro lugar",
 		"outcome": "Previsão correta de resultados",
 		"score": "Previsão de pontuação correta"

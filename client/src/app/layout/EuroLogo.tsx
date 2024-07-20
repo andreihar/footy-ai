@@ -12,7 +12,7 @@ const EuroLogo = () => {
     }
   };
 
-  return <img src={getLogoSrc()} alt="Euro logo" height={40} />;
+  return <img src={getLogoSrc()} alt={`UEFA Euro ${year} Logo`} height={40} />;
 };
 
 export default EuroLogo;
