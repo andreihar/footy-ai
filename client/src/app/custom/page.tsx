@@ -43,7 +43,7 @@ const CustomPage = () => {
           <Box display="flex" justifyContent="center" alignItems="center">
             {/* Home */}
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
-              <Avatar alt="?" src={getFlag(home)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+              <Avatar alt="?" src={getFlag(home, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               <TextField id="filled-select-country" select defaultValue={home} variant="filled" onChange={(event) => setHome(event.target.value)}
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries.map((country) => (
@@ -64,7 +64,7 @@ const CustomPage = () => {
             </Box>
             {/* Away */}
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
-              <Avatar alt="?" src={getFlag(away)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+              <Avatar alt="?" src={getFlag(away, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               <TextField id="filled-select-country" select defaultValue={away} variant="filled" onChange={(event) => setAway(event.target.value)}
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries.map((country) => (

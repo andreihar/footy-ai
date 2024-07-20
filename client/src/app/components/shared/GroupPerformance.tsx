@@ -155,7 +155,7 @@ const GroupPerformance = ({ group }: { group: string; }) => {
                                 </TableCell>
                                 <TableCell>
                                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                                        <Avatar alt="?" src={getFlag(team.team)} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
+                                        <Avatar alt="?" src={getFlag(team.team, true)} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
                                         <Typography variant="subtitle1" fontWeight={600}>{getHistoricalName(team.team)}</Typography>
                                     </Box>
                                 </TableCell>

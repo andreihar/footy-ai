@@ -54,7 +54,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
         <Box display="flex" justifyContent="center" alignItems="center">
           {/* Home */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
-            <Avatar alt="?" src={getFlag(match.home_team)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Avatar alt="?" src={getFlag(match.home_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
             <Typography variant="h3">{getHistoricalName(match.home_team)}</Typography>
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center" sx={{ marginX: 4 }}>
@@ -70,7 +70,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
           </Box>
           {/* Away */}
           <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
-            <Avatar alt="?" src={getFlag(match.away_team)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Avatar alt="?" src={getFlag(match.away_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
             <Typography variant="h3">{getHistoricalName(match.away_team)}</Typography>
           </Box>
         </Box>
