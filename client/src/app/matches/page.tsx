@@ -37,7 +37,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
 
   return (
     <DashboardCard>
-      <CardContent>
+      <CardContent sx={{ overflow: 'auto', width: { xs: '75vw', sm: 'auto' } }}>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mb={2}>
           <Typography variant="h6">
             {new Date(match.date).toLocaleString(language, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
@@ -129,7 +129,7 @@ const MatchesPage = () => {
     <PageContainer title={formatMessage({ id: 'header.allMatches' })} description="List of all matches and predictions">
       <>
         {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
-          .reverse().map((match, index) => <MatchCard key={index} match={match} />)}
+          .reverse().map((match, index) => <Box mt={2}><MatchCard key={index} match={match} /></Box>)}
       </>
     </PageContainer>
   );

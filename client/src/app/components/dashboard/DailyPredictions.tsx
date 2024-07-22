@@ -4,7 +4,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '@/utils/StatsContext';
 import { useIntl } from 'react-intl';
-import { Stack, Typography, Avatar, Fab } from '@mui/material';
+import { Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 
@@ -43,9 +43,9 @@ const DailyPredictions = () => {
     <DashboardCard
       title={formatMessage({ id: 'dailyPredictions.title' })}
       action={
-        <Fab color="secondary" size="medium" sx={{ color: '#ffffff' }}>
+        <Avatar sx={{ height: 48, width: 48, bgcolor: theme.palette.secondary.main, boxShadow: 6 }} >
           <IconPercentage width={24} />
-        </Fab>
+        </Avatar>
       }
       footer={
         <Chart options={optionscolumnchart} series={seriescolumnchart} type="area" height={73} width={"100%"} />

@@ -15,7 +15,7 @@ const GeneralStats: React.FC<{ title: string; Icon: React.ElementType; primaryTe
         </Box>
         <Box flexGrow={1} display="flex" alignItems="center">
           <Typography variant="h1" fontWeight={600}>{primaryText}</Typography>
-          <Typography variant="subtitle1" ml={1} mt={2} color="textSecondary">/ {secondaryText}</Typography>
+          <Typography component="span" variant="subtitle1" ml={1} mt={2} color="textSecondary">/ {secondaryText}</Typography>
         </Box>
       </Box>
     </DashboardCard>
