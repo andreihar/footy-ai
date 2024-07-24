@@ -20,7 +20,7 @@ const MatchBracket = ({ match }: { match: Match; }) => {
       <Box mb={0.2} display="flex" alignItems="center" width="100%" height="100%" border="2px solid transparent" position="relative" overflow="hidden"
         sx={{ background: result === 'home' ? theme.palette.primary.main : '#fff', color: result === 'home' ? '#fff' : '#000' }}>
         <Box pr={0.5} position="relative" display="inline-block" height="100%">
-          <Image alt={`Flag of ${match.home_team}`} className="angled-image" src={getFlag(match.home_team, false)} height={26} width={35} objectFit="cover" objectPosition="center" />
+          <Image alt={`Flag of ${match.home_team}`} className="angled-image" src={getFlag(match.home_team, false)} height={26} width={35} objectFit="cover" objectPosition="center" unoptimized />
         </Box>
         <Typography textTransform="uppercase" letterSpacing={0.5}>{getHistoricalName(match.home_team)}</Typography>
         <Typography className="score" ml="auto" pr={1.5} fontWeight={900}>{match.scorePrediction[0]}</Typography>
@@ -28,7 +28,7 @@ const MatchBracket = ({ match }: { match: Match; }) => {
       <Box mt={0.2} display="flex" alignItems="center" width="100%" height="100%" border="2px solid transparent" position="relative" overflow="hidden"
         sx={{ background: result === 'away' ? theme.palette.primary.main : '#fff', color: result === 'away' ? '#fff' : '#000' }}>
         <Box pr={0.5} position="relative" display="inline-block" height="100%">
-          <Image alt={`Flag of ${match.away_team}`} className="angled-image" src={getFlag(match.away_team, false)} height={26} width={35} objectFit="cover" objectPosition="center" />
+          <Image alt={`Flag of ${match.away_team}`} className="angled-image" src={getFlag(match.away_team, false)} height={26} width={35} objectFit="cover" objectPosition="center" unoptimized />
         </Box>
         <Typography textTransform="uppercase" letterSpacing={0.5}>{getHistoricalName(match.away_team)}</Typography>
         <Typography className="score" ml="auto" pr={1.5} fontWeight={900}>{match.scorePrediction[1]}</Typography>

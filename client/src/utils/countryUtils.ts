@@ -36,7 +36,7 @@ const useCountryFlags = () => {
       { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_the_CIS.svg' }
     ],
     'Serbia': [
-      { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Yugoslavia_%281946-1992%29.svg' },
+      { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Civil_Ensign_of_Yugoslavia_%281950%E2%80%931992%29.svg' },
       { year: 2008, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Flag_of_Yugoslavia_%281918%E2%80%931941%29.svg' },
     ]
   };
