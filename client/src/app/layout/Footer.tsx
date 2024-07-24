@@ -14,10 +14,14 @@ function Footer() {
           <Typography fontFamily="Logo" variant="h1" noWrap sx={{}}>Footy AI</Typography>
         </Box>
         <Box display="flex" justifyContent="space-between" pb={1}>
-          <Typography>© 2024 Andrei Harbachov. {formatMessage({ id: 'footer.rights' })}</Typography>
-          <Link href="https://www.uefa.com/" target="_blank" rel="noopener noreferrer">
-            <Image src="https://img.uefa.com/imgml/uefacom/elements/main-nav/uefa-logo.svg" alt="UEFA Logo" width={100} height={16} />
-          </Link>
+          <Box flex={1} display="flex" justifyContent="flex-start">
+            <Typography>© 2024 Andrei Harbachov. {formatMessage({ id: 'footer.rights' })}</Typography>
+          </Box>
+          <Box flex={1} display="flex" justifyContent="flex-end" alignItems="flex-end">
+            <Link href="https://www.uefa.com/" target="_blank" rel="noopener noreferrer">
+              <Image src="https://img.uefa.com/imgml/uefacom/elements/main-nav/uefa-logo.svg" alt="UEFA Logo" width={100} height={16} />
+            </Link>
+          </Box>
         </Box>
       </Box>
     </>

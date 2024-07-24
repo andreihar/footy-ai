@@ -1,5 +1,5 @@
 'use client';
-import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress } from '@mui/material';
+import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress, Grid } from '@mui/material';
 import PageContainer from '@/app/components/container/PageContainer';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import { useState } from 'react';
@@ -41,39 +41,48 @@ const CustomPage = () => {
       <DashboardCard>
         <CardContent>
           <Box display="flex" justifyContent="center" alignItems="center">
-            {/* Home */}
-            <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginRight={2}>
-              <Avatar alt="?" src={getFlag(home, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <TextField id="filled-select-country" select defaultValue={home} variant="filled" onChange={(event) => setHome(event.target.value)}
-                sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
-                {countries.map((country) => (
-                  <MenuItem key={country} value={country}>
-                    {getHistoricalName(country)}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Box>
-            <Box display="flex" justifyContent="center" alignItems="center" sx={{ marginX: 4 }}>
-              <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
-                {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{homeScore}</Typography>}
-              </Box>
-              <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
-              <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
-                {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{awayScore}</Typography>}
-              </Box>
-            </Box>
-            {/* Away */}
-            <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" marginLeft={2}>
-              <Avatar alt="?" src={getFlag(away, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <TextField id="filled-select-country" select defaultValue={away} variant="filled" onChange={(event) => setAway(event.target.value)}
-                sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
-                {countries.map((country) => (
-                  <MenuItem key={country} value={country}>
-                    {getHistoricalName(country)}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Box>
+            <Grid container justifyContent="center" alignItems="center" spacing={2}>
+              {/* Home */}
+              <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
+                <Avatar alt="?" src={getFlag(home, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+                <TextField id="filled-select-country" select defaultValue={home} variant="filled" onChange={(event) => setHome(event.target.value)}
+                  sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
+                  {countries
+                    .map(country => ({ country, name: getHistoricalName(country) }))
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .filter(({ country }) => country !== away)
+                    .map(({ country, name }) => (
+                      <MenuItem key={country} value={country}>{name}</MenuItem>
+                    ))}
+                </TextField>
+              </Grid>
+
+              {/* Score */}
+              <Grid item xs={12} sm={4} display="flex" justifyContent="center" alignItems="center">
+                <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
+                  {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{homeScore}</Typography>}
+                </Box>
+                <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
+                <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
+                  {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{awayScore}</Typography>}
+                </Box>
+              </Grid>
+
+              {/* Away */}
+              <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
+                <Avatar alt="?" src={getFlag(away, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+                <TextField id="filled-select-country" select defaultValue={away} variant="filled" onChange={(event) => setAway(event.target.value)}
+                  sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
+                  {countries
+                    .map(country => ({ country, name: getHistoricalName(country) }))
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .filter(({ country }) => country !== home)
+                    .map(({ country, name }) => (
+                      <MenuItem key={country} value={country}>{name}</MenuItem>
+                    ))}
+                </TextField>
+              </Grid>
+            </Grid>
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center">
             <FormControlLabel
