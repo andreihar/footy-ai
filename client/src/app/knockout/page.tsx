@@ -78,7 +78,7 @@ const KnockoutPage = () => {
 
   return (
     <PageContainer title={formatMessage({ id: 'header.knockout' })} description="List of matches and predictions for the Knockout Stage">
-      <Box display="flex" sx={{ overflow: 'auto', width: '86vw' }}>
+      <Box display="flex" sx={{ overflow: 'auto', maxWidth: '90vw' }}>
         {Object.entries(sortTournamentMatches(data)).map(([stageName, matches]) => {
           return (
             matches.length > 0 && (

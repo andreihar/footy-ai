@@ -5,7 +5,6 @@ import DashboardCard from '@/app/components/shared/DashboardCard';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
-
 import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '@/utils/countryUtils';
 import { useIntl } from 'react-intl';
@@ -38,7 +37,6 @@ const MatchCard = ({ match }: { match: Match; }) => {
   return (
     <DashboardCard>
       <CardContent>
-        {/* sx={{ overflow: 'auto', width: { xs: '75vw', sm: 'auto' } }} */}
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mb={2}>
           <Typography variant="h6">
             {new Date(match.date).toLocaleString(language, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
@@ -134,7 +132,7 @@ const MatchesPage = () => {
   return (
     <PageContainer title={formatMessage({ id: 'header.allMatches' })} description="List of all matches and predictions">
       <>
-        {data.slice(0, 2).filter(match => match.home_team !== "?" && match.away_team !== "?")
+        {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
           .reverse().map((match, index) => <Box key={index} mt={2}><MatchCard match={match} /></Box>)}
       </>
     </PageContainer>

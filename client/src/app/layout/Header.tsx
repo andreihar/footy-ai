@@ -92,7 +92,7 @@ function Header() {
 
   return (
     <>
-      <Box id="box-id" py={2} color="white" sx={{ bgcolor: lighten(theme.palette.primary.main, 0.12), display: { xs: 'none', sm: 'flex' } }}>
+      <Box id="box-id" py={2} color="white" sx={{ bgcolor: lighten(theme.palette.primary.main, 0.12), display: { xs: 'none', md: 'flex' } }}>
         <Container sx={{ maxWidth: "1200px" }}>
           <Toolbar sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
             <Box display="flex" alignItems="center" component="a" href="/" color={getColour()} sx={{ textDecoration: 'none' }}>
@@ -114,7 +114,7 @@ function Header() {
       <AppBar component="nav" position="sticky" elevation={isStuck ? 4 : 0}>
         <Container sx={{ maxWidth: "1200px" }}>
           <Toolbar variant='dense' ref={containerRef}>
-            <IconButton aria-label="open drawer" edge="start" onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ mr: 2, display: { sm: 'none' }, color: getColour() }}>
+            <IconButton aria-label="open drawer" edge="start" onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ mr: 2, display: { md: 'none' }, color: getColour() }}>
               <MenuIcon />
             </IconButton>
             <Box display="flex" alignItems="center" component="a" href="/" color="white" sx={{ textDecoration: 'none' }}>
@@ -126,7 +126,7 @@ function Header() {
               </Fade>
               <EuroLogo />
             </Box>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {menuItems.map((item) => (
                 item.children ? (
                   <DropdownMenu key={item.title} item={item} sx={{
@@ -165,7 +165,7 @@ function Header() {
         </Container>
       </AppBar >
       <Drawer variant="temporary" open={mobileOpen} onClick={() => setMobileOpen((prevState) => !prevState)} ModalProps={{ keepMounted: true }}
-        sx={{ display: { xs: 'block', sm: 'none' }, '& .MuiDrawer-paper': { minWidth: '300px' } }}
+        sx={{ display: { xs: 'block', md: 'none' }, '& .MuiDrawer-paper': { minWidth: '300px' } }}
       >
         <Box onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ textAlign: 'center' }}>
           <Box display="flex" m={2} mb={0} alignItems="center" component="a" href="/" sx={{ textDecoration: 'none' }}>
