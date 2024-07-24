@@ -129,7 +129,7 @@ const MatchesPage = () => {
     <PageContainer title={formatMessage({ id: 'header.allMatches' })} description="List of all matches and predictions">
       <>
         {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
-          .reverse().map((match, index) => <Box mt={2}><MatchCard key={index} match={match} /></Box>)}
+          .reverse().map((match, index) => <Box key={index} mt={2}><MatchCard match={match} /></Box>)}
       </>
     </PageContainer>
   );

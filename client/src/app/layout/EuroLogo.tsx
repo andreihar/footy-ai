@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { useStats } from '@/utils/StatsContext';
 
 const EuroLogo = () => {
@@ -12,7 +13,7 @@ const EuroLogo = () => {
     }
   };
 
-  return <img src={getLogoSrc()} alt={`UEFA Euro ${year} Logo`} height={40} />;
+  return <Image src={getLogoSrc()} alt={`UEFA Euro ${year} Logo`} width={year === 2024 ? 32 : 79} height={40} objectFit="contain" />;
 };
 
 export default EuroLogo;
