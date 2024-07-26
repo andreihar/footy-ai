@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <div align="center">
-  <a href="https://github.com/andreihar/howl">
+  <a href="https://github.com/andreihar/footy-ai">
     <img src="client/public/img/logo.svg" alt="Logo" width="80" height="80">
   </a>
   
@@ -13,9 +13,9 @@
 [![Licence][licence-badge]][licence]
 [![LinkedIn][linkedin-badge]][linkedin]
 
-**A website for exploring details about an esports organisation**
+**An end-to-end application for predicting UEFA Euro tournaments**
 
-A comprehensive platform for the esports team. This React-based application features detailed pages for teams, players, and matches, and includes i18n localisation.
+A comprehensive platform to visualise and interact with AI match predictions. This React-based application features detailed pages of statistics, historical data, language localisations, and more.
 
 [Live Demo][demo]
 
@@ -43,22 +43,13 @@ A comprehensive platform for the esports team. This React-based application feat
     <li>
       <a href="#features">Features</a>
       <ul>
-        <li><a href="#home-page">Home Page</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#teams">Teams</a></li>
-        <li><a href="#team">Team</a>
-          <ul>
-            <li><a href="#matches">Matches</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#history">History</a></li>
-          </ul>
-        </li>
-        <li><a href="#player">Player</a>
-          <ul>
-            <li><a href="#setup">Setup</a></li>
-          </ul>
-        </li>
+        <li><a href="#home-page">Overview Page</a></li>
+        <li><a href="#all-matches">All Matches</a></li>
+        <li><a href="#group-stage">Group Stage</a></li>
+        <li><a href="#knockout-stage">Knockout Stage</a></li>
+        <li><a href="#custom-match">Custom Match</a></li>
         <li><a href="#localisation">Localisation</a></li>
+        <li><a href="#prediction-model">Prediction Model</a></li>
       </ul>
     </li>
     <li><a href="#lighthouse-report">Lighthouse Report</a></li>
@@ -72,17 +63,18 @@ A comprehensive platform for the esports team. This React-based application feat
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-HOWL Gaming is the comprehensive esports organisation website developed after taking a high school Web Design course in Spring 2019.
+Footy AI is a unique end-to-end platform developed in anticipation of the UEFA Euro 2024 tournament.
 
-The original version was created using HTML, CSS, and JavaScript. In a recent update, the website was rewritten using React and the i18n localisation library to reduce the number of pages and have consistent Navbar and Footer styling everywhere on the website.
+The application aims to enrich the engagement of football enthusiasts with the UEFA Euro tournaments by using artificial intelligence. The AI leverages matches and ELO data to predict match outcomes and provide insightful statistics. This platform not only focuses on the current Euro 2024 tournament but also offers a retrospective view of past tournaments, allowing users to explore the historical odds and performances of their national teams.
 
-The website provides detailed information about the team's players, coaches, matches, and achievements. It also includes a news section that covers tournament overviews and detailed match descriptions.
+Footy AI offers comprehensive statistics for tournaments, detailed match predictions, and the ability to create custom match-ups between any UEFA national teams. It also includes interactive visualisations and insights into the AI's prediction accuracy, enhancing the experience for users who want to explore football data in depth.
 
 ### Built With
 
-* [![NextJS][react-badge]][react]
-* [![MaterialUI][react-badge]][react]
-* [![i18next][i18next-badge]][i18next]
+* [![NextJS][nextjs-badge]][nextjs]
+* [![MUI][mui-badge]][mui]
+* [![FormatJS][formatjs-badge]][formatjs]
+* [![sklearn][sklearn-badge]][sklearn]
 
 
 
@@ -92,106 +84,78 @@ The website provides detailed information about the team's players, coaches, mat
 Run the app locally:
 
 ```bash
+$ cd client
 $ npm install
 $ npm run dev
 ```
 
 The website can be accessed through the URL `http://localhost:3000/`.
 
+Open the notebook using your choice software in a terminal or command window. For example, if the software is Jupyter Notebook:
+
+```bash
+jupyter notebook server/euro.ipynb
+```
+
 
 
 <!-- FEATURES -->
 ## Features
 
-### Home Page
+### Overview Page
 
-The Home Page serves as the central hub, directing visitors to the pages of the three teams.
-
-<p align="center">
-<img src="readme/home.jpg" alt="Home" height="300">
-</p>
-
-### News
-
-The News Page provides an overview of a tournament and detailed descriptions of each match, including scores.
+The Overview Page serves as the central hub, providing a summary of the AI's prediction performance for a certain tournament. Users can see recent predictions and their outcomes, as well as visual representations of the AI's overall and daily prediction accuracy.
 
 <p align="center">
-<img src="readme/news.jpg" alt="News" height="300">
+<img src="readme/overview.jpg" alt="Overview" height="300">
 </p>
 
-<p align="center">
-<img src="readme/news_match.jpg" alt="Match" height="300">
-</p>
+### All Matches
 
-### Teams
-
-This Teams Page describes the three teams in the organisation, providing links to the team pages and the profiles of the players.
-
-<p align="center">
-<img src="readme/teams.jpg" alt="Teams" height="300">
-</p>
-
-### Team
-
-The Team Page provides comprehensive insights into each team, including player details, coaching staff, overall team information, global statistics, match records, achievements, and team history. To ensure efficient content management and prevent duplication, all team-related data is consolidated within a central file `teams.js`. This data is dynamically retrieved and presented on the corresponding team pages, ensuring consistency and ease of updates.
-
-<p align="center">
-<img src="readme/team.jpg" alt="Team" height="300">
-</p>
-
-#### Matches
-
-The recent and upcoming matches of the team are displayed in convenient container, providing additional information about the tournaments and scores.
+The All Matches Page offers a comprehensive view of all tournament matches with detailed predictions and actual results.
 
 <p align="center">
 <img src="readme/matches.jpg" alt="Matches" height="300">
 </p>
 
-#### Achievements
+### Group Stage
 
-The Achievements section displays the significant trophies of the team in various tournaments and competitions.
+The Group Stage Page presents the predicted results for each team within the groups. It includes statistics on the accuracy of the AI's predictions for rankings, match outcomes, and exact scores.
 
 <p align="center">
-<img src="readme/achievements.jpg" alt="Achievements" height="300">
+<img src="readme/groups.jpg" alt="Groups" height="300">
 </p>
 
-#### History
+### Knockout Stage
 
-The History section provides a detailed overview of the team's journey, milestones, and significant events, allowing fans to trace the evolution and growth of the team over time.
+The Knockout Stage Page features a bracket view, showing the predicted scores and actual outcomes for each match for the knockout rounds.
 
 <p align="center">
-<img src="readme/history.jpg" alt="History" height="300">
+<img src="readme/knockout.jpg" alt="Knockout" height="300">
 </p>
 
-### Player
+### Custom Match
 
-The Player Page offers detailed insights into the player's history, setup, and achievements, which are aggregated from all the teams the player is affiliated with. To ensure efficient content management and prevent duplication, all player-related data is consolidated within a central file `players.js`. This data is dynamically retrieved and presented on the corresponding player pages, ensuring consistency and ease of updates.
-
-<p align="center">
-<img src="readme/player.jpg" alt="Player" height="300">
-</p>
-
-#### Setup
-
-The Setup section provides detailed information about the player's devices, crosshair settings, video configurations, and mouse settings. It also allows to download player's config file.
+The Custom Match Page allows users to create custom match-ups between any two UEFA countries from any historical period of the Euro tournaments. Users can see the AI's predictions for these hypothetical matches, and define whether they want the draw option to be available, providing a fun and interactive way to explore potential outcomes of dream match-ups.
 
 <p align="center">
-<img src="readme/setup.jpg" alt="Setup" height="300">
+<img src="readme/custom.jpg" alt="Custom" height="300">
 </p>
 
 ### Localisation
 
-Users can switch between English, Belarusian, and Kazakh languages by selecting the desired option from the language selector drop-down menu in the Navbar. Belarusian has an additional option of switching between Cyrillic and Latin alphabets.
+Users can switch between all main languages of UEFA by selecting the desired option from the language selector drop-down menu in the Navbar.
 
 <p align="center">
-<img src="readme/be-cyr.jpg" alt="Belarusian Cyrillic" height="300">
+<img src="readme/fr.jpg" alt="French" height="300">
 </p>
 <p align="center">
-<img src="readme/be-lat.jpg" alt="Belarusian Latin" height="300">
+<img src="readme/de.jpg" alt="German" height="300">
 </p>
-<p align="center">
-<img src="readme/kk.jpg" alt="Kazakh" height="300">
-</p>
+
+### Prediction Model
+
+Footy AI uses a robust prediction model using Linear Regression to predict goal differences based on ELO differences. Linear Regression is chosen for its simplicity and effectiveness in modeling the relationship between ELO ratings and goal differences. The model is trained on the [International football results][results] dataset, and incorporates [ELO Ratings from 1901 to 2024][elo]. Expected Goals (xG) are used to normalize goal scoring based on team performance, serving as the main prediction attribute. ELO Ratings quantify team strength, allowing the model to account for the relative strengths of the teams, leading to more accurate predictions. To reflect the random nature of goal scoring, Poisson Distribution is used to simulate match scores. The model uses data from all international matches over the past four years from the starting date of the tournament, so as to consider semi-major player changes. The prediction percentages are determined after simulating 10,000 matches.
 
 
 
@@ -214,7 +178,7 @@ Users can switch between English, Belarusian, and Kazakh languages by selecting 
 <!-- LICENCE -->
 ## Licence
 
-Because HOWL Gaming is MIT-licensed, any developer can essentially do whatever they want with it as long as they include the original copyright and licence notice in any copies of the source code.
+Because Footy AI is MIT-licensed, any developer can essentially do whatever they want with it as long as they include the original copyright and licence notice in any copies of the source code.
 
 
 
@@ -226,10 +190,16 @@ Because HOWL Gaming is MIT-licensed, any developer can essentially do whatever t
 [licence]: LICENSE
 [linkedin-badge]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
 [linkedin]: https://www.linkedin.com/in/andreihar/
-[react-badge]: https://img.shields.io/badge/React-087EA4?style=for-the-badge&logo=react&logoColor=ffffff
-[react]: https://react.dev/
-[i18next-badge]: https://img.shields.io/badge/i18next-26A69A?style=for-the-badge&logo=i18next&logoColor=ffffff
-[i18next]: https://www.i18next.com/
+[nextjs-badge]: https://img.shields.io/badge/Next.js-171717?style=for-the-badge&logo=nextdotjs&logoColor=ffffff
+[nextjs]: https://nextjs.org/
+[mui-badge]: https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=ffffff
+[mui]: https://mui.com/
+[formatjs-badge]: https://img.shields.io/badge/Format.JS-6F3C97?style=for-the-badge&logo=freecad&logoColor=ffffff
+[formatjs]: https://formatjs.io/
+[sklearn-badge]: https://img.shields.io/badge/sklearn-f89a36?style=for-the-badge&logo=scikitlearn&logoColor=ffffff
+[sklearn]: https://scikit-learn.org/stable/
+[results]: https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017
+[elo]: https://www.eloratings.net/
 
 <!-- Technical links -->
 [demo]: https://footy-ai.andreihar.com/
