@@ -148,14 +148,12 @@ Users can switch between all main languages of UEFA by selecting the desired opt
 
 <p align="center">
 <img src="readme/fr.jpg" alt="French" height="300">
-</p>
-<p align="center">
 <img src="readme/de.jpg" alt="German" height="300">
 </p>
 
 ### Prediction Model
 
-Footy AI uses a robust prediction model using Linear Regression to predict goal differences based on ELO differences. Linear Regression is chosen for its simplicity and effectiveness in modeling the relationship between ELO ratings and goal differences. The model is trained on the [International football results][results] dataset, and incorporates [ELO Ratings from 1901 to 2024][elo]. Expected Goals (xG) are used to normalize goal scoring based on team performance, serving as the main prediction attribute. ELO Ratings quantify team strength, allowing the model to account for the relative strengths of the teams, leading to more accurate predictions. To reflect the random nature of goal scoring, Poisson Distribution is used to simulate match scores. The model uses data from all international matches over the past four years from the starting date of the tournament, so as to consider semi-major player changes. The prediction percentages are determined after simulating 10,000 matches.
+Footy AI uses a robust prediction model using Linear Regression to predict goal differences based on ELO differences. Linear Regression is chosen for its simplicity and effectiveness in modelling the relationship between ELO ratings and goal differences. The model is trained on the [International football results][results] dataset, and incorporates [ELO Ratings from 1901 to 2024][elo]. Expected Goals (xG) are used to normalise goal scoring based on team performance, serving as the main prediction attribute. ELO Ratings quantify team strength, allowing the model to account for the relative strengths of the teams, leading to more accurate predictions. To reflect the random nature of goal scoring, Poisson Distribution is used to simulate match scores. The model uses data from all international matches over the past four years from the starting date of the tournament, so as to consider semi-major player changes. The prediction percentages are determined after simulating 10,000 matches.
 
 
 
