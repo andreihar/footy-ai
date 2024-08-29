@@ -107,7 +107,7 @@ jupyter notebook server/euro.ipynb
 The Overview Page serves as the central hub, providing a summary of the AI's prediction performance for a certain tournament. Users can see recent predictions and their outcomes, as well as visual representations of the AI's overall and daily prediction accuracy.
 
 <p align="center">
-<img src="readme/overview.jpg" alt="Overview" height="450">
+<img src="readme/overview.jpg" alt="Overview" width="600">
 </p>
 
 ### All Matches
@@ -115,7 +115,7 @@ The Overview Page serves as the central hub, providing a summary of the AI's pre
 The All Matches Page offers a comprehensive view of all tournament matches with detailed predictions and actual results.
 
 <p align="center">
-<img src="readme/matches.jpg" alt="Matches" height="450">
+<img src="readme/matches.jpg" alt="Matches" width="600">
 </p>
 
 ### Group Stage
@@ -123,7 +123,7 @@ The All Matches Page offers a comprehensive view of all tournament matches with 
 The Group Stage Page presents the predicted results for each team within the groups. It includes statistics on the accuracy of the AI's predictions for rankings, match outcomes, and exact scores.
 
 <p align="center">
-<img src="readme/groups.jpg" alt="Groups" height="450">
+<img src="readme/groups.jpg" alt="Groups" width="600">
 </p>
 
 ### Knockout Stage
@@ -131,7 +131,7 @@ The Group Stage Page presents the predicted results for each team within the gro
 The Knockout Stage Page features a bracket view, showing the predicted scores and actual outcomes for each match for the knockout rounds.
 
 <p align="center">
-<img src="readme/knockout.jpg" alt="Knockout" height="450">
+<img src="readme/knockout.jpg" alt="Knockout" width="600">
 </p>
 
 ### Custom Match
@@ -139,7 +139,7 @@ The Knockout Stage Page features a bracket view, showing the predicted scores an
 The Custom Match Page allows users to create custom match-ups between any two UEFA countries from any historical period of the Euro tournaments. Users can see the AI's predictions for these hypothetical matches, and define whether they want the draw option to be available, providing a fun and interactive way to explore potential outcomes of dream match-ups.
 
 <p align="center">
-<img src="readme/custom.jpg" alt="Custom" height="450">
+<img src="readme/custom.jpg" alt="Custom" width="600">
 </p>
 
 ### Localisation
@@ -147,8 +147,8 @@ The Custom Match Page allows users to create custom match-ups between any two UE
 Users can switch between all main languages of UEFA by selecting the desired option from the language selector drop-down menu in the Navbar.
 
 <p align="center">
-<img src="readme/fr.jpg" alt="French" height="450">
-<img src="readme/de.jpg" alt="German" height="450">
+<img src="readme/fr.jpg" alt="French" width="600">
+<img src="readme/de.jpg" alt="German" width="600">
 </p>
 
 ### Prediction Model
@@ -161,7 +161,7 @@ Footy AI uses a robust prediction model using Linear Regression to predict goal 
 ## Lighthouse Report
 
 <p align="center">
-<img src="readme/audit.jpg" alt="Audit" height="150">
+<img src="readme/audit.jpg" alt="Audit" width="500">
 </p>
 
 
@@ -196,11 +196,11 @@ Because Footy AI is MIT-licensed, any developer can essentially do whatever they
 [formatjs]: https://formatjs.io/
 [sklearn-badge]: https://img.shields.io/badge/sklearn-f89a36?style=for-the-badge&logo=scikitlearn&logoColor=ffffff
 [sklearn]: https://scikit-learn.org/stable/
-[results]: https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017
-[elo]: https://www.eloratings.net/
 
 <!-- Technical links -->
 [demo]: https://footy-ai.andreihar.com/
+[results]: https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017
+[elo]: https://www.eloratings.net/
 
 <!-- Socials -->
 [andrei-linkedin]: https://www.linkedin.com/in/andreihar/
