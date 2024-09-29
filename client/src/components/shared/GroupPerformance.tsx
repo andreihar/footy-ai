@@ -2,12 +2,12 @@
 import { Typography, Box, Table, TableBody, TableCell, TableHead, TableRow, IconButton, Avatar, Accordion, AccordionSummary, Button, AccordionDetails, List, ListItem } from '@mui/material';
 import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBallFootball } from '@tabler/icons-react';
 import grey from '@mui/material/colors/grey';
-import DashboardCard from '@/app/components/shared/DashboardCard';
+import DashboardCard from '@/components/shared/DashboardCard';
 import { useEffect, useState } from 'react';
 import { useStats } from '@/utils/StatsContext';
 import { useIntl } from 'react-intl';
 import useCountryFlags from '@/utils/countryUtils';
-import Match from '../../types/match';
+import Match from '@/types/match';
 
 interface TeamStat {
     team: string;

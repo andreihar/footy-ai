@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '@/utils/StatsContext';
 import { useIntl } from 'react-intl';
-import DashboardCard from '@/app/components/shared/DashboardCard';
+import DashboardCard from '@/components/shared/DashboardCard';
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 

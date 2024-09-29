@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Papa from 'papaparse';
-import Match from '../app/types/match';
+import Match from '@/types/match';
 import Loading from '@/app/loading';
 
 interface StatsContextType {

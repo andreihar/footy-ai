@@ -1,12 +1,12 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
-import PageContainer from '@/app/components/container/PageContainer';
+import PageContainer from '@/components/container/PageContainer';
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '@/utils/countryUtils';
 import { useIntl } from 'react-intl';
-import Match from '../types/match';
+import Match from '@/types/match';
 import './style.scss';
 
 const MatchBracket = ({ match }: { match: Match; }) => {

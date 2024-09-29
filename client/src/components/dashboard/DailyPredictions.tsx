@@ -6,7 +6,7 @@ import { useStats } from '@/utils/StatsContext';
 import { useIntl } from 'react-intl';
 import { Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
-import DashboardCard from '@/app/components/shared/DashboardCard';
+import DashboardCard from '@/components/shared/DashboardCard';
 
 const DailyPredictions = () => {
   const theme = useTheme();

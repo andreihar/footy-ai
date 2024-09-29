@@ -1,7 +1,7 @@
 'use client';
 import { Avatar, Box, Button, CardContent, Typography, Accordion, AccordionSummary, AccordionDetails, Grid } from '@mui/material';
-import PageContainer from '@/app/components/container/PageContainer';
-import DashboardCard from '@/app/components/shared/DashboardCard';
+import PageContainer from '@/components/container/PageContainer';
+import DashboardCard from '@/components/shared/DashboardCard';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
@@ -9,7 +9,7 @@ import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '@/utils/countryUtils';
 import { useIntl } from 'react-intl';
 import { useLanguage } from '@/utils/LanguageProvider';
-import Match from '../types/match';
+import Match from '@/types/match';
 
 const MatchCard = ({ match }: { match: Match; }) => {
   const { getFlag, getHistoricalName } = useCountryFlags();

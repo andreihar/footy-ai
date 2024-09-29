@@ -1,6 +1,6 @@
 import { useTheme } from '@mui/material/styles';
 import { Typography, Box, Avatar } from '@mui/material';
-import DashboardCard from '@/app/components/shared/DashboardCard';
+import DashboardCard from '@/components/shared/DashboardCard';
 
 const GeneralStats: React.FC<{ title: string; Icon: React.ElementType; primaryText: number; secondaryText: number; }> = ({ title, Icon, primaryText, secondaryText }) => {
   const theme = useTheme();

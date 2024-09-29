@@ -4,8 +4,8 @@ import React, { Suspense } from "react";
 import { StatsProvider } from "@/utils/StatsContext";
 import { LanguageProvider } from '@/utils/LanguageProvider';
 import DynamicTheme from "@/utils/DynamicTheme";
-import Header from "@/app/layout/Header";
-import Footer from "@/app/layout/Footer";
+import Header from "@/layout/Header";
+import Footer from "@/layout/Footer";
 import Loading from './loading';
 import './global.css';
 

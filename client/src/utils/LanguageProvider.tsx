@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { IntlProvider } from 'react-intl';
-import EnglishMessages from '../locales/en.json';
-import FrenchMessages from '../locales/fr.json';
-import GermanMessages from '../locales/de.json';
-import SpanishMessages from '../locales/es.json';
-import ItalianMessages from '../locales/it.json';
-import PortugueseMessages from '../locales/pt.json';
+import EnglishMessages from '@/locales/en.json';
+import FrenchMessages from '@/locales/fr.json';
+import GermanMessages from '@/locales/de.json';
+import SpanishMessages from '@/locales/es.json';
+import ItalianMessages from '@/locales/it.json';
+import PortugueseMessages from '@/locales/pt.json';
 
 interface LanguageContextType {
 	language: string;

@@ -1,8 +1,8 @@
 'use client';
 import { useIntl } from 'react-intl';
 import { useStats } from '@/utils/StatsContext';
-import PageContainer from '@/app/components/container/PageContainer';
-import GroupPerformance from '@/app/components/shared/GroupPerformance';
+import PageContainer from '@/components/container/PageContainer';
+import GroupPerformance from '@/components/shared/GroupPerformance';
 
 const GroupPage = () => {
   const { formatMessage } = useIntl();

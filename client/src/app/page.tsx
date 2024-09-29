@@ -2,13 +2,13 @@
 import { Grid, Box } from '@mui/material';
 import { useIntl } from 'react-intl';
 import { useStats } from '@/utils/StatsContext';
-import PageContainer from '@/app/components/container/PageContainer';
+import PageContainer from '@/components/container/PageContainer';
 // components
-import GeneralStats from './components/dashboard/GeneralStats';
-import PredictionsOverview from '@/app/components/dashboard/PredictionsOverview';
-import OverallStatistics from '@/app/components/dashboard/OverallStatistics';
-import RecentPredictions from '@/app/components/dashboard/RecentPredictions';
-import DailyPredictions from '@/app/components/dashboard/DailyPredictions';
+import GeneralStats from '@/components/dashboard/GeneralStats';
+import PredictionsOverview from '@/components/dashboard/PredictionsOverview';
+import OverallStatistics from '@/components/dashboard/OverallStatistics';
+import RecentPredictions from '@/components/dashboard/RecentPredictions';
+import DailyPredictions from '@/components/dashboard/DailyPredictions';
 import { IconPlayFootball, IconListNumbers, IconTrophyFilled } from '@tabler/icons-react';
 
 const Dashboard = () => {

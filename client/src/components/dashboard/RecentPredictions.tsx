@@ -1,8 +1,8 @@
 
-import DashboardCard from '@/app/components/shared/DashboardCard';
+import DashboardCard from '@/components/shared/DashboardCard';
 import { Timeline, TimelineItem, TimelineOppositeContent, TimelineSeparator, TimelineDot, TimelineConnector, TimelineContent, timelineOppositeContentClasses, } from '@mui/lab';
 import { Typography } from '@mui/material';
-import Match from '../../types/match';
+import Match from '@/types/match';
 import { useEffect, useState } from "react";
 import useCountryFlags from '@/utils/countryUtils';
 import { useStats } from '@/utils/StatsContext';

@@ -1,7 +1,7 @@
 'use client';
 import { Box, CardContent, Typography, Link, ListItem, ListItemText, ListItemIcon, Card, CardActionArea, CardMedia, CardHeader, Avatar, Grid } from '@mui/material';
-import PageContainer from '@/app/components/container/PageContainer';
-import DashboardCard from '@/app/components/shared/DashboardCard';
+import PageContainer from '@/components/container/PageContainer';
+import DashboardCard from '@/components/shared/DashboardCard';
 import { useIntl, FormattedMessage } from 'react-intl';
 import StarIcon from '@mui/icons-material/Star';
 import { IconBallFootball, IconTableShare, IconTournament, IconBrain } from "@tabler/icons-react";
