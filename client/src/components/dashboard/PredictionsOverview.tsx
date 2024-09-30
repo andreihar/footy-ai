@@ -1,13 +1,13 @@
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '@/utils/StatsContext';
-import { useIntl } from 'react-intl';
+import { useTranslations } from 'next-intl';
 import DashboardCard from '@/components/shared/DashboardCard';
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const PredictionsOverview = () => {
     const theme = useTheme();
-    const { formatMessage } = useIntl();
+    const t = useTranslations();
     const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
 
     const optionscolumnchart: any = {
@@ -48,12 +48,12 @@ const PredictionsOverview = () => {
     };
 
     const seriescolumnchart: any = [
-        { name: formatMessage({ id: 'predictionsOverview.correct' }), data: correctPredictionsPerDay },
-        { name: formatMessage({ id: 'predictionsOverview.incorrect' }), data: incorrectPredictionsPerDay }
+        { name: t('predictionsOverview.correct'), data: correctPredictionsPerDay },
+        { name: t('predictionsOverview.incorrect'), data: incorrectPredictionsPerDay }
     ];
 
     return (
-        <DashboardCard title={formatMessage({ id: 'predictionsOverview.title' })}>
+        <DashboardCard title={t('predictionsOverview.title')}>
             <Chart options={optionscolumnchart} series={seriescolumnchart} type="bar" height={370} width={"100%"} />
         </DashboardCard>
     );

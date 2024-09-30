@@ -72,7 +72,7 @@
 		},
 		"title4": "Como funciona",
 		"text4": "A IA aproveita dados históricos e algoritmos avançados de aprendizagem automática para gerar previsões. O modelo é treinado nos resultados históricos com a ajuda do sistema ELO. Isto permite fornecer previsões precisas e perspicazes para correspondências históricas e contemporâneas, ao mesmo tempo que mantém o modelo de previsão mínimo para garantir um desempenho rápido e eficiente.",
-		"text4.1": "Pode encontrar o Jupyter notebook contendo o modelo de IA na pasta \"server\" do <b>repositório GitHub</b>. Este repositório contém também o código do site, permitindo explorar e contribuir para o projeto.",
+		"text4_1": "Pode encontrar o Jupyter notebook contendo o modelo de IA na pasta \"server\" do <b>repositório GitHub</b>. Este repositório contém também o código do site, permitindo explorar e contribuir para o projeto.",
 		"title5": "A minha missão",
 		"text5": "Na Footy AI, a minha missão é melhorar a experiência dos fãs de futebol, combinando a rica história do desporto com tecnologia de ponta. Quer esteja curioso sobre os torneios anteriores ou entusiasmado com o Euro atual, o meu objetivo é proporcionar uma plataforma divertida e informativa para todos os entusiastas do futebol.",
 		"text6": "Obrigado por visitar o Footy AI. Espero que goste de explorar as previsões e os insights tanto quanto eu gostei de os criar. Se tiver alguma dúvida, feedback ou sugestão, não hesite em contactar!"

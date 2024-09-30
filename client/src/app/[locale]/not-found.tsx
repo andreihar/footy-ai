@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Box, Typography, Button, SvgIcon, SvgIconProps } from '@mui/material';
-import { useIntl } from 'react-intl';
+import { useTranslations } from 'next-intl';
 import { useTheme, lighten } from '@mui/material';
 
 const PageNotFoundIcon = (props: SvgIconProps) => {
@@ -51,14 +51,14 @@ const PageNotFoundIcon = (props: SvgIconProps) => {
 };
 
 const NotFoundPage = () => {
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mt={5}>
-      <Typography variant="h1" gutterBottom>{formatMessage({ id: '404.title' })}</Typography>
-      <Typography mt={2} gutterBottom>{formatMessage({ id: '404.text' })}</Typography>
+      <Typography variant="h1" gutterBottom>{t('404.title')}</Typography>
+      <Typography mt={2} gutterBottom>{t('404.text')}</Typography>
       <PageNotFoundIcon sx={{ fontSize: 300 }} />
-      <Button variant="contained" size="large" href="/" sx={{ mt: 2 }}>{formatMessage({ id: '404.button' })}</Button>
+      <Button variant="contained" size="large" href="/" sx={{ mt: 2 }}>{t('404.button')}</Button>
     </Box>
   );
 };

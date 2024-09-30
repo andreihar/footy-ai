@@ -3,14 +3,14 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '@/utils/StatsContext';
-import { useIntl } from 'react-intl';
+import { useTranslations } from "next-intl";
 import { Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
 import DashboardCard from '@/components/shared/DashboardCard';
 
 const DailyPredictions = () => {
   const theme = useTheme();
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
   const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
   const dailyPercentages = correctPredictionsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredictionsPerDay[index])).toFixed(2)));
 
@@ -41,7 +41,7 @@ const DailyPredictions = () => {
 
   return (
     <DashboardCard
-      title={formatMessage({ id: 'dailyPredictions.title' })}
+      title={t('dailyPredictions.title')}
       action={
         <Avatar sx={{ height: 48, width: 48, bgcolor: theme.palette.secondary.main, boxShadow: 6 }} >
           <IconPercentage width={24} />
@@ -75,7 +75,7 @@ const DailyPredictions = () => {
                     <Typography variant="subtitle2" fontWeight="600">
                       {percentageChange >= 0 ? '+' : ''}{percentageChange.toFixed(2)}%
                     </Typography>
-                    <Typography variant="subtitle2" color="textSecondary">{formatMessage({ id: 'overallStatistics.before' })}</Typography>
+                    <Typography variant="subtitle2" color="textSecondary">{t('overallStatistics.before')}</Typography>
                   </>
                 );
               })()}

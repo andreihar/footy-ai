@@ -2,8 +2,7 @@ import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
 import { useEffect, useState, useRef, Fragment } from 'react';
 import { useStats } from '@/utils/StatsContext';
-import { useLanguage } from '@/utils/LanguageProvider';
-import { useIntl } from 'react-intl';
+import { useTranslations } from 'next-intl';
 import { useTheme, lighten, darken } from '@mui/material/styles';
 import Logo from './Logo';
 import EuroLogo from './EuroLogo';
@@ -14,23 +13,22 @@ function Header() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState<string | null>(null);
   const { year, setYear } = useStats();
-  const { language, setLanguage } = useLanguage();
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
   const theme = useTheme();
   const isSmOrLarger = useMediaQuery(theme.breakpoints.up('sm'));
 
   const menuItems = [
-    { title: formatMessage({ id: 'header.overview' }), href: "/", },
+    { title: t('header.overview'), href: "/", },
     {
-      title: formatMessage({ id: 'header.fixtures' }),
+      title: t('header.fixtures'),
       children: [
-        { title: formatMessage({ id: 'header.allMatches' }), href: "/matches", },
-        { title: formatMessage({ id: 'header.group' }), href: "/group", },
-        { title: formatMessage({ id: 'header.knockout' }), href: "/knockout", },
+        { title: t('header.allMatches'), href: "/matches", },
+        { title: t('header.group'), href: "/group", },
+        { title: t('header.knockout'), href: "/knockout", },
       ],
     },
-    { title: formatMessage({ id: 'header.custom' }), href: "/custom", },
-    { title: formatMessage({ id: 'header.about' }), href: "/about", },
+    { title: t('header.custom'), href: "/custom", },
+    { title: t('header.about'), href: "/about", },
   ];
 
   const languages = { en: 'English', fr: 'Français', de: 'Deutsch', es: 'Español', it: 'Italiano', pt: 'Português' };
@@ -101,13 +99,13 @@ function Header() {
                 Footy AI
               </Typography>
             </Box>
-            <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)} label="Language"
+            {/* <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)} label="Language"
               sx={{ color: getColour(), borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
             >
               {Object.entries(languages).map(([code, name]) => (
                 <MenuItem key={code} value={code}>{name}</MenuItem>
               ))}
-            </Select>
+            </Select> */}
           </Toolbar>
         </Container>
       </Box>
@@ -223,7 +221,7 @@ function Header() {
               </ListItemButton>
             </ListItem>
             <Divider />
-            <ListItem disablePadding>
+            {/* <ListItem disablePadding>
               <ListItemButton sx={{ padding: '0px', width: '100%', '&:hover': { bgcolor: 'transparent' } }}>
                 <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)} fullWidth label="Language"
                   sx={{
@@ -236,7 +234,7 @@ function Header() {
                   ))}
                 </Select>
               </ListItemButton>
-            </ListItem>
+            </ListItem> */}
           </List>
         </Box>
       </Drawer>

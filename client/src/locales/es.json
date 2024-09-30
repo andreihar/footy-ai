@@ -72,7 +72,7 @@
 		},
 		"title4": "Cómo funciona",
 		"text4": "La IA aprovecha los datos históricos y los algoritmos avanzados de aprendizaje automático para generar pronósticos. El modelo se entrena con los resultados históricos con la ayuda del sistema ELO. Esto permite proporcionar pronósticos precisos y reveladores tanto para enfrentamientos históricos como contemporáneos, al tiempo que se mantiene el modelo de pronóstico al mínimo para garantizar un rendimiento rápido y eficiente.",
-		"text4.1": "Puede encontrar el cuaderno Jupyter que contiene el modelo de IA en la carpeta \"servidor\" del <b>repositorio de GitHub</b>. Este repositorio también contiene el código del sitio web, lo que le permite explorar y contribuir al proyecto.",
+		"text4_1": "Puede encontrar el cuaderno Jupyter que contiene el modelo de IA en la carpeta \"servidor\" del <b>repositorio de GitHub</b>. Este repositorio también contiene el código del sitio web, lo que le permite explorar y contribuir al proyecto.",
 		"title5": "Mi misión",
 		"text5": "En Footy AI, mi misión es mejorar la experiencia de los fanáticos del fútbol combinando la rica historia del deporte con tecnología de vanguardia. Ya sea que sientas curiosidad por los torneos pasados o estés entusiasmado con la Eurocopa actual, mi objetivo es brindar una plataforma divertida e informativa para todos los entusiastas del fútbol.",
 		"text6": "Gracias por visitar Footy AI. Espero que disfrutes explorando los pronósticos y los conocimientos tanto como yo disfruté creándolos. Si tienes alguna pregunta, comentario o sugerencia, ¡no dudes en comunicarte conmigo!"

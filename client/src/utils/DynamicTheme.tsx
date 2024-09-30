@@ -1,3 +1,4 @@
+'use client';
 import React, { ReactNode } from 'react';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
 import { useStats } from '@/utils/StatsContext';

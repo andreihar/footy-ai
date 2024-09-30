@@ -1,10 +1,10 @@
 import { Box, Typography, SvgIcon, Link } from '@mui/material';
 import Image from 'next/image';
-import { useIntl } from 'react-intl';
+import { useTranslations } from 'next-intl';
 import Logo from './Logo';
 
 function Footer() {
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
 
   return (
     <>
@@ -15,7 +15,7 @@ function Footer() {
         </Box>
         <Box display="flex" justifyContent="space-between" pb={1}>
           <Box flex={1} display="flex" justifyContent="flex-start">
-            <Typography>© 2024 Andrei Harbachov. {formatMessage({ id: 'footer.rights' })}</Typography>
+            <Typography>© 2024 Andrei Harbachov. {t('footer.rights')}</Typography>
           </Box>
           <Box flex={1} display="flex" justifyContent="flex-end" alignItems="flex-end">
             <Link href="https://www.uefa.com/" target="_blank" rel="noopener noreferrer">

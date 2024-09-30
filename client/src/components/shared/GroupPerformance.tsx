@@ -5,7 +5,7 @@ import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/components/shared/DashboardCard';
 import { useEffect, useState } from 'react';
 import { useStats } from '@/utils/StatsContext';
-import { useIntl } from 'react-intl';
+import { useTranslations } from 'next-intl';
 import useCountryFlags from '@/utils/countryUtils';
 import Match from '@/types/match';
 
@@ -64,7 +64,7 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
 const GroupPerformance = ({ group }: { group: string; }) => {
     const { getFlag, getHistoricalName } = useCountryFlags();
     const { data } = useStats();
-    const { formatMessage } = useIntl();
+    const t = useTranslations();
     const [teamStats, setTeamStats] = useState<Array<TeamStat>>([]);
     const [correctRankings, setCorrectRankings] = useState(0);
     const [correctOutcomes, setCorrectOutcomes] = useState(0);
@@ -110,7 +110,7 @@ const GroupPerformance = ({ group }: { group: string; }) => {
     }, [group, data]);
 
     return (
-        <DashboardCard title={`${formatMessage({ id: 'matches.Group' })} ${group.split(' ')[1]}`}>
+        <DashboardCard title={`${t('matches.Group')} ${group.split(' ')[1]}`}>
             <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
                 <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
                     <TableHead>
@@ -119,7 +119,7 @@ const GroupPerformance = ({ group }: { group: string; }) => {
                                 <Typography variant="subtitle2" fontWeight={600}></Typography>
                             </TableCell>
                             <TableCell>
-                                <Typography variant="subtitle2" fontWeight={600}>{formatMessage({ id: 'groupPerformance.team' })}</Typography>
+                                <Typography variant="subtitle2" fontWeight={600}>{t('groupPerformance.team')}</Typography>
                             </TableCell>
                             <TableCell>
                                 <Typography variant="subtitle2" fontWeight={600}>W</Typography>
@@ -204,22 +204,22 @@ const GroupPerformance = ({ group }: { group: string; }) => {
                             sx={{ justifyContent: 'center', display: 'flex', width: '100%' }}
                         >
                             <Button variant="contained" color="primary" component="div" sx={{ mx: 'auto' }}>
-                                {formatMessage({ id: 'groupPerformance.results' })}
+                                {t('groupPerformance.results')}
                             </Button>
                         </AccordionSummary>
                         <AccordionDetails>
                             <List>
                                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                                     <IconListNumbers style={{ marginRight: 5 }} />
-                                    <Typography variant="h6">{formatMessage({ id: 'groupPerformance.ranking' })}: {correctRankings}/4</Typography>
+                                    <Typography variant="h6">{t('groupPerformance.ranking')}: {correctRankings}/4</Typography>
                                 </ListItem>
                                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                                     <IconMathXDivideY2 style={{ marginRight: 5 }} />
-                                    <Typography variant="h6">{formatMessage({ id: 'groupPerformance.outcomes' })}: {correctOutcomes}/6</Typography>
+                                    <Typography variant="h6">{t('groupPerformance.outcomes')}: {correctOutcomes}/6</Typography>
                                 </ListItem>
                                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                                     <IconBallFootball style={{ marginRight: 5 }} />
-                                    <Typography variant="h6">{formatMessage({ id: 'groupPerformance.scores' })}: {correctScores}/6</Typography>
+                                    <Typography variant="h6">{t('groupPerformance.scores')}: {correctScores}/6</Typography>
                                 </ListItem>
                             </List>
                         </AccordionDetails>

@@ -5,7 +5,7 @@ import PageContainer from '@/components/container/PageContainer';
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '@/utils/countryUtils';
-import { useIntl } from 'react-intl';
+import { useTranslations } from 'next-intl';
 import Match from '@/types/match';
 import './style.scss';
 
@@ -50,7 +50,7 @@ const MatchBracket = ({ match }: { match: Match; }) => {
 
 const KnockoutPage = () => {
   const { data } = useStats();
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
 
   const sortTournamentMatches = (data: Match[]): { [stage: string]: Match[]; } => {
     const stages = ['Round of 16', 'Quarter-finals', 'Semi-finals', 'Final', 'Third-place play-off'];
@@ -77,14 +77,14 @@ const KnockoutPage = () => {
   };
 
   return (
-    <PageContainer title={formatMessage({ id: 'header.knockout' })} description="List of matches and predictions for the Knockout Stage">
+    <PageContainer title={t('header.knockout')} description="List of matches and predictions for the Knockout Stage">
       <Box display="flex" sx={{ overflow: 'auto', maxWidth: '90vw' }}>
         {Object.entries(sortTournamentMatches(data)).map(([stageName, matches]) => {
           return (
             matches.length > 0 && (
               <Box className="stage-column" key={stageName} display="flex" flexDirection="column" minHeight="100%" justifyContent="space-around" alignItems="center" position="relative" pt={5}>
                 <Typography variant="h5" position="absolute" zIndex={1} top={0} left="50%" sx={{ transform: 'translateX(-50%)' }}>
-                  {formatMessage({ id: `matches.${stageName}` })}
+                  {t(`matches.${stageName}`)}
                 </Typography>
                 {matches.map((match, index) => (
                   <MatchBracket key={`${stageName}-${index}`} match={match} />

@@ -3,14 +3,14 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { useStats } from '@/utils/StatsContext';
-import { useIntl } from "react-intl";
+import { useTranslations } from 'next-intl';
 import { Grid, Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
 import DashboardCard from '@/components/shared/DashboardCard';
 
 const OverallStatistics = () => {
   const theme = useTheme();
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
   const { correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
 
   const correctPrev = Number((100 * correctPredictionsPerDay.slice(0, -1).reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.slice(0, -1).concat(incorrectPredictionsPerDay.slice(0, -1)).reduce((a, c) => a + c, 0))).toFixed(2));
@@ -48,11 +48,11 @@ const OverallStatistics = () => {
         },
       },
     ],
-    labels: [formatMessage({ id: 'recentPredictions.correct' }), formatMessage({ id: 'recentPredictions.incorrect' })],
+    labels: [t('recentPredictions.correct'), t('recentPredictions.incorrect')],
   };
 
   return (
-    <DashboardCard title={formatMessage({ id: 'overallStatistics.title' })}>
+    <DashboardCard title={t('overallStatistics.title')}>
       <Grid container spacing={3}>
         <Grid item xs={7} sm={7}>
           <Typography variant="h3" fontWeight="700">{correct}%</Typography>
@@ -69,16 +69,16 @@ const OverallStatistics = () => {
               )
             }
             <Typography variant="subtitle2" fontWeight="600">{(correct - correctPrev).toFixed(2)}%</Typography>
-            <Typography variant="subtitle2" color="textSecondary">{formatMessage({ id: 'overallStatistics.before' })}</Typography>
+            <Typography variant="subtitle2" color="textSecondary">{t('overallStatistics.before')}</Typography>
           </Stack>
           <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.main, svg: { display: 'none' } }}></Avatar>
-              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{formatMessage({ id: 'recentPredictions.correct' })}</Typography>
+              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{t('recentPredictions.correct')}</Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.light, svg: { display: 'none' } }}></Avatar>
-              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{formatMessage({ id: 'recentPredictions.incorrect' })}</Typography>
+              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{t('recentPredictions.incorrect')}</Typography>
             </Stack>
           </Stack>
         </Grid>

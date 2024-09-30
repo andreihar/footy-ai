@@ -2,13 +2,13 @@
 import { Box, CardContent, Typography, Link, ListItem, ListItemText, ListItemIcon, Card, CardActionArea, CardMedia, CardHeader, Avatar, Grid } from '@mui/material';
 import PageContainer from '@/components/container/PageContainer';
 import DashboardCard from '@/components/shared/DashboardCard';
-import { useIntl, FormattedMessage } from 'react-intl';
+import { useTranslations } from 'next-intl';
 import StarIcon from '@mui/icons-material/Star';
 import { IconBallFootball, IconTableShare, IconTournament, IconBrain } from "@tabler/icons-react";
 import { useEffect, useState } from 'react';
 
 const AboutPage = () => {
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
   const [stars, setStars] = useState(0);
   const [description, setDescription] = useState('');
 
@@ -50,21 +50,21 @@ const AboutPage = () => {
   );
 
   const listItems = [
-    { title: formatMessage({ id: 'about.list.title1' }), description: formatMessage({ id: 'about.list.text1' }), Icon: IconBrain },
-    { title: formatMessage({ id: 'about.list.title2' }), description: formatMessage({ id: 'about.list.text2' }), Icon: IconTableShare },
-    { title: formatMessage({ id: 'about.list.title3' }), description: formatMessage({ id: 'about.list.text3' }), Icon: IconTournament },
-    { title: formatMessage({ id: 'about.list.title4' }), description: formatMessage({ id: 'about.list.text4' }), Icon: IconBallFootball }
+    { title: t('about.list.title1'), description: t('about.list.text1'), Icon: IconBrain },
+    { title: t('about.list.title2'), description: t('about.list.text2'), Icon: IconTableShare },
+    { title: t('about.list.title3'), description: t('about.list.text3'), Icon: IconTournament },
+    { title: t('about.list.title4'), description: t('about.list.text4'), Icon: IconBallFootball }
   ];
 
   return (
-    <PageContainer title={formatMessage({ id: 'header.about' })} description="List of all matches and predictions">
-      <DashboardCard title={`${formatMessage({ id: 'about.title' })} Footy AI`}>
+    <PageContainer title={t('header.about')} description="List of all matches and predictions" >
+      <DashboardCard title={`${t('about.title')} Footy AI`}>
         <CardContent>
-          <Typography paragraph variant="body1">{formatMessage({ id: 'about.text1' })}</Typography>
-          <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title2' })}</Typography>
-          <Typography paragraph>{formatMessage({ id: 'about.text2' })}</Typography>
-          <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title3' })}</Typography>
-          <Typography paragraph>{formatMessage({ id: 'about.text3' })}</Typography>
+          <Typography paragraph variant="body1">{t('about.text1')}</Typography>
+          <Typography variant="h4" gutterBottom>{t('about.title2')}</Typography>
+          <Typography paragraph>{t('about.text2')}</Typography>
+          <Typography variant="h4" gutterBottom>{t('about.title3')}</Typography>
+          <Typography paragraph>{t('about.text3')}</Typography>
           <Box pl={2} mb={2}>
             <Grid container spacing={2}>
               {listItems.map((item, index) => (
@@ -77,20 +77,20 @@ const AboutPage = () => {
               ))}
             </Grid>
           </Box>
-          <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title4' })}</Typography>
-          <Typography paragraph>{formatMessage({ id: 'about.text4' })}</Typography>
+          <Typography variant="h4" gutterBottom>{t('about.title4')}</Typography>
+          <Typography paragraph>{t('about.text4')}</Typography>
           <Typography paragraph>
-            <FormattedMessage id="about.text4.1"
-              values={{ b: chunks => <Link href="https://github.com/andreihar/footy-ai" target="_blank">{chunks}</Link> }}
-            />
+            {t.rich('about.text4_1', {
+              b: (chunks) => <Link href="https://github.com/andreihar/footy-ai" target="_blank">{chunks}</Link>
+            })}
           </Typography>
           <GithubCard />
-          <Typography variant="h4" gutterBottom>{formatMessage({ id: 'about.title5' })}</Typography>
-          <Typography paragraph>{formatMessage({ id: 'about.text5' })}</Typography>
-          <Typography paragraph>{formatMessage({ id: 'about.text6' })}</Typography>
+          <Typography variant="h4" gutterBottom>{t('about.title5')}</Typography>
+          <Typography paragraph>{t('about.text5')}</Typography>
+          <Typography paragraph>{t('about.text6')}</Typography>
         </CardContent>
       </DashboardCard>
-    </PageContainer>
+    </PageContainer >
   );
 };
 

@@ -7,14 +7,12 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
 import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '@/utils/countryUtils';
-import { useIntl } from 'react-intl';
-import { useLanguage } from '@/utils/LanguageProvider';
+import { useTranslations } from 'next-intl';
 import Match from '@/types/match';
 
 const MatchCard = ({ match }: { match: Match; }) => {
   const { getFlag, getHistoricalName } = useCountryFlags();
-  const { formatMessage } = useIntl();
-  const { language } = useLanguage();
+  const t = useTranslations();
 
   const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
   let predictedOutcome = "";
@@ -39,14 +37,14 @@ const MatchCard = ({ match }: { match: Match; }) => {
       <CardContent>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mb={2}>
           <Typography variant="h6">
-            {new Date(match.date).toLocaleString(language, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+            {new Date(match.date).toLocaleString('en', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
             &nbsp; • &nbsp;
-            {new Date(match.date).toLocaleString(language, { hour: 'numeric', minute: 'numeric' })}
+            {new Date(match.date).toLocaleString('en', { hour: 'numeric', minute: 'numeric' })}
           </Typography>
           <Typography variant="h5" mt={2} >{
             match.stage.startsWith('Group')
-              ? `${formatMessage({ id: `matches.${match.stage.split(" ")[0]}` })} ${match.stage.split(" ")[1]}`
-              : formatMessage({ id: `matches.${match.stage}` })
+              ? `${t(`matches.${match.stage.split(" ")[0]}`)} ${match.stage.split(" ")[1]}`
+              : t(`matches.${match.stage}`)
           }</Typography>
           <Typography sx={{ textTransform: "uppercase" }} mt={2}>{match.stadium}, {match.city}</Typography>
         </Box>
@@ -99,7 +97,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
               sx={{ justifyContent: 'center', display: 'flex', width: '100%' }}
             >
               <Button variant="contained" color="primary" component="div" sx={{ mx: 'auto' }}>
-                {formatMessage({ id: 'groupPerformance.results' })}
+                {t('groupPerformance.results')}
               </Button>
             </AccordionSummary>
             <AccordionDetails>
@@ -108,13 +106,13 @@ const MatchCard = ({ match }: { match: Match; }) => {
                   {correctOutcome === "correct" && <CheckCircleIcon color="success" />}
                   {correctOutcome === "incorrect" && <CancelIcon color="error" />}
                   {correctOutcome === "unknown" && <HelpIcon sx={{ color: 'gray' }} />}
-                  <Typography ml={1}>{formatMessage({ id: 'matches.outcome' })}</Typography>
+                  <Typography ml={1}>{t('matches.outcome')}</Typography>
                 </Box>
                 <Box display="flex">
                   {correctScore === "correct" && <CheckCircleIcon color="success" />}
                   {correctScore === "incorrect" && <CancelIcon color="error" />}
                   {correctScore === "unknown" && <HelpIcon sx={{ color: 'gray' }} />}
-                  <Typography ml={1}>{formatMessage({ id: 'matches.score' })}</Typography>
+                  <Typography ml={1}>{t('matches.score')}</Typography>
                 </Box>
               </Box>
             </AccordionDetails>
@@ -126,11 +124,11 @@ const MatchCard = ({ match }: { match: Match; }) => {
 };
 
 const MatchesPage = () => {
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
   const { data } = useStats();
 
   return (
-    <PageContainer title={formatMessage({ id: 'header.allMatches' })} description="List of all matches and predictions">
+    <PageContainer title={t('header.allMatches')} description="List of all matches and predictions">
       <>
         {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
           .reverse().map((match, index) => <Box key={index} mt={2}><MatchCard match={match} /></Box>)}

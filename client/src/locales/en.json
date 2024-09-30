@@ -72,7 +72,7 @@
 		},
 		"title4": "How It Works",
 		"text4": "The AI leverages historical data and advanced machine learning algorithms to generate predictions. The model is trained on the historical outcomes with the assist of ELO system. This allows to provide accurate and insightful predictions for both historical and contemporary match-ups, while keeping the prediction model minimal to ensure fast and efficient performance.",
-		"text4.1": "You can find the Jupyter notebook containing the AI model in the \"server\" folder of the <b>GitHub repository</b>. This repository also contains the code for the website, allowing you to explore and contribute to the project.",
+		"text4_1": "You can find the Jupyter notebook containing the AI model in the \"server\" folder of the <b>GitHub repository</b>. This repository also contains the code for the website, allowing you to explore and contribute to the project.",
 		"title5": "My Mission",
 		"text5": "At Footy AI, my mission is to enhance the experience of football fans by combining the rich history of the sport with cutting-edge technology. Whether you're curious about past tournaments or excited about the current Euro, I aim to provide a fun and informative platform for all football enthusiasts.",
 		"text6": "Thank you for visiting Footy AI. I hope you enjoy exploring the predictions and insights as much as I enjoyed creating them. If you have any questions, feedback, or suggestions, please don't hesitate to reach out!"

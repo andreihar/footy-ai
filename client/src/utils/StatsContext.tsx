@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 import { useSearchParams } from 'next/navigation';
 import Papa from 'papaparse';
 import Match from '@/types/match';
-import Loading from '@/app/loading';
+import Loading from '@/app/[locale]/loading';
 
 interface StatsContextType {
   data: Match[];

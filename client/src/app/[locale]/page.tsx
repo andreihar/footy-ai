@@ -1,6 +1,6 @@
 'use client';
 import { Grid, Box } from '@mui/material';
-import { useIntl } from 'react-intl';
+import { useTranslations } from 'next-intl';
 import { useStats } from '@/utils/StatsContext';
 import PageContainer from '@/components/container/PageContainer';
 // components
@@ -12,23 +12,23 @@ import DailyPredictions from '@/components/dashboard/DailyPredictions';
 import { IconPlayFootball, IconListNumbers, IconTrophyFilled } from '@tabler/icons-react';
 
 const Dashboard = () => {
-  const { formatMessage } = useIntl();
+  const t = useTranslations();
   const { perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts } = useStats();
 
   return (
-    <PageContainer title={formatMessage({ id: 'header.overview' })} description="this is Dashboard">
+    <PageContainer title={t('header.overview')} description="this is Dashboard">
       <Box>
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Grid container spacing={3}>
               <Grid item xs={12} md={4}>
-                <GeneralStats title={formatMessage({ id: 'generalStats.perfect' })} Icon={IconPlayFootball} primaryText={perfectScores} secondaryText={matchesPlayedGroups + matchesPlayedKnockouts} />
+                <GeneralStats title={t('generalStats.perfect')} Icon={IconPlayFootball} primaryText={perfectScores} secondaryText={matchesPlayedGroups + matchesPlayedKnockouts} />
               </Grid>
               <Grid item xs={12} md={4}>
-                <GeneralStats title={formatMessage({ id: 'generalStats.group' })} Icon={IconListNumbers} primaryText={correctGroups} secondaryText={matchesPlayedGroups} />
+                <GeneralStats title={t('generalStats.group')} Icon={IconListNumbers} primaryText={correctGroups} secondaryText={matchesPlayedGroups} />
               </Grid>
               <Grid item xs={12} md={4}>
-                <GeneralStats title={formatMessage({ id: 'generalStats.knockout' })} Icon={IconTrophyFilled} primaryText={correctKnockouts} secondaryText={matchesPlayedKnockouts} />
+                <GeneralStats title={t('generalStats.knockout')} Icon={IconTrophyFilled} primaryText={correctKnockouts} secondaryText={matchesPlayedKnockouts} />
               </Grid>
             </Grid>
           </Grid>
