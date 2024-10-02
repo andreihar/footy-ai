@@ -5,7 +5,7 @@ import DashboardCard from '@/components/shared/DashboardCard';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
-import { useStats } from '@/utils/StatsContext';
+import * as stats from '@/utils/stats';
 import useCountryFlags from '@/utils/countryUtils';
 import { useTranslations } from 'next-intl';
 import Match from '@/types/match';
@@ -125,7 +125,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
 
 const MatchesPage = () => {
   const t = useTranslations();
-  const { data } = useStats();
+  const { data } = stats;
 
   return (
     <PageContainer title={t('header.allMatches')} description="List of all matches and predictions">

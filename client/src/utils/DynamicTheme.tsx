@@ -1,7 +1,6 @@
 'use client';
 import React, { ReactNode } from 'react';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
-import { useStats } from '@/utils/StatsContext';
 import { Plus_Jakarta_Sans, Ubuntu } from "next/font/google";
 
 export const plus = Plus_Jakarta_Sans({
@@ -83,7 +82,7 @@ const colorThemesByYear: { [year: number]: { primary: { main: string; light: str
 };
 
 const DynamicTheme: React.FC<{ children: ReactNode; }> = ({ children }) => {
-	const { year } = useStats();
+	const year = 2024;
 
 	const getThemeForYear = () => {
 		const colorsForYear = colorThemesByYear[year];

@@ -4,7 +4,7 @@ import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBa
 import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/components/shared/DashboardCard';
 import { useEffect, useState } from 'react';
-import { useStats } from '@/utils/StatsContext';
+import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
 import useCountryFlags from '@/utils/countryUtils';
 import Match from '@/types/match';
@@ -63,7 +63,7 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
 
 const GroupPerformance = ({ group }: { group: string; }) => {
     const { getFlag, getHistoricalName } = useCountryFlags();
-    const { data } = useStats();
+    const { data } = stats;
     const t = useTranslations();
     const [teamStats, setTeamStats] = useState<Array<TeamStat>>([]);
     const [correctRankings, setCorrectRankings] = useState(0);

@@ -1,7 +1,7 @@
 'use client';
 import { Grid, Box } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import { useStats } from '@/utils/StatsContext';
+import * as stats from '@/utils/stats';
 import PageContainer from '@/components/container/PageContainer';
 // components
 import GeneralStats from '@/components/dashboard/GeneralStats';
@@ -13,7 +13,7 @@ import { IconPlayFootball, IconListNumbers, IconTrophyFilled } from '@tabler/ico
 
 const Dashboard = () => {
   const t = useTranslations();
-  const { perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts } = useStats();
+  const { perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts } = stats;
 
   return (
     <PageContainer title={t('header.overview')} description="this is Dashboard">

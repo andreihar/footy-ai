@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
-import { useStats } from '@/utils/StatsContext';
+import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
 import { Grid, Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
@@ -11,7 +11,7 @@ import DashboardCard from '@/components/shared/DashboardCard';
 const OverallStatistics = () => {
   const theme = useTheme();
   const t = useTranslations();
-  const { correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
+  const { correctPredictionsPerDay, incorrectPredictionsPerDay } = stats;
 
   const correctPrev = Number((100 * correctPredictionsPerDay.slice(0, -1).reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.slice(0, -1).concat(incorrectPredictionsPerDay.slice(0, -1)).reduce((a, c) => a + c, 0))).toFixed(2));
   const correct = Number((100 * correctPredictionsPerDay.reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.concat(incorrectPredictionsPerDay).reduce((a, c) => a + c, 0))).toFixed(2));

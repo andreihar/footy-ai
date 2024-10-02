@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material/styles';
-import { useStats } from '@/utils/StatsContext';
+import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
 import DashboardCard from '@/components/shared/DashboardCard';
 import dynamic from "next/dynamic";
@@ -8,7 +8,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const PredictionsOverview = () => {
     const theme = useTheme();
     const t = useTranslations();
-    const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = useStats();
+    const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = stats;
 
     const optionscolumnchart: any = {
         chart: {

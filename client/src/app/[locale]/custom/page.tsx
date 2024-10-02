@@ -3,14 +3,12 @@ import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, Form
 import PageContainer from '@/components/container/PageContainer';
 import DashboardCard from '@/components/shared/DashboardCard';
 import { useState } from 'react';
-import { useStats } from '@/utils/StatsContext';
 import useCountryFlags from '@/utils/countryUtils';
 import { useTranslations } from 'next-intl';
 
 const CustomPage = () => {
   const { getFlag, getUefaCountries, getHistoricalName } = useCountryFlags();
   const countries = getUefaCountries();
-  const { fetchMatch } = useStats();
   const t = useTranslations();
   const [predictions, setPredictions] = useState([37.27, 43.33, 19.4]);
   const [home, setHome] = useState('England');
@@ -20,21 +18,21 @@ const CustomPage = () => {
   const [awayScore, setAwayScore] = useState(2);
   const [loading, setLoading] = useState(false);
 
-  async function fetchMatchPrediction() {
-    try {
-      setLoading(true);
-      const result = await fetchMatch(home, away, allowDraw);
-      if (result) {
-        setPredictions(result.predictions);
-        setHomeScore(result.scorePrediction[0]);
-        setAwayScore(result.scorePrediction[1]);
-      }
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.error('Failed to fetch match prediction:', error);
-    }
-  }
+  // async function fetchMatchPrediction() {
+  //   try {
+  //     setLoading(true);
+  //     const result = await fetchMatch(home, away, allowDraw);
+  //     if (result) {
+  //       setPredictions(result.predictions);
+  //       setHomeScore(result.scorePrediction[0]);
+  //       setAwayScore(result.scorePrediction[1]);
+  //     }
+  //     setLoading(false);
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.error('Failed to fetch match prediction:', error);
+  //   }
+  // }
 
   return (
     <PageContainer title={t('header.custom')} description="Get the odds for the matchup that didn't happen during the tournament">
@@ -105,7 +103,7 @@ const CustomPage = () => {
             </Box>
           </Box>
           <Box mt={3} display="flex" justifyContent="center" width="100%">
-            <Button variant="contained" onClick={fetchMatchPrediction} disableElevation color="primary" size="large">
+            <Button variant="contained" disableElevation color="primary" size="large">
               {t('custom.predict')}
             </Button>
           </Box>

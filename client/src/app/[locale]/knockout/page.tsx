@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import PageContainer from '@/components/container/PageContainer';
 import { useTheme } from '@mui/material/styles';
-import { useStats } from '@/utils/StatsContext';
+import * as stats from '@/utils/stats';
 import useCountryFlags from '@/utils/countryUtils';
 import { useTranslations } from 'next-intl';
 import Match from '@/types/match';
@@ -49,7 +49,7 @@ const MatchBracket = ({ match }: { match: Match; }) => {
 };
 
 const KnockoutPage = () => {
-  const { data } = useStats();
+  const { data } = stats;
   const t = useTranslations();
 
   const sortTournamentMatches = (data: Match[]): { [stage: string]: Match[]; } => {

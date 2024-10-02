@@ -1,12 +1,12 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { useStats } from '@/utils/StatsContext';
+import * as stats from '@/utils/stats';
 import PageContainer from '@/components/container/PageContainer';
 import GroupPerformance from '@/components/shared/GroupPerformance';
 
 const GroupPage = () => {
   const t = useTranslations();
-  const { groups } = useStats();
+  const { groups } = stats;
 
   return (
     <PageContainer title={t('header.group')} description="List of matches and predictions for the Group Stage">

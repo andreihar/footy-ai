@@ -1,13 +1,9 @@
-"use client";
-
+'use client';
 import { styled, Container, Box } from "@mui/material";
-import React, { Suspense } from "react";
-import { StatsProvider } from "@/utils/StatsContext";
 import DynamicTheme from "@/utils/DynamicTheme";
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
-import Loading from '@/app/[locale]/loading';
-import '@/app/global.css';
+import '@/app/[locale]/global.css';
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
@@ -25,18 +21,16 @@ const PageWrapper = styled("div")(() => ({
 
 export default function ClientLayout({ children }: { children: React.ReactNode; }) {
   return (
-    <StatsProvider>
-      <DynamicTheme>
-        <MainWrapper className="mainwrapper">
-          <PageWrapper className="page-wrapper">
-            <Header />
-            <Container sx={{ paddingTop: "20px", paddingBottom: "60px", maxWidth: "1200px" }}>
-              <Box sx={{ minHeight: "calc(100vh - 228px)" }}>{children}</Box>
-            </Container>
-            <Footer />
-          </PageWrapper>
-        </MainWrapper>
-      </DynamicTheme>
-    </StatsProvider>
+    <DynamicTheme>
+      <MainWrapper className="mainwrapper">
+        <PageWrapper className="page-wrapper">
+          <Header />
+          <Container sx={{ paddingTop: "20px", paddingBottom: "60px", maxWidth: "1200px" }}>
+            <Box sx={{ minHeight: "calc(100vh - 228px)" }}>{children}</Box>
+          </Container>
+          <Footer />
+        </PageWrapper>
+      </MainWrapper>
+    </DynamicTheme>
   );
 }

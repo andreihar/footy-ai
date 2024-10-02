@@ -1,9 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import { useStats } from '@/utils/StatsContext';
 
 const EuroLogo = () => {
-  const { year } = useStats();
+  let year = 2024;
 
   const getLogoSrc = (): string => {
     if (year === 2024) {

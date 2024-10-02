@@ -1,17 +1,19 @@
-
 import DashboardCard from '@/components/shared/DashboardCard';
 import { Timeline, TimelineItem, TimelineOppositeContent, TimelineSeparator, TimelineDot, TimelineConnector, TimelineContent, timelineOppositeContentClasses, } from '@mui/lab';
 import { Typography } from '@mui/material';
 import Match from '@/types/match';
 import { useEffect, useState } from "react";
 import useCountryFlags from '@/utils/countryUtils';
-import { useStats } from '@/utils/StatsContext';
-import { useTranslations } from 'next-intl';
+import * as stats from '@/utils/stats';
+import { useTranslations, useLocale } from 'next-intl';
+import { Locale } from '@/i18n/routing';
 
 const RecentPredictions = () => {
-  const { data, fetchMatch } = useStats();
+  const { data } = stats;
+
   const { getHistoricalName } = useCountryFlags();
   const t = useTranslations();
+  const locale = useLocale() as Locale;
   const [matches, setMatches] = useState<(Match & { status: string; })[]>([]);
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const RecentPredictions = () => {
         >
           {matches.map((match, index) => (
             <TimelineItem key={index}>
-              <TimelineOppositeContent>{new Date(match.date).toLocaleString('en', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</TimelineOppositeContent>
+              <TimelineOppositeContent>{new Date(match.date).toLocaleString(locale, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color={match.status === 'perfect' ? 'primary' : match.status === 'correct' ? 'success' : 'error'} variant="outlined" />
                 <TimelineConnector />

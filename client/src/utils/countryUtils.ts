@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useStats } from './StatsContext';
+import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
 
 const useCountryFlags = () => {
   const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
-  const { year } = useStats();
+  const year = 2024;
   const t = useTranslations();
 
   const uefaChanges = {

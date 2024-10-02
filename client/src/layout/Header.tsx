@@ -1,8 +1,8 @@
-import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Divider, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme } from '@mui/material';
+import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Divider, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme, SelectChangeEvent } from '@mui/material';
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
 import { useEffect, useState, useRef, Fragment } from 'react';
-import { useStats } from '@/utils/StatsContext';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { Locale, usePathname, useRouter } from '@/i18n/routing';
 import { useTheme, lighten, darken } from '@mui/material/styles';
 import Logo from './Logo';
 import EuroLogo from './EuroLogo';
@@ -12,10 +12,12 @@ function Header() {
   const [isStuck, setIsStuck] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState<string | null>(null);
-  const { year, setYear } = useStats();
   const t = useTranslations();
   const theme = useTheme();
   const isSmOrLarger = useMediaQuery(theme.breakpoints.up('sm'));
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale() as Locale;
 
   const menuItems = [
     { title: t('header.overview'), href: "/", },
@@ -32,6 +34,11 @@ function Header() {
   ];
 
   const languages = { en: 'English', fr: 'Français', de: 'Deutsch', es: 'Español', it: 'Italiano', pt: 'Português' };
+
+  const handleChange = (event: SelectChangeEvent<Locale>) => {
+    const nextLocale = event.target.value as Locale;
+    router.push(pathname, { locale: nextLocale });
+  };
 
   const handleClick = (title: string): void => {
     if (open === title) {
@@ -75,6 +82,7 @@ function Header() {
   };
 
   const getColour = () => {
+    let year = 2024;
     return year === 1972 ? '#000000' : '#FFFFFF';
   };
 
@@ -99,13 +107,13 @@ function Header() {
                 Footy AI
               </Typography>
             </Box>
-            {/* <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)} label="Language"
+            <Select variant="outlined" value={locale} onChange={handleChange} label="Language"
               sx={{ color: getColour(), borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
             >
               {Object.entries(languages).map(([code, name]) => (
                 <MenuItem key={code} value={code}>{name}</MenuItem>
               ))}
-            </Select> */}
+            </Select>
           </Toolbar>
         </Container>
       </Box>
@@ -144,7 +152,7 @@ function Header() {
                   </Button>
                 )
               ))}
-              <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: getColour() }}>
+              {/* <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: getColour() }}>
                 <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))} renderValue={(selectedValue) => `EURO ${selectedValue}`} label="Tournament Year"
                   sx={{
                     paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px', fontWeight: '500', fontSize: '14px',
@@ -157,7 +165,7 @@ function Header() {
                     <MenuItem key={year} value={year.toString()}>{year}</MenuItem>
                   ))}
                 </Select>
-              </Box>
+              </Box> */}
             </Box>
           </Toolbar>
         </Container>
@@ -204,7 +212,7 @@ function Header() {
             ))}
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: '16px 32px' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                {/* <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))} renderValue={(selectedValue) => `EURO ${selectedValue}`} label="Tournament Year"
                     sx={{
                       paddingTop: '1px', fontWeight: '900', borderColor: 'white', height: '32px',
@@ -217,13 +225,13 @@ function Header() {
                       <MenuItem key={year} value={year.toString()}>{year}</MenuItem>
                     ))}
                   </Select>
-                </Box>
+                </Box> */}
               </ListItemButton>
             </ListItem>
             <Divider />
-            {/* <ListItem disablePadding>
+            <ListItem disablePadding>
               <ListItemButton sx={{ padding: '0px', width: '100%', '&:hover': { bgcolor: 'transparent' } }}>
-                <Select variant="outlined" value={language} onChange={(event) => setLanguage(event.target.value as string)} fullWidth label="Language"
+                <Select variant="outlined" value={locale} onChange={handleChange} fullWidth label="Language"
                   sx={{
                     color: 'inherit', fontWeight: '900', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiOutlinedInput-input': { paddingLeft: '0px', textAlign: 'center' },
                     '&& fieldset': { border: 'none' }, '& .MuiSelect-select': { padding: '16px 32px' },
@@ -234,7 +242,7 @@ function Header() {
                   ))}
                 </Select>
               </ListItemButton>
-            </ListItem> */}
+            </ListItem>
           </List>
         </Box>
       </Drawer>

@@ -248,7 +248,6 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
       {children}
     </StatsContext.Provider>
   );
-
 };
 
 export const useStats = () => {
