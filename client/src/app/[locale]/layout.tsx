@@ -1,24 +1,30 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import React, { Suspense } from "react";
-import ClientLayout from "@/layout/ClientLayout";
-import Loading from './loading';
+import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { ReactNode } from 'react';
+import { routing } from '@/i18n/routing';
+import ClientLayout from '@/layout/ClientLayout';
 
-export default async function RootLayout({ children, params: { locale } }: {
-  children: React.ReactNode; params: { locale: string; };
-}) {
+type Props = {
+  children: ReactNode;
+  params: { locale: string; };
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function RootLayout({ children, params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
   const messages = await getMessages();
 
   return (
     <html lang={locale}>
       <body>
-        <Suspense fallback={<Loading />}>
-          <NextIntlClientProvider messages={messages}>
-            <ClientLayout>
-              {children}
-            </ClientLayout>
-          </NextIntlClientProvider>
-        </Suspense>
+        <NextIntlClientProvider messages={messages}>
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

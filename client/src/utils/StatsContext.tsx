@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 import { useSearchParams } from 'next/navigation';
 import Papa from 'papaparse';
 import Match from '@/types/match';
-import Loading from '@/app/[locale]/loading';
 
 interface StatsContextType {
   data: Match[];
@@ -240,7 +239,7 @@ export const StatsProvider: React.FC<{ children: React.ReactNode; }> = ({ childr
   }, [data]);
 
   if (!isClient) {
-    return <Loading />;
+    return null;
   }
 
   return (

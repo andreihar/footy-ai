@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
 
 const useCountryFlags = () => {
   const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
-  const year = 2024;
-  const t = useTranslations();
+  let year = 2024;
+  const t = useTranslations('country');
 
   const uefaChanges = {
     1960: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Czechia', 'Denmark', 'East Germany', 'England', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Luxembourg', 'Netherlands', 'Northern Ireland', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Serbia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Wales'],
@@ -103,7 +102,7 @@ const useCountryFlags = () => {
   };
 
   const getHistoricalName = (country: string): string => {
-    return t(`country.${getHistoricalNameEnglish(country)}`);
+    return t(`${getHistoricalNameEnglish(country)}` as any);
   };
 
   return { getFlag, getUefaCountries, getHistoricalName };

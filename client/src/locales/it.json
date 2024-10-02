@@ -1,12 +1,10 @@
 {
 	"header": {
-		"overview": "Panoramica",
-		"fixtures": "Calendario",
-		"allMatches": "Tutte le partite",
-		"group": "Fase a gironi",
-		"knockout": "Fase a eliminazione diretta",
-		"custom": "Partita personalizzata",
-		"about": "Informazioni"
+		"fixtures": "Calendario"
+	},
+	"overview": {
+		"title": "Panoramica",
+		"description": "Esplora l'accuratezza delle previsioni delle partite basate su IA per UEFA Euro {year}. Visualizza risultati recenti, aggiornamenti giornalieri e statistiche delle squadre."
 	},
 	"generalStats": {
 		"perfect": "Punteggi Esatti",
@@ -32,7 +30,13 @@
 	"dailyPredictions": {
 		"title": "Previsioni giornaliere"
 	},
+	"allMatches": {
+		"title": "Tutte le partite",
+		"description": "Accedi a previsioni e risultati dettagliati per tutte le partite di UEFA Euro {year}. Confronta le previsioni IA con i risultati effettivi di ogni partita."
+	},
 	"groupPerformance": {
+		"title": "Fase a gironi",
+		"description": "Scopri le previsioni IA per la fase a gironi di UEFA Euro {year}. Analizza l'accuratezza nei risultati delle partite, punteggi e classifiche delle squadre.",
 		"team": "Squadra",
 		"results": "Risultati delle previsioni",
 		"ranking": "Classifiche corrette",
@@ -40,6 +44,8 @@
 		"scores": "Punteggi delle partite corretti"
 	},
 	"matches": {
+		"title": "Fase a eliminazione diretta",
+		"description": "Tieni traccia delle previsioni per la fase a eliminazione diretta di UEFA Euro {year} con previsioni basate su IA. Segui gli aggiornamenti partita per partita.",
 		"Final": "Finale",
 		"Semi-finals": "Semifinali",
 		"Quarter-finals": "Quarti di finale",
@@ -50,11 +56,14 @@
 		"score": "Previsione punteggio corretto"
 	},
 	"custom": {
+		"title": "Partita personalizzata",
+		"description": "Crea i tuoi incontri personalizzati UEFA! Simula partite ipotetiche tra squadre nazionali UEFA e scopri i potenziali risultati.",
 		"draw": "Consenti pareggio",
 		"predict": "Previsione"
 	},
 	"about": {
 		"title": "Informazioni su",
+		"description": "Scopri Footy AI, una piattaforma IA per prevedere le partite UEFA Euro. Esplora funzionalità, metodologia e la storia dietro il progetto.",
 		"text1": "Benvenuti a Footy AI! Ispirata dall'entusiasmo e dall'imprevedibilità dei tornei UEFA Euro, Footy AI mira a portare un mix unico di analisi storica e tecnologia moderna agli appassionati di calcio di tutto il mondo.",
 		"title2": "La mia storia",
 		"text2": "L'idea di Footy AI è nata dal mio amore per il calcio e dal fascino per il potenziale dell'intelligenza artificiale. Con l'avvicinarsi del torneo UEFA Euro 2024, ho deciso di creare un'IA in grado di prevedere i risultati delle partite di calcio tra qualsiasi squadra nazionale, di qualsiasi periodo storico. Il mio obiettivo era vedere quanto bene l'IA potesse prevedere l'attuale torneo Euro ed esplorare le probabilità storiche delle squadre che vincevano nei tornei passati.",
@@ -81,7 +90,8 @@
 		"rights": "Tutti i diritti riservati."
 	},
 	"404": {
-		"title": "Spiacenti, pagina non trovata!",
+		"title": "Errore",
+		"error": "Spiacenti, pagina non trovata!",
 		"text": "Spiacenti, non abbiamo trovato la pagina che stai cercando. Forse hai digitato male l'URL? Assicurati di controllare la tua ortografia.",
 		"button": "Torna alla Home"
 	},

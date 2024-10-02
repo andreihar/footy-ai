@@ -12,7 +12,9 @@ const EuroLogo = () => {
     }
   };
 
-  return <Image src={getLogoSrc()} alt={`UEFA Euro ${year} Logo`} width={year === 2024 ? 32 : 79} height={40} objectFit="contain" unoptimized />;
+  return (
+    <Image src={getLogoSrc()} alt={`UEFA Euro ${year} Logo`} width={year === 2024 ? 32 : 79} height={40} style={{ objectFit: 'contain' }} unoptimized />
+  );
 };
 
 export default EuroLogo;

@@ -1,12 +1,10 @@
 {
 	"header": {
-		"overview": "Resumen",
-		"fixtures": "Partidos",
-		"allMatches": "Todos los partidos",
-		"group": "Fase de grupos",
-		"knockout": "Fase eliminatoria",
-		"custom": "Partido personalizado",
-		"about": "Acerca de"
+		"fixtures": "Partidos"
+	},
+	"overview": {
+		"title": "Resumen",
+		"description": "Explora la precisión de los pronósticos de partidos impulsados por IA para la Eurocopa {year}. Consulta resultados recientes, actualizaciones diarias y estadísticas de equipos."
 	},
 	"generalStats": {
 		"perfect": "Marcadores Exactos",
@@ -32,7 +30,13 @@
 	"dailyPredictions": {
 		"title": "Pronósticos diarios"
 	},
+	"allMatches": {
+		"title": "Todos los partidos",
+		"description": "Accede a pronósticos y resultados detallados de todos los partidos de la Eurocopa {year}. Compara pronósticos de IA con los resultados reales de cada partido."
+	},
 	"groupPerformance": {
+		"title": "Fase de grupos",
+		"description": "Descubre pronósticos de IA para la fase de grupos de la Eurocopa {year}. Analiza la precisión en los resultados, puntuaciones y clasificaciones de cada grupo.",
 		"team": "Equipo",
 		"results": "Resultados de los pronósticos",
 		"ranking": "Clasificaciones correctas",
@@ -40,6 +44,8 @@
 		"scores": "Resultados correctos de los partidos"
 	},
 	"matches": {
+		"title": "Fase eliminatoria",
+		"description": "Sigue los pronósticos de la fase eliminatoria de la Eurocopa {year} con predicciones basadas en IA. Revisa las actualizaciones de cada partido a través del torneo.",
 		"Final": "Final",
 		"Semi-finals": "Semifinales",
 		"Quarter-finals": "Cuartos de final",
@@ -50,11 +56,14 @@
 		"score": "Pronóstico correcto del marcador"
 	},
 	"custom": {
+		"title": "Partido personalizado",
+		"description": "¡Crea tus propios partidos personalizados de la UEFA! Simula partidos hipotéticos entre selecciones nacionales y descubre los posibles resultados.",
 		"draw": "Permitir empate",
 		"predict": "Predecir"
 	},
 	"about": {
 		"title": "Acerca de",
+		"description": "Obtén más información sobre Footy AI, una plataforma de IA para predecir partidos de la Eurocopa. Explora las características, metodología e historia de este proyecto.",
 		"text1": "¡Bienvenidos a Footy AI! Inspirados por la emoción y la imprevisibilidad de los torneos de la Eurocopa de la UEFA, Footy AI tiene como objetivo ofrecer una combinación única de análisis histórico y tecnología moderna a los entusiastas del fútbol de todo el mundo.",
 		"title2": "Mi historia",
 		"text2": "La idea de Footy AI nació de mi amor por el fútbol y de una fascinación por el potencial de la inteligencia artificial. Con la Eurocopa 2024 de la UEFA acercándose, me propuse crear una IA que pudiera predecir los resultados de los partidos de fútbol entre cualquier equipo nacional, de cualquier período de la historia. Mi objetivo era ver qué tan bien podía predecir la IA el torneo actual de la Eurocopa y explorar las probabilidades históricas de que los equipos ganaran en torneos pasados.",
@@ -81,7 +90,8 @@
 		"rights": "Reservados todos los derechos."
 	},
 	"404": {
-		"title": "Lo siento, página no encontrada!",
+		"title": "Error",
+		"error": "Lo siento, página no encontrada!",
 		"text": "Lo siento, no pudimos encontrar la página que estás buscando. ¿Quizás has escrito mal la URL? Asegúrate de verificar tu ortografía.",
 		"button": "Volver al Inicio"
 	},

@@ -20,17 +20,22 @@ function Header() {
   const locale = useLocale() as Locale;
 
   const menuItems = [
-    { title: t('header.overview'), href: "/", },
+    { title: t('overview.title'), href: "/", },
     {
       title: t('header.fixtures'),
       children: [
-        { title: t('header.allMatches'), href: "/matches", },
-        { title: t('header.group'), href: "/group", },
-        { title: t('header.knockout'), href: "/knockout", },
+        { title: t('allMatches.title'), href: "/matches", },
+        { title: t('groupPerformance.title'), href: "/group", },
+        { title: t('matches.title'), href: "/knockout", },
       ],
     },
-    { title: t('header.custom'), href: "/custom", },
-    { title: t('header.about'), href: "/about", },
+    { title: t('custom.title'), href: "/custom", },
+    {
+      title: (() => {
+        const words = t('about.title').split(' ');
+        return words.length > 1 ? words.slice(0, -1).join(' ') : words.join(' ');
+      })(), href: "/about"
+    }
   ];
 
   const languages = { en: 'English', fr: 'Français', de: 'Deutsch', es: 'Español', it: 'Italiano', pt: 'Português' };
