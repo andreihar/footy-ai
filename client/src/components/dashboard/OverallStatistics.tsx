@@ -4,7 +4,8 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
-import { Grid, Stack, Typography, Avatar } from '@mui/material';
+import { Stack, Typography, Avatar } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
 import DashboardCard from '@/components/shared/DashboardCard';
 
@@ -54,7 +55,7 @@ const OverallStatistics = () => {
   return (
     <DashboardCard title={t('overallStatistics.title')}>
       <Grid container spacing={3}>
-        <Grid item xs={7} sm={7}>
+        <Grid size={{ xs: 7, sm: 7 }}>
           <Typography variant="h3" fontWeight="700">{correct}%</Typography>
           <Stack direction="row" spacing={1} mt={1} alignItems="center">
             {
@@ -82,7 +83,7 @@ const OverallStatistics = () => {
             </Stack>
           </Stack>
         </Grid>
-        <Grid item xs={5} sm={5}>
+        <Grid size={{ xs: 5, sm: 5 }}>
           <Chart options={optionscolumnchart} series={[correct, 100 - correct]} type="donut" height={150} width={"100%"} />
         </Grid>
       </Grid>

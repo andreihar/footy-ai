@@ -1,21 +1,27 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 import { host } from '@/config';
 import { Locale, getPathname, routing } from '@/i18n/routing';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [getEntry('/'), getEntry('/about')];
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  return [
+    createEntry('/', 'daily', 1),
+    // createEntry('/matches', 'daily', 0.8),
+    // createEntry('/group', 'daily', 0.8),
+    // createEntry('/knockout', 'daily', 0.8),
+    // createEntry('/custom', 'yearly', 0.5),
+    createEntry('/about', 'yearly', 0.5),
+  ];
 }
 
+type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 type Href = Parameters<typeof getPathname>[0]['href'];
 
-function getEntry(href: Href) {
+function createEntry(href: Href, changeFrequency: ChangeFrequency, priority: number) {
   return {
     url: getUrl(href, routing.defaultLocale),
-    alternates: {
-      languages: Object.fromEntries(
-        routing.locales.map((locale) => [locale, getUrl(href, locale)])
-      )
-    }
+    lastModified: new Date(),
+    changeFrequency,
+    priority,
   };
 }
 

@@ -12,7 +12,7 @@ const RecentPredictions = () => {
   const { data } = stats;
 
   const { getHistoricalName } = useCountryFlags();
-  const t = useTranslations();
+  const t = useTranslations('recentPredictions');
   const locale = useLocale() as Locale;
   const [matches, setMatches] = useState<(Match & { status: string; })[]>([]);
 
@@ -33,7 +33,7 @@ const RecentPredictions = () => {
   }, [data]);
 
   return (
-    <DashboardCard title={t('recentPredictions.title')}>
+    <DashboardCard title={t('title')}>
       <>
         <Timeline className="theme-timeline" nonce={undefined} onResize={undefined} onResizeCapture={undefined}
           sx={{
@@ -51,7 +51,7 @@ const RecentPredictions = () => {
               </TimelineSeparator>
               <TimelineContent>
                 <Typography fontWeight="600">{`${getHistoricalName(match.home_team)} vs ${getHistoricalName(match.away_team)}`}</Typography>
-                {t.rich('recentPredictions.prediction', { outcome: t(`recentPredictions.${match.status}`) })}
+                {t.rich('prediction', { outcome: t(`${match.status}` as any) })}
               </TimelineContent>
             </TimelineItem>
           ))}
