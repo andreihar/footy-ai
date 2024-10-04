@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import countryCodesData from './countryCodes.json';
+
+type CountryCodes = {
+  [key: string]: string;
+};
 
 const useCountryFlags = () => {
-  const [countryCodes, setCountryCodes] = useState<{ [key: string]: string; }>({});
-  let year = 2024;
   const t = useTranslations('country');
+  let year = 2024;
 
   const uefaChanges = {
     1960: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Czechia', 'Denmark', 'East Germany', 'England', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Luxembourg', 'Netherlands', 'Northern Ireland', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Serbia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Wales'],
@@ -40,31 +43,15 @@ const useCountryFlags = () => {
     ]
   };
 
-  useEffect(() => {
-    const historicCountriesCodes = {
-      'Czechoslovakia': 'cz',
-      'Soviet Union': 'su',
-      'Yugoslavia': 'yu',
-      'East Germany': 'de',
-      'West Germany': 'de'
-    };
+  const historicCountriesCodes: CountryCodes = {
+    'Czechoslovakia': 'cz',
+    'Soviet Union': 'su',
+    'Yugoslavia': 'yu',
+    'East Germany': 'de',
+    'West Germany': 'de'
+  };
 
-    const fetchCountryCodes = async () => {
-      const response = await fetch('https://flagcdn.com/en/codes.json');
-      const data = await response.json();
-      const invertedData = Object.entries(data).reduce((obj, [code, country]) => {
-        if (!code.startsWith('us-')) {
-          obj[country as string] = code;
-        }
-        return obj;
-      }, {} as { [key: string]: string; });
-      Object.entries(historicCountriesCodes).forEach(([country, code]) => {
-        invertedData[country] = code;
-      });
-      setCountryCodes(invertedData);
-    };
-    fetchCountryCodes();
-  }, []);
+  const countryCodes: CountryCodes = { ...countryCodesData, ...historicCountriesCodes };
 
   const getFlag = (country: string, circle: boolean) => {
     const customFlag = Object.keys(historicalFlags).some(countryKey =>

@@ -1,5 +1,4 @@
-import { Box, CardContent, Typography, Link, ListItem, ListItemText, ListItemIcon } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import { Box, Grid, CardContent, Typography, Link, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import DashboardCard from '@/components/shared/DashboardCard';
 import GithubCard from '@/components/card/GithubCard';
@@ -46,7 +45,7 @@ export default function AboutPage({ params: { locale } }: Props) {
         <Box pl={2} mb={2}>
           <Grid container spacing={2}>
             {listItems.map((item, index) => (
-              <Grid size={{ xs: 12, md: 6 }} key={index}>
+              <Grid item xs={12} md={6} key={index}>
                 <ListItem>
                   <ListItemIcon sx={{ color: "inherit" }}>
                     <item.Icon />

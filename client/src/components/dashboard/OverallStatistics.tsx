@@ -1,21 +1,20 @@
-
+'use client';
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
-import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
-import { Stack, Typography, Avatar } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import { Stack, Typography, Avatar, Grid } from '@mui/material';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
 import DashboardCard from '@/components/shared/DashboardCard';
 
-const OverallStatistics = () => {
+interface OverallStatisticsProps {
+  correctPrev: number;
+  correct: number;
+}
+
+const OverallStatistics: React.FC<OverallStatisticsProps> = ({ correctPrev, correct }) => {
   const theme = useTheme();
   const t = useTranslations();
-  const { correctPredictionsPerDay, incorrectPredictionsPerDay } = stats;
-
-  const correctPrev = Number((100 * correctPredictionsPerDay.slice(0, -1).reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.slice(0, -1).concat(incorrectPredictionsPerDay.slice(0, -1)).reduce((a, c) => a + c, 0))).toFixed(2));
-  const correct = Number((100 * correctPredictionsPerDay.reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.concat(incorrectPredictionsPerDay).reduce((a, c) => a + c, 0))).toFixed(2));
 
   // chart
   const optionscolumnchart: any = {
@@ -55,7 +54,7 @@ const OverallStatistics = () => {
   return (
     <DashboardCard title={t('overallStatistics.title')}>
       <Grid container spacing={3}>
-        <Grid size={{ xs: 7, sm: 7 }}>
+        <Grid item xs={7}>
           <Typography variant="h3" fontWeight="700">{correct}%</Typography>
           <Stack direction="row" spacing={1} mt={1} alignItems="center">
             {
@@ -83,7 +82,7 @@ const OverallStatistics = () => {
             </Stack>
           </Stack>
         </Grid>
-        <Grid size={{ xs: 5, sm: 5 }}>
+        <Grid item xs={5}>
           <Chart options={optionscolumnchart} series={[correct, 100 - correct]} type="donut" height={150} width={"100%"} />
         </Grid>
       </Grid>

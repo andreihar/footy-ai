@@ -1,9 +1,7 @@
-'use client';
 import { Typography, Box, Table, TableBody, TableCell, TableHead, TableRow, IconButton, Avatar, Accordion, AccordionSummary, Button, AccordionDetails, List, ListItem } from '@mui/material';
 import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBallFootball } from '@tabler/icons-react';
 import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/components/shared/DashboardCard';
-import { useEffect, useState } from 'react';
 import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
 import useCountryFlags from '@/utils/countryUtils';
@@ -65,49 +63,40 @@ const GroupPerformance = ({ group }: { group: string; }) => {
   const { getFlag, getHistoricalName } = useCountryFlags();
   const { data } = stats;
   const t = useTranslations();
-  const [teamStats, setTeamStats] = useState<Array<TeamStat>>([]);
-  const [correctRankings, setCorrectRankings] = useState(0);
-  const [correctOutcomes, setCorrectOutcomes] = useState(0);
-  const [correctScores, setCorrectScores] = useState(0);
 
-  useEffect(() => {
-    const allMatches = data.filter(match => match.stage === group);
+  const allMatches = data.filter(match => match.stage === group);
 
-    const teamsStandings = processMatches(allMatches, match => {
-      const homeScore = !isNaN(match.home_score_total) ? match.home_score_total : 0;
-      const awayScore = !isNaN(match.away_score_total) ? match.away_score_total : 0;
-      return [homeScore, awayScore];
-    });
-    const teamsPredicted = processMatches(allMatches, match => {
-      const [homePrediction, awayPrediction] = match.scorePrediction;
-      return [homePrediction, awayPrediction];
-    });
+  const teamsStandings = processMatches(allMatches, match => {
+    const homeScore = !isNaN(match.home_score_total) ? match.home_score_total : 0;
+    const awayScore = !isNaN(match.away_score_total) ? match.away_score_total : 0;
+    return [homeScore, awayScore];
+  });
 
-    const correctRankingsCount = teamsPredicted.filter((team, index) => team.team === teamsStandings[index].team).length;
-    setTeamStats(teamsPredicted);
-    setCorrectRankings(correctRankingsCount);
+  const teamsPredicted = processMatches(allMatches, match => {
+    const [homePrediction, awayPrediction] = match.scorePrediction;
+    return [homePrediction, awayPrediction];
+  });
 
-    let outcomesCount = 0;
-    let scoresCount = 0;
-    allMatches.forEach(match => {
-      const actualMatch = allMatches.find(m => m.home_team === match.home_team && m.away_team === match.away_team);
-      if (actualMatch) {
-        const predictedOutcome = match.scorePrediction[0] > match.scorePrediction[1] ? 'win' :
-          match.scorePrediction[0] < match.scorePrediction[1] ? 'loss' : 'draw';
-        const actualOutcome = actualMatch.home_score_total > actualMatch.away_score_total ? 'win' :
-          actualMatch.home_score_total < actualMatch.away_score_total ? 'loss' : 'draw';
+  const correctRankingsCount = teamsPredicted.filter((team, index) => team.team === teamsStandings[index].team).length;
 
-        if (predictedOutcome === actualOutcome) {
-          outcomesCount++;
-          if (match.scorePrediction[0] === actualMatch.home_score_total && match.scorePrediction[1] === actualMatch.away_score_total) {
-            scoresCount++;
-          }
+  let outcomesCount = 0;
+  let scoresCount = 0;
+  allMatches.forEach(match => {
+    const actualMatch = allMatches.find(m => m.home_team === match.home_team && m.away_team === match.away_team);
+    if (actualMatch) {
+      const predictedOutcome = match.scorePrediction[0] > match.scorePrediction[1] ? 'win' :
+        match.scorePrediction[0] < match.scorePrediction[1] ? 'loss' : 'draw';
+      const actualOutcome = actualMatch.home_score_total > actualMatch.away_score_total ? 'win' :
+        actualMatch.home_score_total < actualMatch.away_score_total ? 'loss' : 'draw';
+
+      if (predictedOutcome === actualOutcome) {
+        outcomesCount++;
+        if (match.scorePrediction[0] === actualMatch.home_score_total && match.scorePrediction[1] === actualMatch.away_score_total) {
+          scoresCount++;
         }
       }
-    });
-    setCorrectOutcomes(outcomesCount);
-    setCorrectScores(scoresCount);
-  }, [group, data]);
+    }
+  });
 
   return (
     <DashboardCard title={`${t('matches.Group')} ${group.split(' ')[1]}`}>
@@ -128,7 +117,7 @@ const GroupPerformance = ({ group }: { group: string; }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {teamStats.map((team) => (
+            {teamsPredicted.map((team) => (
               <TableRow key={team.team}>
                 <TableCell>
                   <Typography sx={{ fontSize: "15px", fontWeight: "500" }}>{team.rank}</Typography>
@@ -187,15 +176,15 @@ const GroupPerformance = ({ group }: { group: string; }) => {
               <List>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconListNumbers style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('groupPerformance.ranking')}: {correctRankings}/4</Typography>
+                  <Typography variant="h6">{t('groupPerformance.ranking')}: {correctRankingsCount}/4</Typography>
                 </ListItem>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconMathXDivideY2 style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('groupPerformance.outcomes')}: {correctOutcomes}/6</Typography>
+                  <Typography variant="h6">{t('groupPerformance.outcomes')}: {outcomesCount}/6</Typography>
                 </ListItem>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconBallFootball style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('groupPerformance.scores')}: {correctScores}/6</Typography>
+                  <Typography variant="h6">{t('groupPerformance.scores')}: {scoresCount}/6</Typography>
                 </ListItem>
               </List>
             </AccordionDetails>

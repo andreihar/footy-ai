@@ -1,22 +1,33 @@
-'use client';
-import { useTranslations } from 'next-intl';
+import { generateMetadata as generateSEO } from '@/components/SEO';
+import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
 import * as stats from '@/utils/stats';
-import PageContainer from '@/components/container/PageContainer';
 import GroupPerformance from '@/components/shared/GroupPerformance';
 
-const GroupPage = () => {
-  const t = useTranslations();
+type Props = {
+  params: { locale: string; };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations('groupPerformance');
+
+  return generateSEO({
+    title: t('title'),
+    description: t('description', { year: 2024 })
+  });
+}
+
+export default function GroupPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
   const { groups } = stats;
 
   return (
-    <PageContainer title={t('header.group')} description="List of matches and predictions for the Group Stage">
-      {groups.map(group => (
+    <>
+      {groups.map((group: any) => (
         <div key={group} style={{ marginBottom: '20px' }}>
           <GroupPerformance group={group} />
         </div>
       ))}
-    </PageContainer>
+    </>
   );
 };
-
-export default GroupPage;

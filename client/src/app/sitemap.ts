@@ -6,7 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     createEntry('/', 'daily', 1),
     // createEntry('/matches', 'daily', 0.8),
-    // createEntry('/group', 'daily', 0.8),
+    createEntry('/group', 'daily', 0.8),
     // createEntry('/knockout', 'daily', 0.8),
     // createEntry('/custom', 'yearly', 0.5),
     createEntry('/about', 'yearly', 0.5),

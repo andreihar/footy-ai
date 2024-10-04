@@ -1,14 +1,28 @@
-'use client';
 import { Avatar, Box, Button, CardContent, Typography, Accordion, AccordionSummary, AccordionDetails, Grid } from '@mui/material';
-import PageContainer from '@/components/container/PageContainer';
 import DashboardCard from '@/components/shared/DashboardCard';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
 import * as stats from '@/utils/stats';
 import useCountryFlags from '@/utils/countryUtils';
+import { generateMetadata as generateSEO } from '@/components/SEO';
 import { useTranslations } from 'next-intl';
+import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
 import Match from '@/types/match';
+
+type Props = {
+  params: { locale: string; };
+};
+
+export async function generateMetadata({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations('allMatches');
+
+  return generateSEO({
+    title: t('title'),
+    description: t('description', { year: 2024 })
+  });
+}
 
 const MatchCard = ({ match }: { match: Match; }) => {
   const { getFlag, getHistoricalName } = useCountryFlags();
@@ -43,21 +57,21 @@ const MatchCard = ({ match }: { match: Match; }) => {
           </Typography>
           <Typography variant="h5" mt={2} >{
             match.stage.startsWith('Group')
-              ? `${t(`matches.${match.stage.split(" ")[0]}`)} ${match.stage.split(" ")[1]}`
-              : t(`matches.${match.stage}`)
+              ? `${t(`matches.Group`)} ${match.stage.split(" ")[1]}`
+              : t(`matches.${match.stage}` as any)
           }</Typography>
           <Typography sx={{ textTransform: "uppercase" }} mt={2}>{match.stadium}, {match.city}</Typography>
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center">
           <Grid container justifyContent="center" alignItems="center" spacing={2}>
             {/* Home */}
-            <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
+            <Grid item xs={12} md={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
               <Avatar alt="?" src={getFlag(match.home_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               <Typography variant="h3">{getHistoricalName(match.home_team)}</Typography>
             </Grid>
 
             {/* Score */}
-            <Grid item xs={12} sm={4} display="flex" justifyContent="center" alignItems="center">
+            <Grid item xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
               <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
                 <Typography variant="h1" component="span">{match.scorePrediction[0]}</Typography>
                 <Typography variant="body1" component="span">({match.home_score_total})</Typography>
@@ -70,7 +84,7 @@ const MatchCard = ({ match }: { match: Match; }) => {
             </Grid>
 
             {/* Away */}
-            <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
+            <Grid item xs={12} md={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
               <Avatar alt="?" src={getFlag(match.away_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               <Typography variant="h3">{getHistoricalName(match.away_team)}</Typography>
             </Grid>
@@ -123,18 +137,14 @@ const MatchCard = ({ match }: { match: Match; }) => {
   );
 };
 
-const MatchesPage = () => {
-  const t = useTranslations();
+export default function MatchesPage({ params: { locale } }: Props) {
+  unstable_setRequestLocale(locale);
   const { data } = stats;
 
   return (
-    <PageContainer title={t('header.allMatches')} description="List of all matches and predictions">
-      <>
-        {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
-          .reverse().map((match, index) => <Box key={index} mt={2}><MatchCard match={match} /></Box>)}
-      </>
-    </PageContainer>
+    <>
+      {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
+        .reverse().map((match, index) => <Box key={index} mt={2}><MatchCard match={match} /></Box>)}
+    </>
   );
 };
-
-export default MatchesPage;

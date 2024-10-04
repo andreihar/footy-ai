@@ -1,9 +1,14 @@
+'use client';
 import { useTheme } from '@mui/material/styles';
 import { Typography, Box, Avatar } from '@mui/material';
 import DashboardCard from '@/components/shared/DashboardCard';
+import { IconPlayFootball, IconListNumbers, IconTrophyFilled } from '@tabler/icons-react';
 
-const GeneralStats: React.FC<{ title: string; Icon: React.ElementType; primaryText: number; secondaryText: number; }> = ({ title, Icon, primaryText, secondaryText }) => {
+const icons = [IconPlayFootball, IconListNumbers, IconTrophyFilled];
+
+const GeneralStats: React.FC<{ title: string; iconIndex: number; primaryText: number; secondaryText: number; }> = ({ title, iconIndex, primaryText, secondaryText }) => {
   const theme = useTheme();
+  const Icon = icons[iconIndex];
 
   return (
     <DashboardCard title={title}>

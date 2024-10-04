@@ -2,17 +2,19 @@
 import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
-import * as stats from '@/utils/stats';
 import { useTranslations } from "next-intl";
 import { Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
 import DashboardCard from '@/components/shared/DashboardCard';
 
-const DailyPredictions = () => {
+interface DailyPredictionsProps {
+  categories: string[];
+  dailyPercentages: number[];
+}
+
+const DailyPredictions: React.FC<DailyPredictionsProps> = ({ categories, dailyPercentages }) => {
   const theme = useTheme();
   const t = useTranslations();
-  const { categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = stats;
-  const dailyPercentages = correctPredictionsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredictionsPerDay[index])).toFixed(2)));
 
   // chart
   const optionscolumnchart: any = {
