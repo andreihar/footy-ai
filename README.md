@@ -65,15 +65,15 @@ A comprehensive platform to visualise and interact with AI match predictions. Th
 
 Footy AI is a unique end-to-end platform developed in anticipation of the UEFA Euro 2024 tournament.
 
-The application aims to enrich the engagement of football enthusiasts with the UEFA Euro tournaments by using artificial intelligence. The AI leverages matches and ELO data to predict match outcomes and provide insightful statistics. This platform not only focuses on the current Euro 2024 tournament but also offers a retrospective view of past tournaments, allowing users to explore the historical odds and performances of their national teams.
+The application aims to enrich the engagement of football enthusiasts by using artificial intelligence to predict match outcomes and provide insightful statistics based on match and ELO data. In addition to focusing on Euro 2024, the platform offers a retrospective view of past tournaments, allowing users to explore historical odds and performances of their national teams.
 
-Footy AI offers comprehensive statistics for tournaments, detailed match predictions, and the ability to create custom match-ups between any UEFA national teams. It also includes interactive visualisations and insights into the AI's prediction accuracy, enhancing the experience for users who want to explore football data in depth.
+Footy AI provides detailed match predictions, comprehensive tournament statistics, and custom match-ups between UEFA national teams. It features interactive visualisations and insights into AI prediction accuracy, offering users a deep dive into football data. The website utilises routing-based localisation and tournament data retrieval, allowing it to be precompiled on the server, which results in optimised loading times and improved SEO for a fast and seamless user experience.
 
 ### Built With
 
 * [![NextJS][nextjs-badge]][nextjs]
 * [![MUI][mui-badge]][mui]
-* [![FormatJS][formatjs-badge]][formatjs]
+* [![Next-Intl][next-intl-badge]][next-intl]
 * [![sklearn][sklearn-badge]][sklearn]
 
 
@@ -86,6 +86,12 @@ Run the app locally:
 ```bash
 $ cd client
 $ npm install
+$ cp .env.example .env
+```
+
+Fill in the required values for title, url, and tournaments range.
+
+```bash
 $ npm run dev
 ```
 
@@ -192,8 +198,8 @@ Because Footy AI is MIT-licensed, any developer can essentially do whatever they
 [nextjs]: https://nextjs.org/
 [mui-badge]: https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=ffffff
 [mui]: https://mui.com/
-[formatjs-badge]: https://img.shields.io/badge/Format.JS-6F3C97?style=for-the-badge&logo=freecad&logoColor=ffffff
-[formatjs]: https://formatjs.io/
+[next-intl-badge]: https://img.shields.io/badge/Next--Intl-5FC3E7?style=for-the-badge&logo=atandt&logoColor=ffffff
+[next-intl]: https://next-intl-docs.vercel.app/
 [sklearn-badge]: https://img.shields.io/badge/sklearn-f89a36?style=for-the-badge&logo=scikitlearn&logoColor=ffffff
 [sklearn]: https://scikit-learn.org/stable/
 
