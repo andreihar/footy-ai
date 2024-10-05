@@ -7,10 +7,11 @@ import Match from '@/types/match';
 
 interface MatchBracketProps {
   match: Match;
+  year: number;
 }
 
-const MatchBracket: React.FC<MatchBracketProps> = ({ match }) => {
-  const { getFlag, getHistoricalName } = useCountryFlags();
+const MatchBracket: React.FC<MatchBracketProps> = ({ match, year }) => {
+  const { getFlag, getHistoricalName } = useCountryFlags(year);
   const theme = useTheme();
   const result = match.home_score_total > match.away_score_total ? 'home' :
     match.home_score_total < match.away_score_total ? 'away' : 'unknown';

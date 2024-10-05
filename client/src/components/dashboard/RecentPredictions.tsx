@@ -8,10 +8,11 @@ import Match from '@/types/match';
 
 interface RecentPredictionsProps {
   data: Match[];
+  year: number;
 }
 
-const RecentPredictions: React.FC<RecentPredictionsProps> = ({ data }) => {
-  const { getHistoricalName } = useCountryFlags();
+const RecentPredictions: React.FC<RecentPredictionsProps> = ({ data, year }) => {
+  const { getHistoricalName } = useCountryFlags(year);
   const t = useTranslations('recentPredictions');
   const locale = useLocale() as Locale;
 

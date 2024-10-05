@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import * as stats from '@/utils/stats';
+import { getStats } from '@/utils/stats';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
@@ -8,23 +8,24 @@ import MatchBracket from '@/components/knockout/MatchBracket';
 import './style.scss';
 
 type Props = {
-  params: { locale: string; };
+  params: { locale: string; year: string; };
 };
 
-export async function generateMetadata({ params: { locale } }: Props) {
+export async function generateMetadata({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
   const t = await getTranslations('matches');
 
   return generateSEO({
     title: t('title'),
-    description: t('description', { year: 2024 })
+    description: t('description', { year: year })
   });
 }
 
-export default function KnockoutPage({ params: { locale } }: Props) {
+export default async function KnockoutPage({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
+  const stats = await getStats(Number(year));
   const { data } = stats;
-  const t = useTranslations('matches');
+  const t = await getTranslations('matches');
 
   const sortTournamentMatches = (data: Match[]): { [stage: string]: Match[]; } => {
     const stages = ['Round of 16', 'Quarter-finals', 'Semi-finals', 'Final', 'Third-place play-off'];
@@ -60,7 +61,7 @@ export default function KnockoutPage({ params: { locale } }: Props) {
                 {t(`${stageName}` as any)}
               </Typography>
               {matches.map((match, index) => (
-                <MatchBracket key={`${stageName}-${index}`} match={match} />
+                <MatchBracket key={`${stageName}-${index}`} match={match} year={Number(year)} />
               ))}
             </Box>
           )

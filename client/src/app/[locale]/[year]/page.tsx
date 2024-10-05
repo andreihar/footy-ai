@@ -1,8 +1,7 @@
 import { Box, Grid } from '@mui/material';
 import { generateMetadata as generateSEO } from '@/components/SEO';
-import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
-import * as stats from '@/utils/stats';
+import { getStats } from '@/utils/stats';
 import GeneralStats from '@/components/dashboard/GeneralStats';
 import PredictionsOverview from '@/components/dashboard/PredictionsOverview';
 import OverallStatistics from '@/components/dashboard/OverallStatistics';
@@ -10,22 +9,23 @@ import RecentPredictions from '@/components/dashboard/RecentPredictions';
 import DailyPredictions from '@/components/dashboard/DailyPredictions';
 
 type Props = {
-  params: { locale: string; };
+  params: { locale: string; year: string; };
 };
 
-export async function generateMetadata({ params: { locale } }: Props) {
+export async function generateMetadata({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
   const t = await getTranslations('overview');
 
   return generateSEO({
     title: t('title'),
-    description: t('description', { year: 2024 })
+    description: t('description', { year: year })
   });
 }
 
-export default function DashboardPage({ params: { locale } }: Props) {
+export default async function DashboardPage({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
-  const t = useTranslations('generalStats');
+  const stats = await getStats(Number(year));
+  const t = await getTranslations('generalStats');
   const { data, perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts, categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = stats;
 
   return (
@@ -48,7 +48,7 @@ export default function DashboardPage({ params: { locale } }: Props) {
           <PredictionsOverview categories={categories} correctPredictionsPerDay={correctPredictionsPerDay} incorrectPredictionsPerDay={incorrectPredictionsPerDay} />
         </Grid>
         <Grid item xs={12} lg={6}>
-          <RecentPredictions data={data} />
+          <RecentPredictions data={data} year={Number(year)} />
         </Grid>
         <Grid item xs={12} lg={6}>
           <Grid container spacing={3}>

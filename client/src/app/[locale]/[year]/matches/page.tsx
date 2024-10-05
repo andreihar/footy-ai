@@ -3,7 +3,7 @@ import DashboardCard from '@/components/shared/DashboardCard';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
-import * as stats from '@/utils/stats';
+import { getStats } from '@/utils/stats';
 import useCountryFlags from '@/utils/countryUtils';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { useTranslations } from 'next-intl';
@@ -11,21 +11,21 @@ import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
 import Match from '@/types/match';
 
 type Props = {
-  params: { locale: string; };
+  params: { locale: string; year: string; };
 };
 
-export async function generateMetadata({ params: { locale } }: Props) {
+export async function generateMetadata({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
   const t = await getTranslations('allMatches');
 
   return generateSEO({
     title: t('title'),
-    description: t('description', { year: 2024 })
+    description: t('description', { year: year })
   });
 }
 
-const MatchCard = ({ match }: { match: Match; }) => {
-  const { getFlag, getHistoricalName } = useCountryFlags();
+const MatchCard = ({ match, year }: { match: Match; year: number; }) => {
+  const { getFlag, getHistoricalName } = useCountryFlags(year);
   const t = useTranslations();
 
   const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
@@ -137,14 +137,15 @@ const MatchCard = ({ match }: { match: Match; }) => {
   );
 };
 
-export default function MatchesPage({ params: { locale } }: Props) {
+export default async function MatchesPage({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
+  const stats = await getStats(Number(year));
   const { data } = stats;
 
   return (
     <>
       {data.filter(match => match.home_team !== "?" && match.away_team !== "?")
-        .reverse().map((match, index) => <Box key={index} mt={2}><MatchCard match={match} /></Box>)}
+        .reverse().map((match, index) => <Box key={index} mt={2}><MatchCard match={match} year={Number(year)} /></Box>)}
     </>
   );
 };

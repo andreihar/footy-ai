@@ -2,7 +2,6 @@ import { Typography, Box, Table, TableBody, TableCell, TableHead, TableRow, Icon
 import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBallFootball } from '@tabler/icons-react';
 import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/components/shared/DashboardCard';
-import * as stats from '@/utils/stats';
 import { useTranslations } from 'next-intl';
 import useCountryFlags from '@/utils/countryUtils';
 import Match from '@/types/match';
@@ -59,9 +58,14 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
   return teamsWithRank;
 }
 
-const GroupPerformance = ({ group }: { group: string; }) => {
-  const { getFlag, getHistoricalName } = useCountryFlags();
-  const { data } = stats;
+interface GroupPerformanceProps {
+  data: Match[];
+  group: string;
+  year: number;
+}
+
+const GroupPerformance = ({ data, group, year }: GroupPerformanceProps) => {
+  const { getFlag, getHistoricalName } = useCountryFlags(year);
   const t = useTranslations();
 
   const allMatches = data.filter(match => match.stage === group);

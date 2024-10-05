@@ -6,7 +6,7 @@ import { Locale, usePathname, useRouter, Pathnames } from '@/i18n/routing';
 import { useTheme, lighten, darken } from '@mui/material/styles';
 import Logo from './Logo';
 import EuroLogo from './EuroLogo';
-import { years, endYear } from '@/config';
+import { years } from '@/config';
 
 interface HeaderProps {
   year: number;
@@ -146,7 +146,7 @@ function Header({ year }: HeaderProps) {
                   <Box sx={{ height: '24px', width: '1px', bgcolor: 'rgba(0, 0, 0, 0.6)', mx: 1 }} />
                 </Box>
               </Fade>
-              <EuroLogo />
+              <EuroLogo year={Number(year)} />
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {menuItems.map((item) => (
