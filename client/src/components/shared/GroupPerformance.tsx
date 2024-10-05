@@ -66,7 +66,7 @@ interface GroupPerformanceProps {
 
 const GroupPerformance = ({ data, group, year }: GroupPerformanceProps) => {
   const { getFlag, getHistoricalName } = useCountryFlags(year);
-  const t = useTranslations();
+  const t = useTranslations('groupPerformance');
 
   const allMatches = data.filter(match => match.stage === group);
 
@@ -103,92 +103,95 @@ const GroupPerformance = ({ data, group, year }: GroupPerformanceProps) => {
   });
 
   return (
-    <DashboardCard title={`${t('matches.Group')} ${group.split(' ')[1]}`}>
+    <DashboardCard title={`${useTranslations()('matches.Group')} ${group.split(' ')[1]}`}>
       <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
         <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
           <TableHead>
-            <TableRow>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}></Typography></TableCell>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}>{t('groupPerformance.team')}</Typography></TableCell>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}>W</Typography></TableCell>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}>D</Typography></TableCell>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}>L</Typography></TableCell>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}>GF</Typography></TableCell>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}>GA</Typography></TableCell>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}>GD</Typography></TableCell>
-              <TableCell><Typography variant="h6">Pts</Typography></TableCell>
-              <TableCell><Typography variant="subtitle2" fontWeight={600}></Typography></TableCell>
-            </TableRow>
+            {(() => {
+              const headers = ['', t('team'), t('w'), t('d'), t('l'), t('gf'), t('ga'), t('gd'), t('pts'), ''];
+              return (
+                <TableRow>
+                  {headers.map((label, index) => {
+                    const variant = label === t('pts') ? 'h6' : 'subtitle2';
+                    const fontWeight = label === t('pts') ? undefined : 600;
+                    return (
+                      <TableCell key={index}>
+                        <Typography variant={variant} fontWeight={fontWeight}>
+                          {label}
+                        </Typography>
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              );
+            })()}
           </TableHead>
           <TableBody>
-            {teamsPredicted.map((team) => (
-              <TableRow key={team.team}>
-                <TableCell>
-                  <Typography sx={{ fontSize: "15px", fontWeight: "500" }}>{team.rank}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <Avatar alt="?" src={getFlag(team.team, true)} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
-                    <Typography variant="subtitle1" fontWeight={600}>{getHistoricalName(team.team)}</Typography>
-                  </Box>
-                </TableCell>
-                <TableCell>
-                  <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.wins}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.draws}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.losses}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.goalsFor}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.goalsAgainst}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{team.goalsFor - team.goalsAgainst}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography variant="h6">{team.points}</Typography>
-                </TableCell>
-                <TableCell>
-                  {team.matches.map((match, index) => {
-                    switch (match) {
-                      case "win":
-                        return <IconButton key={index} size="small" sx={{ color: '#fff', backgroundColor: 'success.dark', mr: '4px', '&:hover': { backgroundColor: 'success.dark', opacity: 0.7 } }}><IconCheck /></IconButton>;
-                      case "loss":
-                        return <IconButton key={index} size="small" sx={{ color: '#fff', backgroundColor: 'error.main', mr: '4px', '&:hover': { backgroundColor: 'error.main', opacity: 0.7 } }}><IconX /></IconButton>;
-                      default:
-                        return <IconButton key={index} size="small" sx={{ color: '#fff', backgroundColor: grey[600], mr: '4px', '&:hover': { backgroundColor: grey[600], opacity: 0.7 } }}><IconMinus /></IconButton>;
-                    }
-                  })}
-                </TableCell>
-              </TableRow>
-            ))}
+            {teamsPredicted.map((team) => {
+              const teamStats = [
+                { label: 'wins', value: team.wins },
+                { label: 'draws', value: team.draws },
+                { label: 'losses', value: team.losses },
+                { label: 'goalsFor', value: team.goalsFor },
+                { label: 'goalsAgainst', value: team.goalsAgainst },
+                { label: 'goalDifference', value: team.goalsFor - team.goalsAgainst },
+              ];
+              return (
+                <TableRow key={team.team}>
+                  <TableCell>
+                    <Typography sx={{ fontSize: "15px", fontWeight: "500" }}>{team.rank}</Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <Avatar alt="?" src={getFlag(team.team, true)} sx={{ width: 30, height: 30, mr: 1, border: '0.5px solid lightgray' }} />
+                      <Typography variant="subtitle1" fontWeight={600}>{getHistoricalName(team.team)}</Typography>
+                    </Box>
+                  </TableCell>
+                  {teamStats.map((stat, index) => (
+                    <TableCell key={index}>
+                      <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{stat.value}</Typography>
+                    </TableCell>
+                  ))}
+                  <TableCell>
+                    <Typography variant="h6">{team.points}</Typography>
+                  </TableCell>
+                  <TableCell>
+                    {team.matches.map((match, index) => {
+                      switch (match) {
+                        case "win":
+                          return <IconButton key={index} size="small" aria-label="Win" sx={{ color: '#fff', backgroundColor: 'success.dark', mr: '4px', '&:hover': { backgroundColor: 'success.dark', opacity: 0.7 } }}><IconCheck /></IconButton>;
+                        case "loss":
+                          return <IconButton key={index} size="small" aria-label="Loss" sx={{ color: '#fff', backgroundColor: 'error.main', mr: '4px', '&:hover': { backgroundColor: 'error.main', opacity: 0.7 } }}><IconX /></IconButton>;
+                        default:
+                          return <IconButton key={index} size="small" aria-label="Draw" sx={{ color: '#fff', backgroundColor: grey[600], mr: '4px', '&:hover': { backgroundColor: grey[600], opacity: 0.7 } }}><IconMinus /></IconButton>;
+                      }
+                    })}
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
         <Box mt={3} display="flex" justifyContent="center" width="100%">
           <Accordion disableGutters elevation={0} sx={{ width: '100%' }}>
             <AccordionSummary aria-controls="panel1a-content" id="panel1a-header" sx={{ justifyContent: 'center', display: 'flex', width: '100%' }}>
               <Button variant="contained" color="primary" component="div" sx={{ mx: 'auto' }}>
-                {t('groupPerformance.results')}
+                {t('results')}
               </Button>
             </AccordionSummary>
             <AccordionDetails>
               <List>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconListNumbers style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('groupPerformance.ranking')}: {correctRankingsCount}/4</Typography>
+                  <Typography variant="h6">{t('ranking')}: {correctRankingsCount}/4</Typography>
                 </ListItem>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconMathXDivideY2 style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('groupPerformance.outcomes')}: {outcomesCount}/6</Typography>
+                  <Typography variant="h6">{t('outcomes')}: {outcomesCount}/6</Typography>
                 </ListItem>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconBallFootball style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('groupPerformance.scores')}: {scoresCount}/6</Typography>
+                  <Typography variant="h6">{t('scores')}: {scoresCount}/6</Typography>
                 </ListItem>
               </List>
             </AccordionDetails>

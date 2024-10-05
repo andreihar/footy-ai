@@ -9,7 +9,7 @@
 	"generalStats": {
 		"perfect": "Exakte Ergebnisse",
 		"group": "Gruppen-Genauigkeit",
-		"knockout": "Ausscheidungs-Genauigkeit"
+		"knockout": "Finalrunden-Genauigkeit"
 	},
 	"predictionsOverview": {
 		"title": "Vorhersageübersicht",
@@ -38,14 +38,21 @@
 		"title": "Gruppenphase",
 		"description": "Entdecken Sie KI-Vorhersagen für die Gruppenphase der UEFA Euro {year}. Analysieren Sie Spielergebnisse, Punktestände und Teamranglisten für jede Gruppe.",
 		"team": "Mannschaft",
+		"w": "S",
+		"d": "U",
+		"l": "N",
+		"gf": "T",
+		"ga": "GT",
+		"gd": "Diff.",
+		"pts": "Pkt.",
 		"results": "Vorhersageergebnisse",
 		"ranking": "Korrekte Platzierungen",
 		"outcomes": "Korrekte Spielergebnisse",
 		"scores": "Korrekte Spielstände"
 	},
 	"matches": {
-		"title": "Ausscheidungsrunde",
-		"description": "Verfolgen Sie die Vorhersagen für die Ausscheidungsrunde der UEFA Euro {year}. Sehen Sie sich KI-basierte Spiel-für-Spiel-Updates und Turniertabellen an.",
+		"title": "Finalrunde",
+		"description": "Verfolgen Sie die Vorhersagen für die Finalrunde der UEFA Euro {year}. Sehen Sie sich KI-basierte Spiel-für-Spiel-Updates und Turniertabellen an.",
 		"Final": "Finale",
 		"Semi-finals": "Halbfinale",
 		"Quarter-finals": "Viertelfinale",
@@ -74,8 +81,8 @@
 			"text1": "Verfolgen Sie, wie gut die KI die Ergebnisse der aktuellen Euro 2024 oder eines früheren Turniers vorhersagt.",
 			"title2": "Vorhersagen für die Gruppenphase",
 			"text2": "Tauchen Sie ein in detaillierte Vorhersagen für jedes Gruppenphasenspiel, von der Gesamtpunktzahl bis zur Tordifferenz.",
-			"title3": "Vorhersagen für die Ausscheidungsrunde",
-			"text3": "Sehen Sie, wie die KI die Ergebnisse von Spielen in der Ausscheidungsrunde vorhersagt.",
+			"title3": "Vorhersagen für die Finalrunde",
+			"text3": "Sehen Sie, wie die KI die Ergebnisse von Spielen in der Finalrunde vorhersagt.",
 			"title4": "Benutzerdefinierte Begegnungen",
 			"text4": "Erstellen Sie benutzerdefinierte Begegnungen zwischen zwei beliebigen UEFA-Ländern, die während eines bestimmten EM-Turniers Mitglieder des Verbands waren."
 		},

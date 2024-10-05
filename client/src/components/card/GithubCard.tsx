@@ -33,7 +33,7 @@ const GithubCard: React.FC = () => {
       <CardActionArea onClick={() => window.open('https://github.com/andreihar', '_blank')}>
         <CardHeader
           avatar={
-            <Avatar aria-label="profile" src="https://avatars.githubusercontent.com/u/95883512?v=4" />
+            <Avatar aria-label="profile" src="https://avatars.githubusercontent.com/u/95883512?v=4" alt="Andrei Harbachov's profile picture" />
           }
           title={<Typography variant="h6" component="div">Andrei Harbachov</Typography>}
           subheader="andreihar"

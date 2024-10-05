@@ -46,7 +46,7 @@ export default function CustomPage({ params: { year } }: Props) {
             {/* Home */}
             <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
               <Avatar alt="?" src={getFlag(home, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <TextField id="filled-select-country" select value={home} variant="filled" onChange={(event) => setHome(event.target.value)}
+              <TextField id="filled-select-home" select value={home} variant="filled" onChange={(event) => setHome(event.target.value)} inputProps={{ "aria-label": "Select Home Country" }}
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries
                   .map(country => ({ country, name: getHistoricalName(country) }))
@@ -72,7 +72,7 @@ export default function CustomPage({ params: { year } }: Props) {
             {/* Away */}
             <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
               <Avatar alt="?" src={getFlag(away, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <TextField id="filled-select-country" select value={away} variant="filled" onChange={(event) => setAway(event.target.value)}
+              <TextField id="filled-select-away" select value={away} variant="filled" onChange={(event) => setAway(event.target.value)} inputProps={{ "aria-label": "Select Away Country" }}
                 sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
                 {countries
                   .map(country => ({ country, name: getHistoricalName(country) }))

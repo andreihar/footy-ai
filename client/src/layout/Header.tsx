@@ -119,7 +119,7 @@ function Header({ year }: HeaderProps) {
                 Footy AI
               </Typography>
             </Box>
-            <Select variant="outlined" value={locale} onChange={handleLocaleChange} label="Language"
+            <Select variant="outlined" value={locale} onChange={handleLocaleChange} inputProps={{ 'aria-label': 'Language Selector' }}
               sx={{ color: getColour(), borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
             >
               {Object.entries(languages).map(([code, name]) => (
@@ -166,7 +166,7 @@ function Header({ year }: HeaderProps) {
                 )
               ))}
               <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: getColour() }}>
-                <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} label="Tournament Year"
+                <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
                   sx={{
                     paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px', fontWeight: '500', fontSize: '14px',
                     '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
@@ -226,7 +226,7 @@ function Header({ year }: HeaderProps) {
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: '16px 32px' }}>
                 <Box px={1} sx={{ display: 'flex', alignItems: 'center' }}>
-                  <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} label="Tournament Year"
+                  <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
                     sx={{
                       paddingTop: '1px', fontWeight: '900', borderColor: 'white', height: '32px',
                       '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
@@ -244,7 +244,7 @@ function Header({ year }: HeaderProps) {
             <Divider />
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: '0px', width: '100%' }}>
-                <Select variant="outlined" value={locale} onChange={handleLocaleChange} fullWidth label="Language"
+                <Select variant="outlined" value={locale} onChange={handleLocaleChange} fullWidth inputProps={{ 'aria-label': 'Language Selector' }}
                   sx={{
                     color: 'inherit', fontWeight: '900', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiOutlinedInput-input': { paddingLeft: '0px', textAlign: 'center' },
                     '&& fieldset': { border: 'none' }, '& .MuiSelect-select': { padding: '16px 32px' },

@@ -1,4 +1,4 @@
-import { Box, Grid, CardContent, Typography, Link, ListItem, ListItemText, ListItemIcon } from '@mui/material';
+import { Box, Grid, CardContent, Typography, Link, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import DashboardCard from '@/components/shared/DashboardCard';
 import GithubCard from '@/components/card/GithubCard';
@@ -46,12 +46,14 @@ export default function AboutPage({ params: { locale } }: Props) {
           <Grid container spacing={2}>
             {listItems.map((item, index) => (
               <Grid item xs={12} md={6} key={index}>
-                <ListItem>
-                  <ListItemIcon sx={{ color: "inherit" }}>
-                    <item.Icon />
-                  </ListItemIcon>
-                  <ListItemText primary={item.title} secondary={item.description} primaryTypographyProps={{ sx: { fontWeight: '900', fontSize: '1.15rem' } }} secondaryTypographyProps={{ sx: { fontSize: '1rem', lineHeight: "1.3rem" } }} />
-                </ListItem>
+                <List>
+                  <ListItem>
+                    <ListItemIcon sx={{ color: "inherit" }}>
+                      <item.Icon />
+                    </ListItemIcon>
+                    <ListItemText primary={item.title} secondary={item.description} primaryTypographyProps={{ sx: { fontWeight: '900', fontSize: '1.15rem' } }} secondaryTypographyProps={{ sx: { fontSize: '1rem', lineHeight: "1.3rem" } }} />
+                  </ListItem>
+                </List>
               </Grid>
             ))}
           </Grid>
