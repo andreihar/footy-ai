@@ -113,7 +113,7 @@ function Header({ year }: HeaderProps) {
       <Box id="box-id" py={2} color="white" sx={{ bgcolor: lighten(theme.palette.primary.main, 0.12), display: { xs: 'none', md: 'flex' } }}>
         <Container sx={{ maxWidth: "1200px" }}>
           <Toolbar sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-            <Box display="flex" alignItems="center" component="a" href="/" color={getColour()} sx={{ textDecoration: 'none' }}>
+            <Box display="flex" alignItems="center" component="a" href={`/${year}/`} color={getColour()} sx={{ textDecoration: 'none' }}>
               <SvgIcon component={Logo} sx={{ width: 68, height: 68, color: 'black', mr: 2 }} />
               <Typography fontFamily="Logo" variant="h2" noWrap sx={{ color: 'inherit', lineHeight: 'normal', mt: '14px', }}>
                 Footy AI
@@ -135,7 +135,7 @@ function Header({ year }: HeaderProps) {
             <IconButton aria-label="open drawer" edge="start" onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ mr: 2, display: { md: 'none' }, color: getColour() }}>
               <MenuIcon />
             </IconButton>
-            <Box display="flex" alignItems="center" component="a" href="/" color="white" sx={{ textDecoration: 'none', mr: 1 }}>
+            <Box display="flex" alignItems="center" component="a" href={`/${year}/`} color="white" sx={{ textDecoration: 'none', mr: 1 }}>
               <Fade in={isStuck}>
                 <Box alignItems="center" sx={{ display: isStuck ? 'flex' : 'none' }}>
                   <SvgIcon component={Logo} sx={{ width: 40, height: 40, color: 'black', mr: 1 }} />
