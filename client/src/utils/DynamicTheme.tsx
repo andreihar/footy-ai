@@ -81,9 +81,7 @@ const colorThemesByYear: { [year: number]: { primary: { main: string; light: str
   2024: { primary: { main: '#143CDB', light: '#ECF2FF' }, secondary: { main: '#49BEFF' } }
 };
 
-const DynamicTheme: React.FC<{ children: ReactNode; }> = ({ children }) => {
-  const year = 2024;
-
+const DynamicTheme: React.FC<{ children: ReactNode; year: number; }> = ({ children, year }) => {
   const getThemeForYear = () => {
     const colorsForYear = colorThemesByYear[year];
     if (colorsForYear) {

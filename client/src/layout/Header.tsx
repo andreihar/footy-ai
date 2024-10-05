@@ -2,12 +2,17 @@ import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
 import { useEffect, useState, useRef, Fragment } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Locale, usePathname, useRouter } from '@/i18n/routing';
+import { Locale, usePathname, useRouter, Pathnames } from '@/i18n/routing';
 import { useTheme, lighten, darken } from '@mui/material/styles';
 import Logo from './Logo';
 import EuroLogo from './EuroLogo';
+import { years, endYear } from '@/config';
 
-function Header() {
+interface HeaderProps {
+  year: number;
+}
+
+function Header({ year }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isStuck, setIsStuck] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -42,7 +47,14 @@ function Header() {
 
   const handleChange = (event: SelectChangeEvent<Locale>) => {
     const nextLocale = event.target.value as Locale;
-    router.push(pathname, { locale: nextLocale });
+    const newPathname = { pathname: pathname as Pathnames, params: { year: year } };
+    router.push(newPathname, { locale: nextLocale });
+  };
+
+  const handleYearChange = (event: SelectChangeEvent<number>) => {
+    const selectedYear = Number(event.target.value);
+    const newPathname = { pathname: pathname as Pathnames, params: { year: selectedYear.toString() } };
+    router.push(newPathname, { locale: locale });
   };
 
   const handleClick = (title: string): void => {
@@ -76,7 +88,7 @@ function Header() {
         >
           {item.children?.map((child) => (
             <MenuItem sx={{ padding: '0px' }} key={child.title} onClick={() => setAnchorEl(null)}>
-              <Button href={child.href} sx={sx} fullWidth>
+              <Button href={`/${year}${child.href}`} sx={sx} fullWidth>
                 {child.title}
               </Button>
             </MenuItem>
@@ -87,7 +99,6 @@ function Header() {
   };
 
   const getColour = () => {
-    let year = 2024;
     return year === 1972 ? '#000000' : '#FFFFFF';
   };
 
@@ -147,7 +158,7 @@ function Header() {
                     },
                   }} />
                 ) : (
-                  <Button key={item.title} href={item.href} sx={{
+                  <Button key={item.title} href={`/${year}${item.href}`} sx={{
                     color: getColour(), display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
                     '&:hover': {
                       backgroundColor: darken(theme.palette.primary.main, 0.2)
@@ -157,8 +168,8 @@ function Header() {
                   </Button>
                 )
               ))}
-              {/* <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: getColour() }}>
-                <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))} renderValue={(selectedValue) => `EURO ${selectedValue}`} label="Tournament Year"
+              <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: getColour() }}>
+                <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} label="Tournament Year"
                   sx={{
                     paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px', fontWeight: '500', fontSize: '14px',
                     '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
@@ -166,11 +177,11 @@ function Header() {
                   }}
                   MenuProps={{ PaperProps: { style: { maxHeight: 250 } } }}
                 >
-                  {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
-                    <MenuItem key={year} value={year.toString()}>{year}</MenuItem>
+                  {years.map(year => (
+                    <MenuItem key={year} value={year}>{year}</MenuItem>
                   ))}
                 </Select>
-              </Box> */}
+              </Box>
             </Box>
           </Toolbar>
         </Container>
@@ -179,7 +190,7 @@ function Header() {
         sx={{ display: { xs: 'block', md: 'none' }, '& .MuiDrawer-paper': { minWidth: '300px' } }}
       >
         <Box onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ textAlign: 'center' }}>
-          <Box display="flex" m={2} mb={0} alignItems="center" component="a" href="/" sx={{ textDecoration: 'none' }}>
+          <Box display="flex" m={2} mb={0} alignItems="center" component="a" href={`/${year}`} sx={{ textDecoration: 'none' }}>
             <SvgIcon component={Logo} sx={{ width: 34, height: 34, color: 'black', mr: 2 }} />
             <Typography fontFamily="Logo" className="custom-font-element" variant="h4" noWrap sx={{ color: 'primary.main', lineHeight: 'normal', mt: '12px' }}>
               Footy AI
@@ -199,7 +210,7 @@ function Header() {
                     <List component="div" disablePadding>
                       {item.children.map((child) => (
                         <ListItem key={child.title} disablePadding> {/* Key is correctly added here */}
-                          <ListItemButton href={child.href} sx={{ padding: '16px 32px 16px 50px' }}>
+                          <ListItemButton href={`/${year}${child.href}`} sx={{ padding: '16px 32px 16px 50px' }}>
                             <ListItemText primary={child.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
                           </ListItemButton>
                         </ListItem>
@@ -209,7 +220,7 @@ function Header() {
                 </Fragment>
               ) : (
                 <ListItem key={item.title} disablePadding>
-                  <ListItemButton href={item.href} sx={{ padding: '16px 32px' }}>
+                  <ListItemButton href={`/${year}${item.href}`} sx={{ padding: '16px 32px' }}>
                     <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
                   </ListItemButton>
                 </ListItem>

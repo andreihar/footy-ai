@@ -5,13 +5,13 @@ export const routing = defineRouting({
   locales: ['en', 'fr', 'de', 'es', 'it', 'pt'],
   defaultLocale: 'en',
   pathnames: {
-    '/': '/',
-    // '/matches': { en: '/matches', fr: '/matchs', de: '/spiele', es: '/partidos', it: '/partite', pt: '/partidas' },
-    '/group': { en: '/group', fr: '/groupes', de: '/gruppen', es: '/grupos', it: '/gironi', pt: '/grupos' },
-    // '/knockout': { en: '/knockout', fr: '/elimination', de: '/ausscheidung', es: '/eliminatoria', it: '/eliminazione', pt: '/eliminar' },
-    // '/custom': { en: '/custom', fr: '/personnalise', de: '/angepasstes', es: '/personalizado', it: '/personalizzata', pt: '/personalizada' },
-    '/about': { en: '/about', fr: '/a-propos', de: '/ueber', es: '/acerca', it: '/informazioni', pt: '/sobre' },
-    '/not-found': { en: '/not-found', fr: '/non-trouve', de: '/nicht-gefunden', es: '/no-encontrado', it: '/non-trovato', pt: '/nao-encontrado' }
+    '/[year]': '/[year]',
+    '/[year]/matches': { en: '/[year]/matches', fr: '/[year]/matchs', de: '/[year]/spiele', es: '/[year]/partidos', it: '/[year]/partite', pt: '/[year]/partidas' },
+    '/[year]/group': { en: '/[year]/group', fr: '/[year]/groupes', de: '/[year]/gruppen', es: '/[year]/grupos', it: '/[year]/gironi', pt: '/[year]/grupos' },
+    '/[year]/knockout': { en: '/[year]/knockout', fr: '/[year]/elimination', de: '/[year]/ausscheidung', es: '/[year]/eliminatoria', it: '/[year]/eliminazione', pt: '/[year]/eliminar' },
+    '/[year]/custom': { en: '/[year]/custom', fr: '/[year]/personnalise', de: '/[year]/angepasstes', es: '/[year]/personalizado', it: '/[year]/personalizzata', pt: '/[year]/personalizada' },
+    '/[year]/about': { en: '/[year]/about', fr: '/[year]/a-propos', de: '/[year]/ueber', es: '/[year]/acerca', it: '/[year]/informazioni', pt: '/[year]/sobre' },
+    '/[year]/not-found': { en: '/[year]/not-found', fr: '/[year]/non-trouve', de: '/[year]/nicht-gefunden', es: '/[year]/no-encontrado', it: '/[year]/non-trovato', pt: '/[year]/nao-encontrado' }
   }
 });
 
