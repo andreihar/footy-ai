@@ -4,4 +4,4 @@ numpy
 pandas
 scipy
 scikit-learn
-gunicorn==20.1.0
+gunicorn
