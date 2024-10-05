@@ -1,22 +1,26 @@
 import type { MetadataRoute } from 'next';
 import { host } from '@/config';
-import { Locale, getPathname, routing } from '@/i18n/routing';
+import { Locale, getPathname, routing, Pathnames } from '@/i18n/routing';
 import { years } from '@/config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries = [];
-
-  // Filter to include only English locale
   const locales = routing.locales.filter(locale => locale === 'en');
+
+  const pathConfigs: { pathname: Pathnames; changeFrequency: ChangeFrequency; priority: number; }[] = [
+    { pathname: '/[year]', changeFrequency: 'daily', priority: 1 },
+    { pathname: '/[year]/matches', changeFrequency: 'daily', priority: 0.8 },
+    { pathname: '/[year]/group', changeFrequency: 'daily', priority: 0.8 },
+    { pathname: '/[year]/knockout', changeFrequency: 'daily', priority: 0.8 },
+    { pathname: '/[year]/custom', changeFrequency: 'yearly', priority: 0.5 },
+    { pathname: '/[year]/about', changeFrequency: 'yearly', priority: 0.5 }
+  ];
 
   for (const locale of locales) {
     for (const year of years) {
-      entries.push(createEntry({ pathname: '/[year]', params: { year } }, 'daily', 1, locale));
-      entries.push(createEntry({ pathname: '/[year]/matches', params: { year } }, 'daily', 0.8, locale));
-      entries.push(createEntry({ pathname: '/[year]/group', params: { year } }, 'daily', 0.8, locale));
-      entries.push(createEntry({ pathname: '/[year]/knockout', params: { year } }, 'daily', 0.8, locale));
-      // entries.push(createEntry({ pathname: '/[year]/custom', params: { year } }, 'yearly', 0.5, locale));
-      entries.push(createEntry({ pathname: '/[year]/about', params: { year } }, 'yearly', 0.5, locale));
+      for (const { pathname, changeFrequency, priority } of pathConfigs) {
+        entries.push(createEntry({ pathname, params: { year } }, changeFrequency, priority, locale));
+      }
     }
   }
 
@@ -25,14 +29,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 type ChangeFrequency = 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 
-type Href =
-  | { pathname: '/[year]'; params: { year: number; }; query?: Record<string, string>; }
-  | { pathname: '/[year]/matches'; params: { year: number; }; query?: Record<string, string>; }
-  | { pathname: '/[year]/group'; params: { year: number; }; query?: Record<string, string>; }
-  | { pathname: '/[year]/knockout'; params: { year: number; }; query?: Record<string, string>; }
-  | { pathname: '/[year]/custom'; params: { year: number; }; query?: Record<string, string>; }
-  | { pathname: '/[year]/about'; params: { year: number; }; query?: Record<string, string>; }
-  | { pathname: '/[year]/not-found'; params: { year: number; }; query?: Record<string, string>; };
+type Href = {
+  pathname: Pathnames;
+  params: { year: number; };
+  query?: Record<string, string>;
+};
 
 function createEntry(href: Href, changeFrequency: ChangeFrequency, priority: number, locale: Locale) {
   return {

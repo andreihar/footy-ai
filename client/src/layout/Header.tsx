@@ -45,7 +45,7 @@ function Header({ year }: HeaderProps) {
 
   const languages = { en: 'English', fr: 'Français', de: 'Deutsch', es: 'Español', it: 'Italiano', pt: 'Português' };
 
-  const handleChange = (event: SelectChangeEvent<Locale>) => {
+  const handleLocaleChange = (event: SelectChangeEvent<Locale>) => {
     const nextLocale = event.target.value as Locale;
     const newPathname = { pathname: pathname as Pathnames, params: { year: year } };
     router.push(newPathname, { locale: nextLocale });
@@ -58,11 +58,7 @@ function Header({ year }: HeaderProps) {
   };
 
   const handleClick = (title: string): void => {
-    if (open === title) {
-      setOpen(null);
-    } else {
-      setOpen(title);
-    }
+    setOpen(open === title ? null : title);
   };
 
   type DropdownMenuProps = {
@@ -123,7 +119,7 @@ function Header({ year }: HeaderProps) {
                 Footy AI
               </Typography>
             </Box>
-            <Select variant="outlined" value={locale} onChange={handleChange} label="Language"
+            <Select variant="outlined" value={locale} onChange={handleLocaleChange} label="Language"
               sx={{ color: getColour(), borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
             >
               {Object.entries(languages).map(([code, name]) => (
@@ -159,7 +155,8 @@ function Header({ year }: HeaderProps) {
                   }} />
                 ) : (
                   <Button key={item.title} href={`/${year}${item.href}`} sx={{
-                    color: getColour(), display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
+                    color: getColour(), display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease', minWidth: '0px',
+                    backgroundColor: (pathname.split('/')[2] === `${item.href.split('/')[1]}` || (item.href === '/' && pathname.split('/')[2] === undefined)) ? darken(theme.palette.primary.main, 0.2) : 'inherit',
                     '&:hover': {
                       backgroundColor: darken(theme.palette.primary.main, 0.2)
                     },
@@ -209,7 +206,7 @@ function Header({ year }: HeaderProps) {
                   <Collapse in={open === item.title} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                       {item.children.map((child) => (
-                        <ListItem key={child.title} disablePadding> {/* Key is correctly added here */}
+                        <ListItem key={child.title} disablePadding>
                           <ListItemButton href={`/${year}${child.href}`} sx={{ padding: '16px 32px 16px 50px' }}>
                             <ListItemText primary={child.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
                           </ListItemButton>
@@ -228,8 +225,8 @@ function Header({ year }: HeaderProps) {
             ))}
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: '16px 32px' }}>
-                {/* <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <Select variant="outlined" value={year} onChange={(event) => setYear(Number(event.target.value))} renderValue={(selectedValue) => `EURO ${selectedValue}`} label="Tournament Year"
+                <Box px={1} sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} label="Tournament Year"
                     sx={{
                       paddingTop: '1px', fontWeight: '900', borderColor: 'white', height: '32px',
                       '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
@@ -237,17 +234,17 @@ function Header({ year }: HeaderProps) {
                     }}
                     MenuProps={{ PaperProps: { style: { maxHeight: 250 } } }}
                   >
-                    {Array.from({ length: (2024 - 1960) / 4 + 1 }, (_, index) => 2024 - index * 4).map(year => (
-                      <MenuItem key={year} value={year.toString()}>{year}</MenuItem>
+                    {years.map(year => (
+                      <MenuItem key={year} value={year}>{year}</MenuItem>
                     ))}
                   </Select>
-                </Box> */}
+                </Box>
               </ListItemButton>
             </ListItem>
             <Divider />
             <ListItem disablePadding>
-              <ListItemButton sx={{ padding: '0px', width: '100%', '&:hover': { bgcolor: 'transparent' } }}>
-                <Select variant="outlined" value={locale} onChange={handleChange} fullWidth label="Language"
+              <ListItemButton sx={{ padding: '0px', width: '100%' }}>
+                <Select variant="outlined" value={locale} onChange={handleLocaleChange} fullWidth label="Language"
                   sx={{
                     color: 'inherit', fontWeight: '900', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiOutlinedInput-input': { paddingLeft: '0px', textAlign: 'center' },
                     '&& fieldset': { border: 'none' }, '& .MuiSelect-select': { padding: '16px 32px' },
@@ -265,4 +262,5 @@ function Header({ year }: HeaderProps) {
     </>
   );
 }
+
 export default Header;

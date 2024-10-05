@@ -2,9 +2,12 @@ import { Box, Typography, SvgIcon, Link } from '@mui/material';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import Logo from './Logo';
+import { endYear } from '@/config';
 
 function Footer() {
   const t = useTranslations();
+  const createdYear = 2024;
+  const yearDisplay = endYear === createdYear ? `${createdYear}` : `${createdYear}—${endYear}`;
 
   return (
     <>
@@ -15,7 +18,7 @@ function Footer() {
         </Box>
         <Box display="flex" justifyContent="space-between" pb={1}>
           <Box flex={1} display="flex" justifyContent="flex-start">
-            <Typography>© 2024 Andrei Harbachov. {t('footer.rights')}</Typography>
+            <Typography>© {yearDisplay} Andrei Harbachov. {t('footer.rights')}</Typography>
           </Box>
           <Box flex={1} display="flex" justifyContent="flex-end" alignItems="flex-end">
             <Link href="https://www.uefa.com/" target="_blank" rel="noopener noreferrer">
@@ -27,4 +30,5 @@ function Footer() {
     </>
   );
 }
+
 export default Footer;

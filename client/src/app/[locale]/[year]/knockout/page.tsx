@@ -2,7 +2,6 @@ import { Box, Typography } from '@mui/material';
 import { getStats } from '@/utils/stats';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 import Match from '@/types/match';
 import MatchBracket from '@/components/knockout/MatchBracket';
 import './style.scss';
