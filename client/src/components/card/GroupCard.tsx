@@ -58,13 +58,13 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
   return teamsWithRank;
 }
 
-interface GroupPerformanceProps {
+interface GroupCardProps {
   data: Match[];
   group: string;
   year: number;
 }
 
-const GroupPerformance = ({ data, group, year }: GroupPerformanceProps) => {
+const GroupCard = ({ data, group, year }: GroupCardProps) => {
   const { getFlag, getHistoricalName } = useCountryFlags(year);
   const t = useTranslations('groupPerformance');
 
@@ -115,7 +115,7 @@ const GroupPerformance = ({ data, group, year }: GroupPerformanceProps) => {
                     const variant = label === t('pts') ? 'h6' : 'subtitle2';
                     const fontWeight = label === t('pts') ? undefined : 600;
                     return (
-                      <TableCell key={index}>
+                      <TableCell key={index} align="center">
                         <Typography variant={variant} fontWeight={fontWeight}>
                           {label}
                         </Typography>
@@ -148,11 +148,11 @@ const GroupPerformance = ({ data, group, year }: GroupPerformanceProps) => {
                     </Box>
                   </TableCell>
                   {teamStats.map((stat, index) => (
-                    <TableCell key={index}>
+                    <TableCell key={index} align="center">
                       <Typography color="textSecondary" variant="subtitle2" fontWeight={400}>{stat.value}</Typography>
                     </TableCell>
                   ))}
-                  <TableCell>
+                  <TableCell align="center">
                     <Typography variant="h6">{team.points}</Typography>
                   </TableCell>
                   <TableCell>
@@ -202,4 +202,4 @@ const GroupPerformance = ({ data, group, year }: GroupPerformanceProps) => {
   );
 };
 
-export default GroupPerformance;
+export default GroupCard;

@@ -1,7 +1,7 @@
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
 import { getStats } from '@/utils/stats';
-import GroupPerformance from '@/components/shared/GroupPerformance';
+import GroupCard from '@/components/card/GroupCard';
 
 type Props = {
   params: { locale: string; year: string; };
@@ -26,7 +26,7 @@ export default async function GroupPage({ params: { locale, year } }: Props) {
     <>
       {groups.map((group: any) => (
         <div key={group} style={{ marginBottom: '20px' }}>
-          <GroupPerformance data={data} group={group} year={Number(year)} />
+          <GroupCard data={data} group={group} year={Number(year)} />
         </div>
       ))}
     </>
