@@ -43,7 +43,7 @@ const DailyPredictions: React.FC<DailyPredictionsProps> = ({ categories, dailyPe
 
   return (
     <DashboardCard
-      title={t('dailyPredictions.title')}
+      title={t('DailyPredictions.title')}
       action={
         <Avatar sx={{ height: 48, width: 48, bgcolor: theme.palette.secondary.main, boxShadow: 6 }} >
           <IconPercentage width={24} />
@@ -77,7 +77,7 @@ const DailyPredictions: React.FC<DailyPredictionsProps> = ({ categories, dailyPe
                     <Typography variant="subtitle2" fontWeight="600">
                       {percentageChange >= 0 ? '+' : ''}{percentageChange.toFixed(2)}%
                     </Typography>
-                    <Typography variant="subtitle2" color="textSecondary">{t('overallStatistics.before')}</Typography>
+                    <Typography variant="subtitle2" color="textSecondary">{t('OverallStatistics.before')}</Typography>
                   </>
                 );
               })()}

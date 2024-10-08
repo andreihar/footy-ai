@@ -13,7 +13,7 @@ type Props = {
 export default function CustomPage({ params: { year } }: Props) {
   const { getFlag, getUefaCountries, getHistoricalName } = useCountryFlags(Number(year));
   const countries = getUefaCountries();
-  const t = useTranslations('custom');
+  const t = useTranslations('Custom');
   const [predictions, setPredictions] = useState([37.27, 43.33, 19.4]);
   const [home, setHome] = useState('England');
   const [away, setAway] = useState('France');

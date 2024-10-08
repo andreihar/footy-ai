@@ -1,40 +1,40 @@
 {
-	"header": {
+	"Header": {
 		"fixtures": "Calendario"
 	},
-	"overview": {
+	"Overview": {
 		"title": "Panoramica",
 		"description": "Esplora l'accuratezza delle previsioni delle partite basate su IA per UEFA Euro {year}. Visualizza risultati recenti, aggiornamenti giornalieri e statistiche delle squadre."
 	},
-	"generalStats": {
+	"GeneralStats": {
 		"perfect": "Punteggi Esatti",
 		"group": "Precisione Gruppo",
 		"knockout": "Precisione Eliminazione"
 	},
-	"predictionsOverview": {
+	"PredictionsOverview": {
 		"title": "Panoramica delle previsioni",
 		"correct": "Previsione corretta oggi",
 		"incorrect": "Previsione errata oggi"
 	},
-	"recentPredictions": {
+	"RecentPredictions": {
 		"title": "Previsioni recenti",
 		"prediction": "Previsione {outcome}",
 		"perfect": "perfetta",
 		"correct": "corretta",
 		"incorrect": "errata"
 	},
-	"overallStatistics": {
+	"OverallStatistics": {
 		"title": "Statistiche generali",
 		"before": "del giorno prima"
 	},
-	"dailyPredictions": {
+	"DailyPredictions": {
 		"title": "Previsioni giornaliere"
 	},
-	"allMatches": {
+	"Matches": {
 		"title": "Tutte le partite",
 		"description": "Accedi a previsioni e risultati dettagliati per tutte le partite di UEFA Euro {year}. Confronta le previsioni IA con i risultati effettivi di ogni partita."
 	},
-	"groupPerformance": {
+	"Group": {
 		"title": "Fase a gironi",
 		"description": "Scopri le previsioni IA per la fase a gironi di UEFA Euro {year}. Analizza l'accuratezza nei risultati delle partite, punteggi e classifiche delle squadre.",
 		"team": "Squadra",
@@ -50,7 +50,7 @@
 		"outcomes": "Esiti delle partite corretti",
 		"scores": "Punteggi delle partite corretti"
 	},
-	"matches": {
+	"Knockout": {
 		"title": "Fase a eliminazione diretta",
 		"description": "Tieni traccia delle previsioni per la fase a eliminazione diretta di UEFA Euro {year} con previsioni basate su IA. Segui gli aggiornamenti partita per partita.",
 		"Final": "Finale",
@@ -62,13 +62,13 @@
 		"outcome": "Previsione esito corretto",
 		"score": "Previsione punteggio corretto"
 	},
-	"custom": {
+	"Custom": {
 		"title": "Partita personalizzata",
 		"description": "Crea i tuoi incontri personalizzati UEFA! Simula partite ipotetiche tra squadre nazionali UEFA e scopri i potenziali risultati.",
 		"draw": "Consenti pareggio",
 		"predict": "Previsione"
 	},
-	"about": {
+	"About": {
 		"title": "Informazioni su",
 		"description": "Scopri Footy AI, una piattaforma IA per prevedere le partite UEFA Euro. Esplora funzionalità, metodologia e la storia dietro il progetto.",
 		"text1": "Benvenuti a Footy AI! Ispirata dall'entusiasmo e dall'imprevedibilità dei tornei UEFA Euro, Footy AI mira a portare un mix unico di analisi storica e tecnologia moderna agli appassionati di calcio di tutto il mondo.",
@@ -93,7 +93,7 @@
 		"text5": "In Footy AI, la mia missione è migliorare l'esperienza dei tifosi di calcio combinando la ricca storia di questo sport con la tecnologia all'avanguardia. Che tu sia curioso dei tornei passati o entusiasta dell'attuale Euro, il mio obiettivo è fornire una piattaforma divertente e informativa per tutti gli appassionati di calcio.",
 		"text6": "Grazie per aver visitato Footy AI. Spero che ti diverta a esplorare le previsioni e le intuizioni tanto quanto mi è piaciuto crearle. Se hai domande, feedback o suggerimenti, non esitare a contattarmi!"
 	},
-	"footer": {
+	"Footer": {
 		"rights": "Tutti i diritti riservati."
 	},
 	"404": {
@@ -102,7 +102,7 @@
 		"text": "Spiacenti, non abbiamo trovato la pagina che stai cercando. Forse hai digitato male l'URL? Assicurati di controllare la tua ortografia.",
 		"button": "Torna alla Home"
 	},
-	"country": {
+	"Country": {
 		"Albania": "Albania",
 		"Andorra": "Andorra",
 		"Armenia": "Armenia",

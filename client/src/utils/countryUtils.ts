@@ -6,7 +6,7 @@ type CountryCodes = {
 };
 
 const useCountryFlags = (year: number) => {
-  const t = useTranslations('country');
+  const t = useTranslations('Country');
 
   const uefaChanges = {
     1960: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Czechia', 'Denmark', 'East Germany', 'England', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Luxembourg', 'Netherlands', 'Northern Ireland', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Serbia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Wales'],

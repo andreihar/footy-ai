@@ -14,7 +14,7 @@ type Props = {
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
-  const t = await getTranslations('overview');
+  const t = await getTranslations('Overview');
 
   return generateSEO({
     title: t('title'),
@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { locale, year } }: Props) {
 export default async function DashboardPage({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
   const stats = await getStats(Number(year));
-  const t = await getTranslations('generalStats');
+  const t = await getTranslations('GeneralStats');
   const { data, perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts, categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = stats;
 
   return (

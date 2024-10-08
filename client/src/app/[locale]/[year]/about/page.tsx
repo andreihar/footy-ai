@@ -12,7 +12,7 @@ type Props = {
 
 export async function generateMetadata({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
-  const t = await getTranslations('about');
+  const t = await getTranslations('About');
 
   return generateSEO({
     title: (() => {
@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { locale } }: Props) {
 
 export default function AboutPage({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
-  const t = useTranslations('about');
+  const t = useTranslations('About');
 
   const listItems = [
     { title: t('list.title1'), description: t('list.text1'), Icon: IconBrain },

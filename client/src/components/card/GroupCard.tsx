@@ -66,7 +66,7 @@ interface GroupCardProps {
 
 const GroupCard = ({ data, group, year }: GroupCardProps) => {
   const { getFlag, getHistoricalName } = useCountryFlags(year);
-  const t = useTranslations('groupPerformance');
+  const t = useTranslations('Group');
 
   const allMatches = data.filter(match => match.stage === group);
 
@@ -103,7 +103,7 @@ const GroupCard = ({ data, group, year }: GroupCardProps) => {
   });
 
   return (
-    <DashboardCard title={`${useTranslations()('matches.Group')} ${group.split(' ')[1]}`}>
+    <DashboardCard title={`${useTranslations()('Knockout.Group')} ${group.split(' ')[1]}`}>
       <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
         <Table aria-label="simple table" sx={{ whiteSpace: "nowrap", mt: 2 }}>
           <TableHead>

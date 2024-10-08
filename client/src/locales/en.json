@@ -1,40 +1,40 @@
 {
-	"header": {
+	"Header": {
 		"fixtures": "Fixtures"
 	},
-	"overview": {
+	"Overview": {
 		"title": "Overview",
 		"description": "Explore AI-powered match prediction accuracy for UEFA Euro {year}. View recent outcomes, daily updates, team stats, and overall performance."
 	},
-	"generalStats": {
+	"GeneralStats": {
 		"perfect": "Exact Scores",
 		"group": "Group Accuracy",
 		"knockout": "Knockout Accuracy"
 	},
-	"predictionsOverview": {
+	"PredictionsOverview": {
 		"title": "Predictions Overview",
 		"correct": "Predicted correct this day",
 		"incorrect": "Predicted incorrect this day"
 	},
-	"recentPredictions": {
+	"RecentPredictions": {
 		"title": "Recent Predictions",
 		"prediction": "Predicted {outcome}ly",
 		"perfect": "perfect",
 		"correct": "correct",
 		"incorrect": "incorrect"
 	},
-	"overallStatistics": {
+	"OverallStatistics": {
 		"title": "Overall Statistics",
 		"before": "from the day before"
 	},
-	"dailyPredictions": {
+	"DailyPredictions": {
 		"title": "Daily Predictions"
 	},
-	"allMatches": {
+	"Matches": {
 		"title": "All Matches",
 		"description": "Access detailed predictions and results for all UEFA Euro {year} matches. Compare AI-generated forecasts with actual outcomes for every game."
 	},
-	"groupPerformance": {
+	"Group": {
 		"title": "Group Stage",
 		"description": "Discover AI predictions for UEFA Euro {year} group stage. Analyse AI-driven accuracy in match outcomes, scores, and team rankings for each group.",
 		"team": "Team",
@@ -50,7 +50,7 @@
 		"outcomes": "Correct Match Outcomes",
 		"scores": "Correct Match Scores"
 	},
-	"matches": {
+	"Knockout": {
 		"title": "Knockout Stage",
 		"description": "Track the knockout stage predictions of UEFA Euro {year} with AI-based forecasts. Follow match-by-match updates through the tournament brackets.",
 		"Final": "Final",
@@ -62,13 +62,13 @@
 		"outcome": "Correct Outcome Prediction",
 		"score": "Correct Score Prediction"
 	},
-	"custom": {
+	"Custom": {
 		"title": "Custom Match",
 		"description": "Create your own UEFA match-ups! Simulate hypothetical matches between UEFA national teams and discover potential outcomes.",
 		"draw": "Allow Draw",
 		"predict": "Predict"
 	},
-	"about": {
+	"About": {
 		"title": "About",
 		"description": "Learn about Footy AI, an AI platform for predicting UEFA Euro matches. Explore features, methodology, and the story behind this project.",
 		"text1": "Welcome to Footy AI! Inspired by the excitement and unpredictability of the UEFA Euro tournaments, Footy AI aims to bring a unique blend of historical analysis and modern technology to football enthusiasts around the world.",
@@ -93,7 +93,7 @@
 		"text5": "At Footy AI, my mission is to enhance the experience of football fans by combining the rich history of the sport with cutting-edge technology. Whether you're curious about past tournaments or excited about the current Euro, I aim to provide a fun and informative platform for all football enthusiasts.",
 		"text6": "Thank you for visiting Footy AI. I hope you enjoy exploring the predictions and insights as much as I enjoyed creating them. If you have any questions, feedback, or suggestions, please don't hesitate to reach out!"
 	},
-	"footer": {
+	"Footer": {
 		"rights": "All rights reserved."
 	},
 	"404": {
@@ -102,7 +102,7 @@
 		"text": "Sorry, we couldn’t find the page you're looking for. Perhaps you’ve mistyped the URL? Be sure to check your spelling.",
 		"button": "Back to Home"
 	},
-	"country": {
+	"Country": {
 		"Albania": "Albania",
 		"Andorra": "Andorra",
 		"Armenia": "Armenia",

@@ -17,7 +17,7 @@
 
 A comprehensive platform to visualise and interact with AI match predictions. This React-based application features detailed pages of statistics, historical data, language localisations, and more.
 
-[Live Demo][demo]
+**[➤ Live Demo][demo]**
 
 
 
@@ -118,7 +118,7 @@ The Overview Page serves as the central hub, providing a summary of the AI's pre
 
 ### All Matches
 
-The All Matches Page offers a comprehensive view of all tournament matches with detailed predictions and actual results.
+The All Matches page offers a comprehensive view of all tournament matches with detailed predictions and actual results. It features search parameter-based pagination for seamless navigation between matches while preserving server-side rendering for optimal performance and faster page loading.
 
 <p align="center">
 <img src="readme/matches.jpg" alt="Matches" width="600">

@@ -25,19 +25,19 @@ function Header({ year }: HeaderProps) {
   const locale = useLocale() as Locale;
 
   const menuItems = [
-    { title: t('overview.title'), href: "/", },
+    { title: t('Overview.title'), href: "/", },
     {
-      title: t('header.fixtures'),
+      title: t('Header.fixtures'),
       children: [
-        { title: t('allMatches.title'), href: "/matches", },
-        { title: t('groupPerformance.title'), href: "/group", },
-        { title: t('matches.title'), href: "/knockout", },
+        { title: t('Matches.title'), href: "/matches", },
+        { title: t('Group.title'), href: "/group", },
+        { title: t('Knockout.title'), href: "/knockout", },
       ],
     },
-    { title: t('custom.title'), href: "/custom", },
+    { title: t('Custom.title'), href: "/custom", },
     {
       title: (() => {
-        const words = t('about.title').split(' ');
+        const words = t('About.title').split(' ');
         return words.length > 1 ? words.slice(0, -1).join(' ') : words.join(' ');
       })(), href: "/about"
     }

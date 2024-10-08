@@ -1,40 +1,40 @@
 {
-	"header": {
+	"Header": {
 		"fixtures": "Calendrier"
 	},
-	"overview": {
+	"Overview": {
 		"title": "Aperçu",
 		"description": "Découvrez la précision des prédictions de match par IA pour l'UEFA Euro {year}. Consultez les résultats récents, mises à jour quotidiennes et statistiques des équipes."
 	},
-	"generalStats": {
+	"GeneralStats": {
 		"perfect": "Scores Exactes",
 		"group": "Précision Groupes",
 		"knockout": "Précision Éliminatoires"
 	},
-	"predictionsOverview": {
+	"PredictionsOverview": {
 		"title": "Aperçu des Prédictions",
 		"correct": "Prédiction correcte ce jour",
 		"incorrect": "Prédiction incorrecte ce jour"
 	},
-	"recentPredictions": {
+	"RecentPredictions": {
 		"title": "Prédictions Récentes",
 		"prediction": "Prédiction {outcome}e",
 		"perfect": "parfait",
 		"correct": "correct",
 		"incorrect": "incorrect"
 	},
-	"overallStatistics": {
+	"OverallStatistics": {
 		"title": "Statistiques Globales",
 		"before": "du jour précédent"
 	},
-	"dailyPredictions": {
+	"DailyPredictions": {
 		"title": "Prédictions Quotidiennes"
 	},
-	"allMatches": {
+	"Matches": {
 		"title": "Tous les Matchs",
 		"description": "Accédez à des prédictions et résultats détaillés pour chaque match de l'UEFA Euro {year}. Comparez les prévisions IA avec les résultats réels."
 	},
-	"groupPerformance": {
+	"Group": {
 		"title": "Phase de Groupes",
 		"description": "Découvrez les prédictions de l'IA pour la phase de groupes de l'UEFA Euro {year}. Analysez la précision IA dans les résultats, scores et classements des équipes.",
 		"team": "Équipe",
@@ -50,7 +50,7 @@
 		"outcomes": "Résultats de Matchs Corrects",
 		"scores": "Scores de Matchs Corrects"
 	},
-	"matches": {
+	"Knockout": {
 		"title": "Phase à Élimination Directe",
 		"description": "Suivez les prédictions de la phase à élimination directe de l'UEFA Euro {year}. Suivez les mises à jour IA match par match dans les grilles du tournoi.",
 		"Final": "Finale",
@@ -62,13 +62,13 @@
 		"outcome": "Prédiction du Résultat Correct",
 		"score": "Prédiction du Score Correct"
 	},
-	"custom": {
+	"Custom": {
 		"title": "Match Personnalisé",
 		"description": "Créez vos propres matchs personnalisés UEFA ! Simulez des rencontres hypothétiques entre équipes nationales et découvrez les résultats possibles.",
 		"draw": "Permettre le Match Nul",
 		"predict": "Prédire"
 	},
-	"about": {
+	"About": {
 		"title": "À propos de",
 		"description": "Découvrez Footy AI, une plateforme IA pour prédire les matchs de l'UEFA Euro. Explorez les fonctionnalités, la méthodologie et l'histoire de ce projet.",
 		"text1": "Bienvenue sur Footy AI! Inspiré par l'excitation et l'imprévisibilité des tournois de l'Euro de l'UEFA, Footy AI vise à apporter un mélange unique d'analyse historique et de technologie moderne aux passionnés de football du monde entier.",
@@ -93,7 +93,7 @@
 		"text5": "Chez Footy AI, ma mission est d'améliorer l'expérience des fans de football en combinant la riche histoire du sport avec une technologie de pointe. Que vous soyez curieux des tournois passés ou enthousiasmé par l'Euro actuel, mon objectif est de fournir une plate-forme amusante et informative à tous les passionnés de football.",
 		"text6": "Merci de visiter Footy AI. J'espère que vous apprécierez d'explorer les prévisions et les informations autant que j'ai aimé les créer. Si vous avez des questions, des commentaires ou des suggestions, n'hésitez pas à me contacter!"
 	},
-	"footer": {
+	"Footer": {
 		"rights": "Tous droits réservés."
 	},
 	"404": {
@@ -102,7 +102,7 @@
 		"text": "Désolé, nous n'avons pas pu trouver la page que vous cherchez. Peut-être avez-vous mal tapé l'URL? Assurez-vous de vérifier votre orthographe.",
 		"button": "Retour à l'accueil"
 	},
-	"country": {
+	"Country": {
 		"Albania": "Albanie",
 		"Andorra": "Andorre",
 		"Armenia": "Arménie",

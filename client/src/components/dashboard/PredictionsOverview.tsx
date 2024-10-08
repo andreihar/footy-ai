@@ -53,12 +53,12 @@ const PredictionsOverview: React.FC<PredictionsOverviewProps> = ({ categories, c
   };
 
   const seriescolumnchart: any = [
-    { name: t('predictionsOverview.correct'), data: correctPredictionsPerDay },
-    { name: t('predictionsOverview.incorrect'), data: incorrectPredictionsPerDay }
+    { name: t('PredictionsOverview.correct'), data: correctPredictionsPerDay },
+    { name: t('PredictionsOverview.incorrect'), data: incorrectPredictionsPerDay }
   ];
 
   return (
-    <DashboardCard title={t('predictionsOverview.title')}>
+    <DashboardCard title={t('PredictionsOverview.title')}>
       <Chart options={optionscolumnchart} series={seriescolumnchart} type="bar" height={370} width={"100%"} />
     </DashboardCard>
   );

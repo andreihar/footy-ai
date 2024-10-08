@@ -1,40 +1,40 @@
 {
-	"header": {
+	"Header": {
 		"fixtures": "Spielplan"
 	},
-	"overview": {
+	"Overview": {
 		"title": "Übersicht",
 		"description": "Erkunden Sie die Genauigkeit der KI-gestützten Spielvorhersagen für die UEFA Euro {year}. Sehen Sie Ergebnisse, tägliche Updates, Teamstatistiken und Gesamtleistung."
 	},
-	"generalStats": {
+	"GeneralStats": {
 		"perfect": "Exakte Ergebnisse",
 		"group": "Gruppen-Genauigkeit",
 		"knockout": "Finalrunden-Genauigkeit"
 	},
-	"predictionsOverview": {
+	"PredictionsOverview": {
 		"title": "Vorhersageübersicht",
 		"correct": "An diesem Tag korrekt vorhergesagt",
 		"incorrect": "An diesem Tag falsch vorhergesagt"
 	},
-	"recentPredictions": {
+	"RecentPredictions": {
 		"title": "Neueste Vorhersagen",
 		"prediction": "{outcome} vorhergesagt",
 		"perfect": "Perfekt",
 		"correct": "Korrekt",
 		"incorrect": "Falsch"
 	},
-	"overallStatistics": {
+	"OverallStatistics": {
 		"title": "Gesamtstatistik",
 		"before": "vom Vortag"
 	},
-	"dailyPredictions": {
+	"DailyPredictions": {
 		"title": "Tägliche Vorhersagen"
 	},
-	"allMatches": {
+	"Matches": {
 		"title": "Alle Spiele",
 		"description": "Greifen Sie auf detaillierte Vorhersagen und Ergebnisse für alle UEFA Euro {year}-Spiele zu. Vergleichen Sie KI-Prognosen mit den tatsächlichen Resultaten jedes Spiels."
 	},
-	"groupPerformance": {
+	"Group": {
 		"title": "Gruppenphase",
 		"description": "Entdecken Sie KI-Vorhersagen für die Gruppenphase der UEFA Euro {year}. Analysieren Sie Spielergebnisse, Punktestände und Teamranglisten für jede Gruppe.",
 		"team": "Mannschaft",
@@ -50,7 +50,7 @@
 		"outcomes": "Korrekte Spielergebnisse",
 		"scores": "Korrekte Spielstände"
 	},
-	"matches": {
+	"Knockout": {
 		"title": "Finalrunde",
 		"description": "Verfolgen Sie die Vorhersagen für die Finalrunde der UEFA Euro {year}. Sehen Sie sich KI-basierte Spiel-für-Spiel-Updates und Turniertabellen an.",
 		"Final": "Finale",
@@ -62,13 +62,13 @@
 		"outcome": "Korrekte Ergebnisvorhersage",
 		"score": "Korrekte Spielstandvorhersage"
 	},
-	"custom": {
+	"Custom": {
 		"title": "Angepasstes Spiel",
 		"description": "Erstellen Sie eigene UEFA-Spiele! Simulieren Sie hypothetische Partien zwischen Nationalmannschaften und entdecken Sie mögliche Ergebnisse.",
 		"draw": "Unentschieden erlauben",
 		"predict": "Vorhersagen"
 	},
-	"about": {
+	"About": {
 		"title": "Über",
 		"description": "Erfahren Sie mehr über Footy AI, eine KI-Plattform zur Vorhersage von UEFA Euro-Spielen. Entdecken Sie Funktionen, Methodik und die Geschichte dieses Projekts.",
 		"text1": "Willkommen bei Footy AI! Inspiriert von der Spannung und Unvorhersehbarkeit der UEFA-Euro-Turniere möchte Footy AI Fußballfans auf der ganzen Welt eine einzigartige Mischung aus historischer Analyse und moderner Technologie bieten.",
@@ -93,7 +93,7 @@
 		"text5": "Bei Footy AI besteht meine Mission darin, das Erlebnis der Fußballfans zu verbessern, indem ich die reiche Geschichte des Sports mit modernster Technologie kombiniere. Egal, ob Sie neugierig auf vergangene Turniere sind oder sich auf die aktuelle EM freuen, ich möchte allen Fußballfans eine unterhaltsame und informative Plattform bieten.",
 		"text6": "Vielen Dank für Ihren Besuch bei Footy AI. Ich hoffe, Sie haben beim Erkunden der Vorhersagen und Erkenntnisse genauso viel Spaß wie ich beim Erstellen. Wenn Sie Fragen, Feedback oder Vorschläge haben, zögern Sie bitte nicht, sich an uns zu wenden!"
 	},
-	"footer": {
+	"Footer": {
 		"rights": "Alle Rechte vorbehalten."
 	},
 	"404": {
@@ -102,7 +102,7 @@
 		"text": "Entschuldigung, wir konnten die Seite, die Sie suchen, nicht finden. Vielleicht haben Sie die URL falsch eingegeben? Überprüfen Sie bitte Ihre Schreibweise.",
 		"button": "Zurück zur Startseite"
 	},
-	"country": {
+	"Country": {
 		"Albania": "Albanien",
 		"Andorra": "Andorra",
 		"Armenia": "Armenien",

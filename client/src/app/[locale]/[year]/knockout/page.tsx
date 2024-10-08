@@ -12,7 +12,7 @@ type Props = {
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
   unstable_setRequestLocale(locale);
-  const t = await getTranslations('matches');
+  const t = await getTranslations('Knockout');
 
   return generateSEO({
     title: t('title'),
@@ -24,7 +24,7 @@ export default async function KnockoutPage({ params: { locale, year } }: Props) 
   unstable_setRequestLocale(locale);
   const stats = await getStats(Number(year));
   const { data } = stats;
-  const t = await getTranslations('matches');
+  const t = await getTranslations('Knockout');
 
   const sortTournamentMatches = (data: Match[]): { [stage: string]: Match[]; } => {
     const stages = ['Round of 16', 'Quarter-finals', 'Semi-finals', 'Final', 'Third-place play-off'];

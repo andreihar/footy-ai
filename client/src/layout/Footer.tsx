@@ -18,7 +18,7 @@ function Footer() {
         </Box>
         <Box display="flex" justifyContent="space-between" pb={1}>
           <Box flex={1} display="flex" justifyContent="flex-start">
-            <Typography>© {yearDisplay} Andrei Harbachov. {t('footer.rights')}</Typography>
+            <Typography>© {yearDisplay} Andrei Harbachov. {t('Footer.rights')}</Typography>
           </Box>
           <Box flex={1} display="flex" justifyContent="flex-end" alignItems="flex-end">
             <Link href="https://www.uefa.com/" target="_blank" rel="noopener noreferrer">

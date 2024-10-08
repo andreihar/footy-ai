@@ -48,11 +48,11 @@ const OverallStatistics: React.FC<OverallStatisticsProps> = ({ correctPrev, corr
         },
       },
     ],
-    labels: [t('recentPredictions.correct'), t('recentPredictions.incorrect')],
+    labels: [t('RecentPredictions.correct'), t('RecentPredictions.incorrect')],
   };
 
   return (
-    <DashboardCard title={t('overallStatistics.title')}>
+    <DashboardCard title={t('OverallStatistics.title')}>
       <Grid container spacing={3}>
         <Grid item xs={7}>
           <Typography variant="h3" fontWeight="700">{correct}%</Typography>
@@ -69,16 +69,16 @@ const OverallStatistics: React.FC<OverallStatisticsProps> = ({ correctPrev, corr
               )
             }
             <Typography variant="subtitle2" fontWeight="600">{(correct - correctPrev).toFixed(2)}%</Typography>
-            <Typography variant="subtitle2" color="textSecondary">{t('overallStatistics.before')}</Typography>
+            <Typography variant="subtitle2" color="textSecondary">{t('OverallStatistics.before')}</Typography>
           </Stack>
           <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.main, svg: { display: 'none' } }}></Avatar>
-              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{t('recentPredictions.correct')}</Typography>
+              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{t('RecentPredictions.correct')}</Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar sx={{ width: 9, height: 9, bgcolor: theme.palette.primary.light, svg: { display: 'none' } }}></Avatar>
-              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{t('recentPredictions.incorrect')}</Typography>
+              <Typography variant="subtitle2" color="textSecondary" textTransform="capitalize">{t('RecentPredictions.incorrect')}</Typography>
             </Stack>
           </Stack>
         </Grid>

@@ -8,7 +8,7 @@ type Props = {
 
 export async function generateMetadata({ params: { locale } }: Props) {
   unstable_setRequestLocale(locale);
-  const t = await getTranslations('custom');
+  const t = await getTranslations('Custom');
 
   return generateSEO({
     title: t('title'),

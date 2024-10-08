@@ -1,40 +1,40 @@
 {
-	"header": {
+	"Header": {
 		"fixtures": "Partidos"
 	},
-	"overview": {
+	"Overview": {
 		"title": "Resumen",
 		"description": "Explora la precisión de los pronósticos de partidos impulsados por IA para la Eurocopa {year}. Consulta resultados recientes, actualizaciones diarias y estadísticas de equipos."
 	},
-	"generalStats": {
+	"GeneralStats": {
 		"perfect": "Marcadores Exactos",
 		"group": "Precisión Grupo",
 		"knockout": "Precisión Eliminación"
 	},
-	"predictionsOverview": {
+	"PredictionsOverview": {
 		"title": "Resumen de pronósticos",
 		"correct": "Pronóstico correcto de este día",
 		"incorrect": "Pronóstico incorrecto de este día"
 	},
-	"recentPredictions": {
+	"RecentPredictions": {
 		"title": "Pronósticos recientes",
 		"prediction": "Pronóstico {outcome}",
 		"perfect": "perfecto",
 		"correct": "correcto",
 		"incorrect": "incorrecto"
 	},
-	"overallStatistics": {
+	"OverallStatistics": {
 		"title": "Estadísticas generales",
 		"before": "del día anterior"
 	},
-	"dailyPredictions": {
+	"DailyPredictions": {
 		"title": "Pronósticos diarios"
 	},
-	"allMatches": {
+	"Matches": {
 		"title": "Todos los partidos",
 		"description": "Accede a pronósticos y resultados detallados de todos los partidos de la Eurocopa {year}. Compara pronósticos de IA con los resultados reales de cada partido."
 	},
-	"groupPerformance": {
+	"Group": {
 		"title": "Fase de grupos",
 		"description": "Descubre pronósticos de IA para la fase de grupos de la Eurocopa {year}. Analiza la precisión en los resultados, puntuaciones y clasificaciones de cada grupo.",
 		"team": "Equipo",
@@ -50,7 +50,7 @@
 		"outcomes": "Resultados correctos de los partidos",
 		"scores": "Resultados correctos de los partidos"
 	},
-	"matches": {
+	"Knockout": {
 		"title": "Fase eliminatoria",
 		"description": "Sigue los pronósticos de la fase eliminatoria de la Eurocopa {year} con predicciones basadas en IA. Revisa las actualizaciones de cada partido a través del torneo.",
 		"Final": "Final",
@@ -62,13 +62,13 @@
 		"outcome": "Pronóstico correcto del resultado",
 		"score": "Pronóstico correcto del marcador"
 	},
-	"custom": {
+	"Custom": {
 		"title": "Partido personalizado",
 		"description": "¡Crea tus propios partidos personalizados de la UEFA! Simula partidos hipotéticos entre selecciones nacionales y descubre los posibles resultados.",
 		"draw": "Permitir empate",
 		"predict": "Predecir"
 	},
-	"about": {
+	"About": {
 		"title": "Acerca de",
 		"description": "Obtén más información sobre Footy AI, una plataforma de IA para predecir partidos de la Eurocopa. Explora las características, metodología e historia de este proyecto.",
 		"text1": "¡Bienvenidos a Footy AI! Inspirados por la emoción y la imprevisibilidad de los torneos de la Eurocopa de la UEFA, Footy AI tiene como objetivo ofrecer una combinación única de análisis histórico y tecnología moderna a los entusiastas del fútbol de todo el mundo.",
@@ -93,7 +93,7 @@
 		"text5": "En Footy AI, mi misión es mejorar la experiencia de los fanáticos del fútbol combinando la rica historia del deporte con tecnología de vanguardia. Ya sea que sientas curiosidad por los torneos pasados o estés entusiasmado con la Eurocopa actual, mi objetivo es brindar una plataforma divertida e informativa para todos los entusiastas del fútbol.",
 		"text6": "Gracias por visitar Footy AI. Espero que disfrutes explorando los pronósticos y los conocimientos tanto como yo disfruté creándolos. Si tienes alguna pregunta, comentario o sugerencia, ¡no dudes en comunicarte conmigo!"
 	},
-	"footer": {
+	"Footer": {
 		"rights": "Reservados todos los derechos."
 	},
 	"404": {
@@ -102,7 +102,7 @@
 		"text": "Lo siento, no pudimos encontrar la página que estás buscando. ¿Quizás has escrito mal la URL? Asegúrate de verificar tu ortografía.",
 		"button": "Volver al Inicio"
 	},
-	"country": {
+	"Country": {
 		"Albania": "Albania",
 		"Andorra": "Andorra",
 		"Armenia": "Armenia",

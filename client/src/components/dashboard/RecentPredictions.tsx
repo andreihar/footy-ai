@@ -13,7 +13,7 @@ interface RecentPredictionsProps {
 
 const RecentPredictions: React.FC<RecentPredictionsProps> = ({ data, year }) => {
   const { getHistoricalName } = useCountryFlags(year);
-  const t = useTranslations('recentPredictions');
+  const t = useTranslations('RecentPredictions');
   const locale = useLocale() as Locale;
 
   const matches = data.filter(match => !isNaN(match.home_score_total) && !isNaN(match.away_score_total))

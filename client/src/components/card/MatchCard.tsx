@@ -12,6 +12,17 @@ interface MatchCardProps extends Match {
   locale: string;
 }
 
+const OutcomeDisplay: React.FC<{ outcome: string, label: string; }> = ({ outcome, label }) => {
+  return (
+    <Box display="flex" mb={2}>
+      {outcome === "correct" && <CheckCircleIcon color="success" />}
+      {outcome === "incorrect" && <CancelIcon color="error" />}
+      {outcome === "unknown" && <HelpIcon sx={{ color: 'gray' }} />}
+      <Typography ml={1}>{label}</Typography>
+    </Box>
+  );
+};
+
 const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_total, away_score_total, date, stage, stadium, city, predictions, scorePrediction, year, locale }) => {
   const { getFlag, getHistoricalName } = useCountryFlags(year);
   const t = useTranslations();
@@ -38,8 +49,8 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
           </Typography>
           <Typography variant="h5" mt={2} >{
             stage.startsWith('Group')
-              ? `${t(`matches.Group`)} ${stage.split(" ")[1]}`
-              : t(`matches.${stage}` as any)
+              ? `${t(`Knockout.Group`)} ${stage.split(" ")[1]}`
+              : t(`Knockout.${stage}` as any)
           }</Typography>
           <Typography sx={{ textTransform: "uppercase" }} mt={2}>{stadium}, {city}</Typography>
         </Box>
@@ -86,29 +97,19 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
         </Box>
         <Box mt={3} display="flex" justifyContent="center" width="100%">
           <Accordion disableGutters elevation={0} sx={{ width: '100%' }}>
-            <AccordionSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{ justifyContent: 'center', display: 'flex', width: '100%' }}
+            <AccordionSummary aria-controls="panel1a-content" id="panel1a-header"
+              sx={{ justifyContent: 'center', display: 'flex', width: '100%', pointerEvents: 'none' }}
             >
-              <Button variant="contained" color="primary" component="div" sx={{ mx: 'auto' }}>
-                {t('groupPerformance.results')}
-              </Button>
+              <Box sx={{ pointerEvents: 'auto', mx: 'auto' }}>
+                <Button variant="contained" color="primary" component="div">
+                  {t('Group.results')}
+                </Button>
+              </Box>
             </AccordionSummary>
             <AccordionDetails>
               <Box display="flex" flexDirection="column" alignItems="center" width="100%">
-                <Box display="flex" mb={2}>
-                  {correctOutcome === "correct" && <CheckCircleIcon color="success" />}
-                  {correctOutcome === "incorrect" && <CancelIcon color="error" />}
-                  {correctOutcome === "unknown" && <HelpIcon sx={{ color: 'gray' }} />}
-                  <Typography ml={1}>{t('matches.outcome')}</Typography>
-                </Box>
-                <Box display="flex">
-                  {correctScore === "correct" && <CheckCircleIcon color="success" />}
-                  {correctScore === "incorrect" && <CancelIcon color="error" />}
-                  {correctScore === "unknown" && <HelpIcon sx={{ color: 'gray' }} />}
-                  <Typography ml={1}>{t('matches.score')}</Typography>
-                </Box>
+                <OutcomeDisplay outcome={correctOutcome} label={t('Knockout.outcome')} />
+                <OutcomeDisplay outcome={correctScore} label={t('Knockout.score')} />
               </Box>
             </AccordionDetails>
           </Accordion>
