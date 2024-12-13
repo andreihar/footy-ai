@@ -83,8 +83,8 @@ def match(home, away, allow_draw=True):
     draw = (draw_count / total_simulations) * 100
 
     predictions = {
-        "predictions": [round(home_win, 2), round(away_win, 2), round(draw, 2)],
-        "scorePrediction": [int(score[0]), int(score[1])]
+        "preds": [round(home_win, 2), round(away_win, 2), round(draw, 2)],
+        "scorePred": [int(score[0]), int(score[1])]
     }
     
     return predictions
