@@ -1,0 +1,171 @@
+home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
+Cyprus,Estonia,2,0,,,2,0,2022-03-29T16:00:00Z,Play-outs,AEK Arena,Larnaca
+Kazakhstan,Moldova,0,1,5,4,5,5,2022-03-29T14:00:00Z,Play-outs,Astana Arena,Astana
+Estonia,Cyprus,0,0,,,0,0,2022-03-24T17:00:00Z,Play-outs,A. Le Coq Arena,Tallinn
+Moldova,Kazakhstan,1,2,,,1,2,2022-03-24T17:00:00Z,Play-outs,Stadionul Zimbru,Chisinau
+Spain,France,1,2,,,1,2,2021-10-10T18:45:00Z,Final,Stadio San Siro,Milan
+Italy,Belgium,2,1,,,2,1,2021-10-10T13:00:00Z,Third-place play-off,Juventus Stadium,Turin
+Belgium,France,2,3,,,2,3,2021-10-07T18:45:00Z,Semi-finals,Juventus Stadium,Turin
+Italy,Spain,1,2,,,1,2,2021-10-06T18:45:00Z,Semi-finals,Stadio San Siro,Milan
+Belgium,Denmark,4,2,,,4,2,2020-11-18T19:45:00Z,Group A2,Den Dreef,Leuven
+England,Iceland,4,0,,,4,0,2020-11-18T19:45:00Z,Group A2,Wembley Stadium,London
+Wales,Finland,3,1,,,3,1,2020-11-18T19:45:00Z,Group B4,Cardiff City Stadium,Cardiff
+Ireland,Bulgaria,0,0,,,0,0,2020-11-18T19:45:00Z,Group B4,Aviva Stadium,Dublin
+Greece,Slovenia,0,0,,,0,0,2020-11-18T19:45:00Z,Group C3,Georgios Kamaras Stadium,Athens
+Kosovo,Moldova,1,0,,,1,0,2020-11-18T19:45:00Z,Group C3,Stadiumi Fadil Vokrri,Pristina
+Poland,Netherlands,1,2,,,1,2,2020-11-18T19:45:00Z,Group A1,Silesian Stadium,Chorzow
+Czechia,Slovakia,2,0,,,2,0,2020-11-18T19:45:00Z,Group B2,Doosan Arena,Plzen
+Austria,Norway,1,1,,,1,1,2020-11-18T19:45:00Z,Group B1,Ernst-Happel-Stadion,Vienna
+Bosnia and Herzegovina,Italy,0,2,,,0,2,2020-11-18T19:45:00Z,Group A1,Stadion Grbavica,Sarajevo
+Northern Ireland,Romania,1,1,,,1,1,2020-11-18T19:45:00Z,Group B1,National Football Stadium at Windsor Park,Belfast
+Israel,Scotland,1,0,,,1,0,2020-11-18T19:45:00Z,Group B2,Netanya Stadium,Netanya
+Hungary,Turkey,2,0,,,2,0,2020-11-18T19:45:00Z,Group B3,Puskás Aréna,Budapest
+Serbia,Russia,5,0,,,5,0,2020-11-18T19:45:00Z,Group B3,Stadion Rajko Mitić,Belgrade
+Georgia,Estonia,0,0,,,0,0,2020-11-18T17:00:00Z,Group C2,Boris Paichadze National Stadium,Tbilisi
+Armenia,North Macedonia,1,0,,,1,0,2020-11-18T17:00:00Z,Group C2,N/A,Nicosia
+Albania,Belarus,3,2,,,3,2,2020-11-18T15:00:00Z,Group C4,Air Albania Stadium,Tirana
+Kazakhstan,Lithuania,1,2,,,1,2,2020-11-18T15:00:00Z,Group C4,Almaty Ortalyk Stadion,Almaty
+France,Sweden,4,2,,,4,2,2020-11-17T19:45:00Z,Group A3,Stade de France,Saint-Denis
+Croatia,Portugal,2,3,,,2,3,2020-11-17T19:45:00Z,Group A3,Stadion Poljud,Split
+Montenegro,Cyprus,4,0,,,4,0,2020-11-17T19:45:00Z,Group C1,Gradski Stadion Podgorica,Podgorica
+Luxembourg,Azerbaijan,0,0,,,0,0,2020-11-17T19:45:00Z,Group C1,Stade Josy Barthel,Luxembourg
+Switzerland,Ukraine,0,0,,,3,0,2020-11-17T19:45:00Z,Group A4,Swissporarena,Lucerne
+Spain,Germany,6,0,,,6,0,2020-11-17T19:45:00Z,Group A4,Estadio La Cartuja de Sevilla,Seville
+Gibraltar,Liechtenstein,1,1,,,1,1,2020-11-17T19:45:00Z,Group D2,Victoria Stadium,Gibraltar
+Andorra,Latvia,0,5,,,0,5,2020-11-17T19:45:00Z,Group D1,Estadi Nacional,Andorra la Vella
+Malta,Faroe Islands,1,1,,,1,1,2020-11-17T19:45:00Z,Group D1,National Stadium,Ta' Qali
+Belgium,England,2,0,,,2,0,2020-11-15T19:45:00Z,Group A2,Den Dreef,Leuven
+Denmark,Iceland,2,1,,,2,1,2020-11-15T19:45:00Z,Group A2,Parken,Copenhagen
+Slovenia,Kosovo,2,1,,,2,1,2020-11-15T19:45:00Z,Group C3,Stadion Stožice,Ljubljana
+Moldova,Greece,0,2,,,0,2,2020-11-15T19:45:00Z,Group C3,Stadionul Zimbru,Chisinau
+Austria,Northern Ireland,2,1,,,2,1,2020-11-15T19:45:00Z,Group B1,Ernst-Happel-Stadion,Vienna
+Romania,Norway,3,0,,,3,0,2020-11-15T19:45:00Z,Group B1,National Arena Bucharest,Bucharest
+Italy,Poland,2,0,,,2,0,2020-11-15T19:45:00Z,Group A1,Mapei Stadium,Reggio Emilia
+Czechia,Israel,1,0,,,1,0,2020-11-15T19:45:00Z,Group B2,Doosan Arena,Plzen
+Hungary,Serbia,1,1,,,1,1,2020-11-15T19:45:00Z,Group B3,Puskás Aréna,Budapest
+Belarus,Lithuania,2,0,,,2,0,2020-11-15T17:00:00Z,Group C4,National Olympic Stadium Dinamo,Minsk
+Albania,Kazakhstan,3,1,,,3,1,2020-11-15T17:00:00Z,Group C4,Air Albania Stadium,Tirana
+Georgia,Armenia,1,2,,,1,2,2020-11-15T17:00:00Z,Group C2,Boris Paichadze National Stadium,Tbilisi
+Wales,Ireland,1,0,,,1,0,2020-11-15T17:00:00Z,Group B4,Cardiff City Stadium,Cardiff
+Bulgaria,Finland,1,2,,,1,2,2020-11-15T17:00:00Z,Group B4,Natsionalen Stadion Vasil Levski,Sofia
+Turkey,Russia,3,2,,,3,2,2020-11-15T17:00:00Z,Group B3,Fenerbahçe Şükrü Saracoğlu Stadyumu,Istanbul
+Netherlands,Bosnia and Herzegovina,3,1,,,3,1,2020-11-15T17:00:00Z,Group A1,Johan Cruijff ArenA,Amsterdam
+North Macedonia,Estonia,2,1,,,2,1,2020-11-15T14:00:00Z,Group C2,National Arena Todor Proeski,Skopje
+Slovakia,Scotland,1,0,,,1,0,2020-11-15T14:00:00Z,Group B2,Štadión Antona Malatinského,Trnava
+Portugal,France,0,1,,,0,1,2020-11-14T19:45:00Z,Group A3,Estádio do SL Benfica,Lisbon
+Sweden,Croatia,2,1,,,2,1,2020-11-14T19:45:00Z,Group A3,Friends Arena,Solna
+Germany,Ukraine,3,1,,,3,1,2020-11-14T19:45:00Z,Group A4,Red Bull Arena,Leipzig
+Switzerland,Spain,1,1,,,1,1,2020-11-14T19:45:00Z,Group A4,St. Jakob-Park,Basel
+Azerbaijan,Montenegro,0,0,,,0,0,2020-11-14T17:00:00Z,Group C1,Stadion Ivan Laljak-Ivić,Zaprešić
+Cyprus,Luxembourg,2,1,,,2,1,2020-11-14T17:00:00Z,Group C1,N/A,Nicosia
+Latvia,Faroe Islands,1,1,,,1,1,2020-11-14T17:00:00Z,Group D1,Daugava,Riga
+San Marino,Gibraltar,0,0,,,0,0,2020-11-14T14:00:00Z,Group D2,San Marino Stadium,Serravalle
+Malta,Andorra,3,1,,,3,1,2020-11-14T14:00:00Z,Group D1,National Stadium,Ta' Qali
+Estonia,Armenia,1,1,,,1,1,2020-10-14T18:45:00Z,Group C2,A. Le Coq Arena,Tallinn
+Romania,Austria,0,1,,,0,1,2020-10-14T18:45:00Z,Group B1,Stadionul Ilie Oană,Ploiesti
+North Macedonia,Georgia,1,1,,,1,1,2020-10-14T18:45:00Z,Group C2,National Arena Todor Proeski,Skopje
+Italy,Netherlands,1,1,,,1,1,2020-10-14T18:45:00Z,Group A1,Stadio di Bergamo,Bergamo
+Poland,Bosnia and Herzegovina,3,0,,,3,0,2020-10-14T18:45:00Z,Group A1,Tarczynski Arena Wroclaw,Wroclaw
+Slovakia,Israel,2,3,,,2,3,2020-10-14T18:45:00Z,Group B2,Štadión Antona Malatinského,Trnava
+Scotland,Czechia,1,0,,,1,0,2020-10-14T18:45:00Z,Group B2,Hampden Park,Glasgow
+Norway,Northern Ireland,1,0,,,1,0,2020-10-14T18:45:00Z,Group B1,Ullevaal Stadion,Oslo
+Iceland,Belgium,1,2,,,1,2,2020-10-14T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavik
+Portugal,Sweden,3,0,,,3,0,2020-10-14T18:45:00Z,Group A3,Estádio José Alvalade,Lisbon
+England,Denmark,0,1,,,0,1,2020-10-14T18:45:00Z,Group A2,Wembley Stadium,London
+Croatia,France,1,2,,,1,2,2020-10-14T18:45:00Z,Group A3,Stadion Maksimir,Zagreb
+Russia,Hungary,0,0,,,0,0,2020-10-14T18:45:00Z,Group B3,VTB Arena,Moscow
+Turkey,Serbia,2,2,,,2,2,2020-10-14T18:45:00Z,Group B3,Türk Telekom Arena,Istanbul
+Greece,Kosovo,0,0,,,0,0,2020-10-14T18:45:00Z,Group C3,"Olympic Athletic Center of Athens ""Spyros Louis""",Athens
+Bulgaria,Wales,0,1,,,0,1,2020-10-14T18:45:00Z,Group B4,Natsionalen Stadion Vasil Levski,Sofia
+Belarus,Kazakhstan,2,0,,,2,0,2020-10-14T18:45:00Z,Group C4,National Olympic Stadium Dinamo,Minsk
+Moldova,Slovenia,0,4,,,0,4,2020-10-14T18:45:00Z,Group C3,Stadionul Zimbru,Chisinau
+Finland,Ireland,1,0,,,1,0,2020-10-14T16:00:00Z,Group B4,Helsinki Olympic Stadium,Helsinki
+Lithuania,Albania,0,0,,,0,0,2020-10-14T16:00:00Z,Group C4,LFF stadionas,Vilnius
+Liechtenstein,San Marino,0,0,,,0,0,2020-10-13T18:45:00Z,Group D2,Rheinpark Stadion,Vaduz
+Montenegro,Luxembourg,1,2,,,1,2,2020-10-13T18:45:00Z,Group C1,Gradski Stadion Podgorica,Podgorica
+Faroe Islands,Andorra,2,0,,,2,0,2020-10-13T18:45:00Z,Group D1,Tórsvøllur,Torshavn
+Germany,Switzerland,3,3,,,3,3,2020-10-13T18:45:00Z,Group A4,RheinEnergieStadion,Cologne
+Ukraine,Spain,1,0,,,1,0,2020-10-13T18:45:00Z,Group A4,NSC Olimpiyskiy,Kyiv
+Azerbaijan,Cyprus,0,0,,,0,0,2020-10-13T16:00:00Z,Group C1,Elbasan Arena,Elbasan
+Latvia,Malta,0,1,,,0,1,2020-10-13T16:00:00Z,Group D1,Daugava,Riga
+Poland,Italy,0,0,,,0,0,2020-10-11T18:45:00Z,Group A1,STADION ENERGA GDANSK,Gdansk
+Northern Ireland,Austria,0,1,,,0,1,2020-10-11T18:45:00Z,Group B1,National Football Stadium at Windsor Park,Belfast
+Scotland,Slovakia,1,0,,,1,0,2020-10-11T18:45:00Z,Group B2,Hampden Park,Glasgow
+Israel,Czechia,1,2,,,1,2,2020-10-11T18:45:00Z,Group B2,Sammy Ofer Stadium,Haifa
+France,Portugal,0,0,,,0,0,2020-10-11T18:45:00Z,Group A3,Stade de France,Saint-Denis
+Iceland,Denmark,0,3,,,0,3,2020-10-11T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavik
+Russia,Turkey,1,1,,,1,1,2020-10-11T18:45:00Z,Group B3,VTB Arena,Moscow
+Serbia,Hungary,0,1,,,0,1,2020-10-11T18:45:00Z,Group B3,Stadion Rajko Mitić,Belgrade
+Greece,Moldova,2,0,,,2,0,2020-10-11T18:45:00Z,Group C3,"Olympic Athletic Center of Athens ""Spyros Louis""",Athens
+Kosovo,Slovenia,0,1,,,0,1,2020-10-11T18:45:00Z,Group C3,Stadiumi Fadil Vokrri,Pristina
+Armenia,Georgia,2,2,,,2,2,2020-10-11T16:00:00Z,Group C2,Tychy Stadium,Tychy
+Bosnia and Herzegovina,Netherlands,0,0,,,0,0,2020-10-11T16:00:00Z,Group A1,Stadion Bilino Polje,Zenica
+Estonia,North Macedonia,3,3,,,3,3,2020-10-11T16:00:00Z,Group C2,A. Le Coq Arena,Tallinn
+Norway,Romania,4,0,,,4,0,2020-10-11T16:00:00Z,Group B1,Ullevaal Stadion,Oslo
+England,Belgium,2,1,,,2,1,2020-10-11T16:00:00Z,Group A2,Wembley Stadium,London
+Croatia,Sweden,2,1,,,2,1,2020-10-11T16:00:00Z,Group A3,Stadion Maksimir,Zagreb
+Finland,Bulgaria,2,0,,,2,0,2020-10-11T16:00:00Z,Group B4,Helsinki Olympic Stadium,Helsinki
+Lithuania,Belarus,2,2,,,2,2,2020-10-11T16:00:00Z,Group C4,LFF stadionas,Vilnius
+Kazakhstan,Albania,0,0,,,0,0,2020-10-11T13:00:00Z,Group C4,Almaty Ortalyk Stadion,Almaty
+Ireland,Wales,0,0,,,0,0,2020-10-11T13:00:00Z,Group B4,Aviva Stadium,Dublin
+Andorra,Malta,0,0,,,0,0,2020-10-10T18:45:00Z,Group D1,Estadi Nacional,Andorra la Vella
+Spain,Switzerland,1,0,,,1,0,2020-10-10T18:45:00Z,Group A4,Estadio Alfredo Di Stéfano,Madrid
+Ukraine,Germany,1,2,,,1,2,2020-10-10T18:45:00Z,Group A4,NSC Olimpiyskiy,Kyiv
+Liechtenstein,Gibraltar,0,1,,,0,1,2020-10-10T16:00:00Z,Group D2,Rheinpark Stadion,Vaduz
+Faroe Islands,Latvia,1,1,,,1,1,2020-10-10T16:00:00Z,Group D1,Tórsvøllur,Torshavn
+Montenegro,Azerbaijan,2,0,,,2,0,2020-10-10T13:00:00Z,Group C1,Gradski Stadion Podgorica,Podgorica
+Luxembourg,Cyprus,2,0,,,2,0,2020-10-10T13:00:00Z,Group C1,Stade Josy Barthel,Luxembourg
+France,Croatia,4,2,,,4,2,2020-09-08T18:45:00Z,Group A3,Stade de France,Saint-Denis
+Belgium,Iceland,5,1,,,5,1,2020-09-08T18:45:00Z,Group A2,King Baudouin Stadium,Brussels
+Sweden,Portugal,0,2,,,0,2,2020-09-08T18:45:00Z,Group A3,Friends Arena,Solna
+Denmark,England,0,0,,,0,0,2020-09-08T18:45:00Z,Group A2,Parken,Copenhagen
+Cyprus,Azerbaijan,0,1,,,0,1,2020-09-08T18:45:00Z,Group C1,N/A,Nicosia
+Luxembourg,Montenegro,0,1,,,0,1,2020-09-08T18:45:00Z,Group C1,Stade Josy Barthel,Luxembourg
+San Marino,Liechtenstein,0,2,,,0,2,2020-09-08T18:45:00Z,Group D2,Stadio Comunale,Rimini
+Georgia,North Macedonia,1,1,,,1,1,2020-09-08T16:00:00Z,Group C2,Boris Paichadze National Stadium,Tbilisi
+Armenia,Estonia,2,0,,,2,0,2020-09-08T16:00:00Z,Group C2,Republican Stadium after Vazgen Sargsyan,Yerevan
+Netherlands,Italy,0,1,,,0,1,2020-09-07T18:45:00Z,Group A1,Johan Cruijff ArenA,Amsterdam
+Czechia,Scotland,1,2,,,1,2,2020-09-07T18:45:00Z,Group B2,Andrův stadion ,Olomouc
+Austria,Romania,2,3,,,2,3,2020-09-07T18:45:00Z,Group B1,28 Black Arena,Klagenfurt
+Bosnia and Herzegovina,Poland,1,2,,,1,2,2020-09-07T18:45:00Z,Group A1,Stadion Bilino Polje,Zenica
+Northern Ireland,Norway,1,5,,,1,5,2020-09-07T18:45:00Z,Group B1,National Football Stadium at Windsor Park,Belfast
+Albania,Lithuania,0,1,,,0,1,2020-09-07T18:45:00Z,Group C4,Air Albania Stadium,Tirana
+Israel,Slovakia,1,1,,,1,1,2020-09-07T18:45:00Z,Group B2,Netanya Stadium,Netanya
+Kazakhstan,Belarus,1,2,,,1,2,2020-09-07T14:00:00Z,Group C4,Almaty Ortalyk Stadion,Almaty
+Serbia,Turkey,0,0,,,0,0,2020-09-06T18:45:00Z,Group B3,Stadion Rajko Mitić,Belgrade
+Kosovo,Greece,1,2,,,1,2,2020-09-06T18:45:00Z,Group C3,Stadiumi Fadil Vokrri,Pristina
+Switzerland,Germany,1,1,,,1,1,2020-09-06T18:45:00Z,Group A4,St. Jakob-Park,Basel
+Spain,Ukraine,4,0,,,4,0,2020-09-06T18:45:00Z,Group A4,Estadio Alfredo Di Stéfano,Madrid
+Malta,Latvia,1,1,,,1,1,2020-09-06T18:45:00Z,Group D1,National Stadium,Ta' Qali
+Hungary,Russia,2,3,,,2,3,2020-09-06T16:00:00Z,Group B3,Puskás Aréna,Budapest
+Slovenia,Moldova,1,0,,,1,0,2020-09-06T16:00:00Z,Group C3,Stadion Stožice,Ljubljana
+Ireland,Finland,0,1,,,0,1,2020-09-06T16:00:00Z,Group B4,Aviva Stadium,Dublin
+Wales,Bulgaria,1,0,,,1,0,2020-09-06T13:00:00Z,Group B4,Cardiff City Stadium,Cardiff
+Andorra,Faroe Islands,0,1,,,0,1,2020-09-06T13:00:00Z,Group D1,Estadi Nacional,Andorra la Vella
+Portugal,Croatia,4,1,,,4,1,2020-09-05T18:45:00Z,Group A3,Estádio do Dragão,Porto
+Sweden,France,0,1,,,0,1,2020-09-05T18:45:00Z,Group A3,Friends Arena,Solna
+Denmark,Belgium,0,2,,,0,2,2020-09-05T18:45:00Z,Group A2,Parken,Copenhagen
+Iceland,England,0,1,,,0,1,2020-09-05T16:00:00Z,Group A2,Laugardalsvöllur,Reykjavik
+Estonia,Georgia,0,1,,,0,1,2020-09-05T16:00:00Z,Group C2,A. Le Coq Arena,Tallinn
+Cyprus,Montenegro,0,2,,,0,2,2020-09-05T16:00:00Z,Group C1,N/A,Nicosia
+Azerbaijan,Luxembourg,1,2,,,1,2,2020-09-05T16:00:00Z,Group C1,Baku Olympic Stadium,Baku
+North Macedonia,Armenia,2,1,,,2,1,2020-09-05T13:00:00Z,Group C2,National Arena Todor Proeski,Skopje
+Gibraltar,San Marino,1,0,,,1,0,2020-09-05T13:00:00Z,Group D2,Victoria Stadium,Gibraltar
+Netherlands,Poland,1,0,,,1,0,2020-09-04T18:45:00Z,Group A1,Johan Cruijff ArenA,Amsterdam
+Italy,Bosnia and Herzegovina,1,1,,,1,1,2020-09-04T18:45:00Z,Group A1,Stadio Artemio Franchi,Florence
+Slovakia,Czechia,1,3,,,1,3,2020-09-04T18:45:00Z,Group B2,Národný futbalový štadión,Bratislava
+Scotland,Israel,1,1,,,1,1,2020-09-04T18:45:00Z,Group B2,Hampden Park,Glasgow
+Norway,Austria,1,2,,,1,2,2020-09-04T18:45:00Z,Group B1,Ullevaal Stadion,Oslo
+Romania,Northern Ireland,1,1,,,1,1,2020-09-04T18:45:00Z,Group B1,National Arena Bucharest,Bucharest
+Belarus,Albania,0,2,,,0,2,2020-09-04T18:45:00Z,Group C4,National Olympic Stadium Dinamo,Minsk
+Lithuania,Kazakhstan,0,2,,,0,2,2020-09-04T16:00:00Z,Group C4,LFF stadionas,Vilnius
+Germany,Spain,1,1,,,1,1,2020-09-03T18:45:00Z,Group A4,Mercedes-Benz Arena,Stuttgart
+Ukraine,Switzerland,2,1,,,2,1,2020-09-03T18:45:00Z,Group A4,Arena Lviv,Lviv
+Russia,Serbia,3,1,,,3,1,2020-09-03T18:45:00Z,Group B3,VTB Arena,Moscow
+Turkey,Hungary,0,1,,,0,1,2020-09-03T18:45:00Z,Group B3,Yeni4 Eylül Stadyumu,Sivas
+Finland,Wales,0,1,,,0,1,2020-09-03T18:45:00Z,Group B4,Helsinki Olympic Stadium,Helsinki
+Slovenia,Greece,0,0,,,0,0,2020-09-03T18:45:00Z,Group C3,Stadion Stožice,Ljubljana
+Bulgaria,Ireland,1,1,,,1,1,2020-09-03T18:45:00Z,Group B4,Natsionalen Stadion Vasil Levski,Sofia
+Moldova,Kosovo,1,1,,,1,1,2020-09-03T18:45:00Z,Group C3,Stadio Ennio Tardini,Parma
+Faroe Islands,Malta,3,2,,,3,2,2020-09-03T18:45:00Z,Group D1,Tórsvøllur,Torshavn
+Latvia,Andorra,0,0,,,0,0,2020-09-03T16:00:00Z,Group D1,Daugava,Riga
