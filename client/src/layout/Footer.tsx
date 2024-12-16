@@ -2,12 +2,13 @@ import { Box, Typography, SvgIcon, Link } from '@mui/material';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import Logo from './Logo';
-import { endYear } from '@/config';
+import { endEuroYear, endNationsYear } from '@/config';
 
 function Footer() {
   const t = useTranslations();
   const createdYear = 2024;
-  const yearDisplay = endYear === createdYear ? `${createdYear}` : `${createdYear}—${endYear}`;
+  const currentYear = Math.min(new Date().getFullYear(), Math.max(endEuroYear, endNationsYear));
+  const yearDisplay = currentYear === createdYear ? `${createdYear}` : `${createdYear}—${currentYear}`;
 
   return (
     <>

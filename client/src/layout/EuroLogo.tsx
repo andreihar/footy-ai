@@ -6,16 +6,20 @@ interface EuroLogoProps {
 }
 
 const EuroLogo: React.FC<EuroLogoProps> = ({ year }) => {
+  const isEuroYear = (year: number): boolean => (year - 1960) % 4 === 0;
+
   const getLogoSrc = (): string => {
-    if (year === 2024) {
-      return "https://img.uefa.com/imgml/uefacom/elements/logos/competitions/dark/euro2024.svg";
+    if (isEuroYear(year)) {
+      return year === 2024
+        ? "https://img.uefa.com/imgml/uefacom/elements/logos/competitions/dark/euro2024.svg"
+        : `https://img.uefa.com/imgml/uefacom/history/uefaeuro/season_picker/${year}.png`;
     } else {
-      return `https://img.uefa.com/imgml/uefacom/history/uefaeuro/season_picker/${year}.png`;
+      return "https://img.uefa.com/imgml/uefacom/uefanationsleague/logo_small.svg";
     }
   };
 
   return (
-    <Image src={getLogoSrc()} alt={`UEFA Euro ${year} Logo`} width={year === 2024 ? 32 : 79} height={40} style={{ objectFit: 'contain' }} unoptimized priority />
+    <Image src={getLogoSrc()} alt={`UEFA ${year} Logo`} width={year === 2024 ? 32 : 79} height={40} style={{ objectFit: 'contain' }} priority />
   );
 };
 

@@ -131,31 +131,33 @@ function Header({ year }: HeaderProps) {
       </Box>
       <AppBar component="nav" position="sticky" elevation={isStuck ? 4 : 0}>
         <Container sx={{ maxWidth: "1200px" }}>
-          <Toolbar variant='dense' ref={containerRef}>
+          <Toolbar variant='dense' ref={containerRef} sx={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
             <IconButton aria-label="open drawer" edge="start" onClick={() => setMobileOpen((prevState) => !prevState)} sx={{ mr: 2, display: { md: 'none' }, color: getColour() }}>
               <MenuIcon />
             </IconButton>
-            <Box display="flex" alignItems="center" component="a" href={`/${year}/`} color="white" sx={{ textDecoration: 'none', mr: 1 }}>
+            <Box display="flex" alignItems="center" component="a" href={`/${year}/`} color="white" sx={{ textDecoration: 'none', position: 'absolute', left: { xs: 60, md: 24 } }}>
               <Fade in={isStuck}>
                 <Box alignItems="center" sx={{ display: isStuck ? 'flex' : 'none' }}>
                   <SvgIcon component={Logo} sx={{ width: 40, height: 40, color: 'black', mr: 1 }} />
                   <Box sx={{ height: '24px', width: '1px', bgcolor: 'rgba(0, 0, 0, 0.6)', mx: 1 }} />
                 </Box>
               </Fade>
-              <EuroLogo year={Number(year)} />
             </Box>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ flexGrow: 1, display: 'flex', transition: 'margin-left 0.3s ease', marginLeft: isStuck ? '65px' : '0' }}>
+              <Box display="flex" alignItems="center" sx={{ pr: 1 }}>
+                <EuroLogo year={Number(year)} />
+              </Box>
               {menuItems.map((item) => (
                 item.children ? (
                   <DropdownMenu key={item.title} item={item} sx={{
-                    color: getColour(), backgroundColor: 'primary.main', display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
+                    color: getColour(), backgroundColor: 'primary.main', display: { xs: 'none', md: 'block' }, paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
                     '&:hover': {
                       backgroundColor: darken(theme.palette.primary.main, 0.2)
                     },
                   }} />
                 ) : (
                   <Button key={item.title} href={`/${year}${item.href}`} sx={{
-                    color: getColour(), display: 'block', paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease', minWidth: '0px',
+                    color: getColour(), display: { xs: 'none', md: 'block' }, paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease', minWidth: '0px',
                     backgroundColor: (pathname.split('/')[2] === `${item.href.split('/')[1]}` || (item.href === '/' && pathname.split('/')[2] === undefined)) ? darken(theme.palette.primary.main, 0.2) : 'inherit',
                     '&:hover': {
                       backgroundColor: darken(theme.palette.primary.main, 0.2)
@@ -165,7 +167,7 @@ function Header({ year }: HeaderProps) {
                   </Button>
                 )
               ))}
-              <Box px={1} sx={{ display: 'flex', alignItems: 'center', color: getColour() }}>
+              <Box px={1} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', color: getColour() }}>
                 <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
                   sx={{
                     paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px', fontWeight: '500', fontSize: '14px',
