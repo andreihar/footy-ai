@@ -14,7 +14,7 @@ export default function CustomPage({ params: { year } }: Props) {
   const { getFlag, getUefaCountries, getHistoricalName } = useCountryFlags(Number(year));
   const countries = getUefaCountries();
   const t = useTranslations('Custom');
-  const [predictions, setPredictions] = useState([37.27, 43.33, 19.4]);
+  const [preds, setPreds] = useState([37.27, 43.33, 19.4]);
   const [home, setHome] = useState('England');
   const [away, setAway] = useState('France');
   const [allowDraw, setAllowDraw] = useState(true);
@@ -27,9 +27,9 @@ export default function CustomPage({ params: { year } }: Props) {
       setLoading(true);
       const result = await fetchMatch(home, away, allowDraw, Number(year));
       if (result) {
-        setPredictions(result.predictions);
-        setHomeScore(result.scorePrediction[0]);
-        setAwayScore(result.scorePrediction[1]);
+        setPreds(result.preds);
+        setHomeScore(result.scorePred[0]);
+        setAwayScore(result.scorePred[1]);
       }
       setLoading(false);
     } catch (error) {
@@ -93,16 +93,16 @@ export default function CustomPage({ params: { year } }: Props) {
           />
         </Box>
         <Box mt={5} sx={{ width: '100%', bgcolor: 'grey.300', borderRadius: '10px', height: '24px', display: 'flex' }}>
-          <Box sx={{ bgcolor: 'primary.main', borderRadius: '6px 0 0 6px', width: `${predictions[0]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Typography variant="h6" color="white">{predictions[0]}%</Typography>
+          <Box sx={{ bgcolor: 'primary.main', borderRadius: '6px 0 0 6px', width: `${preds[0]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="h6" color="white">{preds[0]}%</Typography>
           </Box>
-          {predictions[2] > 0 && (
-            <Box sx={{ bgcolor: 'grey.300', width: `${predictions[2]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Typography variant="h6">{predictions[2]}%</Typography>
+          {preds[2] > 0 && (
+            <Box sx={{ bgcolor: 'grey.300', width: `${preds[2]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Typography variant="h6">{preds[2]}%</Typography>
             </Box>
           )}
-          <Box sx={{ bgcolor: 'secondary.main', borderRadius: '0 6px 6px 0', width: `${predictions[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Typography variant="h6">{predictions[1]}%</Typography>
+          <Box sx={{ bgcolor: 'secondary.main', borderRadius: '0 6px 6px 0', width: `${preds[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="h6">{preds[1]}%</Typography>
           </Box>
         </Box>
         <Box mt={3} display="flex" justifyContent="center" width="100%">

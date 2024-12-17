@@ -2,8 +2,8 @@
 import Papa from 'papaparse';
 
 type PredictionResult = {
-  scorePrediction: number[];
-  predictions: number[];
+  scorePred: number[];
+  preds: number[];
 } | null;
 
 export default async function fetchMatch(home_team: string, away_team: string, allowDraw: boolean, year: number): Promise<PredictionResult> {
@@ -12,21 +12,21 @@ export default async function fetchMatch(home_team: string, away_team: string, a
     if (!response.ok) {
       throw new Error('Failed to fetch CSV file');
     }
-    const predictionsCsvText = await response.text();
+    const predsCsvText = await response.text();
 
     let matchPrediction: PredictionResult = null;
-    Papa.parse(predictionsCsvText, {
+    Papa.parse(predsCsvText, {
       header: true,
       complete: (result) => {
         const parsedData = result.data as any[];
         const homeTeamRow = parsedData.find(row => row.home_team === home_team);
         if (homeTeamRow) {
-          const predictionString = homeTeamRow[`${away_team}_${allowDraw ? '1' : '0'}`];
-          if (predictionString) {
-            const prediction = JSON.parse(predictionString);
+          const predString = homeTeamRow[`${away_team}_${allowDraw ? '1' : '0'}`];
+          if (predString) {
+            const pred = JSON.parse(predString);
             matchPrediction = {
-              scorePrediction: prediction.scorePrediction,
-              predictions: prediction.predictions,
+              scorePred: pred.scorePred,
+              preds: pred.preds,
             };
           }
         }

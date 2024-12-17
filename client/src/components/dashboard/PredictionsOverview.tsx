@@ -7,11 +7,11 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 interface PredictionsOverviewProps {
   categories: string[];
-  correctPredictionsPerDay: number[];
-  incorrectPredictionsPerDay: number[];
+  correctPredsPerDay: number[];
+  incorrectPredsPerDay: number[];
 }
 
-const PredictionsOverview: React.FC<PredictionsOverviewProps> = ({ categories, correctPredictionsPerDay, incorrectPredictionsPerDay }) => {
+const PredictionsOverview: React.FC<PredictionsOverviewProps> = ({ categories, correctPredsPerDay, incorrectPredsPerDay }) => {
   const theme = useTheme();
   const t = useTranslations();
 
@@ -53,8 +53,8 @@ const PredictionsOverview: React.FC<PredictionsOverviewProps> = ({ categories, c
   };
 
   const seriescolumnchart: any = [
-    { name: t('PredictionsOverview.correct'), data: correctPredictionsPerDay },
-    { name: t('PredictionsOverview.incorrect'), data: incorrectPredictionsPerDay }
+    { name: t('PredictionsOverview.correct'), data: correctPredsPerDay },
+    { name: t('PredictionsOverview.incorrect'), data: incorrectPredsPerDay }
   ];
 
   return (

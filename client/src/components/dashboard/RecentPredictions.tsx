@@ -18,12 +18,12 @@ const RecentPredictions: React.FC<RecentPredictionsProps> = ({ data, year }) => 
 
   const matches = data.filter(match => !isNaN(match.home_score_total) && !isNaN(match.away_score_total))
     .slice(-6).reverse().map(match => {
-      const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
+      const predictedOutcomeIndex = match.preds.indexOf(Math.max(...match.preds));
       const outcomes = ["home", "away", "draw"];
       const predictedOutcome = outcomes[predictedOutcomeIndex];
       const actualOutcome = match.home_score_total > match.away_score_total ? "home" :
         match.home_score_total < match.away_score_total ? "away" : "draw";
-      const isPerfect = predictedOutcome === actualOutcome && match.scorePrediction[0] === match.home_score_total && match.scorePrediction[1] === match.away_score_total;
+      const isPerfect = predictedOutcome === actualOutcome && match.scorePred[0] === match.home_score_total && match.scorePred[1] === match.away_score_total;
       const isCorrect = predictedOutcome === actualOutcome;
       return { ...match, status: isPerfect ? "perfect" : isCorrect ? "correct" : "incorrect" };
     });

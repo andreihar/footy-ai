@@ -26,7 +26,7 @@ export default async function DashboardPage({ params: { locale, year } }: Props)
   unstable_setRequestLocale(locale);
   const stats = await getStats(Number(year));
   const t = await getTranslations('GeneralStats');
-  const { data, perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts, categories, correctPredictionsPerDay, incorrectPredictionsPerDay } = stats;
+  const { data, perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts, categories, correctPredsPerDay, incorrectPredsPerDay } = stats;
 
   return (
     <Box>
@@ -45,7 +45,7 @@ export default async function DashboardPage({ params: { locale, year } }: Props)
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <PredictionsOverview categories={categories} correctPredictionsPerDay={correctPredictionsPerDay} incorrectPredictionsPerDay={incorrectPredictionsPerDay} />
+          <PredictionsOverview categories={categories} correctPredsPerDay={correctPredsPerDay} incorrectPredsPerDay={incorrectPredsPerDay} />
         </Grid>
         <Grid item xs={12} lg={6}>
           <RecentPredictions data={data} year={Number(year)} />
@@ -54,12 +54,12 @@ export default async function DashboardPage({ params: { locale, year } }: Props)
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <OverallStatistics
-                correctPrev={Number((100 * correctPredictionsPerDay.slice(0, -1).reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.slice(0, -1).concat(incorrectPredictionsPerDay.slice(0, -1)).reduce((a, c) => a + c, 0))).toFixed(2))}
-                correct={Number((100 * correctPredictionsPerDay.reduce((a, c) => a + c, 0) / (correctPredictionsPerDay.concat(incorrectPredictionsPerDay).reduce((a, c) => a + c, 0))).toFixed(2))}
+                correctPrev={Number((100 * correctPredsPerDay.slice(0, -1).reduce((a, c) => a + c, 0) / (correctPredsPerDay.slice(0, -1).concat(incorrectPredsPerDay.slice(0, -1)).reduce((a, c) => a + c, 0))).toFixed(2))}
+                correct={Number((100 * correctPredsPerDay.reduce((a, c) => a + c, 0) / (correctPredsPerDay.concat(incorrectPredsPerDay).reduce((a, c) => a + c, 0))).toFixed(2))}
               />
             </Grid>
             <Grid item xs={12}>
-              <DailyPredictions categories={categories} dailyPercentages={correctPredictionsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredictionsPerDay[index])).toFixed(2)))} />
+              <DailyPredictions categories={categories} dailyPercentages={correctPredsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredsPerDay[index])).toFixed(2)))} />
             </Grid>
           </Grid>
         </Grid>

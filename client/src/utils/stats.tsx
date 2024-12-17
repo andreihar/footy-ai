@@ -7,8 +7,8 @@ interface ReturnTypes {
   data: Match[];
   categories: string[];
   groups: string[];
-  correctPredictionsPerDay: number[];
-  incorrectPredictionsPerDay: number[];
+  correctPredsPerDay: number[];
+  incorrectPredsPerDay: number[];
   perfectScores: number;
   correctGroups: number;
   matchesPlayedGroups: number;
@@ -32,20 +32,20 @@ interface DataRow {
 }
 
 type PredictionResult = {
-  scorePrediction: number[];
-  predictions: number[];
+  scorePred: number[];
+  preds: number[];
 } | null;
 
 export async function getStats(year: number): Promise<ReturnTypes> {
-  const predictionsFilePath = path.join(process.cwd(), 'public', 'data', 'predictions', `${year}.csv`);
+  const predsFilePath = path.join(process.cwd(), 'public', 'data', 'predictions', `${year}.csv`);
   const matchesFilePath = path.join(process.cwd(), 'public', 'data', 'matches', `${year}.csv`);
 
-  const predictionsCsvText = await fs.readFile(predictionsFilePath, 'utf-8');
-  let predictionsData: any[] = [];
-  Papa.parse(predictionsCsvText, {
+  const predsCsvText = await fs.readFile(predsFilePath, 'utf-8');
+  let predsData: any[] = [];
+  Papa.parse(predsCsvText, {
     header: true,
     complete: (result) => {
-      predictionsData = result.data;
+      predsData = result.data;
     }
   });
 
@@ -62,18 +62,18 @@ export async function getStats(year: number): Promise<ReturnTypes> {
           if (value === undefined || value === null) return NaN;
           return parseInt(value, 10);
         };
-        const homeTeamRow = predictionsData.find(predictionRow => predictionRow.home_team === row.home_team);
-        let predictionResult: PredictionResult = null;
+        const homeTeamRow = predsData.find(predRow => predRow.home_team === row.home_team);
+        let predResult: PredictionResult = null;
         if (homeTeamRow) {
-          const predictionKey = `${row.away_team}_${row.stage.startsWith("Group") ? '1' : '0'}`;
-          const predictionString = homeTeamRow[predictionKey];
-          predictionResult = predictionString ? JSON.parse(predictionString) : null;
+          const predKey = `${row.away_team}_${row.stage.startsWith("Group") ? '1' : '0'}`;
+          const predString = homeTeamRow[predKey];
+          predResult = predString ? JSON.parse(predString) : null;
         }
-        const predictions = predictionResult ? predictionResult.predictions : [0, 0, 0];
-        const scorePrediction = predictionResult ? predictionResult.scorePrediction : [0, 0];
+        const preds = predResult ? predResult.preds : [0, 0, 0];
+        const scorePred = predResult ? predResult.scorePred : [0, 0];
 
         const modifiedRow: Match = {
-          ...row, date: new Date(row.date), predictions, scorePrediction,
+          ...row, date: new Date(row.date), preds, scorePred,
           home_score: toInt(row.home_score), away_score: toInt(row.away_score), home_penalty: toInt(row.home_penalty), away_penalty: toInt(row.away_penalty), home_score_total: toInt(row.home_score_total), away_score_total: toInt(row.away_score_total),
         };
 
@@ -87,13 +87,13 @@ export async function getStats(year: number): Promise<ReturnTypes> {
   const allMatches = data.flatMap(match =>
     !isNaN(match.home_score_total) && !isNaN(match.away_score_total) ? [{
       ...match,
-      date: `${String(match.date.getDate()).padStart(2, '0')}/${String(match.date.getMonth() + 1).padStart(2, '0')}`
+      date: `${String(match.date.getDate()).padStart(2, '0')}/${String(match.date.getMonth() + 1).padStart(2, '0')}${(year - 1960) % 4 === 0 ? '' : `/${String(match.date.getFullYear()).slice(-2)}`}`
     }] : []
   )
     .sort((a, b) => {
-      const [dayA, monthA] = a.date.split('/').map(Number);
-      const [dayB, monthB] = b.date.split('/').map(Number);
-      return monthA - monthB || dayA - dayB;
+      const [dayA, monthA, yearA] = a.date.split('/').map(Number);
+      const [dayB, monthB, yearB] = b.date.split('/').map(Number);
+      return (yearA || 0) - (yearB || 0) || monthA - monthB || dayA - dayB;
     });
 
   const groupStages = Array.from(new Set(
@@ -102,8 +102,8 @@ export async function getStats(year: number): Promise<ReturnTypes> {
   )).sort();
 
   const formattedDates = Array.from(new Set(allMatches.map(match => match.date)));
-  const correctPredictionsPerDay = new Array(formattedDates.length).fill(0);
-  const incorrectPredictionsPerDay = new Array(formattedDates.length).fill(0);
+  const correctPredsPerDay = new Array(formattedDates.length).fill(0);
+  const incorrectPredsPerDay = new Array(formattedDates.length).fill(0);
   let perfectScores = 0;
   let correctGroups = 0;
   let correctKnockouts = 0;
@@ -119,7 +119,7 @@ export async function getStats(year: number): Promise<ReturnTypes> {
     if (isGroupStage) matchesPlayedGroups++;
     else matchesPlayedKnockouts++;
 
-    const predictedOutcomeIndex = match.predictions.indexOf(Math.max(...match.predictions));
+    const predictedOutcomeIndex = match.preds.indexOf(Math.max(...match.preds));
     let predictedOutcome = "";
     if (predictedOutcomeIndex === 0) predictedOutcome = "home";
     else if (predictedOutcomeIndex === 1) predictedOutcome = "away";
@@ -131,14 +131,14 @@ export async function getStats(year: number): Promise<ReturnTypes> {
     else if (match.home_score_total === match.away_score_total) actualOutcome = "draw";
 
     if (predictedOutcome === actualOutcome) {
-      correctPredictionsPerDay[formattedDates.indexOf(match.date)]++;
+      correctPredsPerDay[formattedDates.indexOf(match.date)]++;
       if (isGroupStage) correctGroups++;
       else correctKnockouts++;
     } else {
-      incorrectPredictionsPerDay[formattedDates.indexOf(match.date)]++;
+      incorrectPredsPerDay[formattedDates.indexOf(match.date)]++;
     }
 
-    if (match.scorePrediction[0] === match.home_score_total && match.scorePrediction[1] === match.away_score_total) {
+    if (match.scorePred[0] === match.home_score_total && match.scorePred[1] === match.away_score_total) {
       perfectScores++;
     }
   });
@@ -147,8 +147,8 @@ export async function getStats(year: number): Promise<ReturnTypes> {
     data,
     categories: formattedDates,
     groups: groupStages,
-    correctPredictionsPerDay,
-    incorrectPredictionsPerDay,
+    correctPredsPerDay,
+    incorrectPredsPerDay,
     perfectScores,
     correctGroups,
     matchesPlayedGroups,

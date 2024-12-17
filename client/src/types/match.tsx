@@ -11,6 +11,6 @@ export default interface Match {
 	stage: string;
 	stadium: string;
 	city: string;
-	predictions: number[];
-	scorePrediction: number[];
+	preds: number[];
+	scorePred: number[];
 }
