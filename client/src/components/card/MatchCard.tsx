@@ -23,11 +23,11 @@ const OutcomeDisplay: React.FC<{ outcome: string, label: string; }> = ({ outcome
   );
 };
 
-const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_total, away_score_total, date, stage, stadium, city, predictions, scorePrediction, year, locale }) => {
+const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_total, away_score_total, date, stage, stadium, city, preds, scorePred, year, locale }) => {
   const { getFlag, getHistoricalName } = useCountryFlags(year);
   const t = useTranslations();
 
-  const predictedOutcome = ["home", "away", "draw"][predictions.indexOf(Math.max(...predictions))] || "";
+  const predictedOutcome = ["home", "away", "draw"][preds.indexOf(Math.max(...preds))] || "";
 
   let correctOutcome = "unknown";
   let correctScore = "unknown";
@@ -35,7 +35,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
     const actualOutcome = home_score_total > away_score_total ? "home"
       : home_score_total < away_score_total ? "away" : "draw";
     correctOutcome = predictedOutcome === actualOutcome ? "correct" : "incorrect";
-    correctScore = (scorePrediction[0] === home_score_total && scorePrediction[1] === away_score_total) ? "correct" : "incorrect";
+    correctScore = (scorePred[0] === home_score_total && scorePred[1] === away_score_total) ? "correct" : "incorrect";
   }
 
   return (
@@ -65,12 +65,12 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
             {/* Score */}
             <Grid item xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
               <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
-                <Typography variant="h1" component="span">{scorePrediction[0]}</Typography>
+                <Typography variant="h1" component="span">{scorePred[0]}</Typography>
                 <Typography variant="body1" component="span">({home_score_total})</Typography>
               </Box>
               <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
               <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
-                <Typography variant="h1" component="span">{scorePrediction[1]}</Typography>
+                <Typography variant="h1" component="span">{scorePred[1]}</Typography>
                 <Typography variant="body1" component="span">({away_score_total})</Typography>
               </Box>
             </Grid>
@@ -83,16 +83,16 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
           </Grid>
         </Box>
         <Box mt={5} sx={{ width: '100%', bgcolor: 'grey.300', borderRadius: '10px', height: '24px', display: 'flex' }}>
-          <Box sx={{ bgcolor: 'primary.main', borderRadius: '6px 0 0 6px', width: `${predictions[0]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Typography variant="h6" color="white">{predictions[0]}%</Typography>
+          <Box sx={{ bgcolor: 'primary.main', borderRadius: '6px 0 0 6px', width: `${preds[0]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="h6" color="white">{preds[0]}%</Typography>
           </Box>
-          {predictions[2] > 0 && (
-            <Box sx={{ bgcolor: 'grey.300', width: `${predictions[2]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Typography variant="h6">{predictions[2]}%</Typography>
+          {preds[2] > 0 && (
+            <Box sx={{ bgcolor: 'grey.300', width: `${preds[2]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Typography variant="h6">{preds[2]}%</Typography>
             </Box>
           )}
-          <Box sx={{ bgcolor: 'secondary.main', borderRadius: '0 6px 6px 0', width: `${predictions[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Typography variant="h6">{predictions[1]}%</Typography>
+          <Box sx={{ bgcolor: 'secondary.main', borderRadius: '0 6px 6px 0', width: `${preds[1]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Typography variant="h6">{preds[1]}%</Typography>
           </Box>
         </Box>
         <Box mt={3} display="flex" justifyContent="center" width="100%">

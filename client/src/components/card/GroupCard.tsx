@@ -77,7 +77,7 @@ const GroupCard = ({ data, group, year }: GroupCardProps) => {
   });
 
   const teamsPredicted = processMatches(allMatches, match => {
-    const [homePrediction, awayPrediction] = match.scorePrediction;
+    const [homePrediction, awayPrediction] = match.scorePred;
     return [homePrediction, awayPrediction];
   });
 
@@ -88,14 +88,14 @@ const GroupCard = ({ data, group, year }: GroupCardProps) => {
   allMatches.forEach(match => {
     const actualMatch = allMatches.find(m => m.home_team === match.home_team && m.away_team === match.away_team);
     if (actualMatch) {
-      const predictedOutcome = match.scorePrediction[0] > match.scorePrediction[1] ? 'win' :
-        match.scorePrediction[0] < match.scorePrediction[1] ? 'loss' : 'draw';
+      const predictedOutcome = match.scorePred[0] > match.scorePred[1] ? 'win' :
+        match.scorePred[0] < match.scorePred[1] ? 'loss' : 'draw';
       const actualOutcome = actualMatch.home_score_total > actualMatch.away_score_total ? 'win' :
         actualMatch.home_score_total < actualMatch.away_score_total ? 'loss' : 'draw';
 
       if (predictedOutcome === actualOutcome) {
         outcomesCount++;
-        if (match.scorePrediction[0] === actualMatch.home_score_total && match.scorePrediction[1] === actualMatch.away_score_total) {
+        if (match.scorePred[0] === actualMatch.home_score_total && match.scorePred[1] === actualMatch.away_score_total) {
           scoresCount++;
         }
       }
@@ -183,15 +183,15 @@ const GroupCard = ({ data, group, year }: GroupCardProps) => {
               <List>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconListNumbers style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('ranking')}: {correctRankingsCount}/4</Typography>
+                  <Typography variant="h6">{t('ranking')}: {correctRankingsCount}/{teamsPredicted.length}</Typography>
                 </ListItem>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconMathXDivideY2 style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('outcomes')}: {outcomesCount}/6</Typography>
+                  <Typography variant="h6">{t('outcomes')}: {outcomesCount}/{allMatches.length}</Typography>
                 </ListItem>
                 <ListItem sx={{ display: 'flex', alignItems: 'center' }}>
                   <IconBallFootball style={{ marginRight: 5 }} />
-                  <Typography variant="h6">{t('scores')}: {scoresCount}/6</Typography>
+                  <Typography variant="h6">{t('scores')}: {scoresCount}/{allMatches.length}</Typography>
                 </ListItem>
               </List>
             </AccordionDetails>

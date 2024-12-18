@@ -1,7 +1,7 @@
 'use client';
 import React, { ReactNode } from 'react';
 import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
-import { Plus_Jakarta_Sans, Ubuntu } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 
 export const plus = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700"],
@@ -10,18 +10,11 @@ export const plus = Plus_Jakarta_Sans({
   fallback: ["Helvetica", "Arial", "sans-serif"],
 });
 
-export const ubuntu = Ubuntu({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["Helvetica", "Arial", "sans-serif"],
-});
-
 const baselightTheme = createTheme({
   direction: "ltr",
   palette: {
-    primary: { main: "#143CDB", light: "#ECF2FF", dark: "#4570EA" },
-    secondary: { main: "#49BEFF", light: "#E8F7FF", dark: "#23afdb" },
+    primary: { main: "#1A313C", light: "#D6E2E8", dark: "#4570EA" },
+    secondary: { main: "#28C0E8", light: "#E8F7FF", dark: "#23afdb" },
     success: { main: "#13DEB9", light: "#E6FFFA", dark: "#02b3a9", contrastText: "#ffffff" },
     info: { main: "#539BFF", light: "#EBF3FE", dark: "#1682d4", contrastText: "#ffffff" },
     error: { main: "#FA896B", light: "#FDEDE8", dark: "#f3704d", contrastText: "#ffffff" },
@@ -33,9 +26,9 @@ const baselightTheme = createTheme({
   },
   typography: {
     fontFamily: plus.style.fontFamily,
-    h1: { fontWeight: 500, fontSize: "2.25rem", lineHeight: "2.75rem", fontFamily: ubuntu.style.fontFamily },
-    h2: { fontWeight: 500, fontSize: "1.875rem", lineHeight: "2.25rem", fontFamily: ubuntu.style.fontFamily },
-    h3: { fontWeight: 500, fontSize: "1.5rem", lineHeight: "1.75rem", fontFamily: ubuntu.style.fontFamily },
+    h1: { fontWeight: 600, fontSize: "2.25rem", lineHeight: "2.75rem", fontFamily: 'Header', letterSpacing: "0.05em" },
+    h2: { fontWeight: 600, fontSize: "1.875rem", lineHeight: "2.25rem", fontFamily: 'Header', letterSpacing: "0.05em" },
+    h3: { fontWeight: 600, fontSize: "1.5rem", lineHeight: "1.75rem", fontFamily: 'Header', letterSpacing: "0.05em" },
     h4: { fontWeight: 600, fontSize: "1.3125rem", lineHeight: "1.6rem" },
     h5: { fontWeight: 600, fontSize: "1.125rem", lineHeight: "1.6rem" },
     h6: { fontWeight: 600, fontSize: "1rem", lineHeight: "1.2rem" },
