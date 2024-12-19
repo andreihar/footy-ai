@@ -1,6 +1,7 @@
 {
 	"Header": {
-		"fixtures": "Spielplan"
+		"fixtures": "Spielplan",
+		"locale": "{locale, select, fr {Français} de {Deutsch} es {Español} it {Italiano} pt {Português} other {English}}"
 	},
 	"Overview": {
 		"title": "Übersicht",

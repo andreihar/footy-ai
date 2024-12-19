@@ -2,17 +2,13 @@ import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
 import { useEffect, useState, useRef, Fragment } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Locale, usePathname, useRouter, Pathnames } from '@/i18n/routing';
+import { Locale, usePathname, useRouter, Pathnames, routing } from '@/i18n/routing';
 import { useTheme, lighten, darken } from '@mui/material/styles';
 import Logo from './Logo';
 import EuroLogo from './EuroLogo';
 import { years } from '@/config';
 
-interface HeaderProps {
-  year: number;
-}
-
-function Header({ year }: HeaderProps) {
+function Header({ year }: { year: number; }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isStuck, setIsStuck] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -42,8 +38,6 @@ function Header({ year }: HeaderProps) {
       })(), href: "/about"
     }
   ];
-
-  const languages = { en: 'English', fr: 'Français', de: 'Deutsch', es: 'Español', it: 'Italiano', pt: 'Português' };
 
   const handleLocaleChange = (event: SelectChangeEvent<Locale>) => {
     const nextLocale = event.target.value as Locale;
@@ -122,8 +116,8 @@ function Header({ year }: HeaderProps) {
             <Select variant="outlined" value={locale} onChange={handleLocaleChange} inputProps={{ 'aria-label': 'Language Selector' }}
               sx={{ color: getColour(), borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
             >
-              {Object.entries(languages).map(([code, name]) => (
-                <MenuItem key={code} value={code}>{name}</MenuItem>
+              {routing.locales.map((code) => (
+                <MenuItem key={code} value={code}>{t('Header.locale', { locale: code })}</MenuItem>
               ))}
             </Select>
           </Toolbar>
@@ -252,8 +246,8 @@ function Header({ year }: HeaderProps) {
                     '&& fieldset': { border: 'none' }, '& .MuiSelect-select': { padding: '16px 32px' },
                   }}
                 >
-                  {Object.entries(languages).map(([code, name]) => (
-                    <MenuItem key={code} value={code}>{name}</MenuItem>
+                  {routing.locales.map((code) => (
+                    <MenuItem key={code} value={code}>{t('Header.locale', { locale: code })}</MenuItem>
                   ))}
                 </Select>
               </ListItemButton>

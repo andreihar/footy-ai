@@ -1,6 +1,7 @@
 {
 	"Header": {
-		"fixtures": "Fixtures"
+		"fixtures": "Fixtures",
+		"locale": "{locale, select, fr {Français} de {Deutsch} es {Español} it {Italiano} pt {Português} other {English}}"
 	},
 	"Overview": {
 		"title": "Overview",
