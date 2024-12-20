@@ -2,41 +2,15 @@ import fs from 'fs/promises';
 import path from 'path';
 import Papa from 'papaparse';
 import Match from '@/types/match';
-
-interface ReturnTypes {
-  data: Match[];
-  categories: string[];
-  groups: string[];
-  correctPredsPerDay: number[];
-  incorrectPredsPerDay: number[];
-  perfectScores: number;
-  correctGroups: number;
-  matchesPlayedGroups: number;
-  correctKnockouts: number;
-  matchesPlayedKnockouts: number;
-}
-
-interface DataRow {
-  home_team: string;
-  away_team: string;
-  home_score: string;
-  away_score: string;
-  home_penalty: string;
-  away_penalty: string;
-  home_score_total: string;
-  away_score_total: string;
-  date: string;
-  stage: string;
-  stadium: string;
-  city: string;
-}
+import DataRow from '@/types/dataRow';
+import Return from '@/types/return';
 
 type PredictionResult = {
   scorePred: number[];
   preds: number[];
 } | null;
 
-export async function getStats(year: number): Promise<ReturnTypes> {
+export async function getStats(year: number): Promise<Return> {
   const predsFilePath = path.join(process.cwd(), 'public', 'data', 'predictions', `${year}.csv`);
   const matchesFilePath = path.join(process.cwd(), 'public', 'data', 'matches', `${year}.csv`);
 
@@ -96,19 +70,15 @@ export async function getStats(year: number): Promise<ReturnTypes> {
       return (yearA || 0) - (yearB || 0) || monthA - monthB || dayA - dayB;
     });
 
-  const groupStages = Array.from(new Set(
+  const groups = Array.from(new Set(
     data.filter((match: Match) => match.stage.startsWith("Group"))
       .map((match: Match) => match.stage)
   )).sort();
 
-  const formattedDates = Array.from(new Set(allMatches.map(match => match.date)));
-  const correctPredsPerDay = new Array(formattedDates.length).fill(0);
-  const incorrectPredsPerDay = new Array(formattedDates.length).fill(0);
-  let perfectScores = 0;
-  let correctGroups = 0;
-  let correctKnockouts = 0;
-  let matchesPlayedGroups = 0;
-  let matchesPlayedKnockouts = 0;
+  const categories = Array.from(new Set(allMatches.map(match => match.date)));
+  const correctPredsPerDay = new Array(categories.length).fill(0);
+  const incorrectPredsPerDay = new Array(categories.length).fill(0);
+  let [perfectScores, correctGroups, correctKnockouts, matchesPlayedGroups, matchesPlayedKnockouts] = [0, 0, 0, 0, 0];
 
   allMatches.forEach(match => {
     if (Number.isNaN(match.home_score_total) || Number.isNaN(match.away_score_total)) {
@@ -119,23 +89,15 @@ export async function getStats(year: number): Promise<ReturnTypes> {
     if (isGroupStage) matchesPlayedGroups++;
     else matchesPlayedKnockouts++;
 
-    const predictedOutcomeIndex = match.preds.indexOf(Math.max(...match.preds));
-    let predictedOutcome = "";
-    if (predictedOutcomeIndex === 0) predictedOutcome = "home";
-    else if (predictedOutcomeIndex === 1) predictedOutcome = "away";
-    else if (predictedOutcomeIndex === 2) predictedOutcome = "draw";
-
-    let actualOutcome = "";
-    if (match.home_score_total > match.away_score_total) actualOutcome = "home";
-    else if (match.home_score_total < match.away_score_total) actualOutcome = "away";
-    else if (match.home_score_total === match.away_score_total) actualOutcome = "draw";
+    const predictedOutcome = ["home", "away", "draw"][match.preds.indexOf(Math.max(...match.preds))] || "";
+    const actualOutcome = match.home_score_total > match.away_score_total ? "home" : match.home_score_total < match.away_score_total ? "away" : "draw";
 
     if (predictedOutcome === actualOutcome) {
-      correctPredsPerDay[formattedDates.indexOf(match.date)]++;
+      correctPredsPerDay[categories.indexOf(match.date)]++;
       if (isGroupStage) correctGroups++;
       else correctKnockouts++;
     } else {
-      incorrectPredsPerDay[formattedDates.indexOf(match.date)]++;
+      incorrectPredsPerDay[categories.indexOf(match.date)]++;
     }
 
     if (match.scorePred[0] === match.home_score_total && match.scorePred[1] === match.away_score_total) {
@@ -143,16 +105,5 @@ export async function getStats(year: number): Promise<ReturnTypes> {
     }
   });
 
-  return {
-    data,
-    categories: formattedDates,
-    groups: groupStages,
-    correctPredsPerDay,
-    incorrectPredsPerDay,
-    perfectScores,
-    correctGroups,
-    matchesPlayedGroups,
-    correctKnockouts,
-    matchesPlayedKnockouts
-  };
+  return { data, categories, groups, correctPredsPerDay, incorrectPredsPerDay, perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts };
 }
