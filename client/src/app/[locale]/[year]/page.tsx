@@ -59,7 +59,7 @@ export default async function DashboardPage({ params: { locale, year } }: Props)
               />
             </Grid>
             <Grid item xs={12}>
-              <DailyPredictions categories={categories} dailyPercentages={correctPredsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredsPerDay[index])).toFixed(2)))} />
+              <DailyPredictions categories={categories} dailyPers={correctPredsPerDay.map((correct, index) => Number((100 * correct / (correct + incorrectPredsPerDay[index])).toFixed(2)))} />
             </Grid>
           </Grid>
         </Grid>

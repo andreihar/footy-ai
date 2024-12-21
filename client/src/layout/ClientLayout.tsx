@@ -19,12 +19,7 @@ const PageWrapper = styled("div")(() => ({
   backgroundColor: "#EDEFF4",
 }));
 
-interface ClientLayoutProps {
-  children: React.ReactNode;
-  year: number;
-}
-
-export default function ClientLayout({ children, year }: ClientLayoutProps) {
+export default function ClientLayout({ children, year }: { children: React.ReactNode; year: number; }) {
   return (
     <DynamicTheme year={year}>
       <MainWrapper className="mainwrapper">

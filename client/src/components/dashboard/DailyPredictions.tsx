@@ -7,12 +7,7 @@ import { Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowDownRight, IconArrowUpLeft, IconPercentage } from '@tabler/icons-react';
 import DashboardCard from '@/components/shared/DashboardCard';
 
-interface DailyPredictionsProps {
-  categories: string[];
-  dailyPercentages: number[];
-}
-
-const DailyPredictions: React.FC<DailyPredictionsProps> = ({ categories, dailyPercentages }) => {
+const DailyPredictions: React.FC<{ categories: string[]; dailyPers: number[]; }> = ({ categories, dailyPers }) => {
   const theme = useTheme();
   const t = useTranslations();
 
@@ -37,7 +32,7 @@ const DailyPredictions: React.FC<DailyPredictionsProps> = ({ categories, dailyPe
     {
       name: '',
       color: theme.palette.secondary.main,
-      data: dailyPercentages,
+      data: dailyPers,
     },
   ];
 
@@ -54,14 +49,14 @@ const DailyPredictions: React.FC<DailyPredictionsProps> = ({ categories, dailyPe
       }
     >
       <>
-        {dailyPercentages.length >= 2 && (
+        {dailyPers.length >= 2 && (
           <>
             <Typography variant="h3" fontWeight="700" mt="-20px">
-              {dailyPercentages[dailyPercentages.length - 1]}%
+              {dailyPers[dailyPers.length - 1]}%
             </Typography>
             <Stack direction="row" spacing={1} my={1} alignItems="center">
               {(() => {
-                const percentageChange = dailyPercentages[dailyPercentages.length - 1] - dailyPercentages[dailyPercentages.length - 2];
+                const percentageChange = dailyPers[dailyPers.length - 1] - dailyPers[dailyPers.length - 2];
 
                 return (
                   <>

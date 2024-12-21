@@ -3,12 +3,7 @@ import { Pagination, Box } from '@mui/material';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent } from 'react';
 
-interface PaginationComponentProps {
-  total: number;
-  current: number;
-}
-
-const PaginationComponent: React.FC<PaginationComponentProps> = ({ total, current }) => {
+const PaginationComponent: React.FC<{ total: number; current: number; }> = ({ total, current }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 

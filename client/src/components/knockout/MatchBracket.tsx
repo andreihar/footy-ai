@@ -5,12 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import useCountryFlags from '@/utils/countryUtils';
 import Match from '@/types/match';
 
-interface MatchBracketProps {
-  match: Match;
-  year: number;
-}
-
-const MatchBracket: React.FC<MatchBracketProps> = ({ match, year }) => {
+const MatchBracket: React.FC<{ match: Match; year: number; }> = ({ match, year }) => {
   const { getFlag, getHistoricalName } = useCountryFlags(year);
   const theme = useTheme();
   const result = match.home_score_total > match.away_score_total ? 'home' :

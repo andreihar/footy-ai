@@ -7,12 +7,7 @@ import { Stack, Typography, Avatar, Grid } from '@mui/material';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
 import DashboardCard from '@/components/shared/DashboardCard';
 
-interface OverallStatisticsProps {
-  correctPrev: number;
-  correct: number;
-}
-
-const OverallStatistics: React.FC<OverallStatisticsProps> = ({ correctPrev, correct }) => {
+const OverallStatistics: React.FC<{ correctPrev: number; correct: number; }> = ({ correctPrev, correct }) => {
   const theme = useTheme();
   const t = useTranslations();
 

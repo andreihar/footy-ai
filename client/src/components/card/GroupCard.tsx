@@ -58,13 +58,7 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
   return teamsWithRank;
 }
 
-interface GroupCardProps {
-  data: Match[];
-  group: string;
-  year: number;
-}
-
-const GroupCard = ({ data, group, year }: GroupCardProps) => {
+const GroupCard = ({ data, group, year }: { data: Match[]; group: string; year: number; }) => {
   const { getFlag, getHistoricalName } = useCountryFlags(year);
   const t = useTranslations('Group');
 
@@ -83,8 +77,7 @@ const GroupCard = ({ data, group, year }: GroupCardProps) => {
 
   const correctRankingsCount = teamsPredicted.filter((team, index) => team.team === teamsStandings[index].team).length;
 
-  let outcomesCount = 0;
-  let scoresCount = 0;
+  let [outcomesCount, scoresCount] = [0, 0];
   allMatches.forEach(match => {
     const actualMatch = allMatches.find(m => m.home_team === match.home_team && m.away_team === match.away_team);
     if (actualMatch) {
@@ -102,6 +95,12 @@ const GroupCard = ({ data, group, year }: GroupCardProps) => {
     }
   });
 
+  const buttonStyles: Record<'win' | 'loss' | 'draw', { backgroundColor: string; icon: JSX.Element; }> = {
+    win: { backgroundColor: 'success.dark', icon: <IconCheck /> },
+    loss: { backgroundColor: 'error.main', icon: <IconX /> },
+    draw: { backgroundColor: grey[600], icon: <IconMinus /> }
+  };
+
   return (
     <DashboardCard title={`${useTranslations()('Knockout.Group')} ${group.split(' ')[1]}`}>
       <Box sx={{ overflow: 'auto', width: { xs: '280px', sm: 'auto' } }}>
@@ -112,11 +111,9 @@ const GroupCard = ({ data, group, year }: GroupCardProps) => {
               return (
                 <TableRow>
                   {headers.map((label, index) => {
-                    const variant = label === t('pts') ? 'h6' : 'subtitle2';
-                    const fontWeight = label === t('pts') ? undefined : 600;
                     return (
                       <TableCell key={index} align="center">
-                        <Typography variant={variant} fontWeight={fontWeight}>
+                        <Typography variant={label === t('pts') ? 'h6' : 'subtitle2'} fontWeight={label === t('pts') ? undefined : 600}>
                           {label}
                         </Typography>
                       </TableCell>
@@ -157,14 +154,8 @@ const GroupCard = ({ data, group, year }: GroupCardProps) => {
                   </TableCell>
                   <TableCell>
                     {team.matches.map((match, index) => {
-                      switch (match) {
-                        case "win":
-                          return <IconButton key={index} size="small" aria-label="Win" sx={{ color: '#fff', backgroundColor: 'success.dark', mr: '4px', '&:hover': { backgroundColor: 'success.dark', opacity: 0.7 } }}><IconCheck /></IconButton>;
-                        case "loss":
-                          return <IconButton key={index} size="small" aria-label="Loss" sx={{ color: '#fff', backgroundColor: 'error.main', mr: '4px', '&:hover': { backgroundColor: 'error.main', opacity: 0.7 } }}><IconX /></IconButton>;
-                        default:
-                          return <IconButton key={index} size="small" aria-label="Draw" sx={{ color: '#fff', backgroundColor: grey[600], mr: '4px', '&:hover': { backgroundColor: grey[600], opacity: 0.7 } }}><IconMinus /></IconButton>;
-                      }
+                      const { backgroundColor, icon } = buttonStyles[match as 'win' | 'loss' | 'draw'] || buttonStyles.draw;
+                      return <IconButton key={index} size="small" aria-label={match.charAt(0).toUpperCase() + match.slice(1)} sx={{ color: '#fff', backgroundColor, mr: '4px', '&:hover': { backgroundColor, opacity: 0.7 } }}>{icon}</IconButton>;
                     })}
                   </TableCell>
                 </TableRow>

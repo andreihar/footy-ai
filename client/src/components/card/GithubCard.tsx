@@ -3,13 +3,8 @@ import { useEffect, useState } from 'react';
 import { Card, CardActionArea, CardContent, CardHeader, CardMedia, Avatar, Box, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 
-interface GithubCardProps {
-  stars: number;
-  description: string;
-}
-
 const GithubCard: React.FC = () => {
-  const [data, setData] = useState<GithubCardProps | null>(null);
+  const [data, setData] = useState<{ stars: number; description: string; } | null>(null);
 
   useEffect(() => {
     const fetchGitHubData = async () => {

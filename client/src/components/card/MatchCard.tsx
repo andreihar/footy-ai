@@ -29,8 +29,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
 
   const predictedOutcome = ["home", "away", "draw"][preds.indexOf(Math.max(...preds))] || "";
 
-  let correctOutcome = "unknown";
-  let correctScore = "unknown";
+  let [correctOutcome, correctScore] = ["unknown", "unknown"];
   if (!isNaN(home_score_total) && !isNaN(away_score_total)) {
     const actualOutcome = home_score_total > away_score_total ? "home"
       : home_score_total < away_score_total ? "away" : "draw";

@@ -1,11 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface EuroLogoProps {
-  year: number;
-}
-
-const EuroLogo: React.FC<EuroLogoProps> = ({ year }) => {
+const EuroLogo: React.FC<{ year: number; }> = ({ year }) => {
   const isEuroYear = (year: number): boolean => (year - 1960) % 4 === 0;
 
   const getLogoSrc = (): string => {
