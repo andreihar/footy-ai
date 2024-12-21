@@ -2,10 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 
 const EuroLogo: React.FC<{ year: number; }> = ({ year }) => {
-  const isEuroYear = (year: number): boolean => (year - 1960) % 4 === 0;
-
   const getLogoSrc = (): string => {
-    if (isEuroYear(year)) {
+    if ((year - 1960) % 4 === 0) {
       return year === 2024
         ? "https://img.uefa.com/imgml/uefacom/elements/logos/competitions/dark/euro2024.svg"
         : `https://img.uefa.com/imgml/uefacom/history/uefaeuro/season_picker/${year}.png`;

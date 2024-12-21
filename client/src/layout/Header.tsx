@@ -91,6 +91,7 @@ function Header({ year }: { year: number; }) {
   const getColour = () => {
     return year === 1972 ? '#000000' : '#FFFFFF';
   };
+  const name = (year: number) => (year - 1960) % 4 === 0 ? `EURO ${year}` : `Nations League ${year}`;
 
   useEffect(() => {
     const updateAppBarState = () => {
@@ -162,7 +163,7 @@ function Header({ year }: { year: number; }) {
                 )
               ))}
               <Box px={1} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', color: getColour() }}>
-                <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
+                <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => name(selectedValue)} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
                   sx={{
                     paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px', fontWeight: '500', fontSize: '14px',
                     '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
@@ -171,7 +172,7 @@ function Header({ year }: { year: number; }) {
                   MenuProps={{ PaperProps: { style: { maxHeight: 250 } } }}
                 >
                   {years.map(year => (
-                    <MenuItem key={year} value={year}>{year}</MenuItem>
+                    <MenuItem key={year} value={year}>{name(year)}</MenuItem>
                   ))}
                 </Select>
               </Box>
@@ -222,7 +223,7 @@ function Header({ year }: { year: number; }) {
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: '16px 32px' }}>
                 <Box px={1} sx={{ display: 'flex', alignItems: 'center' }}>
-                  <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => `EURO ${selectedValue}`} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
+                  <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => name(selectedValue)} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
                     sx={{
                       paddingTop: '1px', fontWeight: '900', borderColor: 'white', height: '32px',
                       '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
@@ -231,7 +232,7 @@ function Header({ year }: { year: number; }) {
                     MenuProps={{ PaperProps: { style: { maxHeight: 250 } } }}
                   >
                     {years.map(year => (
-                      <MenuItem key={year} value={year}>{year}</MenuItem>
+                      <MenuItem key={year} value={year}>{name(year)}</MenuItem>
                     ))}
                   </Select>
                 </Box>

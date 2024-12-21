@@ -13,7 +13,7 @@ export const plus = Plus_Jakarta_Sans({
 const baselightTheme = createTheme({
   direction: "ltr",
   palette: {
-    primary: { main: "#1A313C", light: "#D6E2E8", dark: "#4570EA" },
+    primary: { main: "#1A313C", light: "#D6E2E8" },
     secondary: { main: "#28C0E8", light: "#E8F7FF", dark: "#23afdb" },
     success: { main: "#13DEB9", light: "#E6FFFA", dark: "#02b3a9", contrastText: "#ffffff" },
     info: { main: "#539BFF", light: "#EBF3FE", dark: "#1682d4", contrastText: "#ffffff" },

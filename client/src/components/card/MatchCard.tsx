@@ -5,6 +5,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
 import useCountryFlags from '@/utils/countryUtils';
 import { useTranslations } from 'next-intl';
+import Time from '@/layout/Time';
 import Match from '@/types/match';
 
 interface MatchCardProps extends Match {
@@ -41,15 +42,9 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
     <DashboardCard>
       <CardContent>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mb={2}>
-          <Typography variant="h6">
-            {new Date(date).toLocaleString(locale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-            &nbsp; • &nbsp;
-            {new Date(date).toLocaleString(locale, { hour: 'numeric', minute: 'numeric' })}
-          </Typography>
+          <Time date={date} locale={locale} />
           <Typography variant="h5" mt={2} >{
-            stage.startsWith('Group')
-              ? `${t(`Knockout.Group`)} ${stage.split(" ")[1]}`
-              : t(`Knockout.${stage}` as any)
+            stage.startsWith('Group') ? `${t(`Knockout.Group`)} ${stage.split(" ")[1]}` : t(`Knockout.${stage}` as any)
           }</Typography>
           <Typography sx={{ textTransform: "uppercase" }} mt={2}>{stadium}, {city}</Typography>
         </Box>
