@@ -2,11 +2,11 @@
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useTheme } from '@mui/material/styles';
-import useCountryFlags from '@/utils/countryUtils';
+import useYear from '@/utils/yearUtils';
 import Match from '@/types/match';
 
 const MatchBracket: React.FC<{ match: Match; year: number; }> = ({ match, year }) => {
-  const { getFlag, getHistoricalName } = useCountryFlags(year);
+  const { getFlag, getHistoricalName } = useYear(year);
   const theme = useTheme();
   const result = match.home_score_total > match.away_score_total ? 'home' :
     match.home_score_total < match.away_score_total ? 'away' : 'unknown';

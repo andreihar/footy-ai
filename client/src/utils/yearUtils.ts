@@ -5,7 +5,7 @@ type CountryCodes = {
   [key: string]: string;
 };
 
-const useCountryFlags = (year: number) => {
+const useYear = (year: number) => {
   const t = useTranslations('Country');
 
   const uefaChanges = {
@@ -91,7 +91,15 @@ const useCountryFlags = (year: number) => {
     return t(`${getHistoricalNameEnglish(country)}` as any);
   };
 
-  return { getFlag, getUefaCountries, getHistoricalName };
+  const isEuro = (year: number) => {
+    return (year - 1960) % 4 === 0;
+  };
+
+  const getTourneyName = (year: number) => {
+    return isEuro(year) ? `EURO ${year}` : `Nations League ${year}`;
+  };
+
+  return { getFlag, getUefaCountries, getHistoricalName, isEuro, getTourneyName };
 };
 
-export default useCountryFlags;
+export default useYear;

@@ -3,7 +3,7 @@ import DashboardCard from '@/components/shared/DashboardCard';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import HelpIcon from '@mui/icons-material/Help';
-import useCountryFlags from '@/utils/countryUtils';
+import useYear from '@/utils/yearUtils';
 import { useTranslations } from 'next-intl';
 import Time from '@/layout/Time';
 import Match from '@/types/match';
@@ -25,7 +25,7 @@ const OutcomeDisplay: React.FC<{ outcome: string, label: string; }> = ({ outcome
 };
 
 const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_total, away_score_total, date, stage, stadium, city, preds, scorePred, year, locale }) => {
-  const { getFlag, getHistoricalName } = useCountryFlags(year);
+  const { getFlag, getHistoricalName } = useYear(year);
   const t = useTranslations();
 
   const predictedOutcome = ["home", "away", "draw"][preds.indexOf(Math.max(...preds))] || "";

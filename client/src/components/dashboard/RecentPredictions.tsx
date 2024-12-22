@@ -1,13 +1,13 @@
 import DashboardCard from '@/components/shared/DashboardCard';
 import { Timeline, TimelineItem, TimelineOppositeContent, TimelineSeparator, TimelineDot, TimelineConnector, TimelineContent, timelineOppositeContentClasses, } from '@mui/lab';
 import { Typography } from '@mui/material';
-import useCountryFlags from '@/utils/countryUtils';
+import useYear from '@/utils/yearUtils';
 import { useTranslations, useLocale } from 'next-intl';
 import { Locale } from '@/i18n/routing';
 import Match from '@/types/match';
 
 const RecentPredictions: React.FC<{ data: Match[]; year: number; }> = ({ data, year }) => {
-  const { getHistoricalName } = useCountryFlags(year);
+  const { getHistoricalName } = useYear(year);
   const t = useTranslations('RecentPredictions');
   const locale = useLocale() as Locale;
 
