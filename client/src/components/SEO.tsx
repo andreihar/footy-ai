@@ -9,7 +9,7 @@ export function generateMetadata({ title, description }: GenerateMetadataProps) 
   const metadata: any = {
     title: finalTitle,
     description: description || 'Default description',
-    keywords: 'Footy AI, Football, AI, Predictions',
+    keywords: `${process.env.NEXT_PUBLIC_TITLE}, Football, AI, Predictions`,
     icons: {
       shortcut: '/favicon.ico',
     },

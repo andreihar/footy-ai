@@ -96,7 +96,7 @@
 		"text6": "Gracias por visitar Footy AI. Espero que disfrutes explorando los pronósticos y los conocimientos tanto como yo disfruté creándolos. Si tienes alguna pregunta, comentario o sugerencia, ¡no dudes en comunicarte conmigo!"
 	},
 	"Footer": {
-		"rights": "Reservados todos los derechos."
+		"rights": "© {year} {name}. Reservados todos los derechos."
 	},
 	"404": {
 		"title": "Error",

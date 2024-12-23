@@ -15,11 +15,11 @@ function Footer() {
       <Box px={2} width="100%" color="white" bgcolor="black">
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center">
           <SvgIcon component={Logo} sx={{ width: 100, height: 100, color: 'black' }} />
-          <Typography fontFamily="Logo" variant="h1" noWrap sx={{}}>Footy AI</Typography>
+          <Typography fontFamily="Logo" variant="h1" noWrap sx={{}}>{process.env.NEXT_PUBLIC_TITLE}</Typography>
         </Box>
         <Box display="flex" justifyContent="space-between" pb={1}>
           <Box flex={1} display="flex" justifyContent="flex-start">
-            <Typography>© {yearDisplay} Andrei Harbachov. {t('Footer.rights')}</Typography>
+            <Typography>{t('Footer.rights', { year: yearDisplay, name: process.env.NEXT_PUBLIC_NAME })}</Typography>
           </Box>
           <Box flex={1} display="flex" justifyContent="flex-end" alignItems="flex-end">
             <Link href="https://www.uefa.com/" target="_blank" rel="noopener noreferrer">

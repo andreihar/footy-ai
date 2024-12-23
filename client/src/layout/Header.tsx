@@ -4,6 +4,7 @@ import { useEffect, useState, useRef, Fragment } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Locale, usePathname, useRouter, Pathnames, routing } from '@/i18n/routing';
 import { useTheme, lighten, darken } from '@mui/material/styles';
+import useYear from '@/utils/yearUtils';
 import Logo from './Logo';
 import EuroLogo from './EuroLogo';
 import { years } from '@/config';
@@ -13,6 +14,7 @@ function Header({ year }: { year: number; }) {
   const [isStuck, setIsStuck] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState<string | null>(null);
+  const { getTourneyName } = useYear(year);
   const t = useTranslations();
   const theme = useTheme();
   const isSmOrLarger = useMediaQuery(theme.breakpoints.up('sm'));
@@ -51,10 +53,6 @@ function Header({ year }: { year: number; }) {
     router.push(newPathname, { locale: locale });
   };
 
-  const handleClick = (title: string): void => {
-    setOpen(open === title ? null : title);
-  };
-
   type DropdownMenuProps = {
     item: { title: string; href?: string; children?: Array<{ title: string; href: string; }>; };
     sx: SxProps<Theme>;
@@ -91,7 +89,6 @@ function Header({ year }: { year: number; }) {
   const getColour = () => {
     return year === 1972 ? '#000000' : '#FFFFFF';
   };
-  const name = (year: number) => (year - 1960) % 4 === 0 ? `EURO ${year}` : `Nations League ${year}`;
 
   useEffect(() => {
     const updateAppBarState = () => {
@@ -111,7 +108,7 @@ function Header({ year }: { year: number; }) {
             <Box display="flex" alignItems="center" component="a" href={`/${year}/`} color={getColour()} sx={{ textDecoration: 'none' }}>
               <SvgIcon component={Logo} sx={{ width: 68, height: 68, color: 'black', mr: 2 }} />
               <Typography fontFamily="Logo" variant="h2" noWrap sx={{ color: 'inherit', lineHeight: 'normal', mt: '14px', }}>
-                Footy AI
+                {process.env.NEXT_PUBLIC_TITLE}
               </Typography>
             </Box>
             <Select variant="outlined" value={locale} onChange={handleLocaleChange} inputProps={{ 'aria-label': 'Language Selector' }}
@@ -163,7 +160,7 @@ function Header({ year }: { year: number; }) {
                 )
               ))}
               <Box px={1} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', color: getColour() }}>
-                <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => name(selectedValue)} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
+                <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => getTourneyName(selectedValue)} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
                   sx={{
                     paddingTop: '1px', color: getColour(), borderColor: 'white', height: '32px', fontWeight: '500', fontSize: '14px',
                     '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
@@ -172,7 +169,7 @@ function Header({ year }: { year: number; }) {
                   MenuProps={{ PaperProps: { style: { maxHeight: 250 } } }}
                 >
                   {years.map(year => (
-                    <MenuItem key={year} value={year}>{name(year)}</MenuItem>
+                    <MenuItem key={year} value={year}>{getTourneyName(year)}</MenuItem>
                   ))}
                 </Select>
               </Box>
@@ -187,7 +184,7 @@ function Header({ year }: { year: number; }) {
           <Box display="flex" m={2} mb={0} alignItems="center" component="a" href={`/${year}`} sx={{ textDecoration: 'none' }}>
             <SvgIcon component={Logo} sx={{ width: 34, height: 34, color: 'black', mr: 2 }} />
             <Typography fontFamily="Logo" className="custom-font-element" variant="h4" noWrap sx={{ color: 'primary.main', lineHeight: 'normal', mt: '12px' }}>
-              Footy AI
+              {process.env.NEXT_PUBLIC_TITLE}
             </Typography>
           </Box>
           <List style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -195,7 +192,7 @@ function Header({ year }: { year: number; }) {
               item.children ? (
                 <Fragment key={item.title}>
                   <ListItem disablePadding>
-                    <ListItemButton onClick={() => handleClick(item.title)} sx={{ padding: '16px 32px' }}>
+                    <ListItemButton onClick={() => setOpen(open === item.title ? null : item.title)} sx={{ padding: '16px 32px' }}>
                       <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
                       {open === item.title ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
@@ -223,7 +220,7 @@ function Header({ year }: { year: number; }) {
             <ListItem disablePadding>
               <ListItemButton sx={{ padding: '16px 32px' }}>
                 <Box px={1} sx={{ display: 'flex', alignItems: 'center' }}>
-                  <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => name(selectedValue)} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
+                  <Select variant="outlined" value={year} onChange={handleYearChange} renderValue={(selectedValue) => getTourneyName(selectedValue)} inputProps={{ 'aria-label': 'Tournament Year Selector' }}
                     sx={{
                       paddingTop: '1px', fontWeight: '900', borderColor: 'white', height: '32px',
                       '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' },
@@ -232,7 +229,7 @@ function Header({ year }: { year: number; }) {
                     MenuProps={{ PaperProps: { style: { maxHeight: 250 } } }}
                   >
                     {years.map(year => (
-                      <MenuItem key={year} value={year}>{name(year)}</MenuItem>
+                      <MenuItem key={year} value={year}>{getTourneyName(year)}</MenuItem>
                     ))}
                   </Select>
                 </Box>

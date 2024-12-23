@@ -35,7 +35,7 @@ export default function AboutPage({ params: { locale } }: Props) {
   ];
 
   return (
-    <DashboardCard title={`${t('title')} Footy AI`}>
+    <DashboardCard title={`${t('title')} ${process.env.NEXT_PUBLIC_TITLE}`}>
       <CardContent>
         <Typography variant="body1" mb={2}>{t('text1')}</Typography>
         <Typography variant="h4" gutterBottom>{t('title2')}</Typography>
@@ -62,7 +62,7 @@ export default function AboutPage({ params: { locale } }: Props) {
         <Typography mb={2}>{t('text4')}</Typography>
         <Typography mb={2}>
           {t.rich('text4_1', {
-            b: (chunks) => <Link href="https://github.com/andreihar/footy-ai" target="_blank">{chunks}</Link>
+            b: (chunks) => <Link href={`https://github.com/${process.env.NEXT_PUBLIC_REPO_OWNER}/${process.env.NEXT_PUBLIC_REPO_NAME}`} target="_blank">{chunks}</Link>
           })}
         </Typography>
         <GithubCard />
