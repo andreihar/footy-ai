@@ -1,8 +1,8 @@
 'use client';
-import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress, Grid } from '@mui/material';
+import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress, Grid, Autocomplete } from '@mui/material';
 import DashboardCard from '@/components/shared/DashboardCard';
 import { useState } from 'react';
-import useCountryFlags from '@/utils/countryUtils';
+import useYear from '@/utils/yearUtils';
 import { useTranslations } from 'next-intl';
 import fetchMatch from '@/utils/fetchMatch';
 
@@ -11,21 +11,29 @@ type Props = {
 };
 
 export default function CustomPage({ params: { year } }: Props) {
-  const { getFlag, getUefaCountries, getHistoricalName } = useCountryFlags(Number(year));
-  const countries = getUefaCountries();
+  const { getFlag, getUefaCountries, getHistoricalName } = useYear(Number(year));
+  const countries = getUefaCountries().map(country => ({ country, name: getHistoricalName(country) }));
   const t = useTranslations('Custom');
   const [preds, setPreds] = useState([37.27, 43.33, 19.4]);
-  const [home, setHome] = useState('England');
-  const [away, setAway] = useState('France');
+  const [home, setHome] = useState(countries.find(c => c.country === 'England') || null);
+  const [away, setAway] = useState(countries.find(c => c.country === 'France') || null);
   const [allowDraw, setAllowDraw] = useState(true);
   const [homeScore, setHomeScore] = useState(1);
   const [awayScore, setAwayScore] = useState(2);
   const [loading, setLoading] = useState(false);
+  const [homeInputValue, setHomeInputValue] = useState('');
+  const [awayInputValue, setAwayInputValue] = useState('');
 
   async function fetchMatchPrediction() {
+    if (!home || !away) {
+      console.error('Home or away team is not selected');
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
-      const result = await fetchMatch(home, away, allowDraw, Number(year));
+      const result = await fetchMatch(home.country, away.country, allowDraw, Number(year));
       if (result) {
         setPreds(result.preds);
         setHomeScore(result.scorePred[0]);
@@ -45,17 +53,14 @@ export default function CustomPage({ params: { year } }: Props) {
           <Grid container justifyContent="center" alignItems="center" spacing={2}>
             {/* Home */}
             <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
-              <Avatar alt="?" src={getFlag(home, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <TextField id="filled-select-home" select value={home} variant="filled" onChange={(event) => setHome(event.target.value)} inputProps={{ "aria-label": "Select Home Country" }}
-                sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
-                {countries
-                  .map(country => ({ country, name: getHistoricalName(country) }))
-                  .sort((a, b) => a.name.localeCompare(b.name))
-                  .filter(({ country }) => country !== away)
-                  .map(({ country, name }) => (
-                    <MenuItem key={country} value={country}>{name}</MenuItem>
-                  ))}
-              </TextField>
+              {home && (
+                <Avatar alt="?" src={getFlag(home.country, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+              )}
+              <Autocomplete id="filled-select-home" options={countries.filter(country => country.country !== away?.country)} getOptionLabel={(option) => option.name} value={home} onChange={(_, newValue) => setHome(newValue)} inputValue={homeInputValue} onInputChange={(_, newInputValue) => setHomeInputValue(newInputValue)} isOptionEqualToValue={(option, value) => option.country === value.country} renderInput={(params) => (
+                <TextField {...params} variant="standard" sx={{ width: '300px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} inputProps={{ ...params.inputProps, "aria-label": "Select Home Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center' } }} />
+              )} renderOption={(props, option) => (
+                <MenuItem {...props} key={option.country} value={option.country} sx={{ whiteSpace: 'nowrap' }}>{option.name}</MenuItem>
+              )} />
             </Grid>
 
             {/* Score */}
@@ -71,26 +76,19 @@ export default function CustomPage({ params: { year } }: Props) {
 
             {/* Away */}
             <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
-              <Avatar alt="?" src={getFlag(away, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <TextField id="filled-select-away" select value={away} variant="filled" onChange={(event) => setAway(event.target.value)} inputProps={{ "aria-label": "Select Away Country" }}
-                sx={{ '& .MuiInputBase-input': { fontSize: '1.5rem', fontWeight: 'bold' } }}>
-                {countries
-                  .map(country => ({ country, name: getHistoricalName(country) }))
-                  .sort((a, b) => a.name.localeCompare(b.name))
-                  .filter(({ country }) => country !== home)
-                  .map(({ country, name }) => (
-                    <MenuItem key={country} value={country}>{name}</MenuItem>
-                  ))}
-              </TextField>
+              {away && (
+                <Avatar alt="?" src={getFlag(away.country, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+              )}
+              <Autocomplete id="filled-select-away" options={countries.filter(country => country.country !== home?.country)} getOptionLabel={(option) => option.name} value={away} onChange={(_, newValue) => setAway(newValue)} inputValue={awayInputValue} onInputChange={(_, newInputValue) => setAwayInputValue(newInputValue)} isOptionEqualToValue={(option, value) => option.country === value.country} renderInput={(params) => (
+                <TextField {...params} variant="standard" sx={{ width: '300px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} inputProps={{ ...params.inputProps, "aria-label": "Select Away Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center' } }} />
+              )} renderOption={(props, option) => (
+                <MenuItem {...props} key={option.country} value={option.country} sx={{ whiteSpace: 'nowrap' }}>{option.name}</MenuItem>
+              )} />
             </Grid>
           </Grid>
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center">
-          <FormControlLabel
-            control={<Switch checked={allowDraw} onChange={(event) => setAllowDraw(event.target.checked)} />}
-            label={t('draw')}
-            sx={{ marginTop: 2, '& .MuiFormControlLabel-label': { fontSize: '1.25rem', fontWeight: 'bold' } }}
-          />
+          <FormControlLabel control={<Switch checked={allowDraw} onChange={(event) => setAllowDraw(event.target.checked)} />} label={t('draw')} sx={{ marginTop: 2, '& .MuiFormControlLabel-label': { fontSize: '1.25rem', fontWeight: 'bold' } }} />
         </Box>
         <Box mt={5} sx={{ width: '100%', bgcolor: 'grey.300', borderRadius: '10px', height: '24px', display: 'flex' }}>
           <Box sx={{ bgcolor: 'primary.main', borderRadius: '6px 0 0 6px', width: `${preds[0]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
