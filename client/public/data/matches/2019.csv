@@ -14,7 +14,7 @@ Germany,Netherlands,2,2,,,2,2,2018-11-19T19:45:00Z,Group A1,Arena AufSchalke,Gel
 Czechia,Slovakia,1,0,,,1,0,2018-11-19T19:45:00Z,Group B1,Eden Arena,Prague
 Denmark,Ireland,0,0,,,0,0,2018-11-19T19:45:00Z,Group B4,Aarhus Stadium,Aarhus
 Liechtenstein,Armenia,2,2,,,2,2,2018-11-19T19:45:00Z,Group D4,Rheinpark Stadion,Vaduz
-North Macedonia,Gibraltar,4,0,,,4,0,2018-11-19T19:45:00Z,Group D4,National Arena Todor Proeski ,Skopje
+North Macedonia,Gibraltar,4,0,,,4,0,2018-11-19T19:45:00Z,Group D4,National Arena Todor Proeski,Skopje
 Bulgaria,Slovenia,1,1,,,1,1,2018-11-19T19:45:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
 Cyprus,Norway,0,2,,,0,2,2018-11-19T19:45:00Z,Group C3,GSP,Nicosia
 Andorra,Latvia,0,0,,,0,0,2018-11-19T17:00:00Z,Group D1,Estadi Nacional,Andorra la Vella
@@ -22,7 +22,7 @@ Georgia,Kazakhstan,2,1,,,2,1,2018-11-19T17:00:00Z,Group D1,Boris Paichadze Natio
 Switzerland,Belgium,5,2,,,5,2,2018-11-18T19:45:00Z,Group A2,Luzern Arena,Lucerne
 Greece,Estonia,0,1,,,0,1,2018-11-18T19:45:00Z,Group C2,Olympic Athletic Center of Athens,Athens
 Hungary,Finland,2,0,,,2,0,2018-11-18T19:45:00Z,Group C2,Ferencváros Stadion,Budapest
-Moldova,Luxembourg,1,1,,,1,1,2018-11-18T17:00:00Z,Group D2,Stadionul Zimbru,Chisinau
+Moldova,Luxembourg,1,1,,,1,1,2018-11-18T17:00:00Z,Group D2,Stadionul Zimbru,Chișinău
 San Marino,Belarus,0,2,,,0,2,2018-11-18T17:00:00Z,Group D2,San Marino Stadium,Serravalle
 Northern Ireland,Austria,1,2,,,1,2,2018-11-18T17:00:00Z,Group B3,Windsor Park,Belfast
 England,Croatia,2,1,,,2,1,2018-11-18T14:00:00Z,Group A4,Wembley Stadium,London
@@ -58,7 +58,7 @@ Norway,Bulgaria,1,0,,,1,0,2018-10-16T18:45:00Z,Group C3,Ullevaal Stadion,Oslo
 Slovenia,Cyprus,1,1,,,1,1,2018-10-16T18:45:00Z,Group C3,Stadion Stožice,Ljubljana
 Armenia,North Macedonia,4,0,,,4,0,2018-10-16T16:00:00Z,Group D4,Republican Stadium after Vazgen Sargsyan,Yerevan
 Kazakhstan,Andorra,4,0,,,4,0,2018-10-16T14:00:00Z,Group D1,Astana Arena,Astana
-Iceland,Switzerland,1,2,,,1,2,2018-10-15T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavik
+Iceland,Switzerland,1,2,,,1,2,2018-10-15T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavík
 Spain,England,2,3,,,2,3,2018-10-15T18:45:00Z,Group A4,Estadio Benito Villamarín,Seville
 Belarus,Moldova,0,0,,,0,0,2018-10-15T18:45:00Z,Group D2,National Olympic Stadium Dinamo,Minsk
 Luxembourg,San Marino,3,0,,,3,0,2018-10-15T18:45:00Z,Group D2,Stade Josy Barthel,Luxembourg
@@ -68,13 +68,13 @@ Finland,Greece,2,0,,,2,0,2018-10-15T18:45:00Z,Group C2,Tampere Stadion,Tampere
 Poland,Italy,0,1,,,0,1,2018-10-14T18:45:00Z,Group A3,Silesian Stadium,Chorzow
 Israel,Albania,2,0,,,2,0,2018-10-14T18:45:00Z,Group C1,Turner Stadium,Beer Sheva
 Lithuania,Montenegro,1,4,,,1,4,2018-10-14T18:45:00Z,Group C4,LFF stadionas,Vilnius
-Russia,Turkey,2,0,,,2,0,2018-10-14T16:00:00Z,Group B2,Fisht Stadium ,Sochi
+Russia,Turkey,2,0,,,2,0,2018-10-14T16:00:00Z,Group B2,Fisht Stadium,Sochi
 Faroe Islands,Kosovo,1,1,,,1,1,2018-10-14T16:00:00Z,Group D3,Tórsvøllur,Torshavn
 Azerbaijan,Malta,1,1,,,1,1,2018-10-14T16:00:00Z,Group D3,Baku Olympic Stadium,Baku
 Romania,Serbia,0,0,,,0,0,2018-10-14T13:00:00Z,Group C4,National Arena,Bucharest
 Netherlands,Germany,3,0,,,3,0,2018-10-13T18:45:00Z,Group A1,Johan Cruijff ArenA,Amsterdam
 Ireland,Denmark,0,0,,,0,0,2018-10-13T18:45:00Z,Group B4,Dublin Arena,Dublin
-North Macedonia,Liechtenstein,4,1,,,4,1,2018-10-13T18:45:00Z,Group D4,National Arena Todor Proeski ,Skopje
+North Macedonia,Liechtenstein,4,1,,,4,1,2018-10-13T18:45:00Z,Group D4,National Arena Todor Proeski,Skopje
 Bulgaria,Cyprus,2,1,,,2,1,2018-10-13T18:45:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
 Georgia,Andorra,3,0,,,3,0,2018-10-13T16:00:00Z,Group D1,Boris Paichadze National Stadium Dinamo Arena,Tbilisi
 Latvia,Kazakhstan,1,1,,,1,1,2018-10-13T16:00:00Z,Group D1,Daugava,Riga
@@ -84,7 +84,7 @@ Slovakia,Czechia,1,2,,,1,2,2018-10-13T13:00:00Z,Group B1,Štadión Antona Malati
 Belgium,Switzerland,2,1,,,2,1,2018-10-12T18:45:00Z,Group A2,King Baudouin Stadium,Brussels
 Croatia,England,0,0,,,0,0,2018-10-12T18:45:00Z,Group A4,Stadion HNK Rijeka,Rijeka
 Belarus,Luxembourg,1,0,,,1,0,2018-10-12T18:45:00Z,Group D2,National Olympic Stadium Dinamo,Minsk
-Moldova,San Marino,2,0,,,2,0,2018-10-12T18:45:00Z,Group D2,Stadionul Zimbru,Chisinau
+Moldova,San Marino,2,0,,,2,0,2018-10-12T18:45:00Z,Group D2,Stadionul Zimbru,Chișinău
 Austria,Northern Ireland,1,0,,,1,0,2018-10-12T18:45:00Z,Group B3,Ernst-Happel-Stadion,Vienna
 Greece,Hungary,1,0,,,1,0,2018-10-12T18:45:00Z,Group C2,Olympic Athletic Center of Athens,Athens
 Estonia,Finland,0,1,,,0,1,2018-10-12T18:45:00Z,Group C2,Lilleküla Stadium,Tallinn
@@ -95,10 +95,10 @@ Kosovo,Malta,3,1,,,3,1,2018-10-11T18:45:00Z,Group D3,Stadiumi Fadil Vokrri,Prist
 Faroe Islands,Azerbaijan,0,3,,,0,3,2018-10-11T18:45:00Z,Group D3,Tórsvøllur,Torshavn
 Lithuania,Romania,1,2,,,1,2,2018-10-11T18:45:00Z,Group C4,LFF stadionas,Vilnius
 Montenegro,Serbia,0,2,,,0,2,2018-10-11T18:45:00Z,Group C4,Gradski Stadion Podgorica,Podgorica
-Iceland,Belgium,0,3,,,0,3,2018-09-11T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavik
+Iceland,Belgium,0,3,,,0,3,2018-09-11T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavík
 Spain,Croatia,6,0,,,6,0,2018-09-11T18:45:00Z,Group A4,Estadio Manuel Martínez Valero,Elche
 San Marino,Luxembourg,0,3,,,0,3,2018-09-11T18:45:00Z,Group D2,San Marino Stadium,Serravalle
-Moldova,Belarus,0,0,,,0,0,2018-09-11T18:45:00Z,Group D2,Stadionul Zimbru,Chisinau
+Moldova,Belarus,0,0,,,0,0,2018-09-11T18:45:00Z,Group D2,Stadionul Zimbru,Chișinău
 Bosnia and Herzegovina,Austria,1,0,,,1,0,2018-09-11T18:45:00Z,Group B3,Stadion Bilino Polje,Zenica
 Hungary,Greece,2,1,,,2,1,2018-09-11T18:45:00Z,Group C2,Ferencváros Stadion,Budapest
 Finland,Estonia,1,0,,,1,0,2018-09-11T18:45:00Z,Group C2,Veritas Stadion,Turku
@@ -115,7 +115,7 @@ Liechtenstein,Gibraltar,2,0,,,2,0,2018-09-09T18:45:00Z,Group D4,Rheinpark Stadio
 Cyprus,Slovenia,2,1,,,2,1,2018-09-09T18:45:00Z,Group C3,GSP,Nicosia
 Georgia,Latvia,1,0,,,1,0,2018-09-09T16:00:00Z,Group D1,Boris Paichadze National Stadium Dinamo Arena,Tbilisi
 Denmark,Wales,2,0,,,2,0,2018-09-09T16:00:00Z,Group B4,Aarhus Stadium,Aarhus
-North Macedonia,Armenia,2,0,,,2,0,2018-09-09T16:00:00Z,Group D4,National Arena Todor Proeski ,Skopje
+North Macedonia,Armenia,2,0,,,2,0,2018-09-09T16:00:00Z,Group D4,National Arena Todor Proeski,Skopje
 Bulgaria,Norway,1,0,,,1,0,2018-09-09T16:00:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
 Ukraine,Slovakia,1,0,,,1,0,2018-09-09T13:00:00Z,Group B1,Arena Lviv,Lviv
 England,Spain,1,2,,,1,2,2018-09-08T18:45:00Z,Group A4,Wembley Stadium,London

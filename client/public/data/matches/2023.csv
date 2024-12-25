@@ -5,7 +5,7 @@ Croatia,Spain,0,0,4,5,4,5,2023-06-18T18:45:00Z,Final,Stadion Feijenoord 'De Kuip
 Netherlands,Italy,2,3,,,2,3,2023-06-18T13:00:00Z,Third-place play-off,FC Twente Stadion,Enschede
 Spain,Italy,2,1,,,2,1,2023-06-15T18:45:00Z,Semi-finals,FC Twente Stadion,Enschede
 Netherlands,Croatia,2,2,,,2,4,2023-06-14T18:45:00Z,Semi-finals,Stadion Feijenoord 'De Kuip',Rotterdam
-Ukraine,Scotland,0,0,,,0,0,2022-09-27T18:45:00Z,Group B1,Cracovia Stadium ,Krakow
+Ukraine,Scotland,0,0,,,0,0,2022-09-27T18:45:00Z,Group B1,Cracovia Stadium,Krakow
 Ireland,Armenia,3,2,,,3,2,2022-09-27T18:45:00Z,Group B1,Aviva Stadium,Dublin
 Switzerland,Czechia,2,1,,,2,1,2022-09-27T18:45:00Z,Group A2,Kybunpark,St Gallen
 Portugal,Spain,0,1,,,0,1,2022-09-27T18:45:00Z,Group A2,Estádio Municipal de Braga,Braga
@@ -31,7 +31,7 @@ Faroe Islands,Turkey,2,1,,,2,1,2022-09-25T18:45:00Z,Group C1,Tórsvøllur,Torsha
 Slovakia,Belarus,1,1,,,1,1,2022-09-25T16:00:00Z,Group C3,TSC Arena,Backa Topola
 Azerbaijan,Kazakhstan,3,0,,,3,0,2022-09-25T16:00:00Z,Group C3,Liv Bona Dea Arena,Baku
 Andorra,Latvia,1,1,,,1,1,2022-09-25T13:00:00Z,Group D1,Estadi Nacional,Andorra la Vella
-Moldova,Liechtenstein,2,0,,,2,0,2022-09-25T13:00:00Z,Group D1,Stadionul Zimbru,Chisinau
+Moldova,Liechtenstein,2,0,,,2,0,2022-09-25T13:00:00Z,Group D1,Stadionul Zimbru,Chișinău
 Scotland,Ireland,2,1,,,2,1,2022-09-24T18:45:00Z,Group B1,Hampden Park,Glasgow
 Cyprus,Greece,1,0,,,1,0,2022-09-24T18:45:00Z,Group C2,AEK Arena,Larnaca
 Spain,Switzerland,1,2,,,1,2,2022-09-24T18:45:00Z,Group A2,La Romareda,Zaragoza
@@ -70,10 +70,10 @@ Turkey,Lithuania,2,0,,,2,0,2022-06-14T18:45:00Z,Group C1,Gürsel Aksel,Izmir
 Bosnia and Herzegovina,Finland,3,2,,,3,2,2022-06-14T18:45:00Z,Group B3,Stadion Bilino Polje,Zenica
 Luxembourg,Faroe Islands,2,2,,,2,2,2022-06-14T18:45:00Z,Group C1,Stade de Luxembourg,Luxembourg
 Liechtenstein,Latvia,0,2,,,0,2,2022-06-14T18:45:00Z,Group D1,Rheinpark Stadion,Vaduz
-Moldova,Andorra,2,1,,,2,1,2022-06-14T16:00:00Z,Group D1,Stadionul Zimbru,Chisinau
+Moldova,Andorra,2,1,,,2,1,2022-06-14T16:00:00Z,Group D1,Stadionul Zimbru,Chișinău
 Armenia,Scotland,1,4,,,1,4,2022-06-14T16:00:00Z,Group B1,Republican Stadium after Vazgen Sargsyan,Yerevan
 France,Croatia,0,1,,,0,1,2022-06-13T18:45:00Z,Group A1,Stade de France,Saint-Denis
-Iceland,Israel,2,2,,,2,2,2022-06-13T18:45:00Z,Group B2,Laugardalsvöllur,Reykjavik
+Iceland,Israel,2,2,,,2,2,2022-06-13T18:45:00Z,Group B2,Laugardalsvöllur,Reykjavík
 Russia,Albania,,,,,0,0,2022-06-13T18:45:00Z,Group B2,VTB Arena,Moscow
 Denmark,Austria,2,0,,,2,0,2022-06-13T18:45:00Z,Group A1,Parken,Copenhagen
 Azerbaijan,Belarus,2,0,,,2,0,2022-06-13T16:00:00Z,Group C3,Liv Bona Dea Arena,Baku
@@ -103,7 +103,7 @@ Denmark,Croatia,0,1,,,0,1,2022-06-10T18:45:00Z,Group A1,Parken,Copenhagen
 Albania,Israel,1,2,,,1,2,2022-06-10T18:45:00Z,Group B2,Air Albania Stadium,Tirana
 Andorra,Liechtenstein,2,1,,,2,1,2022-06-10T18:45:00Z,Group D1,Estadi Nacional,Andorra la Vella
 Belarus,Kazakhstan,1,1,,,1,1,2022-06-10T18:45:00Z,Group C3,Stadion Karadjordje,Novi Sad
-Moldova,Latvia,2,4,,,2,4,2022-06-10T16:00:00Z,Group D1,Stadionul Zimbru,Chisinau
+Moldova,Latvia,2,4,,,2,4,2022-06-10T16:00:00Z,Group D1,Stadionul Zimbru,Chișinău
 Azerbaijan,Slovakia,0,1,,,0,1,2022-06-10T16:00:00Z,Group C3,Liv Bona Dea Arena,Baku
 Switzerland,Spain,0,1,,,0,1,2022-06-09T18:45:00Z,Group A2,Stade de Genève,Geneva
 Portugal,Czechia,2,0,,,2,0,2022-06-09T18:45:00Z,Group A2,Estádio José Alvalade,Lisbon
@@ -124,7 +124,7 @@ Bosnia and Herzegovina,Romania,1,0,,,1,0,2022-06-07T18:45:00Z,Group B3,Stadion B
 Lithuania,Turkey,0,6,,,0,6,2022-06-07T18:45:00Z,Group C1,LFF stadionas,Vilnius
 Faroe Islands,Luxembourg,0,1,,,0,1,2022-06-07T18:45:00Z,Group C1,Tórsvøllur,Torshavn
 Finland,Montenegro,2,0,,,2,0,2022-06-07T16:00:00Z,Group B3,Helsinki Olympic Stadium,Helsinki
-Iceland,Albania,1,1,,,1,1,2022-06-06T18:45:00Z,Group B2,Laugardalsvöllur,Reykjavik
+Iceland,Albania,1,1,,,1,1,2022-06-06T18:45:00Z,Group B2,Laugardalsvöllur,Reykjavík
 Croatia,France,1,1,,,1,1,2022-06-06T18:45:00Z,Group A1,Stadion Poljud,Split
 Slovakia,Kazakhstan,0,1,,,0,1,2022-06-06T18:45:00Z,Group C3,Štadión Antona Malatinského,Trnava
 Austria,Denmark,1,2,,,1,2,2022-06-06T18:45:00Z,Group A1,Ernst-Happel-Stadion,Vienna
@@ -155,7 +155,7 @@ Belarus,Slovakia,0,1,,,0,1,2022-06-03T18:45:00Z,Group C3,Stadion Karadjordje,Nov
 Liechtenstein,Moldova,0,2,,,0,2,2022-06-03T18:45:00Z,Group D1,Rheinpark Stadion,Vaduz
 Latvia,Andorra,3,0,,,3,0,2022-06-03T16:00:00Z,Group D1,Daugava,Riga
 Kazakhstan,Azerbaijan,2,0,,,2,0,2022-06-03T14:00:00Z,Group C3,Astana Arena,Astana
-Spain,Portugal,1,1,,,1,1,2022-06-02T18:45:00Z,Group A2, Estadio Benito Villamarín,Seville
+Spain,Portugal,1,1,,,1,1,2022-06-02T18:45:00Z,Group A2,Estadio Benito Villamarín,Seville
 Czechia,Switzerland,2,1,,,2,1,2022-06-02T18:45:00Z,Group A2,Fortuna Arena,Prague
 Northern Ireland,Greece,0,1,,,0,1,2022-06-02T18:45:00Z,Group C2,National Football Stadium at Windsor Park,Belfast
 Albania,Russia,,,,,0,0,2022-06-02T18:45:00Z,Group B2,Air Albania Stadium,Tirana
