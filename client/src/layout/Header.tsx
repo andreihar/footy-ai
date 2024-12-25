@@ -136,7 +136,7 @@ function Header({ year }: { year: number; }) {
               </Fade>
             </Box>
             <Box sx={{ flexGrow: 1, display: 'flex', transition: 'margin-left 0.3s ease', marginLeft: isStuck ? '65px' : '0' }}>
-              <Box display="flex" alignItems="center" sx={{ pr: 1 }}>
+              <Box display="flex" alignItems="center" component="a" href={`/${year}/`} sx={{ pr: 1 }}>
                 <EuroLogo year={Number(year)} />
               </Box>
               {menuItems.map((item) => (
