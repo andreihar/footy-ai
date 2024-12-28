@@ -19,7 +19,7 @@ const OutcomeDisplay: React.FC<{ outcome: string, label: string; }> = ({ outcome
       {outcome === "correct" && <CheckCircleIcon color="success" />}
       {outcome === "incorrect" && <CancelIcon color="error" />}
       {outcome === "unknown" && <HelpIcon sx={{ color: 'gray' }} />}
-      <Typography ml={1}>{label}</Typography>
+      <Typography ml={1} align="center">{label}</Typography>
     </Box>
   );
 };
@@ -43,17 +43,17 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
       <CardContent>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mb={2}>
           <Time date={date} locale={locale} />
-          <Typography variant="h5" mt={2} >{
+          <Typography variant="h5" align="center" mt={2} >{
             stage.startsWith('Group') ? `${t(`Knockout.Group`)} ${stage.split(" ")[1]}` : t(`Knockout.${stage}` as any)
           }</Typography>
-          <Typography sx={{ textTransform: "uppercase" }} mt={2}>{stadium}, {city}</Typography>
+          <Typography sx={{ textTransform: "uppercase" }} align="center" mt={2}>{stadium}, {city}</Typography>
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center">
           <Grid container justifyContent="center" alignItems="center" spacing={2}>
             {/* Home */}
             <Grid item xs={12} md={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
               <Avatar alt="?" src={getFlag(home_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <Typography variant="h3">{getHistoricalName(home_team)}</Typography>
+              <Typography variant="h3" align="center">{getHistoricalName(home_team)}</Typography>
             </Grid>
 
             {/* Score */}
@@ -72,7 +72,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
             {/* Away */}
             <Grid item xs={12} md={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
               <Avatar alt="?" src={getFlag(away_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <Typography variant="h3">{getHistoricalName(away_team)}</Typography>
+              <Typography variant="h3" align="center">{getHistoricalName(away_team)}</Typography>
             </Grid>
           </Grid>
         </Box>

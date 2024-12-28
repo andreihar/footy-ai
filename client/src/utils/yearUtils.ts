@@ -96,7 +96,7 @@ const useYear = (year: number) => {
   };
 
   const getTourneyName = (year: number) => {
-    return isEuro(year) ? `EURO ${year}` : `Nations League ${year}`;
+    return isEuro(year) ? `EURO ${year}` : `Nations League ${year - 1}-${year.toString().slice(-2)}`;
   };
 
   return { getFlag, getUefaCountries, getHistoricalName, isEuro, getTourneyName };

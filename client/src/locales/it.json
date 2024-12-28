@@ -71,29 +71,29 @@
 		"predict": "Previsione"
 	},
 	"About": {
-		"title": "Informazioni su",
-		"description": "Scopri Footy AI, una piattaforma IA per prevedere le partite UEFA Euro. Esplora funzionalità, metodologia e la storia dietro il progetto.",
-		"text1": "Benvenuti a Footy AI! Ispirata dall'entusiasmo e dall'imprevedibilità dei tornei UEFA Euro, Footy AI mira a portare un mix unico di analisi storica e tecnologia moderna agli appassionati di calcio di tutto il mondo.",
+		"title": "Informazioni su {title}",
+		"description": "Scopri {title}, una piattaforma IA per prevedere le partite UEFA Euro e Nations League. Esplora funzionalità, metodologia e la storia dietro il progetto.",
+		"text1": "Benvenuti a {title}! Ispirata dall'entusiasmo e dall'imprevedibilità dei tornei UEFA Euro e Nations League, {title} mira a portare un mix unico di analisi storica e tecnologia moderna agli appassionati di calcio di tutto il mondo.",
 		"title2": "La mia storia",
-		"text2": "L'idea di Footy AI è nata dal mio amore per il calcio e dal fascino per il potenziale dell'intelligenza artificiale. Con l'avvicinarsi del torneo UEFA Euro 2024, ho deciso di creare un'IA in grado di prevedere i risultati delle partite di calcio tra qualsiasi squadra nazionale, di qualsiasi periodo storico. Il mio obiettivo era vedere quanto bene l'IA potesse prevedere l'attuale torneo Euro ed esplorare le probabilità storiche delle squadre che vincevano nei tornei passati.",
+		"text2": "L'idea di {title} è nata dal mio amore per il calcio e dal fascino per il potenziale dell'intelligenza artificiale. Con l'avvicinarsi del torneo UEFA Euro 2024, ho deciso di creare un'IA in grado di prevedere i risultati delle partite di calcio tra qualsiasi squadra nazionale, di qualsiasi periodo storico. Il mio obiettivo era vedere quanto bene l'IA potesse prevedere l'attuale torneo Euro ed esplorare le probabilità storiche delle squadre che vincevano nei tornei passati.",
 		"title3": "Cosa offro",
-		"text3": "Footy AI fornisce una piattaforma completa per visualizzare e interagire con le previsioni generate dall'IA. Ecco cosa puoi esplorare sul sito web:",
+		"text3": "{title} fornisce una piattaforma completa per visualizzare e interagire con le previsioni generate dall'IA. Ecco cosa puoi esplorare sul sito web:",
 		"list": {
 			"title1": "Statistiche generali del torneo",
-			"text1": "Tieni traccia di quanto bene l'IA prevede i risultati dell'attuale Euro 2024 o di qualsiasi torneo precedente.",
+			"text1": "Tieni traccia di quanto bene l'IA prevede i risultati dell'attuale {tourney} o di qualsiasi torneo precedente.",
 			"title2": "Pronostici fase a gironi",
 			"text2": "Immergiti nei pronostici dettagliati per ogni partita della fase a gironi, dai punti totali alla differenza reti.",
 			"title3": "Pronostici fase a eliminazione diretta",
 			"text3": "Scopri come l'IA prevede i risultati delle partite della fase a eliminazione diretta.",
 			"title4": "Incontri personalizzati",
-			"text4": "Crea incontri personalizzati tra due nazioni UEFA che erano membri dell'associazione durante uno specifico torneo europeo."
+			"text4": "Crea incontri personalizzati tra due nazioni UEFA che erano membri dell'associazione durante uno specifico torneo."
 		},
 		"title4": "Come funziona",
 		"text4": "L'IA sfrutta dati storici e algoritmi avanzati di apprendimento automatico per generare previsioni. Il modello viene addestrato sui risultati storici con l'assistenza del sistema ELO. Ciò consente di fornire previsioni accurate e approfondite per gli incontri storici e contemporanei, mantenendo al contempo il modello di previsione minimo per garantire prestazioni rapide ed efficienti.",
 		"text4_1": "Puoi trovare il notebook Jupyter contenente il modello AI nella cartella \"server\" del <b>repository GitHub</b>. Questo repository contiene anche il codice per il sito Web, consentendoti di esplorare e contribuire al progetto.",
 		"title5": "La mia missione",
-		"text5": "In Footy AI, la mia missione è migliorare l'esperienza dei tifosi di calcio combinando la ricca storia di questo sport con la tecnologia all'avanguardia. Che tu sia curioso dei tornei passati o entusiasta dell'attuale Euro, il mio obiettivo è fornire una piattaforma divertente e informativa per tutti gli appassionati di calcio.",
-		"text6": "Grazie per aver visitato Footy AI. Spero che ti diverta a esplorare le previsioni e le intuizioni tanto quanto mi è piaciuto crearle. Se hai domande, feedback o suggerimenti, non esitare a contattarmi!"
+		"text5": "In {title}, la mia missione è migliorare l'esperienza dei tifosi di calcio combinando la ricca storia di questo sport con la tecnologia all'avanguardia. Che tu sia curioso dei tornei passati o entusiasta dell'attuale {tourney}, il mio obiettivo è fornire una piattaforma divertente e informativa per tutti gli appassionati di calcio.",
+		"text6": "Grazie per aver visitato {title}. Spero che ti diverta a esplorare le previsioni e le intuizioni tanto quanto mi è piaciuto crearle. Se hai domande, feedback o suggerimenti, non esitare a contattarmi!"
 	},
 	"Footer": {
 		"rights": "© {year} {name}. Tutti i diritti riservati."

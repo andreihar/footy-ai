@@ -57,7 +57,7 @@ export default function CustomPage({ params: { year } }: Props) {
                 <Avatar alt="?" src={getFlag(home.country, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               )}
               <Autocomplete id="filled-select-home" options={countries.filter(country => country.country !== away?.country)} getOptionLabel={(option) => option.name} value={home} onChange={(_, newValue) => setHome(newValue)} inputValue={homeInputValue} onInputChange={(_, newInputValue) => setHomeInputValue(newInputValue)} isOptionEqualToValue={(option, value) => option.country === value.country} renderInput={(params) => (
-                <TextField {...params} variant="standard" sx={{ width: '300px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} inputProps={{ ...params.inputProps, "aria-label": "Select Home Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Header' } }} />
+                <TextField {...params} variant="standard" sx={{ width: '250px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} inputProps={{ ...params.inputProps, "aria-label": "Select Home Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Header' } }} />
               )} renderOption={(props, option) => (
                 <MenuItem {...props} key={option.country} value={option.country} sx={{ whiteSpace: 'nowrap' }}>{option.name}</MenuItem>
               )} />
@@ -80,7 +80,7 @@ export default function CustomPage({ params: { year } }: Props) {
                 <Avatar alt="?" src={getFlag(away.country, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
               )}
               <Autocomplete id="filled-select-away" options={countries.filter(country => country.country !== home?.country)} getOptionLabel={(option) => option.name} value={away} onChange={(_, newValue) => setAway(newValue)} inputValue={awayInputValue} onInputChange={(_, newInputValue) => setAwayInputValue(newInputValue)} isOptionEqualToValue={(option, value) => option.country === value.country} renderInput={(params) => (
-                <TextField {...params} variant="standard" sx={{ width: '300px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} inputProps={{ ...params.inputProps, "aria-label": "Select Away Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Header' } }} />
+                <TextField {...params} variant="standard" sx={{ width: '250px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} inputProps={{ ...params.inputProps, "aria-label": "Select Away Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Header' } }} />
               )} renderOption={(props, option) => (
                 <MenuItem {...props} key={option.country} value={option.country} sx={{ whiteSpace: 'nowrap' }}>{option.name}</MenuItem>
               )} />

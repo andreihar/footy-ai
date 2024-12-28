@@ -1,165 +1,165 @@
 home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
-Portugal,Croatia,2,1,,,2,1,2024-09-05T19:45:00Z,Group A1,Estádio da Luz,Lisbon
-Scotland,Poland,2,3,,,2,3,2024-09-05T19:45:00Z,Group A1,Hampden Park,Glasgow
-Croatia,Poland,1,0,,,1,0,2024-09-08T18:45:00Z,Group A1,Opus Arena,Osijek
-Portugal,Scotland,2,1,,,2,1,2024-09-08T19:45:00Z,Group A1,Estádio da Luz,Lisbon
-Croatia,Scotland,2,1,,,2,1,2024-10-12T16:00:00Z,Group A1,Stadion Maksimir,Zagreb
-Poland,Portugal,1,3,,,1,3,2024-10-12T18:45:00Z,Group A1,Stadion Narodowy,Warsaw
-Poland,Croatia,3,3,,,3,3,2024-10-15T18:45:00Z,Group A1,Stadion Narodowy,Warsaw
-Scotland,Portugal,0,0,,,0,0,2024-10-15T19:45:00Z,Group A1,Hampden Park,Glasgow
-Portugal,Poland,5,1,,,5,1,2024-11-15T19:45:00Z,Group A1,Estádio do Dragão,Porto
-Scotland,Croatia,1,0,,,1,0,2024-11-15T19:45:00Z,Group A1,Hampden Park,Glasgow
-Croatia,Portugal,1,1,,,1,1,2024-11-18T19:45:00Z,Group A1,Stadion Poljud,Split
-Poland,Scotland,1,2,,,1,2,2024-11-18T19:45:00Z,Group A1,Stadion Narodowy,Warsaw
-Belgium,Israel,3,1,,,3,1,2024-09-06T18:45:00Z,Group A2,Nagyerdei Stadion,Debrecen
-France,Italy,1,3,,,1,3,2024-09-06T18:45:00Z,Group A2,Parc des Princes,Paris
-France,Belgium,2,0,,,2,0,2024-09-09T18:45:00Z,Group A2,Parc Olympique Lyonnais,Décines-Charpieu
-Israel,Italy,1,2,,,1,2,2024-09-09T18:45:00Z,Group A2,Bozsik Aréna,Budapest
-Israel,France,1,4,,,1,4,2024-10-10T18:45:00Z,Group A2,Bozsik Aréna,Budapest
-Italy,Belgium,2,2,,,2,2,2024-10-10T18:45:00Z,Group A2,Stadio Olimpico,Rome
-Belgium,France,1,2,,,1,2,2024-10-14T18:45:00Z,Group A2,King Baudouin Stadium,Brussels
-Italy,Israel,4,1,,,4,1,2024-10-14T18:45:00Z,Group A2,Stadio Friuli,Udine
-Belgium,Italy,0,1,,,0,1,2024-11-14T18:45:00Z,Group A2,King Baudouin Stadium,Brussels
-France,Israel,0,0,,,0,0,2024-11-14T18:45:00Z,Group A2,Stade de France,Saint-Denis
-Israel,Belgium,1,0,,,1,0,2024-11-17T18:45:00Z,Group A2,Bozsik Aréna,Budapest
-Italy,France,1,3,,,1,3,2024-11-17T18:45:00Z,Group A2,San Siro,Milan
-Germany,Hungary,5,0,,,5,0,2024-09-07T18:45:00Z,Group A3,Merkur Spiel-Arena,Düsseldorf
-Netherlands,Bosnia and Herzegovina,5,2,,,5,2,2024-09-07T18:45:00Z,Group A3,Philips Stadion,Eindhoven
-Hungary,Bosnia and Herzegovina,0,0,,,0,0,2024-09-10T18:45:00Z,Group A3,Puskás Aréna,Budapest
-Netherlands,Germany,2,2,,,2,2,2024-09-10T18:45:00Z,Group A3,Johan Cruyff Arena,Amsterdam
-Bosnia and Herzegovina,Germany,1,2,,,1,2,2024-10-11T18:45:00Z,Group A3,Stadion Bilino Polje,Zenica
-Hungary,Netherlands,1,1,,,1,1,2024-10-11T18:45:00Z,Group A3,Puskás Aréna,Budapest
-Bosnia and Herzegovina,Hungary,0,2,,,0,2,2024-10-14T18:45:00Z,Group A3,Stadion Bilino Polje,Zenica
-Germany,Netherlands,1,0,,,1,0,2024-10-14T18:45:00Z,Group A3,Allianz Arena,Munich
-Germany,Bosnia and Herzegovina,7,0,,,7,0,2024-11-16T18:45:00Z,Group A3,Europa-Park Stadion,Freiburg
-Netherlands,Hungary,4,0,,,4,0,2024-11-16T18:45:00Z,Group A3,Johan Cruyff Arena,Amsterdam
-Bosnia and Herzegovina,Netherlands,1,1,,,1,1,2024-11-19T18:45:00Z,Group A3,Stadion Bilino Polje,Zenica
-Hungary,Germany,1,1,,,1,1,2024-11-19T18:45:00Z,Group A3,Puskás Aréna,Budapest
-Denmark,Switzerland,2,0,,,2,0,2024-09-05T18:45:00Z,Group A4,Parken Stadium,Copenhagen
-Serbia,Spain,0,0,,,0,0,2024-09-05T18:45:00Z,Group A4,Stadion Rajko Mitić,Belgrade
-Denmark,Serbia,2,0,,,2,0,2024-09-08T16:00:00Z,Group A4,Parken Stadium,Copenhagen
-Switzerland,Spain,1,4,,,1,4,2024-09-08T18:45:00Z,Group A4,Stade de Genève,Geneva
-Serbia,Switzerland,2,0,,,2,0,2024-10-12T18:45:00Z,Group A4,Dubočica Stadium,Leskovac
-Spain,Denmark,1,0,,,1,0,2024-10-12T18:45:00Z,Group A4,Nueva Condomina,Murcia
-Spain,Serbia,3,0,,,3,0,2024-10-15T18:45:00Z,Group A4,Nuevo Arcángel,Córdoba
-Switzerland,Denmark,2,2,,,2,2,2024-10-15T18:45:00Z,Group A4,Kybunpark,St Gallen
-Denmark,Spain,1,2,,,1,2,2024-11-15T18:45:00Z,Group A4,Parken Stadium,Copenhagen
-Switzerland,Serbia,1,1,,,1,1,2024-11-15T18:45:00Z,Group A4,Stadion Letzigrund,Zürich
-Serbia,Denmark,0,0,,,0,0,2024-11-18T18:45:00Z,Group A4,Dubočica Stadium,Leskovac
-Spain,Switzerland,3,2,,,3,2,2024-11-18T18:45:00Z,Group A4,Heliodoro Rodríguez López,Santa Cruz de Tenerife
-Georgia,Czechia,4,1,,,4,1,2024-09-07T18:00:00Z,Group B1,Mikheil Meskhi Stadium,Tbilisi
-Ukraine,Albania,1,2,,,1,2,2024-09-07T20:45:00Z,Group B1,Stadion Letná,Prague
-Albania,Georgia,0,1,,,0,1,2024-09-10T20:45:00Z,Group B1,Air Albania Stadium,Tirana
-Czechia,Ukraine,3,2,,,3,2,2024-09-10T20:45:00Z,Group B1,Fortuna Arena,Prague
-Czechia,Albania,2,0,,,2,0,2024-10-11T20:45:00Z,Group B1,Stadion Letná,Prague
-Ukraine,Georgia,1,0,,,1,0,2024-10-11T20:45:00Z,Group B1,Poznań Stadium,Poznań
-Georgia,Albania,0,1,,,0,1,2024-10-14T18:00:00Z,Group B1,Mikheil Meskhi Stadium,Tbilisi
-Ukraine,Czechia,1,1,,,1,1,2024-10-14T20:45:00Z,Group B1,Stadion Miejski we Wrocławiu,Wrocław
-Georgia,Ukraine,1,1,,,1,1,2024-11-16T18:00:00Z,Group B1,Adjarabet Arena,Batumi
-Albania,Czechia,0,0,,,0,0,2024-11-16T20:45:00Z,Group B1,Air Albania Stadium,Tirana
+Spain,Netherlands,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Estadio La Cartuja de Sevilla,Seville
+France,Croatia,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Stade de France,Saint-Denis
+Portugal,Denmark,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Estádio José Alvalade,Lisbon
+Germany,Italy,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,BVB Stadion Dortmund,Dortmund
+Netherlands,Spain,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadion Feijenoord 'De Kuip',Rotterdam
+Croatia,France,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadion Poljud,Split
+Denmark,Portugal,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Parken Stadium,Copenhagen
+Italy,Germany,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadio San Siro,Milan
 Albania,Ukraine,1,2,,,1,2,2024-11-19T20:45:00Z,Group B1,Air Albania Stadium,Tirana
 Czechia,Georgia,2,1,,,2,1,2024-11-19T20:45:00Z,Group B1,Andrův stadion,Olomouc
-Ireland,England,0,2,,,0,2,2024-09-07T18:00:00Z,Group B2,Aviva Stadium,Dublin
-Greece,Finland,3,0,,,3,0,2024-09-07T20:45:00Z,Group B2,Karaiskakis Stadium,Piraeus
-England,Finland,2,0,,,2,0,2024-09-10T20:45:00Z,Group B2,Wembley Stadium,London
-Ireland,Greece,0,2,,,0,2,2024-09-10T20:45:00Z,Group B2,Aviva Stadium,Dublin
-England,Greece,1,2,,,1,2,2024-10-10T20:45:00Z,Group B2,Wembley Stadium,London
-Finland,Ireland,1,2,,,1,2,2024-10-10T20:45:00Z,Group B2,Helsinki Olympic Stadium,Helsinki
-Finland,England,1,3,,,1,3,2024-10-13T18:00:00Z,Group B2,Helsinki Olympic Stadium,Helsinki
-Greece,Ireland,2,0,,,2,0,2024-10-13T20:45:00Z,Group B2,Karaiskakis Stadium,Piraeus
-Greece,England,0,3,,,0,3,2024-11-14T20:45:00Z,Group B2,Athens Olympic Stadium,Athens
-Ireland,Finland,1,0,,,1,0,2024-11-14T20:45:00Z,Group B2,Aviva Stadium,Dublin
-England,Ireland,5,0,,,5,0,2024-11-17T18:00:00Z,Group B2,Wembley Stadium,London
-Finland,Greece,0,2,,,0,2,2024-11-17T18:00:00Z,Group B2,Helsinki Olympic Stadium,Helsinki
-Kazakhstan,Norway,0,0,,,0,0,2024-09-06T16:00:00Z,Group B3,Almaty Ortalyk Stadion,Almaty
-Slovenia,Austria,1,1,,,1,1,2024-09-06T20:45:00Z,Group B3,Stadion Stožice,Ljubljana
-Norway,Austria,2,1,,,2,1,2024-09-09T20:45:00Z,Group B3,Ullevaal Stadion,Oslo
-Slovenia,Kazakhstan,3,0,,,3,0,2024-09-09T20:45:00Z,Group B3,Stadion Stožice,Ljubljana
-Austria,Kazakhstan,4,0,,,4,0,2024-10-10T20:45:00Z,Group B3,Raiffeisen Arena,Linz
-Norway,Slovenia,3,0,,,3,0,2024-10-10T20:45:00Z,Group B3,Ullevaal Stadion,Oslo
-Kazakhstan,Slovenia,0,1,,,0,1,2024-10-13T15:00:00Z,Group B3,Almaty Ortalyk Stadion,Almaty
-Austria,Norway,5,1,,,5,1,2024-10-13T20:45:00Z,Group B3,Raiffeisen Arena,Linz
-Kazakhstan,Austria,0,2,,,0,2,2024-11-14T16:00:00Z,Group B3,Almaty Ortalyk Stadion,Almaty
-Slovenia,Norway,1,4,,,1,4,2024-11-14T20:45:00Z,Group B3,Stadion Stožice,Ljubljana
-Austria,Slovenia,1,1,,,1,1,2024-11-17T18:00:00Z,Group B3,Ernst-Happel-Stadion,Vienna
-Norway,Kazakhstan,5,0,,,5,0,2024-11-17T18:00:00Z,Group B3,Ullevaal Stadion,Oslo
-Iceland,Montenegro,2,0,,,2,0,2024-09-06T20:45:00Z,Group B4,Laugardalsvöllur,Reykjavík
-Wales,Turkey,0,0,,,0,0,2024-09-06T20:45:00Z,Group B4,Cardiff City Stadium,Cardiff
-Montenegro,Wales,1,2,,,1,2,2024-09-09T20:45:00Z,Group B4,Gradski Stadion,Nikšić
-Turkey,Iceland,3,1,,,3,1,2024-09-09T20:45:00Z,Group B4,Gürsel Aksel Stadium,Izmir
-Iceland,Wales,2,2,,,2,2,2024-10-11T20:45:00Z,Group B4,Laugardalsvöllur,Reykjavík
-Turkey,Montenegro,1,0,,,1,0,2024-10-11T20:45:00Z,Group B4,Samsun 19 Mayıs Stadium,Samsun
-Iceland,Turkey,2,4,,,2,4,2024-10-14T20:45:00Z,Group B4,Laugardalsvöllur,Reykjavík
-Wales,Montenegro,1,0,,,1,0,2024-10-14T20:45:00Z,Group B4,Cardiff City Stadium,Cardiff
-Montenegro,Iceland,0,2,,,0,2,2024-11-16T18:00:00Z,Group B4,Gradski Stadion,Nikšić
-Turkey,Wales,0,0,,,0,0,2024-11-16T18:00:00Z,Group B4,Kadir Has Stadium,Kayseri
 Montenegro,Turkey,3,1,,,3,1,2024-11-19T20:45:00Z,Group B4,Gradski Stadion,Nikšić
 Wales,Iceland,4,1,,,4,1,2024-11-19T20:45:00Z,Group B4,Cardiff City Stadium,Cardiff
-Azerbaijan,Sweden,1,3,,,1,3,2024-09-05T18:00:00Z,Group C1,Tofiq Bahramov Republican Stadium,Baku
-Estonia,Slovakia,0,1,,,0,1,2024-09-05T20:45:00Z,Group C1,Lilleküla Stadium,Tallinn
-Slovakia,Azerbaijan,2,0,,,2,0,2024-09-08T18:00:00Z,Group C1,Košická futbalová aréna,Košice
-Sweden,Estonia,3,0,,,3,0,2024-09-08T20:45:00Z,Group C1,Strawberry Arena,Solna
-Estonia,Azerbaijan,3,1,,,3,1,2024-10-11T18:00:00Z,Group C1,Lilleküla Stadium,Tallinn
-Slovakia,Sweden,2,2,,,2,2,2024-10-11T20:45:00Z,Group C1,Tehelné pole,Bratislava
-Azerbaijan,Slovakia,1,3,,,1,3,2024-10-14T18:00:00Z,Group C1,Tofiq Bahramov Republican Stadium,Baku
-Estonia,Sweden,0,3,,,0,3,2024-10-14T20:45:00Z,Group C1,Lilleküla Stadium,Tallinn
-Azerbaijan,Estonia,0,0,,,0,0,2024-11-16T15:00:00Z,Group C1,Gabala City Stadium,Gabala
-Sweden,Slovakia,2,1,,,2,1,2024-11-16T20:45:00Z,Group C1,Strawberry Arena,Solna
 Slovakia,Estonia,1,0,,,1,0,2024-11-19T20:45:00Z,Group C1,Štadión Antona Malatinského,Trnava
 Sweden,Azerbaijan,6,0,,,6,0,2024-11-19T20:45:00Z,Group C1,Strawberry Arena,Solna
-Lithuania,Cyprus,0,1,,,0,1,2024-09-06T18:00:00Z,Group C2,Sūduva Stadium,Marijampolė
-Kosovo,Romania,0,3,,,0,3,2024-09-06T20:45:00Z,Group C2,Stadiumi Fadil Vokrri,Pristina
-Cyprus,Kosovo,0,4,,,0,4,2024-09-09T18:00:00Z,Group C2,AEK Arena,Larnaca
-Romania,Lithuania,3,1,,,3,1,2024-09-09T20:45:00Z,Group C2,Stadionul Steaua,Bucharest
-Lithuania,Kosovo,1,2,,,1,2,2024-10-12T15:00:00Z,Group C2,Dariaus ir Girėno stadionas,Kaunas
-Cyprus,Romania,0,3,,,0,3,2024-10-12T20:45:00Z,Group C2,AEK Arena,Larnaca
-Kosovo,Cyprus,3,0,,,3,0,2024-10-15T20:45:00Z,Group C2,Stadiumi Fadil Vokrri,Pristina
-Lithuania,Romania,1,2,,,1,2,2024-10-15T20:45:00Z,Group C2,Dariaus ir Girėno stadionas,Kaunas
-Cyprus,Lithuania,2,1,,,2,1,2024-11-15T18:00:00Z,Group C2,AEK Arena,Larnaca
-Romania,Kosovo,3,0,,,3,0,2024-11-15T20:45:00Z,Group C2,National Arena Bucharest,Bucharest
+Malta,Andorra,0,0,,,0,0,2024-11-19T20:45:00Z,Group D2,National Stadium,Ta' Qali
+Bosnia and Herzegovina,Netherlands,1,1,,,1,1,2024-11-19T18:45:00Z,Group A3,Stadion Bilino Polje,Zenica
+Hungary,Germany,1,1,,,1,1,2024-11-19T18:45:00Z,Group A3,Puskás Aréna,Budapest
 Kosovo,Lithuania,1,0,,,1,0,2024-11-18T20:45:00Z,Group C2,Stadiumi Fadil Vokrri,Pristina
 Romania,Cyprus,4,1,,,4,1,2024-11-18T20:45:00Z,Group C2,National Arena Bucharest,Bucharest
-Belarus,Bulgaria,0,0,,,0,0,2024-09-05T20:45:00Z,Group C3,ZTE Arena,Zalaegerszeg
-Northern Ireland,Luxembourg,2,0,,,2,0,2024-09-05T20:45:00Z,Group C3,Windsor Park,Belfast
-Luxembourg,Belarus,0,1,,,0,1,2024-09-08T15:00:00Z,Group C3,Stade de Luxembourg,Luxembourg
-Bulgaria,Northern Ireland,1,0,,,1,0,2024-09-08T18:00:00Z,Group C3,Hristo Botev Stadium,Plovdiv
-Bulgaria,Luxembourg,0,0,,,0,0,2024-10-12T18:00:00Z,Group C3,Hristo Botev Stadium,Plovdiv
-Belarus,Northern Ireland,0,0,,,0,0,2024-10-12T20:45:00Z,Group C3,ZTE Arena,Zalaegerszeg
-Belarus,Luxembourg,1,1,,,1,1,2024-10-15T20:45:00Z,Group C3,ZTE Arena,Zalaegerszeg
-Northern Ireland,Bulgaria,5,0,,,5,0,2024-10-15T20:45:00Z,Group C3,Windsor Park,Belfast
-Luxembourg,Bulgaria,0,1,,,0,1,2024-11-15T20:45:00Z,Group C3,Stade de Luxembourg,Luxembourg
-Northern Ireland,Belarus,2,0,,,2,0,2024-11-15T20:45:00Z,Group C3,Windsor Park,Belfast
 Bulgaria,Belarus,1,1,,,1,1,2024-11-18T20:45:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
 Luxembourg,Northern Ireland,2,2,,,2,2,2024-11-18T20:45:00Z,Group C3,Stade de Luxembourg,Luxembourg
-Faroe Islands,North Macedonia,1,1,,,1,1,2024-09-07T15:00:00Z,Group C4,Tórsvøllur,Tórshavn
-Armenia,Latvia,4,1,,,4,1,2024-09-07T18:00:00Z,Group C4,Zelarayán Republican Stadium,Yerevan
-Latvia,Faroe Islands,1,0,,,1,0,2024-09-10T18:00:00Z,Group C4,Skonto Stadions,Riga
-North Macedonia,Armenia,2,0,,,2,0,2024-09-10T20:45:00Z,Group C4,National Arena Todor Proeski,Skopje
-Latvia,North Macedonia,0,3,,,0,3,2024-10-10T18:00:00Z,Group C4,Skonto Stadions,Riga
-Faroe Islands,Armenia,2,2,,,2,2,2024-10-10T20:45:00Z,Group C4,Tórsvøllur,Tórshavn
-Armenia,North Macedonia,0,2,,,0,2,2024-10-13T18:00:00Z,Group C4,Republican Stadium after Vazgen Sargsyan,Yerevan
-Faroe Islands,Latvia,1,1,,,1,1,2024-10-13T20:45:00Z,Group C4,Tórsvøllur,Tórshavn
-Armenia,Faroe Islands,0,1,,,0,1,2024-11-14T18:00:00Z,Group C4,Republican Stadium after Vazgen Sargsyan,Yerevan
-North Macedonia,Latvia,1,0,,,1,0,2024-11-14T20:45:00Z,Group C4,National Arena Todor Proeski,Skopje
+Liechtenstein,San Marino,1,3,,,1,3,2024-11-18T20:45:00Z,Group D1,Rheinpark Stadion,Vaduz
+Croatia,Portugal,1,1,,,1,1,2024-11-18T19:45:00Z,Group A1,Stadion Poljud,Split
+Poland,Scotland,1,2,,,1,2,2024-11-18T19:45:00Z,Group A1,Stadion Narodowy,Warsaw
+Serbia,Denmark,0,0,,,0,0,2024-11-18T18:45:00Z,Group A4,Dubočica Stadium,Leskovac
+Spain,Switzerland,3,2,,,3,2,2024-11-18T18:45:00Z,Group A4,Heliodoro Rodríguez López,Santa Cruz de Tenerife
+Israel,Belgium,1,0,,,1,0,2024-11-17T18:45:00Z,Group A2,Bozsik Aréna,Budapest
+Italy,France,1,3,,,1,3,2024-11-17T18:45:00Z,Group A2,San Siro,Milan
+England,Ireland,5,0,,,5,0,2024-11-17T18:00:00Z,Group B2,Wembley Stadium,London
+Finland,Greece,0,2,,,0,2,2024-11-17T18:00:00Z,Group B2,Helsinki Olympic Stadium,Helsinki
+Austria,Slovenia,1,1,,,1,1,2024-11-17T18:00:00Z,Group B3,Ernst-Happel-Stadion,Vienna
+Norway,Kazakhstan,5,0,,,5,0,2024-11-17T18:00:00Z,Group B3,Ullevaal Stadion,Oslo
 Latvia,Armenia,1,2,,,1,2,2024-11-17T15:00:00Z,Group C4,Skonto Stadions,Riga
 North Macedonia,Faroe Islands,1,0,,,1,0,2024-11-17T15:00:00Z,Group C4,National Arena Todor Proeski,Skopje
-San Marino,Liechtenstein,1,0,,,1,0,2024-09-05T20:45:00Z,Group D1,San Marino Stadium,Serravalle
-Gibraltar,Liechtenstein,2,2,,,2,2,2024-09-08T18:00:00Z,Group D1,Europa Sports Park,Europa Point
-Gibraltar,San Marino,1,0,,,1,0,2024-10-10T20:45:00Z,Group D1,Europa Sports Park,Europa Point
-Liechtenstein,Gibraltar,0,0,,,0,0,2024-10-13T18:00:00Z,Group D1,Rheinpark Stadion,Vaduz
-San Marino,Gibraltar,1,1,,,1,1,2024-11-15T20:45:00Z,Group D1,San Marino Stadium,Serravalle
-Liechtenstein,San Marino,1,3,,,1,3,2024-11-18T20:45:00Z,Group D1,Rheinpark Stadion,Vaduz
-Moldova,Malta,2,0,,,2,0,2024-09-07T18:00:00Z,Group D2,Stadionul Zimbru,Chișinău
-Andorra,Malta,0,1,,,0,1,2024-09-10T20:45:00Z,Group D2,Estadi Nacional,Andorra la Vella
-Moldova,Andorra,2,0,,,2,0,2024-10-10T18:00:00Z,Group D2,Stadionul Zimbru,Chișinău
-Malta,Moldova,1,0,,,1,0,2024-10-13T18:00:00Z,Group D2,National Stadium,Ta' Qali
+Albania,Czechia,0,0,,,0,0,2024-11-16T20:45:00Z,Group B1,Air Albania Stadium,Tirana
+Sweden,Slovakia,2,1,,,2,1,2024-11-16T20:45:00Z,Group C1,Strawberry Arena,Solna
+Germany,Bosnia and Herzegovina,7,0,,,7,0,2024-11-16T18:45:00Z,Group A3,Europa-Park Stadion,Freiburg
+Netherlands,Hungary,4,0,,,4,0,2024-11-16T18:45:00Z,Group A3,Johan Cruyff Arena,Amsterdam
+Georgia,Ukraine,1,1,,,1,1,2024-11-16T18:00:00Z,Group B1,Adjarabet Arena,Batumi
+Montenegro,Iceland,0,2,,,0,2,2024-11-16T18:00:00Z,Group B4,Gradski Stadion,Nikšić
+Turkey,Wales,0,0,,,0,0,2024-11-16T18:00:00Z,Group B4,Kadir Has Stadium,Kayseri
 Andorra,Moldova,0,1,,,0,1,2024-11-16T18:00:00Z,Group D2,Estadi Nacional,Andorra la Vella
-Malta,Andorra,0,0,,,0,0,2024-11-19T20:45:00Z,Group D2,National Stadium,Ta' Qali
-Netherlands,Spain,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadion Feijenoord 'De Kuip',Rotterdam
-Spain,Netherlands,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Estadio La Cartuja de Sevilla,Seville
-Croatia,France,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadion Poljud,Split
-France,Croatia,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Stade de France,Saint-Denis
-Denmark,Portugal,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Parken Stadium,Copenhagen
-Portugal,Denmark,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Estádio José Alvalade,Lisbon
-Italy,Germany,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadio San Siro,Milan
-Germany,Italy,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,BVB Stadion Dortmund,Dortmund
+Azerbaijan,Estonia,0,0,,,0,0,2024-11-16T15:00:00Z,Group C1,Gabala City Stadium,Gabala
+Romania,Kosovo,3,0,,,3,0,2024-11-15T20:45:00Z,Group C2,National Arena Bucharest,Bucharest
+Luxembourg,Bulgaria,0,1,,,0,1,2024-11-15T20:45:00Z,Group C3,Stade de Luxembourg,Luxembourg
+Northern Ireland,Belarus,2,0,,,2,0,2024-11-15T20:45:00Z,Group C3,Windsor Park,Belfast
+San Marino,Gibraltar,1,1,,,1,1,2024-11-15T20:45:00Z,Group D1,San Marino Stadium,Serravalle
+Portugal,Poland,5,1,,,5,1,2024-11-15T19:45:00Z,Group A1,Estádio do Dragão,Porto
+Scotland,Croatia,1,0,,,1,0,2024-11-15T19:45:00Z,Group A1,Hampden Park,Glasgow
+Denmark,Spain,1,2,,,1,2,2024-11-15T18:45:00Z,Group A4,Parken Stadium,Copenhagen
+Switzerland,Serbia,1,1,,,1,1,2024-11-15T18:45:00Z,Group A4,Stadion Letzigrund,Zürich
+Cyprus,Lithuania,2,1,,,2,1,2024-11-15T18:00:00Z,Group C2,AEK Arena,Larnaca
+Greece,England,0,3,,,0,3,2024-11-14T20:45:00Z,Group B2,Athens Olympic Stadium,Athens
+Ireland,Finland,1,0,,,1,0,2024-11-14T20:45:00Z,Group B2,Aviva Stadium,Dublin
+Slovenia,Norway,1,4,,,1,4,2024-11-14T20:45:00Z,Group B3,Stadion Stožice,Ljubljana
+North Macedonia,Latvia,1,0,,,1,0,2024-11-14T20:45:00Z,Group C4,National Arena Todor Proeski,Skopje
+Belgium,Italy,0,1,,,0,1,2024-11-14T18:45:00Z,Group A2,King Baudouin Stadium,Brussels
+France,Israel,0,0,,,0,0,2024-11-14T18:45:00Z,Group A2,Stade de France,Saint-Denis
+Armenia,Faroe Islands,0,1,,,0,1,2024-11-14T18:00:00Z,Group C4,Republican Stadium after Vazgen Sargsyan,Yerevan
+Kazakhstan,Austria,0,2,,,0,2,2024-11-14T16:00:00Z,Group B3,Almaty Ortalyk Stadion,Almaty
+Kosovo,Cyprus,3,0,,,3,0,2024-10-15T20:45:00Z,Group C2,Stadiumi Fadil Vokrri,Pristina
+Lithuania,Romania,1,2,,,1,2,2024-10-15T20:45:00Z,Group C2,Dariaus ir Girėno stadionas,Kaunas
+Belarus,Luxembourg,1,1,,,1,1,2024-10-15T20:45:00Z,Group C3,ZTE Arena,Zalaegerszeg
+Northern Ireland,Bulgaria,5,0,,,5,0,2024-10-15T20:45:00Z,Group C3,Windsor Park,Belfast
+Scotland,Portugal,0,0,,,0,0,2024-10-15T19:45:00Z,Group A1,Hampden Park,Glasgow
+Poland,Croatia,3,3,,,3,3,2024-10-15T18:45:00Z,Group A1,Stadion Narodowy,Warsaw
+Spain,Serbia,3,0,,,3,0,2024-10-15T18:45:00Z,Group A4,Nuevo Arcángel,Córdoba
+Switzerland,Denmark,2,2,,,2,2,2024-10-15T18:45:00Z,Group A4,Kybunpark,St Gallen
+Ukraine,Czechia,1,1,,,1,1,2024-10-14T20:45:00Z,Group B1,Stadion Miejski we Wrocławiu,Wrocław
+Iceland,Turkey,2,4,,,2,4,2024-10-14T20:45:00Z,Group B4,Laugardalsvöllur,Reykjavík
+Wales,Montenegro,1,0,,,1,0,2024-10-14T20:45:00Z,Group B4,Cardiff City Stadium,Cardiff
+Estonia,Sweden,0,3,,,0,3,2024-10-14T20:45:00Z,Group C1,Lilleküla Stadium,Tallinn
+Belgium,France,1,2,,,1,2,2024-10-14T18:45:00Z,Group A2,King Baudouin Stadium,Brussels
+Italy,Israel,4,1,,,4,1,2024-10-14T18:45:00Z,Group A2,Stadio Friuli,Udine
+Bosnia and Herzegovina,Hungary,0,2,,,0,2,2024-10-14T18:45:00Z,Group A3,Stadion Bilino Polje,Zenica
+Germany,Netherlands,1,0,,,1,0,2024-10-14T18:45:00Z,Group A3,Allianz Arena,Munich
+Georgia,Albania,0,1,,,0,1,2024-10-14T18:00:00Z,Group B1,Mikheil Meskhi Stadium,Tbilisi
+Azerbaijan,Slovakia,1,3,,,1,3,2024-10-14T18:00:00Z,Group C1,Tofiq Bahramov Republican Stadium,Baku
+Greece,Ireland,2,0,,,2,0,2024-10-13T20:45:00Z,Group B2,Karaiskakis Stadium,Piraeus
+Austria,Norway,5,1,,,5,1,2024-10-13T20:45:00Z,Group B3,Raiffeisen Arena,Linz
+Faroe Islands,Latvia,1,1,,,1,1,2024-10-13T20:45:00Z,Group C4,Tórsvøllur,Tórshavn
+Finland,England,1,3,,,1,3,2024-10-13T18:00:00Z,Group B2,Helsinki Olympic Stadium,Helsinki
+Armenia,North Macedonia,0,2,,,0,2,2024-10-13T18:00:00Z,Group C4,Republican Stadium after Vazgen Sargsyan,Yerevan
+Liechtenstein,Gibraltar,0,0,,,0,0,2024-10-13T18:00:00Z,Group D1,Rheinpark Stadion,Vaduz
+Malta,Moldova,1,0,,,1,0,2024-10-13T18:00:00Z,Group D2,National Stadium,Ta' Qali
+Kazakhstan,Slovenia,0,1,,,0,1,2024-10-13T15:00:00Z,Group B3,Almaty Ortalyk Stadion,Almaty
+Cyprus,Romania,0,3,,,0,3,2024-10-12T20:45:00Z,Group C2,AEK Arena,Larnaca
+Belarus,Northern Ireland,0,0,,,0,0,2024-10-12T20:45:00Z,Group C3,ZTE Arena,Zalaegerszeg
+Poland,Portugal,1,3,,,1,3,2024-10-12T18:45:00Z,Group A1,Stadion Narodowy,Warsaw
+Serbia,Switzerland,2,0,,,2,0,2024-10-12T18:45:00Z,Group A4,Dubočica Stadium,Leskovac
+Spain,Denmark,1,0,,,1,0,2024-10-12T18:45:00Z,Group A4,Nueva Condomina,Murcia
+Bulgaria,Luxembourg,0,0,,,0,0,2024-10-12T18:00:00Z,Group C3,Hristo Botev Stadium,Plovdiv
+Croatia,Scotland,2,1,,,2,1,2024-10-12T16:00:00Z,Group A1,Stadion Maksimir,Zagreb
+Lithuania,Kosovo,1,2,,,1,2,2024-10-12T15:00:00Z,Group C2,Dariaus ir Girėno stadionas,Kaunas
+Czechia,Albania,2,0,,,2,0,2024-10-11T20:45:00Z,Group B1,Stadion Letná,Prague
+Ukraine,Georgia,1,0,,,1,0,2024-10-11T20:45:00Z,Group B1,Poznań Stadium,Poznań
+Iceland,Wales,2,2,,,2,2,2024-10-11T20:45:00Z,Group B4,Laugardalsvöllur,Reykjavík
+Turkey,Montenegro,1,0,,,1,0,2024-10-11T20:45:00Z,Group B4,Samsun 19 Mayıs Stadium,Samsun
+Slovakia,Sweden,2,2,,,2,2,2024-10-11T20:45:00Z,Group C1,Tehelné pole,Bratislava
+Bosnia and Herzegovina,Germany,1,2,,,1,2,2024-10-11T18:45:00Z,Group A3,Stadion Bilino Polje,Zenica
+Hungary,Netherlands,1,1,,,1,1,2024-10-11T18:45:00Z,Group A3,Puskás Aréna,Budapest
+Estonia,Azerbaijan,3,1,,,3,1,2024-10-11T18:00:00Z,Group C1,Lilleküla Stadium,Tallinn
+England,Greece,1,2,,,1,2,2024-10-10T20:45:00Z,Group B2,Wembley Stadium,London
+Finland,Ireland,1,2,,,1,2,2024-10-10T20:45:00Z,Group B2,Helsinki Olympic Stadium,Helsinki
+Austria,Kazakhstan,4,0,,,4,0,2024-10-10T20:45:00Z,Group B3,Raiffeisen Arena,Linz
+Norway,Slovenia,3,0,,,3,0,2024-10-10T20:45:00Z,Group B3,Ullevaal Stadion,Oslo
+Faroe Islands,Armenia,2,2,,,2,2,2024-10-10T20:45:00Z,Group C4,Tórsvøllur,Tórshavn
+Gibraltar,San Marino,1,0,,,1,0,2024-10-10T20:45:00Z,Group D1,Europa Sports Park,Europa Point
+Israel,France,1,4,,,1,4,2024-10-10T18:45:00Z,Group A2,Bozsik Aréna,Budapest
+Italy,Belgium,2,2,,,2,2,2024-10-10T18:45:00Z,Group A2,Stadio Olimpico,Rome
+Latvia,North Macedonia,0,3,,,0,3,2024-10-10T18:00:00Z,Group C4,Skonto Stadions,Riga
+Moldova,Andorra,2,0,,,2,0,2024-10-10T18:00:00Z,Group D2,Stadionul Zimbru,Chișinău
+Albania,Georgia,0,1,,,0,1,2024-09-10T20:45:00Z,Group B1,Air Albania Stadium,Tirana
+Czechia,Ukraine,3,2,,,3,2,2024-09-10T20:45:00Z,Group B1,Fortuna Arena,Prague
+England,Finland,2,0,,,2,0,2024-09-10T20:45:00Z,Group B2,Wembley Stadium,London
+Ireland,Greece,0,2,,,0,2,2024-09-10T20:45:00Z,Group B2,Aviva Stadium,Dublin
+North Macedonia,Armenia,2,0,,,2,0,2024-09-10T20:45:00Z,Group C4,National Arena Todor Proeski,Skopje
+Andorra,Malta,0,1,,,0,1,2024-09-10T20:45:00Z,Group D2,Estadi Nacional,Andorra la Vella
+Hungary,Bosnia and Herzegovina,0,0,,,0,0,2024-09-10T18:45:00Z,Group A3,Puskás Aréna,Budapest
+Netherlands,Germany,2,2,,,2,2,2024-09-10T18:45:00Z,Group A3,Johan Cruyff Arena,Amsterdam
+Latvia,Faroe Islands,1,0,,,1,0,2024-09-10T18:00:00Z,Group C4,Skonto Stadions,Riga
+Norway,Austria,2,1,,,2,1,2024-09-09T20:45:00Z,Group B3,Ullevaal Stadion,Oslo
+Slovenia,Kazakhstan,3,0,,,3,0,2024-09-09T20:45:00Z,Group B3,Stadion Stožice,Ljubljana
+Montenegro,Wales,1,2,,,1,2,2024-09-09T20:45:00Z,Group B4,Gradski Stadion,Nikšić
+Turkey,Iceland,3,1,,,3,1,2024-09-09T20:45:00Z,Group B4,Gürsel Aksel Stadium,Izmir
+Romania,Lithuania,3,1,,,3,1,2024-09-09T20:45:00Z,Group C2,Stadionul Steaua,Bucharest
+France,Belgium,2,0,,,2,0,2024-09-09T18:45:00Z,Group A2,Parc Olympique Lyonnais,Décines-Charpieu
+Israel,Italy,1,2,,,1,2,2024-09-09T18:45:00Z,Group A2,Bozsik Aréna,Budapest
+Cyprus,Kosovo,0,4,,,0,4,2024-09-09T18:00:00Z,Group C2,AEK Arena,Larnaca
+Sweden,Estonia,3,0,,,3,0,2024-09-08T20:45:00Z,Group C1,Strawberry Arena,Solna
+Portugal,Scotland,2,1,,,2,1,2024-09-08T19:45:00Z,Group A1,Estádio da Luz,Lisbon
+Croatia,Poland,1,0,,,1,0,2024-09-08T18:45:00Z,Group A1,Opus Arena,Osijek
+Switzerland,Spain,1,4,,,1,4,2024-09-08T18:45:00Z,Group A4,Stade de Genève,Geneva
+Slovakia,Azerbaijan,2,0,,,2,0,2024-09-08T18:00:00Z,Group C1,Košická futbalová aréna,Košice
+Bulgaria,Northern Ireland,1,0,,,1,0,2024-09-08T18:00:00Z,Group C3,Hristo Botev Stadium,Plovdiv
+Gibraltar,Liechtenstein,2,2,,,2,2,2024-09-08T18:00:00Z,Group D1,Europa Sports Park,Europa Point
+Denmark,Serbia,2,0,,,2,0,2024-09-08T16:00:00Z,Group A4,Parken Stadium,Copenhagen
+Luxembourg,Belarus,0,1,,,0,1,2024-09-08T15:00:00Z,Group C3,Stade de Luxembourg,Luxembourg
+Ukraine,Albania,1,2,,,1,2,2024-09-07T20:45:00Z,Group B1,Stadion Letná,Prague
+Greece,Finland,3,0,,,3,0,2024-09-07T20:45:00Z,Group B2,Karaiskakis Stadium,Piraeus
+Germany,Hungary,5,0,,,5,0,2024-09-07T18:45:00Z,Group A3,Merkur Spiel-Arena,Düsseldorf
+Netherlands,Bosnia and Herzegovina,5,2,,,5,2,2024-09-07T18:45:00Z,Group A3,Philips Stadion,Eindhoven
+Georgia,Czechia,4,1,,,4,1,2024-09-07T18:00:00Z,Group B1,Mikheil Meskhi Stadium,Tbilisi
+Ireland,England,0,2,,,0,2,2024-09-07T18:00:00Z,Group B2,Aviva Stadium,Dublin
+Armenia,Latvia,4,1,,,4,1,2024-09-07T18:00:00Z,Group C4,Zelarayán Republican Stadium,Yerevan
+Moldova,Malta,2,0,,,2,0,2024-09-07T18:00:00Z,Group D2,Stadionul Zimbru,Chișinău
+Faroe Islands,North Macedonia,1,1,,,1,1,2024-09-07T15:00:00Z,Group C4,Tórsvøllur,Tórshavn
+Slovenia,Austria,1,1,,,1,1,2024-09-06T20:45:00Z,Group B3,Stadion Stožice,Ljubljana
+Iceland,Montenegro,2,0,,,2,0,2024-09-06T20:45:00Z,Group B4,Laugardalsvöllur,Reykjavík
+Wales,Turkey,0,0,,,0,0,2024-09-06T20:45:00Z,Group B4,Cardiff City Stadium,Cardiff
+Kosovo,Romania,0,3,,,0,3,2024-09-06T20:45:00Z,Group C2,Stadiumi Fadil Vokrri,Pristina
+Belgium,Israel,3,1,,,3,1,2024-09-06T18:45:00Z,Group A2,Nagyerdei Stadion,Debrecen
+France,Italy,1,3,,,1,3,2024-09-06T18:45:00Z,Group A2,Parc des Princes,Paris
+Lithuania,Cyprus,0,1,,,0,1,2024-09-06T18:00:00Z,Group C2,Sūduva Stadium,Marijampolė
+Kazakhstan,Norway,0,0,,,0,0,2024-09-06T16:00:00Z,Group B3,Almaty Ortalyk Stadion,Almaty
+Estonia,Slovakia,0,1,,,0,1,2024-09-05T20:45:00Z,Group C1,Lilleküla Stadium,Tallinn
+Belarus,Bulgaria,0,0,,,0,0,2024-09-05T20:45:00Z,Group C3,ZTE Arena,Zalaegerszeg
+Northern Ireland,Luxembourg,2,0,,,2,0,2024-09-05T20:45:00Z,Group C3,Windsor Park,Belfast
+San Marino,Liechtenstein,1,0,,,1,0,2024-09-05T20:45:00Z,Group D1,San Marino Stadium,Serravalle
+Portugal,Croatia,2,1,,,2,1,2024-09-05T19:45:00Z,Group A1,Estádio da Luz,Lisbon
+Scotland,Poland,2,3,,,2,3,2024-09-05T19:45:00Z,Group A1,Hampden Park,Glasgow
+Denmark,Switzerland,2,0,,,2,0,2024-09-05T18:45:00Z,Group A4,Parken Stadium,Copenhagen
+Serbia,Spain,0,0,,,0,0,2024-09-05T18:45:00Z,Group A4,Stadion Rajko Mitić,Belgrade
+Azerbaijan,Sweden,1,3,,,1,3,2024-09-05T18:00:00Z,Group C1,Tofiq Bahramov Republican Stadium,Baku

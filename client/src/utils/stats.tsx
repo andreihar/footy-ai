@@ -58,17 +58,22 @@ export async function getStats(year: number): Promise<Return> {
     }
   });
 
-  const allMatches = data.flatMap(match =>
+  const matches = data.flatMap(match =>
     !isNaN(match.home_score_total) && !isNaN(match.away_score_total) ? [{
       ...match,
-      date: `${String(match.date.getDate()).padStart(2, '0')}/${String(match.date.getMonth() + 1).padStart(2, '0')}${(year - 1960) % 4 === 0 ? '' : `/${String(match.date.getFullYear()).slice(-2)}`}`
+      date: `${String(match.date.getDate()).padStart(2, '0')}/${String(match.date.getMonth() + 1).padStart(2, '0')}/${String(match.date.getFullYear()).slice(-2)}`
     }] : []
   )
     .sort((a, b) => {
       const [dayA, monthA, yearA] = a.date.split('/').map(Number);
       const [dayB, monthB, yearB] = b.date.split('/').map(Number);
-      return (yearA || 0) - (yearB || 0) || monthA - monthB || dayA - dayB;
+      return yearA - yearB || monthA - monthB || dayA - dayB;
     });
+
+  const years = new Set(matches.map(match => match.date.split('/')[2]));
+  const allMatches = years.size === 1
+    ? matches.map(match => ({ ...match, date: match.date.slice(0, 5) }))
+    : matches;
 
   const groups = Array.from(new Set(
     data.filter((match: Match) => match.stage.startsWith("Group"))

@@ -35,7 +35,7 @@ function Header({ year }: { year: number; }) {
     { title: t('Custom.title'), href: "/custom", },
     {
       title: (() => {
-        const words = t('About.title').split(' ');
+        const words = t('About.title', { title: '' }).split(' ');
         return words.length > 1 ? words.slice(0, -1).join(' ') : words.join(' ');
       })(), href: "/about"
     }
