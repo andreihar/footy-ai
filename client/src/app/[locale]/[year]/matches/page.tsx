@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { getStats } from '@/utils/stats';
 import { generateMetadata as generateSEO } from '@/components/SEO';
-import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import MatchCard from '@/components/card/MatchCard';
 import PaginationComponent from '@/components/shared/PaginationComponent';
 
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = await getTranslations('Matches');
 
   return generateSEO({
@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { locale, year } }: Props) {
 }
 
 export default async function MatchesPage({ params: { locale, year }, searchParams: { page = '1' } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const current = Number(page);
   const pageSize = 10;
   const stats = await getStats(Number(year));

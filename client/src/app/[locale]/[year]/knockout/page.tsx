@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { getStats } from '@/utils/stats';
 import { generateMetadata as generateSEO } from '@/components/SEO';
-import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Match from '@/types/match';
 import MatchBracket from '@/components/knockout/MatchBracket';
 import './style.scss';
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = await getTranslations('Knockout');
 
   return generateSEO({
@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { locale, year } }: Props) {
 }
 
 export default async function KnockoutPage({ params: { locale, year } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const stats = await getStats(Number(year));
   const { data } = stats;
   const t = await getTranslations('Knockout');

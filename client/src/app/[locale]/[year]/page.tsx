@@ -1,6 +1,6 @@
 import { Box, Grid } from '@mui/material';
 import { generateMetadata as generateSEO } from '@/components/SEO';
-import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { getStats } from '@/utils/stats';
 import GeneralStats from '@/components/dashboard/GeneralStats';
 import PredictionsOverview from '@/components/dashboard/PredictionsOverview';
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = await getTranslations('Overview');
 
   return generateSEO({
@@ -23,7 +23,7 @@ export async function generateMetadata({ params: { locale, year } }: Props) {
 }
 
 export default async function DashboardPage({ params: { locale, year } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const stats = await getStats(Number(year));
   const t = await getTranslations('GeneralStats');
   const { data, perfectScores, correctGroups, matchesPlayedGroups, correctKnockouts, matchesPlayedKnockouts, categories, correctPredsPerDay, incorrectPredsPerDay } = stats;

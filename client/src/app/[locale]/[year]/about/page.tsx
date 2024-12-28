@@ -3,7 +3,7 @@ import { generateMetadata as generateSEO } from '@/components/SEO';
 import DashboardCard from '@/components/shared/DashboardCard';
 import GithubCard from '@/components/card/GithubCard';
 import { useTranslations } from 'next-intl';
-import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import useYear from '@/utils/yearUtils';
 import { years } from '@/config';
 import { IconBallFootball, IconTableShare, IconTournament, IconBrain } from "@tabler/icons-react";
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = await getTranslations('About');
 
   return generateSEO({
@@ -26,7 +26,7 @@ export async function generateMetadata({ params: { locale } }: Props) {
 }
 
 export default function AboutPage({ params: { locale } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = useTranslations('About');
   const { getTourneyName } = useYear(2024);
 

@@ -1,5 +1,5 @@
 import { generateMetadata as generateSEO } from '@/components/SEO';
-import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Page from "./page";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = await getTranslations('Custom');
 
   return generateSEO({

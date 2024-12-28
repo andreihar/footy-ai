@@ -2,14 +2,14 @@ import { Box, Typography, Button } from '@mui/material';
 import PageNotFoundIcon from '@/components/icon/PageNotFoundIcon';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { useTranslations } from 'next-intl';
-import { unstable_setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 
 type Props = {
   params?: { locale: string; };
 };
 
 export async function generateMetadata({ params: { locale } = { locale: 'en' } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = await getTranslations('404');
 
   return generateSEO({
@@ -18,7 +18,7 @@ export async function generateMetadata({ params: { locale } = { locale: 'en' } }
 }
 
 export default function NotFoundPage({ params: { locale } = { locale: 'en' } }: Props) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = useTranslations('404');
 
   return (

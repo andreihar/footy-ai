@@ -42,9 +42,9 @@ function createEntry(href: Href, changeFrequency: ChangeFrequency, priority: num
     changeFrequency,
     priority,
   };
-}
+};
 
 function getUrl(href: Href, locale: Locale) {
   const pathname = getPathname({ locale, href });
-  return `${host}/${locale}${pathname === '/' ? '' : pathname}`;
+  return `${host}${pathname === '/' ? '' : pathname}`;
 }
