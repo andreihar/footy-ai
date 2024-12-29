@@ -43,7 +43,7 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
     <DashboardCard>
       <CardContent>
         <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mb={2}>
-          <Time date={date} locale={locale} />
+          <Typography variant="h6" align="center"><Time date={date} locale={locale} match={true} /></Typography>
           <Typography variant="h5" align="center" mt={2} >{
             stage.startsWith('Group') ? `${t(`Knockout.Group`)} ${stage.split(" ")[1]}` : t(`Knockout.${stage}` as any)
           }</Typography>

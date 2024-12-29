@@ -4,6 +4,7 @@ import { Typography } from '@mui/material';
 import useYear from '@/utils/yearUtils';
 import { useTranslations, useLocale } from 'next-intl';
 import { Locale } from '@/i18n/routing';
+import Time from '@/layout/Time';
 import Match from '@/types/match';
 
 const RecentPredictions: React.FC<{ data: Match[]; year: number; }> = ({ data, year }) => {
@@ -35,7 +36,7 @@ const RecentPredictions: React.FC<{ data: Match[]; year: number; }> = ({ data, y
       >
         {matches.map((match, index) => (
           <TimelineItem key={index}>
-            <TimelineOppositeContent>{new Date(match.date).toLocaleString(locale, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</TimelineOppositeContent>
+            <TimelineOppositeContent><Time date={match.date} locale={locale} match={false} /></TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot color={match.status === 'perfect' ? 'primary' : match.status === 'correct' ? 'success' : 'error'} variant="outlined" />
               <TimelineConnector />
