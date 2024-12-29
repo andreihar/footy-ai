@@ -1,5 +1,6 @@
 'use client';
-import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress, Grid, Autocomplete } from '@mui/material';
+import { Avatar, Box, Button, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress, Autocomplete } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import DashboardCard from '@/components/shared/DashboardCard';
 import { useState } from 'react';
 import useYear from '@/utils/yearUtils';
@@ -47,46 +48,48 @@ export default function CustomPage({ params: { year } }: Props) {
   }
 
   return (
-    <DashboardCard>
+    (<DashboardCard>
       <CardContent>
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <Grid container justifyContent="center" alignItems="center" spacing={2}>
-            {/* Home */}
-            <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
-              {home && (
-                <Avatar alt="?" src={getFlag(home.country, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              )}
-              <Autocomplete id="filled-select-home" options={countries.filter(country => country.country !== away?.country)} getOptionLabel={(option) => option.name} value={home} onChange={(_, newValue) => setHome(newValue)} inputValue={homeInputValue} onInputChange={(_, newInputValue) => setHomeInputValue(newInputValue)} isOptionEqualToValue={(option, value) => option.country === value.country} renderInput={(params) => (
-                <TextField {...params} variant="standard" sx={{ width: '250px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} inputProps={{ ...params.inputProps, "aria-label": "Select Home Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Header' } }} />
-              )} renderOption={(props, option) => (
-                <MenuItem {...props} key={option.country} value={option.country} sx={{ whiteSpace: 'nowrap' }}>{option.name}</MenuItem>
-              )} />
-            </Grid>
-
-            {/* Score */}
-            <Grid item xs={12} sm={4} display="flex" justifyContent="center" alignItems="center">
-              <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
-                {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{homeScore}</Typography>}
-              </Box>
-              <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
-              <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
-                {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{awayScore}</Typography>}
-              </Box>
-            </Grid>
-
-            {/* Away */}
-            <Grid item xs={12} sm={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
-              {away && (
-                <Avatar alt="?" src={getFlag(away.country, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              )}
-              <Autocomplete id="filled-select-away" options={countries.filter(country => country.country !== home?.country)} getOptionLabel={(option) => option.name} value={away} onChange={(_, newValue) => setAway(newValue)} inputValue={awayInputValue} onInputChange={(_, newInputValue) => setAwayInputValue(newInputValue)} isOptionEqualToValue={(option, value) => option.country === value.country} renderInput={(params) => (
-                <TextField {...params} variant="standard" sx={{ width: '250px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} inputProps={{ ...params.inputProps, "aria-label": "Select Away Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Header' } }} />
-              )} renderOption={(props, option) => (
-                <MenuItem {...props} key={option.country} value={option.country} sx={{ whiteSpace: 'nowrap' }}>{option.name}</MenuItem>
-              )} />
-            </Grid>
+        <Grid container spacing={2}>
+          {/* Home */}
+          <Grid size={{ xs: 12, sm: 4 }} display="flex" flexDirection="column" alignItems="center" textAlign="center">
+            {home && (
+              <Avatar alt="?" src={getFlag(home.country, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            )}
+            <Autocomplete id="filled-select-home" options={countries.filter(country => country.country !== away?.country)} getOptionLabel={(option) => option.name} value={home} onChange={(_, newValue) => setHome(newValue)} inputValue={homeInputValue} onInputChange={(_, newInputValue) => setHomeInputValue(newInputValue)} isOptionEqualToValue={(option, value) => option.country === value.country} renderInput={(params) => (
+              <TextField {...params} variant="standard" sx={{ width: '250px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} slotProps={{
+                htmlInput: { ...params.inputProps, "aria-label": "Select Home Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Header' } }
+              }} />
+            )} renderOption={(props, option) => (
+              <MenuItem {...props} key={option.country} value={option.country} sx={{ whiteSpace: 'nowrap' }}>{option.name}</MenuItem>
+            )} />
           </Grid>
-        </Box>
+
+          {/* Score */}
+          <Grid size={{ xs: 12, sm: 4 }} display="flex" justifyContent="center" alignItems="center">
+            <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
+              {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{homeScore}</Typography>}
+            </Box>
+            <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
+            <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
+              {loading ? <CircularProgress /> : <Typography variant="h1" component="span">{awayScore}</Typography>}
+            </Box>
+          </Grid>
+
+          {/* Away */}
+          <Grid size={{ xs: 12, sm: 4 }} display="flex" flexDirection="column" alignItems="center" textAlign="center">
+            {away && (
+              <Avatar alt="?" src={getFlag(away.country, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            )}
+            <Autocomplete id="filled-select-away" options={countries.filter(country => country.country !== home?.country)} getOptionLabel={(option) => option.name} value={away} onChange={(_, newValue) => setAway(newValue)} inputValue={awayInputValue} onInputChange={(_, newInputValue) => setAwayInputValue(newInputValue)} isOptionEqualToValue={(option, value) => option.country === value.country} renderInput={(params) => (
+              <TextField {...params} variant="standard" sx={{ width: '250px', '& .MuiInputBase-root': { paddingRight: '0 !important' } }} slotProps={{
+                htmlInput: { ...params.inputProps, "aria-label": "Select Away Country", style: { fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', fontFamily: 'Header' } }
+              }} />
+            )} renderOption={(props, option) => (
+              <MenuItem {...props} key={option.country} value={option.country} sx={{ whiteSpace: 'nowrap' }}>{option.name}</MenuItem>
+            )} />
+          </Grid>
+        </Grid>
         <Box display="flex" justifyContent="center" alignItems="center">
           <FormControlLabel control={<Switch checked={allowDraw} onChange={(event) => setAllowDraw(event.target.checked)} />} label={t('draw')} sx={{ marginTop: 2, '& .MuiFormControlLabel-label': { fontSize: '1.25rem', fontWeight: 'bold' } }} />
         </Box>
@@ -109,6 +112,6 @@ export default function CustomPage({ params: { year } }: Props) {
           </Button>
         </Box>
       </CardContent>
-    </DashboardCard>
+    </DashboardCard>)
   );
 }

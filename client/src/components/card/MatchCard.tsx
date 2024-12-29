@@ -1,4 +1,5 @@
-import { Avatar, Box, Button, CardContent, Typography, Accordion, AccordionSummary, AccordionDetails, Grid } from '@mui/material';
+import { Avatar, Box, Button, CardContent, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import DashboardCard from '@/components/shared/DashboardCard';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -48,34 +49,32 @@ const MatchCard: React.FC<MatchCardProps> = ({ home_team, away_team, home_score_
           }</Typography>
           <Typography sx={{ textTransform: "uppercase" }} align="center" mt={2}>{stadium}, {city}</Typography>
         </Box>
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <Grid container justifyContent="center" alignItems="center" spacing={2}>
-            {/* Home */}
-            <Grid item xs={12} md={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
-              <Avatar alt="?" src={getFlag(home_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <Typography variant="h3" align="center">{getHistoricalName(home_team)}</Typography>
-            </Grid>
-
-            {/* Score */}
-            <Grid item xs={12} md={4} display="flex" justifyContent="center" alignItems="center">
-              <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
-                <Typography variant="h1" component="span">{scorePred[0]}</Typography>
-                <Typography variant="body1" component="span">({home_score_total})</Typography>
-              </Box>
-              <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
-              <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
-                <Typography variant="h1" component="span">{scorePred[1]}</Typography>
-                <Typography variant="body1" component="span">({away_score_total})</Typography>
-              </Box>
-            </Grid>
-
-            {/* Away */}
-            <Grid item xs={12} md={4} display="flex" flexDirection="column" alignItems="center" textAlign="center">
-              <Avatar alt="?" src={getFlag(away_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
-              <Typography variant="h3" align="center">{getHistoricalName(away_team)}</Typography>
-            </Grid>
+        <Grid container spacing={2}>
+          {/* Home */}
+          <Grid size={{ xs: 12, md: 4 }} display="flex" flexDirection="column" alignItems="center" textAlign="center">
+            <Avatar alt="?" src={getFlag(home_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Typography variant="h3" align="center">{getHistoricalName(home_team)}</Typography>
           </Grid>
-        </Box>
+
+          {/* Score */}
+          <Grid size={{ xs: 12, md: 4 }} display="flex" justifyContent="center" alignItems="center">
+            <Box display="flex" flexDirection="column" alignItems="center" sx={{ mr: 2 }}>
+              <Typography variant="h1" component="span">{scorePred[0]}</Typography>
+              <Typography variant="body1" component="span">({home_score_total})</Typography>
+            </Box>
+            <Typography variant="h4" component="span" sx={{ mx: 2 }}>-</Typography>
+            <Box display="flex" flexDirection="column" alignItems="center" sx={{ ml: 2 }}>
+              <Typography variant="h1" component="span">{scorePred[1]}</Typography>
+              <Typography variant="body1" component="span">({away_score_total})</Typography>
+            </Box>
+          </Grid>
+
+          {/* Away */}
+          <Grid size={{ xs: 12, md: 4 }} display="flex" flexDirection="column" alignItems="center" textAlign="center">
+            <Avatar alt="?" src={getFlag(away_team, true)} sx={{ width: 80, height: 80, marginBottom: 1, border: '0.5px solid lightgray' }} />
+            <Typography variant="h3" align="center">{getHistoricalName(away_team)}</Typography>
+          </Grid>
+        </Grid>
         <Box mt={5} sx={{ width: '100%', bgcolor: 'grey.300', borderRadius: '10px', height: '24px', display: 'flex' }}>
           <Box sx={{ bgcolor: 'primary.main', borderRadius: '6px 0 0 6px', width: `${preds[0]}%`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Typography variant="h6" color="white">{preds[0]}%</Typography>

@@ -3,7 +3,8 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { useTranslations } from 'next-intl';
-import { Stack, Typography, Avatar, Grid } from '@mui/material';
+import { Stack, Typography, Avatar } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { IconArrowUpLeft, IconArrowDownRight } from '@tabler/icons-react';
 import DashboardCard from '@/components/shared/DashboardCard';
 
@@ -49,7 +50,7 @@ const OverallStatistics: React.FC<{ correctPrev: number; correct: number; }> = (
   return (
     <DashboardCard title={t('OverallStatistics.title')}>
       <Grid container spacing={3}>
-        <Grid item xs={7}>
+        <Grid size={7}>
           <Typography variant="h3" fontWeight="700">{correct}%</Typography>
           <Stack direction="row" spacing={1} mt={1} alignItems="center">
             {
@@ -77,7 +78,7 @@ const OverallStatistics: React.FC<{ correctPrev: number; correct: number; }> = (
             </Stack>
           </Stack>
         </Grid>
-        <Grid item xs={5}>
+        <Grid size={5}>
           <Chart options={optionscolumnchart} series={[correct, 100 - correct]} type="donut" height={150} width={"100%"} />
         </Grid>
       </Grid>

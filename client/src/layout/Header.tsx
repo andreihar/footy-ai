@@ -193,7 +193,7 @@ function Header({ year }: { year: number; }) {
                 <Fragment key={item.title}>
                   <ListItem disablePadding>
                     <ListItemButton onClick={() => setOpen(open === item.title ? null : item.title)} sx={{ padding: '16px 32px' }}>
-                      <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                      <ListItemText primary={item.title} slotProps={{ primary: { sx: { fontWeight: '900' } } }} />
                       {open === item.title ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                   </ListItem>
@@ -202,7 +202,7 @@ function Header({ year }: { year: number; }) {
                       {item.children.map((child) => (
                         <ListItem key={child.title} disablePadding>
                           <ListItemButton href={`/${year}${child.href}`} sx={{ padding: '16px 32px 16px 50px' }}>
-                            <ListItemText primary={child.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                            <ListItemText primary={child.title} slotProps={{ primary: { sx: { fontWeight: '900' } } }} />
                           </ListItemButton>
                         </ListItem>
                       ))}
@@ -212,7 +212,7 @@ function Header({ year }: { year: number; }) {
               ) : (
                 <ListItem key={item.title} disablePadding>
                   <ListItemButton href={`/${year}${item.href}`} sx={{ padding: '16px 32px' }}>
-                    <ListItemText primary={item.title} primaryTypographyProps={{ sx: { fontWeight: '900' } }} />
+                    <ListItemText primary={item.title} slotProps={{ primary: { sx: { fontWeight: '900' } } }} />
                   </ListItemButton>
                 </ListItem>
               )

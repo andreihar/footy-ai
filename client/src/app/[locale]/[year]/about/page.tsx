@@ -1,4 +1,5 @@
-import { Box, Grid, CardContent, Typography, Link, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
+import { Box, CardContent, Typography, Link, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import DashboardCard from '@/components/shared/DashboardCard';
 import GithubCard from '@/components/card/GithubCard';
@@ -45,22 +46,18 @@ export default function AboutPage({ params: { locale } }: Props) {
         <Typography mb={2}>{t('text2', { title: process.env.NEXT_PUBLIC_TITLE })}</Typography>
         <Typography variant="h4" gutterBottom>{t('title3')}</Typography>
         <Typography mb={2}>{t('text3', { title: process.env.NEXT_PUBLIC_TITLE })}</Typography>
-        <Box pl={2} mb={2}>
-          <Grid container spacing={2}>
-            {listItems.map((item, index) => (
-              <Grid item xs={12} md={6} key={index}>
-                <List>
-                  <ListItem>
-                    <ListItemIcon sx={{ color: "inherit" }}>
-                      <item.Icon />
-                    </ListItemIcon>
-                    <ListItemText primary={item.title} secondary={item.description} primaryTypographyProps={{ sx: { fontWeight: '900', fontSize: '1.15rem' } }} secondaryTypographyProps={{ sx: { fontSize: '1rem', lineHeight: "1.3rem" } }} />
-                  </ListItem>
-                </List>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+        <Grid container spacing={2} pl={2} mb={2}>
+          {listItems.map((item, index) => (
+            <Grid size={{ xs: 12, md: 6 }} key={index}>
+              <List>
+                <ListItem>
+                  <ListItemIcon sx={{ color: "inherit" }}><item.Icon /></ListItemIcon>
+                  <ListItemText primary={item.title} secondary={item.description} slotProps={{ primary: { sx: { fontWeight: '900', fontSize: '1.15rem' } }, secondary: { sx: { fontSize: '1rem', lineHeight: "1.3rem" } } }} />
+                </ListItem>
+              </List>
+            </Grid>
+          ))}
+        </Grid>
         <Typography variant="h4" gutterBottom>{t('title4')}</Typography>
         <Typography mb={2}>{t('text4')}</Typography>
         <Typography mb={2}>
