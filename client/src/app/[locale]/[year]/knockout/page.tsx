@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { getStats } from '@/utils/stats';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
+import useYear from '@/utils/yearUtils';
 import Match from '@/types/match';
 import MatchBracket from '@/components/knockout/MatchBracket';
 import './style.scss';
@@ -12,11 +13,12 @@ type Props = {
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
   setRequestLocale(locale);
+  const { getTourneyName } = useYear(Number(year));
   const t = await getTranslations('Knockout');
 
   return generateSEO({
     title: t('title'),
-    description: t('description', { year: year })
+    description: t('description', { tourney: getTourneyName(Number(year)) })
   });
 }
 
@@ -35,7 +37,7 @@ export default async function KnockoutPage({ params: { locale, year } }: Props) 
     }, {});
 
     if (playOuts) {
-      const playOutMatches = data.filter(match => match.stage === 'Play-outs').sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      const playOutMatches = data.filter(match => match.stage === 'Play-outs').sort((a, b) => a.date.getTime() - b.date.getTime());
       playOutMatches.forEach((match, index) => {
         const stage = `Play-outs ${Math.floor(index / 2) + 1}`;
         sortedMatchesByStage[stage] = [];

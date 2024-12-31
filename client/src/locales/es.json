@@ -5,7 +5,7 @@
 	},
 	"Overview": {
 		"title": "Resumen",
-		"description": "Explora la precisión de los pronósticos de partidos impulsados por IA para la Eurocopa {year}. Consulta resultados recientes, actualizaciones diarias y estadísticas de equipos."
+		"description": "Explora la precisión de los pronósticos de partidos impulsados por IA para la {tourney}. Consulta resultados recientes, actualizaciones diarias y estadísticas de equipos."
 	},
 	"GeneralStats": {
 		"perfect": "Marcadores Exactos",
@@ -33,11 +33,11 @@
 	},
 	"Matches": {
 		"title": "Todos los partidos",
-		"description": "Accede a pronósticos y resultados detallados de todos los partidos de la Eurocopa {year}. Compara pronósticos de IA con los resultados reales de cada partido."
+		"description": "Accede a pronósticos y resultados detallados de todos los partidos de la {tourney}. Compara pronósticos de IA con los resultados reales de cada partido."
 	},
 	"Group": {
 		"title": "Fase de grupos",
-		"description": "Descubre pronósticos de IA para la fase de grupos de la Eurocopa {year}. Analiza la precisión en los resultados, puntuaciones y clasificaciones de cada grupo.",
+		"description": "Descubre pronósticos de IA para la fase de grupos de la {tourney}. Analiza la precisión en los resultados, puntuaciones y clasificaciones de cada grupo.",
 		"team": "Equipo",
 		"w": "V",
 		"d": "E",
@@ -53,7 +53,7 @@
 	},
 	"Knockout": {
 		"title": "Fase eliminatoria",
-		"description": "Sigue los pronósticos de la fase eliminatoria de la Eurocopa {year} con predicciones basadas en IA. Revisa las actualizaciones de cada partido a través del torneo.",
+		"description": "Sigue los pronósticos de la fase eliminatoria de la {tourney} con predicciones basadas en IA. Revisa las actualizaciones de cada partido a través del torneo.",
 		"Final": "Final",
 		"Semi-finals": "Semifinales",
 		"Quarter-finals": "Cuartos de final",
@@ -71,6 +71,8 @@
 		"predict": "Predecir"
 	},
 	"About": {
+		"euro": "Eurocopa",
+		"nations": "Nations League",
 		"title": "Acerca de {title}",
 		"description": "Obtén más información sobre {title}, una plataforma de IA para predecir partidos de la Eurocopa y la Nations League. Explora las características, metodología e historia de este proyecto.",
 		"text1": "¡Bienvenidos a {title}! Inspirados por la emoción y la imprevisibilidad de los torneos de la Eurocopa de la UEFA y la Nations League, {title} tiene como objetivo ofrecer una combinación única de análisis histórico y tecnología moderna a los entusiastas del fútbol de todo el mundo.",

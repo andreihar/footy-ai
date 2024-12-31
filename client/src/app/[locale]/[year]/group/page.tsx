@@ -1,6 +1,7 @@
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { getStats } from '@/utils/stats';
+import useYear from '@/utils/yearUtils';
 import GroupCard from '@/components/card/GroupCard';
 
 type Props = {
@@ -9,11 +10,12 @@ type Props = {
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
   setRequestLocale(locale);
+  const { getTourneyName } = useYear(Number(year));
   const t = await getTranslations('Group');
 
   return generateSEO({
     title: t('title'),
-    description: t('description', { year: year })
+    description: t('description', { tourney: getTourneyName(Number(year)) })
   });
 }
 

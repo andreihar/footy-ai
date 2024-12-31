@@ -5,7 +5,7 @@
 	},
 	"Overview": {
 		"title": "Aperçu",
-		"description": "Découvrez la précision des prédictions de match par IA pour l'UEFA Euro {year}. Consultez les résultats récents, mises à jour quotidiennes et statistiques des équipes."
+		"description": "Découvrez la précision des prédictions de match par IA pour l'UEFA {tourney}. Consultez les résultats récents, mises à jour quotidiennes et statistiques des équipes."
 	},
 	"GeneralStats": {
 		"perfect": "Scores Exactes",
@@ -33,11 +33,11 @@
 	},
 	"Matches": {
 		"title": "Tous les Matchs",
-		"description": "Accédez à des prédictions et résultats détaillés pour chaque match de l'UEFA Euro {year}. Comparez les prévisions IA avec les résultats réels."
+		"description": "Accédez à des prédictions et résultats détaillés pour chaque match de l'UEFA {tourney}. Comparez les prévisions IA avec les résultats réels."
 	},
 	"Group": {
 		"title": "Phase de Groupes",
-		"description": "Découvrez les prédictions de l'IA pour la phase de groupes de l'UEFA Euro {year}. Analysez la précision IA dans les résultats, scores et classements des équipes.",
+		"description": "Découvrez les prédictions de l'IA pour la phase de groupes de l'UEFA {tourney}. Analysez la précision IA dans les résultats, scores et classements des équipes.",
 		"team": "Équipe",
 		"w": "V",
 		"d": "N",
@@ -53,7 +53,7 @@
 	},
 	"Knockout": {
 		"title": "Phase à Élimination Directe",
-		"description": "Suivez les prédictions de la phase à élimination directe de l'UEFA Euro {year}. Suivez les mises à jour IA match par match dans les grilles du tournoi.",
+		"description": "Suivez les prédictions de la phase à élimination directe de l'UEFA {tourney}. Suivez les mises à jour IA match par match dans les grilles du tournoi.",
 		"Final": "Finale",
 		"Semi-finals": "Demi-finales",
 		"Quarter-finals": "Quarts de finale",
@@ -71,6 +71,8 @@
 		"predict": "Prédire"
 	},
 	"About": {
+		"euro": "EURO",
+		"nations": "Nations League",
 		"title": "À propos de {title}",
 		"description": "Découvrez {title}, une plateforme IA pour prédire les matchs de l'UEFA Euro et de la Nations League. Explorez les fonctionnalités, la méthodologie et l'histoire de ce projet.",
 		"text1": "Bienvenue sur {title}! Inspiré par l'excitation et l'imprévisibilité des tournois de l'UEFA Euro et de la Nations League, {title} vise à apporter un mélange unique d'analyse historique et de technologie moderne aux passionnés de football du monde entier.",

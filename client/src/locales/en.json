@@ -5,7 +5,7 @@
 	},
 	"Overview": {
 		"title": "Overview",
-		"description": "Explore AI-powered match prediction accuracy for UEFA Euro {year}. View recent outcomes, daily updates, team stats, and overall performance."
+		"description": "Explore AI-powered match prediction accuracy for UEFA {tourney}. View recent outcomes, daily updates, team stats, and overall performance."
 	},
 	"GeneralStats": {
 		"perfect": "Exact Scores",
@@ -33,11 +33,11 @@
 	},
 	"Matches": {
 		"title": "All Matches",
-		"description": "Access detailed predictions and results for all UEFA Euro {year} matches. Compare AI-generated forecasts with actual outcomes for every game."
+		"description": "Access detailed predictions and results for all UEFA {tourney} matches. Compare AI-generated forecasts with actual outcomes for every game."
 	},
 	"Group": {
 		"title": "Group Stage",
-		"description": "Discover AI predictions for UEFA Euro {year} group stage. Analyse AI-driven accuracy in match outcomes, scores, and team rankings for each group.",
+		"description": "Discover AI predictions for UEFA {tourney} group stage. Analyse AI-driven accuracy in match outcomes, scores, and team rankings for each group.",
 		"team": "Team",
 		"w": "W",
 		"d": "D",
@@ -53,7 +53,7 @@
 	},
 	"Knockout": {
 		"title": "Knockout Stage",
-		"description": "Track the knockout stage predictions of UEFA Euro {year} with AI-based forecasts. Follow match-by-match updates through the tournament brackets.",
+		"description": "Track the knockout stage predictions of UEFA {tourney} with AI-based forecasts. Follow match-by-match updates through the tournament brackets.",
 		"Final": "Final",
 		"Semi-finals": "Semi-finals",
 		"Quarter-finals": "Quarter-finals",
@@ -71,6 +71,8 @@
 		"predict": "Predict"
 	},
 	"About": {
+		"euro": "EURO",
+		"nations": "Nations League",
 		"title": "About {title}",
 		"description": "Learn about {title}, an AI platform for predicting UEFA Euro and Nations League matches. Explore features, methodology, and the story behind this project.",
 		"text1": "Welcome to {title}! Inspired by the excitement and unpredictability of the UEFA Euro and Nations League tournaments, {title} aims to bring a unique blend of historical analysis and modern technology to football enthusiasts around the world.",

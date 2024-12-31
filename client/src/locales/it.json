@@ -5,7 +5,7 @@
 	},
 	"Overview": {
 		"title": "Panoramica",
-		"description": "Esplora l'accuratezza delle previsioni delle partite basate su IA per UEFA Euro {year}. Visualizza risultati recenti, aggiornamenti giornalieri e statistiche delle squadre."
+		"description": "Esplora l'accuratezza delle previsioni delle partite basate su IA per UEFA {tourney}. Visualizza risultati recenti, aggiornamenti giornalieri e statistiche delle squadre."
 	},
 	"GeneralStats": {
 		"perfect": "Punteggi Esatti",
@@ -33,11 +33,11 @@
 	},
 	"Matches": {
 		"title": "Tutte le partite",
-		"description": "Accedi a previsioni e risultati dettagliati per tutte le partite di UEFA Euro {year}. Confronta le previsioni IA con i risultati effettivi di ogni partita."
+		"description": "Accedi a previsioni e risultati dettagliati per tutte le partite di UEFA {tourney}. Confronta le previsioni IA con i risultati effettivi di ogni partita."
 	},
 	"Group": {
 		"title": "Fase a gironi",
-		"description": "Scopri le previsioni IA per la fase a gironi di UEFA Euro {year}. Analizza l'accuratezza nei risultati delle partite, punteggi e classifiche delle squadre.",
+		"description": "Scopri le previsioni IA per la fase a gironi di UEFA {tourney}. Analizza l'accuratezza nei risultati delle partite, punteggi e classifiche delle squadre.",
 		"team": "Squadra",
 		"w": "V",
 		"d": "P",
@@ -53,7 +53,7 @@
 	},
 	"Knockout": {
 		"title": "Fase a eliminazione diretta",
-		"description": "Tieni traccia delle previsioni per la fase a eliminazione diretta di UEFA Euro {year} con previsioni basate su IA. Segui gli aggiornamenti partita per partita.",
+		"description": "Tieni traccia delle previsioni per la fase a eliminazione diretta di UEFA {tourney} con previsioni basate su IA. Segui gli aggiornamenti partita per partita.",
 		"Final": "Finale",
 		"Semi-finals": "Semifinali",
 		"Quarter-finals": "Quarti di finale",
@@ -71,6 +71,8 @@
 		"predict": "Previsione"
 	},
 	"About": {
+		"euro": "EURO",
+		"nations": "Nations League",
 		"title": "Informazioni su {title}",
 		"description": "Scopri {title}, una piattaforma IA per prevedere le partite UEFA Euro e Nations League. Esplora funzionalità, metodologia e la storia dietro il progetto.",
 		"text1": "Benvenuti a {title}! Ispirata dall'entusiasmo e dall'imprevedibilità dei tornei UEFA Euro e Nations League, {title} mira a portare un mix unico di analisi storica e tecnologia moderna agli appassionati di calcio di tutto il mondo.",

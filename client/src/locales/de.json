@@ -5,7 +5,7 @@
 	},
 	"Overview": {
 		"title": "Übersicht",
-		"description": "Erkunden Sie die Genauigkeit der KI-gestützten Spielvorhersagen für die UEFA Euro {year}. Sehen Sie Ergebnisse, tägliche Updates, Teamstatistiken und Gesamtleistung."
+		"description": "Erkunden Sie die Genauigkeit der KI-gestützten Spielvorhersagen für die UEFA {tourney}. Sehen Sie Ergebnisse, tägliche Updates, Teamstatistiken und Gesamtleistung."
 	},
 	"GeneralStats": {
 		"perfect": "Exakte Ergebnisse",
@@ -33,11 +33,11 @@
 	},
 	"Matches": {
 		"title": "Alle Spiele",
-		"description": "Greifen Sie auf detaillierte Vorhersagen und Ergebnisse für alle UEFA Euro {year}-Spiele zu. Vergleichen Sie KI-Prognosen mit den tatsächlichen Resultaten jedes Spiels."
+		"description": "Greifen Sie auf detaillierte Vorhersagen und Ergebnisse für alle UEFA {tourney}-Spiele zu. Vergleichen Sie KI-Prognosen mit den tatsächlichen Resultaten jedes Spiels."
 	},
 	"Group": {
 		"title": "Gruppenphase",
-		"description": "Entdecken Sie KI-Vorhersagen für die Gruppenphase der UEFA Euro {year}. Analysieren Sie Spielergebnisse, Punktestände und Teamranglisten für jede Gruppe.",
+		"description": "Entdecken Sie KI-Vorhersagen für die Gruppenphase der UEFA {tourney}. Analysieren Sie Spielergebnisse, Punktestände und Teamranglisten für jede Gruppe.",
 		"team": "Mannschaft",
 		"w": "S",
 		"d": "U",
@@ -53,7 +53,7 @@
 	},
 	"Knockout": {
 		"title": "Finalrunde",
-		"description": "Verfolgen Sie die Vorhersagen für die Finalrunde der UEFA Euro {year}. Sehen Sie sich KI-basierte Spiel-für-Spiel-Updates und Turniertabellen an.",
+		"description": "Verfolgen Sie die Vorhersagen für die Finalrunde der UEFA {tourney}. Sehen Sie sich KI-basierte Spiel-für-Spiel-Updates und Turniertabellen an.",
 		"Final": "Finale",
 		"Semi-finals": "Halbfinale",
 		"Quarter-finals": "Viertelfinale",
@@ -71,11 +71,13 @@
 		"predict": "Vorhersagen"
 	},
 	"About": {
+		"euro": "Europameisterschaft",
+		"nations": "Nations League",
 		"title": "Über {title}",
-		"description": "Erfahren Sie mehr über {title}, eine KI-Plattform zur Vorhersage von UEFA Euro- und Nations League-Spielen. Entdecken Sie Funktionen, Methodik und die Geschichte dieses Projekts.",
-		"text1": "Willkommen bei {title}! Inspiriert von der Spannung und Unvorhersehbarkeit der UEFA Euro- und Nations League-Turniere möchte {title} Fußballfans auf der ganzen Welt eine einzigartige Mischung aus historischer Analyse und moderner Technologie bieten.",
+		"description": "Erfahren Sie mehr über {title}, eine KI-Plattform zur Vorhersage von UEFA EM- und Nations League-Spielen. Entdecken Sie Funktionen, Methodik und die Geschichte dieses Projekts.",
+		"text1": "Willkommen bei {title}! Inspiriert von der Spannung und Unvorhersehbarkeit der UEFA EM- und Nations League-Turniere möchte {title} Fußballfans auf der ganzen Welt eine einzigartige Mischung aus historischer Analyse und moderner Technologie bieten.",
 		"title2": "Meine Geschichte",
-		"text2": "Die Idee für {title} entstand aus meiner Liebe zum Fußball und meiner Faszination für das Potenzial künstlicher Intelligenz. Mit der bevorstehenden UEFA Euro 2024 machte ich mich daran, eine KI zu entwickeln, die die Ergebnisse von Fußballspielen zwischen beliebigen Nationalmannschaften aus jeder beliebigen Epoche der Geschichte vorhersagen kann. Mein Ziel war es, herauszufinden, wie gut die KI das aktuelle Euro-Turnier vorhersagen kann, und die historischen Gewinnchancen der Teams in vergangenen Turnieren zu untersuchen.",
+		"text2": "Die Idee für {title} entstand aus meiner Liebe zum Fußball und meiner Faszination für das Potenzial künstlicher Intelligenz. Mit der bevorstehenden UEFA EM 2024 machte ich mich daran, eine KI zu entwickeln, die die Ergebnisse von Fußballspielen zwischen beliebigen Nationalmannschaften aus jeder beliebigen Epoche der Geschichte vorhersagen kann. Mein Ziel war es, herauszufinden, wie gut die KI das aktuelle EM-Turnier vorhersagen kann, und die historischen Gewinnchancen der Teams in vergangenen Turnieren zu untersuchen.",
 		"title3": "Mein Angebot",
 		"text3": "{title} bietet eine umfassende Plattform zur Visualisierung und Interaktion mit den von der KI generierten Vorhersagen. Folgendes können Sie auf der Website erkunden:",
 		"list": {

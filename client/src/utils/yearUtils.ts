@@ -7,6 +7,7 @@ type CountryCodes = {
 
 const useYear = (year: number) => {
   const t = useTranslations('Country');
+  const t_about = useTranslations('About');
 
   const uefaChanges = {
     1960: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Czechia', 'Denmark', 'East Germany', 'England', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Luxembourg', 'Netherlands', 'Northern Ireland', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Serbia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Wales'],
@@ -96,7 +97,7 @@ const useYear = (year: number) => {
   };
 
   const getTourneyName = (year: number) => {
-    return isEuro(year) ? `EURO ${year}` : `Nations League ${year - 1}-${year.toString().slice(-2)}`;
+    return isEuro(year) ? `${t_about('euro')} ${year}` : `${t_about('nations')} ${year - 1}-${year.toString().slice(-2)}`;
   };
 
   return { getFlag, getUefaCountries, getHistoricalName, isEuro, getTourneyName };

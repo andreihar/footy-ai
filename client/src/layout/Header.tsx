@@ -1,7 +1,8 @@
 import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Divider, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme, SelectChangeEvent } from '@mui/material';
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
-import { useEffect, useState, useRef, Fragment } from 'react';
+import { useEffect, useState, useRef, Fragment, startTransition, ChangeEvent } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import { Locale, usePathname, useRouter, Pathnames, routing } from '@/i18n/routing';
 import { useTheme, lighten, darken } from '@mui/material/styles';
 import useYear from '@/utils/yearUtils';
@@ -19,6 +20,7 @@ function Header({ year }: { year: number; }) {
   const theme = useTheme();
   const isSmOrLarger = useMediaQuery(theme.breakpoints.up('sm'));
   const router = useRouter();
+  const searchParams = useSearchParams();
   const pathname = usePathname();
   const locale = useLocale() as Locale;
 
@@ -43,14 +45,24 @@ function Header({ year }: { year: number; }) {
 
   const handleLocaleChange = (event: SelectChangeEvent<Locale>) => {
     const nextLocale = event.target.value as Locale;
-    const newPathname = { pathname: pathname as Pathnames, params: { year: year } };
-    router.push(newPathname, { locale: nextLocale });
+    const queryParams = Object.fromEntries(searchParams.entries());
+
+    startTransition(() => {
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        { pathname: pathname as Pathnames, params: { year }, query: queryParams, },
+        { locale: nextLocale }
+      );
+    });
   };
 
   const handleYearChange = (event: SelectChangeEvent<number>) => {
     const selectedYear = Number(event.target.value);
-    const newPathname = { pathname: pathname as Pathnames, params: { year: selectedYear.toString() } };
-    router.push(newPathname, { locale: locale });
+    const newPathname = { pathname, params: { year: selectedYear.toString() } };
+
+    startTransition(() => {
+      router.push(newPathname, { locale });
+    });
   };
 
   type DropdownMenuProps = {

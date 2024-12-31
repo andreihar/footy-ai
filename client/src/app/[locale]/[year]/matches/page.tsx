@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import { getStats } from '@/utils/stats';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
+import useYear from '@/utils/yearUtils';
 import MatchCard from '@/components/card/MatchCard';
 import PaginationComponent from '@/components/shared/PaginationComponent';
 
@@ -12,11 +13,12 @@ type Props = {
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
   setRequestLocale(locale);
+  const { getTourneyName } = useYear(Number(year));
   const t = await getTranslations('Matches');
 
   return generateSEO({
     title: t('title'),
-    description: t('description', { year: year })
+    description: t('description', { tourney: getTourneyName(Number(year)) })
   });
 }
 
