@@ -2,13 +2,13 @@
 import { Avatar, Box, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress, Autocomplete } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import DashboardCard from '@/components/shared/DashboardCard';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useCountries } from '@/utils/yearUtils';
 import { useTranslations } from 'next-intl';
 import fetchMatch from '@/utils/fetchMatch';
 
-export default function CustomPage({ params: { year } }: { params: { year: string; }; }) {
+function CustomPage({ params: { year } }: { params: { year: string; }; }) {
   const { getFlag, getUefaCountries, getHistoricalName } = useCountries(Number(year));
   const countries = getUefaCountries().map(country => ({ country, name: getHistoricalName(country) }));
   const t = useTranslations('Custom');
@@ -48,7 +48,7 @@ export default function CustomPage({ params: { year } }: { params: { year: strin
       setLoading(false);
       console.error('Failed to fetch match prediction:', error);
     }
-  }, [home, away, allowDraw, year]);
+  }, [home, away, allowDraw, year, searchParams]);
 
   useEffect(() => {
     fetchMatchPrediction();
@@ -66,7 +66,7 @@ export default function CustomPage({ params: { year } }: { params: { year: strin
   }, [searchParams]);
 
   return (
-    (<DashboardCard>
+    <DashboardCard>
       <CardContent>
         <Grid container spacing={2}>
           {/* Home */}
@@ -137,6 +137,14 @@ export default function CustomPage({ params: { year } }: { params: { year: strin
           </Box>
         </Box>
       </CardContent>
-    </DashboardCard >)
+    </DashboardCard>
+  );
+}
+
+export default function CustomPageWithSuspense(props: { params: { year: string; }; }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CustomPage {...props} />
+    </Suspense>
   );
 }
