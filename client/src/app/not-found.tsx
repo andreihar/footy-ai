@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
+import { years } from '@/config';
 
 export default function NotFoundPage() {
-  redirect('/en/2024/not-found');
+  redirect(`/en/${years[0]}/not-found`);
 }

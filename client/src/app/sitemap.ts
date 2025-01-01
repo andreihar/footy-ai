@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { host } from '@/config';
+import { host, years } from '@/config';
 import { Locale, getPathname, routing, Pathnames } from '@/i18n/routing';
-import { years } from '@/config';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries = [];

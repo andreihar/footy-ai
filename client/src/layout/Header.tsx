@@ -1,9 +1,8 @@
 import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Divider, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme, SelectChangeEvent } from '@mui/material';
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
-import { useEffect, useState, useRef, Fragment, startTransition, ChangeEvent, Suspense } from 'react';
+import { useEffect, useState, useRef, Fragment, startTransition } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
-import { Locale, usePathname, useRouter, Pathnames, routing } from '@/i18n/routing';
+import { Locale, useRouter, usePathname, Pathnames, routing } from '@/i18n/routing';
 import { useTheme, lighten, darken } from '@mui/material/styles';
 import { useYear } from '@/utils/yearUtils';
 import Logo from './Logo';
@@ -20,7 +19,6 @@ function Header({ year }: { year: number; }) {
   const theme = useTheme();
   const isSmOrLarger = useMediaQuery(theme.breakpoints.up('sm'));
   const router = useRouter();
-  const searchParams = useSearchParams();
   const pathname = usePathname();
   const locale = useLocale() as Locale;
 
@@ -43,8 +41,9 @@ function Header({ year }: { year: number; }) {
     }
   ];
 
-  const handleLocaleChange = (event: SelectChangeEvent<Locale>) => {
+  const handleLocaleChange = async (event: SelectChangeEvent<Locale>) => {
     const nextLocale = event.target.value as Locale;
+    const searchParams = new URLSearchParams(window.location.search);
     const queryParams = Object.fromEntries(searchParams.entries());
 
     startTransition(() => {
@@ -155,17 +154,13 @@ function Header({ year }: { year: number; }) {
                 item.children ? (
                   <DropdownMenu key={item.title} item={item} sx={{
                     color: getColour(), backgroundColor: 'primary.main', display: { xs: 'none', md: 'block' }, paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease',
-                    '&:hover': {
-                      backgroundColor: darken(theme.palette.primary.main, 0.2)
-                    },
+                    '&:hover': { backgroundColor: darken(theme.palette.primary.main, 0.2) },
                   }} />
                 ) : (
                   <Button key={item.title} href={`/${year}${item.href}`} sx={{
                     color: getColour(), display: { xs: 'none', md: 'block' }, paddingY: '12px', borderRadius: '0', transition: 'background-color 0.3s ease, transform 0.3s ease', minWidth: '0px',
                     backgroundColor: (pathname.split('/')[2] === `${item.href.split('/')[1]}` || (item.href === '/' && pathname.split('/')[2] === undefined)) ? darken(theme.palette.primary.main, 0.2) : 'inherit',
-                    '&:hover': {
-                      backgroundColor: darken(theme.palette.primary.main, 0.2)
-                    },
+                    '&:hover': { backgroundColor: darken(theme.palette.primary.main, 0.2) },
                   }}>
                     {item.title}
                   </Button>
@@ -269,10 +264,4 @@ function Header({ year }: { year: number; }) {
   );
 }
 
-export default function HeaderWithSuspense(props: { year: number; }) {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Header {...props} />
-    </Suspense>
-  );
-}
+export default Header;
