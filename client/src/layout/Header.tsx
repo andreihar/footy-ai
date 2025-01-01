@@ -1,11 +1,11 @@
 import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Divider, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme, SelectChangeEvent } from '@mui/material';
 import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
-import { useEffect, useState, useRef, Fragment, startTransition, ChangeEvent } from 'react';
+import { useEffect, useState, useRef, Fragment, startTransition, ChangeEvent, Suspense } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { Locale, usePathname, useRouter, Pathnames, routing } from '@/i18n/routing';
 import { useTheme, lighten, darken } from '@mui/material/styles';
-import useYear from '@/utils/yearUtils';
+import { useYear } from '@/utils/yearUtils';
 import Logo from './Logo';
 import EuroLogo from './EuroLogo';
 import { years } from '@/config';
@@ -15,7 +15,7 @@ function Header({ year }: { year: number; }) {
   const [isStuck, setIsStuck] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState<string | null>(null);
-  const { getTourneyName } = useYear(year);
+  const { getTourneyName } = useYear();
   const t = useTranslations();
   const theme = useTheme();
   const isSmOrLarger = useMediaQuery(theme.breakpoints.up('sm'));
@@ -269,4 +269,10 @@ function Header({ year }: { year: number; }) {
   );
 }
 
-export default Header;
+export default function HeaderWithSuspense(props: { year: number; }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Header {...props} />
+    </Suspense>
+  );
+}

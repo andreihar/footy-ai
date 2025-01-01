@@ -1,11 +1,11 @@
-import { Box, CardContent, Typography, Link, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
+import { CardContent, Typography, Link, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import DashboardCard from '@/components/shared/DashboardCard';
 import GithubCard from '@/components/card/GithubCard';
 import { useTranslations } from 'next-intl';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import useYear from '@/utils/yearUtils';
+import { useYear } from '@/utils/yearUtils';
 import { years } from '@/config';
 import { IconBallFootball, IconTableShare, IconTournament, IconBrain } from "@tabler/icons-react";
 
@@ -29,7 +29,7 @@ export async function generateMetadata({ params: { locale } }: Props) {
 export default function AboutPage({ params: { locale } }: Props) {
   setRequestLocale(locale);
   const t = useTranslations('About');
-  const { getTourneyName } = useYear(2024);
+  const { getTourneyName } = useYear();
 
   const listItems = [
     { title: t('list.title1'), description: t('list.text1', { tourney: getTourneyName(years[0]) }), Icon: IconBrain },

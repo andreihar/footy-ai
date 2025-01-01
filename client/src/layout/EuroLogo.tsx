@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import useYear from '@/utils/yearUtils';
+import { useYear } from '@/utils/yearUtils';
 
 const EuroLogo: React.FC<{ year: number; }> = ({ year }) => {
-  const { isEuro, getTourneyName } = useYear(year);
+  const { isEuro, getTourneyName } = useYear();
   const getLogoSrc = (): string => {
     if (isEuro(year)) {
       return year === 2024

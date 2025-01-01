@@ -1,13 +1,13 @@
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import countryCodesData from './countryCodes.json';
 
 type CountryCodes = {
   [key: string]: string;
 };
 
-const useYear = (year: number) => {
+export const useCountries = (year: number) => {
   const t = useTranslations('Country');
-  const t_about = useTranslations('About');
 
   const uefaChanges = {
     1960: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Czechia', 'Denmark', 'East Germany', 'England', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Luxembourg', 'Netherlands', 'Northern Ireland', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Serbia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Wales'],
@@ -92,15 +92,24 @@ const useYear = (year: number) => {
     return t(`${getHistoricalNameEnglish(country)}` as any);
   };
 
-  const isEuro = (year: number) => {
-    return (year - 1960) % 4 === 0;
-  };
-
-  const getTourneyName = (year: number) => {
-    return isEuro(year) ? `${t_about('euro')} ${year}` : `${t_about('nations')} ${year - 1}-${year.toString().slice(-2)}`;
-  };
-
-  return { getFlag, getUefaCountries, getHistoricalName, isEuro, getTourneyName };
+  return { getFlag, getUefaCountries, getHistoricalName };
 };
 
-export default useYear;
+const isEuro = (year: number) => {
+  return (year - 1960) % 4 === 0;
+};
+
+export const useYear = () => {
+  const t = useTranslations('About');
+
+  const getTourneyName = (year: number) => {
+    return isEuro(year) ? `${t('euro')} ${year}` : `${t('nations')} ${year - 1}-${year.toString().slice(-2)}`;
+  };
+
+  return { getTourneyName, isEuro };
+};
+
+export const getTourneyNameStatic = async (year: number) => {
+  const t = await getTranslations('About');
+  return isEuro(year) ? `${t('euro')} ${year}` : `${t('nations')} ${year - 1}-${year.toString().slice(-2)}`;
+};

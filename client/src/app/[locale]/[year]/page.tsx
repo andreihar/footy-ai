@@ -2,7 +2,7 @@ import Grid from '@mui/material/Grid2';
 import { generateMetadata as generateSEO } from '@/components/SEO';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { getStats } from '@/utils/stats';
-import useYear from '@/utils/yearUtils';
+import { getTourneyNameStatic } from '@/utils/yearUtils';
 import GeneralStats from '@/components/dashboard/GeneralStats';
 import PredictionsOverview from '@/components/dashboard/PredictionsOverview';
 import OverallStatistics from '@/components/dashboard/OverallStatistics';
@@ -15,12 +15,11 @@ type Props = {
 
 export async function generateMetadata({ params: { locale, year } }: Props) {
   setRequestLocale(locale);
-  const { getTourneyName } = useYear(Number(year));
   const t = await getTranslations('Overview');
 
   return generateSEO({
     title: t('title'),
-    description: t('description', { tourney: getTourneyName(Number(year)) })
+    description: t('description', { tourney: await getTourneyNameStatic(Number(year)) })
   });
 }
 

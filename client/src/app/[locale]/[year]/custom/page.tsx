@@ -4,12 +4,12 @@ import Grid from '@mui/material/Grid2';
 import DashboardCard from '@/components/shared/DashboardCard';
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
-import useYear from '@/utils/yearUtils';
+import { useCountries } from '@/utils/yearUtils';
 import { useTranslations } from 'next-intl';
 import fetchMatch from '@/utils/fetchMatch';
 
 export default function CustomPage({ params: { year } }: { params: { year: string; }; }) {
-  const { getFlag, getUefaCountries, getHistoricalName } = useYear(Number(year));
+  const { getFlag, getUefaCountries, getHistoricalName } = useCountries(Number(year));
   const countries = getUefaCountries().map(country => ({ country, name: getHistoricalName(country) }));
   const t = useTranslations('Custom');
   const searchParams = useSearchParams();

@@ -3,7 +3,7 @@ import { IconCheck, IconX, IconMinus, IconListNumbers, IconMathXDivideY2, IconBa
 import grey from '@mui/material/colors/grey';
 import DashboardCard from '@/components/shared/DashboardCard';
 import { useTranslations } from 'next-intl';
-import useYear from '@/utils/yearUtils';
+import { useCountries } from '@/utils/yearUtils';
 import Match from '@/types/match';
 
 interface TeamStat {
@@ -59,7 +59,7 @@ function processMatches(allMatches: Match[], scoreExtractor: ((match: Match) => 
 }
 
 const GroupCard = ({ data, group, year }: { data: Match[]; group: string; year: number; }) => {
-  const { getFlag, getHistoricalName } = useYear(year);
+  const { getFlag, getHistoricalName } = useCountries(year);
   const t = useTranslations('Group');
 
   const allMatches = data.filter(match => match.stage === group);
