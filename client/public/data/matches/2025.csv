@@ -1,12 +1,12 @@
 home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
-Spain,Netherlands,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Estadio La Cartuja de Sevilla,Seville
-France,Croatia,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Stade de France,Saint-Denis
-Portugal,Denmark,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,Estádio José Alvalade,Lisbon
-Germany,Italy,,,,,,,2025-03-23T20:45:00Z,Quarter-finals,BVB Stadion Dortmund,Dortmund
-Netherlands,Spain,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadion Feijenoord 'De Kuip',Rotterdam
-Croatia,France,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadion Poljud,Split
-Denmark,Portugal,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Parken Stadium,Copenhagen
-Italy,Germany,,,,,,,2025-03-20T20:45:00Z,Quarter-finals,Stadio San Siro,Milan
+Spain,Netherlands,3,3,5,4,8,7,2025-03-23T20:45:00Z,Quarter-finals,Estadio La Cartuja de Sevilla,Seville
+France,Croatia,2,0,5,4,7,4,2025-03-23T20:45:00Z,Quarter-finals,Stade de France,Saint-Denis
+Portugal,Denmark,5,2,,,5,2,2025-03-23T20:45:00Z,Quarter-finals,Estádio José Alvalade,Lisbon
+Germany,Italy,3,3,,,3,3,2025-03-23T20:45:00Z,Quarter-finals,BVB Stadion Dortmund,Dortmund
+Netherlands,Spain,2,2,,,2,2,2025-03-20T20:45:00Z,Quarter-finals,Stadion Feijenoord 'De Kuip',Rotterdam
+Croatia,France,2,0,,,2,0,2025-03-20T20:45:00Z,Quarter-finals,Stadion Poljud,Split
+Denmark,Portugal,1,0,,,1,0,2025-03-20T20:45:00Z,Quarter-finals,Parken Stadium,Copenhagen
+Italy,Germany,1,2,,,1,2,2025-03-20T20:45:00Z,Quarter-finals,Stadio San Siro,Milan
 Albania,Ukraine,1,2,,,1,2,2024-11-19T20:45:00Z,Group B1,Air Albania Stadium,Tirana
 Czechia,Georgia,2,1,,,2,1,2024-11-19T20:45:00Z,Group B1,Andrův stadion,Olomouc
 Montenegro,Turkey,3,1,,,3,1,2024-11-19T20:45:00Z,Group B4,Gradski Stadion,Nikšić
