@@ -1,7 +1,6 @@
 {
 	"Header": {
-		"fixtures": "Partidos",
-		"locale": "{locale, select, fr {Français} de {Deutsch} es {Español} it {Italiano} pt {Português} other {English}}"
+		"fixtures": "Partidos"
 	},
 	"Overview": {
 		"title": "Resumen",

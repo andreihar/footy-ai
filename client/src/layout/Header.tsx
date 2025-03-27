@@ -1,13 +1,13 @@
-import { AppBar, Box, Container, Toolbar, IconButton, Typography, Button, Drawer, List, ListItem, ListItemButton, ListItemText, Divider, Select, MenuItem, SvgIcon, Fade, useMediaQuery, Menu, Collapse, SxProps, Theme, SelectChangeEvent } from '@mui/material';
-import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
-import { useEffect, useState, useRef, Fragment, startTransition } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
-import { Locale, useRouter, usePathname, Pathnames, routing } from '@/i18n/routing';
-import { useTheme, lighten, darken } from '@mui/material/styles';
-import { useYear } from '@/utils/yearUtils';
-import Logo from './Logo';
-import EuroLogo from './EuroLogo';
 import { years } from '@/config';
+import { Locale, Pathnames, routing, usePathname, useRouter } from '@/i18n/routing';
+import { useYear } from '@/utils/yearUtils';
+import { ExpandLess, ExpandMore, Menu as MenuIcon } from '@mui/icons-material';
+import { AppBar, Box, Button, Collapse, Container, Divider, Drawer, Fade, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Select, SelectChangeEvent, SvgIcon, SxProps, Theme, Toolbar, Typography, useMediaQuery } from '@mui/material';
+import { darken, lighten, useTheme } from '@mui/material/styles';
+import { useLocale, useTranslations } from 'next-intl';
+import { Fragment, startTransition, useEffect, useRef, useState } from 'react';
+import EuroLogo from './EuroLogo';
+import Logo from './Logo';
 
 function Header({ year }: { year: number; }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -123,10 +123,11 @@ function Header({ year }: { year: number; }) {
               </Typography>
             </Box>
             <Select variant="outlined" value={locale} onChange={handleLocaleChange} inputProps={{ 'aria-label': 'Language Selector' }}
-              sx={{ color: getColour(), borderColor: 'white', height: '32px', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
+              sx={{ color: getColour(), borderColor: 'white', height: '32px', textTransform: 'capitalize', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiSelect-icon': { color: getColour() }, '.MuiOutlinedInput-input': { paddingLeft: '4px', paddingRight: '24px !important' }, '&& fieldset': { border: 'none' }, }}
             >
               {routing.locales.map((code) => (
-                <MenuItem key={code} value={code}>{t('Header.locale', { locale: code })}</MenuItem>
+                // <MenuItem key={code} value={code}>{t('Header.locale', { locale: code })}</MenuItem>
+                <MenuItem key={code} value={code} sx={{ textTransform: 'capitalize' }}>{new Intl.DisplayNames(code, { type: 'language' }).of(code)}</MenuItem>
               ))}
             </Select>
           </Toolbar>
@@ -247,12 +248,12 @@ function Header({ year }: { year: number; }) {
               <ListItemButton sx={{ padding: '0px', width: '100%' }}>
                 <Select variant="outlined" value={locale} onChange={handleLocaleChange} fullWidth inputProps={{ 'aria-label': 'Language Selector' }}
                   sx={{
-                    color: 'inherit', fontWeight: '900', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiOutlinedInput-input': { paddingLeft: '0px', textAlign: 'center' },
+                    color: 'inherit', fontWeight: '900', textTransform: 'capitalize', '.MuiSvgIcon-root': { fontSize: '1rem' }, '.MuiOutlinedInput-input': { paddingLeft: '0px', textAlign: 'center' },
                     '&& fieldset': { border: 'none' }, '& .MuiSelect-select': { padding: '16px 32px' },
                   }}
                 >
                   {routing.locales.map((code) => (
-                    <MenuItem key={code} value={code}>{t('Header.locale', { locale: code })}</MenuItem>
+                    <MenuItem key={code} value={code} sx={{ textTransform: 'capitalize' }}>{new Intl.DisplayNames(code, { type: 'language' }).of(code)}</MenuItem>
                   ))}
                 </Select>
               </ListItemButton>

@@ -1,7 +1,6 @@
 {
 	"Header": {
-		"fixtures": "Calendrier",
-		"locale": "{locale, select, fr {Français} de {Deutsch} es {Español} it {Italiano} pt {Português} other {English}}"
+		"fixtures": "Calendrier"
 	},
 	"Overview": {
 		"title": "Aperçu",

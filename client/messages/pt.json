@@ -1,7 +1,6 @@
 {
 	"Header": {
-		"fixtures": "Jogos",
-		"locale": "{locale, select, fr {Français} de {Deutsch} es {Español} it {Italiano} pt {Português} other {English}}"
+		"fixtures": "Jogos"
 	},
 	"Overview": {
 		"title": "Visão geral",
