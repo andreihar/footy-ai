@@ -59,7 +59,10 @@ export const useCountries = (year: number) => {
         country === countryKey && year >= flag.year && year < (historicalFlags[countryKey].find(nextFlag => nextFlag.year > flag.year)?.year || Infinity)
       )
     ) || !circle ? historicalFlags[country]?.find(entry => year < entry.year) : undefined;
-    return customFlag ? customFlag.flagUrl : `${circle ? 'https://hatscripts.github.io/circle-flags/flags/' : 'https://raw.githubusercontent.com/lipis/flag-icons/b919a036693ee1ee0434ef5ae05f93543fc4f437/flags/4x3/'}${countryCodes[(getHistoricalNameEnglish(country) || country)]}.svg`;
+    return customFlag ? customFlag.flagUrl : `${circle
+      ? 'https://hatscripts.github.io/circle-flags/flags/'
+      : 'https://raw.githubusercontent.com/lipis/flag-icons/b919a036693ee1ee0434ef5ae05f93543fc4f437/flags/4x3/'
+      }${countryCodes[getHistoricalNameEnglish(country) || country].toLowerCase()}.svg`;
   };
 
   const getUefaCountries = (): string[] => {
