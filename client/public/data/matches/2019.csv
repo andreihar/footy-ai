@@ -1,143 +1,143 @@
 home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
-Portugal,Netherlands,1,0,,,1,0,2019-06-09T18:45:00Z,Final,Estádio do Dragão,Porto
-Switzerland,England,0,0,5,6,5,6,2019-06-09T13:00:00Z,Third-place play-off,Estádio D. Afonso Henriques,Guimaraes
-Netherlands,England,1,1,,,3,1,2019-06-06T18:45:00Z,Semi-finals,Estádio D. Afonso Henriques,Guimaraes
-Portugal,Switzerland,3,1,,,3,1,2019-06-05T18:45:00Z,Semi-finals,Estádio do Dragão,Porto
-Portugal,Poland,1,1,,,1,1,2018-11-20T19:45:00Z,Group A3,Estádio D. Afonso Henriques,Guimaraes
-Scotland,Israel,3,2,,,3,2,2018-11-20T19:45:00Z,Group C1,Hampden Park,Glasgow
-Sweden,Russia,2,0,,,2,0,2018-11-20T19:45:00Z,Group B2,Friends Arena,Solna
-Kosovo,Azerbaijan,4,0,,,4,0,2018-11-20T19:45:00Z,Group D3,Stadiumi Fadil Vokrri,Pristina
-Malta,Faroe Islands,1,1,,,1,1,2018-11-20T19:45:00Z,Group D3,National Stadium,Ta' Qali
-Montenegro,Romania,0,1,,,0,1,2018-11-20T19:45:00Z,Group C4,Gradski Stadion Podgorica,Podgorica
-Serbia,Lithuania,4,1,,,4,1,2018-11-20T19:45:00Z,Group C4,Stadion FK Partizan,Belgrade
-Germany,Netherlands,2,2,,,2,2,2018-11-19T19:45:00Z,Group A1,Arena AufSchalke,Gelsenkirchen
-Czechia,Slovakia,1,0,,,1,0,2018-11-19T19:45:00Z,Group B1,Eden Arena,Prague
-Denmark,Ireland,0,0,,,0,0,2018-11-19T19:45:00Z,Group B4,Aarhus Stadium,Aarhus
-Liechtenstein,Armenia,2,2,,,2,2,2018-11-19T19:45:00Z,Group D4,Rheinpark Stadion,Vaduz
-North Macedonia,Gibraltar,4,0,,,4,0,2018-11-19T19:45:00Z,Group D4,National Arena Todor Proeski,Skopje
-Bulgaria,Slovenia,1,1,,,1,1,2018-11-19T19:45:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
-Cyprus,Norway,0,2,,,0,2,2018-11-19T19:45:00Z,Group C3,GSP,Nicosia
-Andorra,Latvia,0,0,,,0,0,2018-11-19T17:00:00Z,Group D1,Estadi Nacional,Andorra la Vella
-Georgia,Kazakhstan,2,1,,,2,1,2018-11-19T17:00:00Z,Group D1,Boris Paichadze National Stadium Dinamo Arena,Tbilisi
-Switzerland,Belgium,5,2,,,5,2,2018-11-18T19:45:00Z,Group A2,Luzern Arena,Lucerne
-Greece,Estonia,0,1,,,0,1,2018-11-18T19:45:00Z,Group C2,Olympic Athletic Center of Athens,Athens
-Hungary,Finland,2,0,,,2,0,2018-11-18T19:45:00Z,Group C2,Ferencváros Stadion,Budapest
-Moldova,Luxembourg,1,1,,,1,1,2018-11-18T17:00:00Z,Group D2,Stadionul Zimbru,Chișinău
-San Marino,Belarus,0,2,,,0,2,2018-11-18T17:00:00Z,Group D2,San Marino Stadium,Serravalle
-Northern Ireland,Austria,1,2,,,1,2,2018-11-18T17:00:00Z,Group B3,Windsor Park,Belfast
-England,Croatia,2,1,,,2,1,2018-11-18T14:00:00Z,Group A4,Wembley Stadium,London
-Italy,Portugal,0,0,,,0,0,2018-11-17T19:45:00Z,Group A3,Stadio San Siro,Milan
-Albania,Scotland,0,4,,,0,4,2018-11-17T19:45:00Z,Group C1,Loro Boriçi Stadium,Shkoder
-Romania,Lithuania,3,0,,,3,0,2018-11-17T19:45:00Z,Group C4,Stadionul Ilie Oană,Ploiesti
-Turkey,Sweden,0,1,,,0,1,2018-11-17T17:00:00Z,Group B2,Konya Büyükşehir Belediye Stadyumu,Konya
-Malta,Kosovo,0,5,,,0,5,2018-11-17T17:00:00Z,Group D3,National Stadium,Ta' Qali
-Azerbaijan,Faroe Islands,2,0,,,2,0,2018-11-17T17:00:00Z,Group D3,Baku Olympic Stadium,Baku
-Serbia,Montenegro,2,1,,,2,1,2018-11-17T14:00:00Z,Group C4,Stadion Rajko Mitić,Belgrade
-Netherlands,France,2,0,,,2,0,2018-11-16T19:45:00Z,Group A1,Stadion Feijenoord 'De Kuip',Rotterdam
-Slovakia,Ukraine,4,1,,,4,1,2018-11-16T19:45:00Z,Group B1,Štadión Antona Malatinského,Trnava
-Wales,Denmark,1,2,,,1,2,2018-11-16T19:45:00Z,Group B4,Cardiff City Stadium,Cardiff
-Liechtenstein,North Macedonia,0,2,,,0,2,2018-11-16T19:45:00Z,Group D4,Rheinpark Stadion,Vaduz
-Gibraltar,Armenia,2,6,,,2,6,2018-11-16T19:45:00Z,Group D4,Victoria Stadium,Gibraltar
-Slovenia,Norway,1,1,,,1,1,2018-11-16T19:45:00Z,Group C3,Stadion Stožice,Ljubljana
-Cyprus,Bulgaria,1,1,,,1,1,2018-11-16T19:45:00Z,Group C3,GSP,Nicosia
-Belgium,Iceland,2,0,,,2,0,2018-11-15T19:45:00Z,Group A2,King Baudouin Stadium,Brussels
-Croatia,Spain,3,2,,,3,2,2018-11-15T19:45:00Z,Group A4,Stadion Maksimir,Zagreb
-Andorra,Georgia,1,1,,,1,1,2018-11-15T19:45:00Z,Group D1,Estadi Nacional,Andorra la Vella
-San Marino,Moldova,0,1,,,0,1,2018-11-15T19:45:00Z,Group D2,San Marino Stadium,Serravalle
-Luxembourg,Belarus,0,2,,,0,2,2018-11-15T19:45:00Z,Group D2,Stade Josy Barthel,Luxembourg
-Austria,Bosnia and Herzegovina,0,0,,,0,0,2018-11-15T19:45:00Z,Group B3,Ernst-Happel-Stadion,Vienna
-Greece,Finland,1,0,,,1,0,2018-11-15T19:45:00Z,Group C2,Olympic Athletic Center of Athens,Athens
-Hungary,Estonia,2,0,,,2,0,2018-11-15T19:45:00Z,Group C2,Ferencváros Stadion,Budapest
-Kazakhstan,Latvia,1,1,,,1,1,2018-11-15T15:00:00Z,Group D1,Astana Arena,Astana
-France,Germany,2,1,,,2,1,2018-10-16T18:45:00Z,Group A1,Stade de France,Saint-Denis
-Ukraine,Czechia,1,0,,,1,0,2018-10-16T18:45:00Z,Group B1,OSC Metalist,Kharkiv
-Latvia,Georgia,0,3,,,0,3,2018-10-16T18:45:00Z,Group D1,Daugava,Riga
-Ireland,Wales,0,1,,,0,1,2018-10-16T18:45:00Z,Group B4,Dublin Arena,Dublin
-Gibraltar,Liechtenstein,2,1,,,2,1,2018-10-16T18:45:00Z,Group D4,Victoria Stadium,Gibraltar
-Norway,Bulgaria,1,0,,,1,0,2018-10-16T18:45:00Z,Group C3,Ullevaal Stadion,Oslo
-Slovenia,Cyprus,1,1,,,1,1,2018-10-16T18:45:00Z,Group C3,Stadion Stožice,Ljubljana
-Armenia,North Macedonia,4,0,,,4,0,2018-10-16T16:00:00Z,Group D4,Republican Stadium after Vazgen Sargsyan,Yerevan
-Kazakhstan,Andorra,4,0,,,4,0,2018-10-16T14:00:00Z,Group D1,Astana Arena,Astana
-Iceland,Switzerland,1,2,,,1,2,2018-10-15T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavík
-Spain,England,2,3,,,2,3,2018-10-15T18:45:00Z,Group A4,Estadio Benito Villamarín,Seville
-Belarus,Moldova,0,0,,,0,0,2018-10-15T18:45:00Z,Group D2,National Olympic Stadium Dinamo,Minsk
-Luxembourg,San Marino,3,0,,,3,0,2018-10-15T18:45:00Z,Group D2,Stade Josy Barthel,Luxembourg
-Bosnia and Herzegovina,Northern Ireland,2,0,,,2,0,2018-10-15T18:45:00Z,Group B3,Stadion Grbavica,Sarajevo
-Estonia,Hungary,3,3,,,3,3,2018-10-15T18:45:00Z,Group C2,Lilleküla Stadium,Tallinn
-Finland,Greece,2,0,,,2,0,2018-10-15T18:45:00Z,Group C2,Tampere Stadion,Tampere
-Poland,Italy,0,1,,,0,1,2018-10-14T18:45:00Z,Group A3,Silesian Stadium,Chorzow
-Israel,Albania,2,0,,,2,0,2018-10-14T18:45:00Z,Group C1,Turner Stadium,Beer Sheva
-Lithuania,Montenegro,1,4,,,1,4,2018-10-14T18:45:00Z,Group C4,LFF stadionas,Vilnius
-Russia,Turkey,2,0,,,2,0,2018-10-14T16:00:00Z,Group B2,Fisht Stadium,Sochi
-Faroe Islands,Kosovo,1,1,,,1,1,2018-10-14T16:00:00Z,Group D3,Tórsvøllur,Torshavn
-Azerbaijan,Malta,1,1,,,1,1,2018-10-14T16:00:00Z,Group D3,Baku Olympic Stadium,Baku
-Romania,Serbia,0,0,,,0,0,2018-10-14T13:00:00Z,Group C4,National Arena,Bucharest
-Netherlands,Germany,3,0,,,3,0,2018-10-13T18:45:00Z,Group A1,Johan Cruijff ArenA,Amsterdam
-Ireland,Denmark,0,0,,,0,0,2018-10-13T18:45:00Z,Group B4,Dublin Arena,Dublin
-North Macedonia,Liechtenstein,4,1,,,4,1,2018-10-13T18:45:00Z,Group D4,National Arena Todor Proeski,Skopje
-Bulgaria,Cyprus,2,1,,,2,1,2018-10-13T18:45:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
-Georgia,Andorra,3,0,,,3,0,2018-10-13T16:00:00Z,Group D1,Boris Paichadze National Stadium Dinamo Arena,Tbilisi
-Latvia,Kazakhstan,1,1,,,1,1,2018-10-13T16:00:00Z,Group D1,Daugava,Riga
-Armenia,Gibraltar,0,1,,,0,1,2018-10-13T16:00:00Z,Group D4,Republican Stadium after Vazgen Sargsyan,Yerevan
-Norway,Slovenia,1,0,,,1,0,2018-10-13T16:00:00Z,Group C3,Ullevaal Stadion,Oslo
-Slovakia,Czechia,1,2,,,1,2,2018-10-13T13:00:00Z,Group B1,Štadión Antona Malatinského,Trnava
-Belgium,Switzerland,2,1,,,2,1,2018-10-12T18:45:00Z,Group A2,King Baudouin Stadium,Brussels
-Croatia,England,0,0,,,0,0,2018-10-12T18:45:00Z,Group A4,Stadion HNK Rijeka,Rijeka
-Belarus,Luxembourg,1,0,,,1,0,2018-10-12T18:45:00Z,Group D2,National Olympic Stadium Dinamo,Minsk
-Moldova,San Marino,2,0,,,2,0,2018-10-12T18:45:00Z,Group D2,Stadionul Zimbru,Chișinău
-Austria,Northern Ireland,1,0,,,1,0,2018-10-12T18:45:00Z,Group B3,Ernst-Happel-Stadion,Vienna
-Greece,Hungary,1,0,,,1,0,2018-10-12T18:45:00Z,Group C2,Olympic Athletic Center of Athens,Athens
-Estonia,Finland,0,1,,,0,1,2018-10-12T18:45:00Z,Group C2,Lilleküla Stadium,Tallinn
-Russia,Sweden,0,0,,,0,0,2018-10-11T19:45:00Z,Group B2,Kaliningrad Stadium,Kaliningrad
-Poland,Portugal,2,3,,,2,3,2018-10-11T18:45:00Z,Group A3,Silesian Stadium,Chorzow
-Israel,Scotland,2,1,,,2,1,2018-10-11T18:45:00Z,Group C1,Sammy Ofer Stadium,Haifa
-Kosovo,Malta,3,1,,,3,1,2018-10-11T18:45:00Z,Group D3,Stadiumi Fadil Vokrri,Pristina
-Faroe Islands,Azerbaijan,0,3,,,0,3,2018-10-11T18:45:00Z,Group D3,Tórsvøllur,Torshavn
-Lithuania,Romania,1,2,,,1,2,2018-10-11T18:45:00Z,Group C4,LFF stadionas,Vilnius
-Montenegro,Serbia,0,2,,,0,2,2018-10-11T18:45:00Z,Group C4,Gradski Stadion Podgorica,Podgorica
-Iceland,Belgium,0,3,,,0,3,2018-09-11T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavík
-Spain,Croatia,6,0,,,6,0,2018-09-11T18:45:00Z,Group A4,Estadio Manuel Martínez Valero,Elche
-San Marino,Luxembourg,0,3,,,0,3,2018-09-11T18:45:00Z,Group D2,San Marino Stadium,Serravalle
-Moldova,Belarus,0,0,,,0,0,2018-09-11T18:45:00Z,Group D2,Stadionul Zimbru,Chișinău
-Bosnia and Herzegovina,Austria,1,0,,,1,0,2018-09-11T18:45:00Z,Group B3,Stadion Bilino Polje,Zenica
-Hungary,Greece,2,1,,,2,1,2018-09-11T18:45:00Z,Group C2,Ferencváros Stadion,Budapest
-Finland,Estonia,1,0,,,1,0,2018-09-11T18:45:00Z,Group C2,Veritas Stadion,Turku
-Portugal,Italy,1,0,,,1,0,2018-09-10T18:45:00Z,Group A3,Estádio do SL Benfica,Lisbon
-Scotland,Albania,2,0,,,2,0,2018-09-10T18:45:00Z,Group C1,Hampden Park,Glasgow
-Andorra,Kazakhstan,1,1,,,1,1,2018-09-10T18:45:00Z,Group D1,Estadi Nacional,Andorra la Vella
-Sweden,Turkey,2,3,,,2,3,2018-09-10T18:45:00Z,Group B2,Friends Arena,Solna
-Kosovo,Faroe Islands,2,0,,,2,0,2018-09-10T18:45:00Z,Group D3,Stadiumi Fadil Vokrri,Pristina
-Malta,Azerbaijan,1,1,,,1,1,2018-09-10T18:45:00Z,Group D3,National Stadium,Ta' Qali
-Montenegro,Lithuania,2,0,,,2,0,2018-09-10T18:45:00Z,Group C4,Gradski Stadion Podgorica,Podgorica
-Serbia,Romania,2,2,,,2,2,2018-09-10T18:45:00Z,Group C4,Stadion FK Partizan,Belgrade
-France,Netherlands,2,1,,,2,1,2018-09-09T18:45:00Z,Group A1,Stade de France,Saint-Denis
-Liechtenstein,Gibraltar,2,0,,,2,0,2018-09-09T18:45:00Z,Group D4,Rheinpark Stadion,Vaduz
-Cyprus,Slovenia,2,1,,,2,1,2018-09-09T18:45:00Z,Group C3,GSP,Nicosia
-Georgia,Latvia,1,0,,,1,0,2018-09-09T16:00:00Z,Group D1,Boris Paichadze National Stadium Dinamo Arena,Tbilisi
-Denmark,Wales,2,0,,,2,0,2018-09-09T16:00:00Z,Group B4,Aarhus Stadium,Aarhus
-North Macedonia,Armenia,2,0,,,2,0,2018-09-09T16:00:00Z,Group D4,National Arena Todor Proeski,Skopje
-Bulgaria,Norway,1,0,,,1,0,2018-09-09T16:00:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
-Ukraine,Slovakia,1,0,,,1,0,2018-09-09T13:00:00Z,Group B1,Arena Lviv,Lviv
-England,Spain,1,2,,,1,2,2018-09-08T18:45:00Z,Group A4,Wembley Stadium,London
-Luxembourg,Moldova,4,0,,,4,0,2018-09-08T18:45:00Z,Group D2,Stade Josy Barthel,Luxembourg
-Estonia,Greece,0,1,,,0,1,2018-09-08T18:45:00Z,Group C2,Lilleküla Stadium,Tallinn
-Switzerland,Iceland,6,0,,,6,0,2018-09-08T16:00:00Z,Group A2,Arena St. Gallen,St Gallen
-Belarus,San Marino,5,0,,,5,0,2018-09-08T16:00:00Z,Group D2,National Olympic Stadium Dinamo,Minsk
-Finland,Hungary,1,0,,,1,0,2018-09-08T16:00:00Z,Group C2,Tampere Stadion,Tampere
-Northern Ireland,Bosnia and Herzegovina,1,2,,,1,2,2018-09-08T13:00:00Z,Group B3,Windsor Park,Belfast
-Italy,Poland,1,1,,,1,1,2018-09-07T18:45:00Z,Group A3,Renato Dall'Ara,Bologna
-Albania,Israel,1,0,,,1,0,2018-09-07T18:45:00Z,Group C1,Elbasan Arena,Elbasan
-Turkey,Russia,1,2,,,1,2,2018-09-07T18:45:00Z,Group B2,Şenol Güneş Spor Kompleksi,Trabzon
-Faroe Islands,Malta,3,1,,,3,1,2018-09-07T18:45:00Z,Group D3,Tórsvøllur,Torshavn
-Romania,Montenegro,0,0,,,0,0,2018-09-07T18:45:00Z,Group C4,Stadionul Ilie Oană,Ploiesti
-Lithuania,Serbia,0,1,,,0,1,2018-09-07T18:45:00Z,Group C4,LFF stadionas,Vilnius
-Azerbaijan,Kosovo,0,0,,,0,0,2018-09-07T16:00:00Z,Group D3,Baku Olympic Stadium,Baku
-Germany,France,0,0,,,0,0,2018-09-06T18:45:00Z,Group A1,Fußball Arena München,Munich
-Czechia,Ukraine,1,2,,,1,2,2018-09-06T18:45:00Z,Group B1,City Stadium,Uherske Hradiste
-Latvia,Andorra,0,0,,,0,0,2018-09-06T18:45:00Z,Group D1,Daugava,Riga
-Wales,Ireland,4,1,,,4,1,2018-09-06T18:45:00Z,Group B4,Cardiff City Stadium,Cardiff
-Gibraltar,North Macedonia,0,2,,,0,2,2018-09-06T18:45:00Z,Group D4,Victoria Stadium,Gibraltar
-Norway,Cyprus,2,0,,,2,0,2018-09-06T18:45:00Z,Group C3,Ullevaal Stadion,Oslo
-Slovenia,Bulgaria,1,2,,,1,2,2018-09-06T18:45:00Z,Group C3,Stadion Stožice,Ljubljana
-Armenia,Liechtenstein,2,1,,,2,1,2018-09-06T16:00:00Z,Group D4,Republican Stadium after Vazgen Sargsyan,Yerevan
-Kazakhstan,Georgia,0,2,,,0,2,2018-09-06T14:00:00Z,Group D1,Astana Arena,Astana
+PT,NL,1,0,,,1,0,2019-06-09T18:45:00Z,Final,Estádio do Dragão,Porto
+CH,GB-ENG,0,0,5,6,5,6,2019-06-09T13:00:00Z,Third-place play-off,Estádio D. Afonso Henriques,Guimaraes
+NL,GB-ENG,1,1,,,3,1,2019-06-06T18:45:00Z,Semi-finals,Estádio D. Afonso Henriques,Guimaraes
+PT,CH,3,1,,,3,1,2019-06-05T18:45:00Z,Semi-finals,Estádio do Dragão,Porto
+PT,PL,1,1,,,1,1,2018-11-20T19:45:00Z,Group A3,Estádio D. Afonso Henriques,Guimaraes
+GB-SCT,IL,3,2,,,3,2,2018-11-20T19:45:00Z,Group C1,Hampden Park,Glasgow
+SE,RU,2,0,,,2,0,2018-11-20T19:45:00Z,Group B2,Friends Arena,Solna
+XK,AZ,4,0,,,4,0,2018-11-20T19:45:00Z,Group D3,Stadiumi Fadil Vokrri,Pristina
+MT,FO,1,1,,,1,1,2018-11-20T19:45:00Z,Group D3,National Stadium,Ta' Qali
+ME,RO,0,1,,,0,1,2018-11-20T19:45:00Z,Group C4,Gradski Stadion Podgorica,Podgorica
+RS,LT,4,1,,,4,1,2018-11-20T19:45:00Z,Group C4,Stadion FK Partizan,Belgrade
+DE,NL,2,2,,,2,2,2018-11-19T19:45:00Z,Group A1,Arena AufSchalke,Gelsenkirchen
+CZ,SK,1,0,,,1,0,2018-11-19T19:45:00Z,Group B1,Eden Arena,Prague
+DK,IE,0,0,,,0,0,2018-11-19T19:45:00Z,Group B4,Aarhus Stadium,Aarhus
+LI,AM,2,2,,,2,2,2018-11-19T19:45:00Z,Group D4,Rheinpark Stadion,Vaduz
+MK,GI,4,0,,,4,0,2018-11-19T19:45:00Z,Group D4,National Arena Todor Proeski,Skopje
+BG,SI,1,1,,,1,1,2018-11-19T19:45:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
+CY,NO,0,2,,,0,2,2018-11-19T19:45:00Z,Group C3,GSP,Nicosia
+AD,LV,0,0,,,0,0,2018-11-19T17:00:00Z,Group D1,Estadi Nacional,AD la Vella
+GE,KZ,2,1,,,2,1,2018-11-19T17:00:00Z,Group D1,Boris Paichadze National Stadium Dinamo Arena,Tbilisi
+CH,BE,5,2,,,5,2,2018-11-18T19:45:00Z,Group A2,Luzern Arena,Lucerne
+GR,EE,0,1,,,0,1,2018-11-18T19:45:00Z,Group C2,Olympic Athletic Center of Athens,Athens
+HU,FI,2,0,,,2,0,2018-11-18T19:45:00Z,Group C2,Ferencváros Stadion,Budapest
+MD,LU,1,1,,,1,1,2018-11-18T17:00:00Z,Group D2,Stadionul Zimbru,Chișinău
+SM,BY,0,2,,,0,2,2018-11-18T17:00:00Z,Group D2,SM Stadium,Serravalle
+GB-NIR,AT,1,2,,,1,2,2018-11-18T17:00:00Z,Group B3,Windsor Park,Belfast
+GB-ENG,HR,2,1,,,2,1,2018-11-18T14:00:00Z,Group A4,Wembley Stadium,London
+IT,PT,0,0,,,0,0,2018-11-17T19:45:00Z,Group A3,Stadio San Siro,Milan
+AL,GB-SCT,0,4,,,0,4,2018-11-17T19:45:00Z,Group C1,Loro Boriçi Stadium,Shkoder
+RO,LT,3,0,,,3,0,2018-11-17T19:45:00Z,Group C4,Stadionul Ilie Oană,Ploiesti
+TR,SE,0,1,,,0,1,2018-11-17T17:00:00Z,Group B2,Konya Büyükşehir Belediye Stadyumu,Konya
+MT,XK,0,5,,,0,5,2018-11-17T17:00:00Z,Group D3,National Stadium,Ta' Qali
+AZ,FO,2,0,,,2,0,2018-11-17T17:00:00Z,Group D3,Baku Olympic Stadium,Baku
+RS,ME,2,1,,,2,1,2018-11-17T14:00:00Z,Group C4,Stadion Rajko Mitić,Belgrade
+NL,FR,2,0,,,2,0,2018-11-16T19:45:00Z,Group A1,Stadion Feijenoord 'De Kuip',Rotterdam
+SK,UA,4,1,,,4,1,2018-11-16T19:45:00Z,Group B1,Štadión Antona Malatinského,Trnava
+GB-WLS,DK,1,2,,,1,2,2018-11-16T19:45:00Z,Group B4,Cardiff City Stadium,Cardiff
+LI,MK,0,2,,,0,2,2018-11-16T19:45:00Z,Group D4,Rheinpark Stadion,Vaduz
+GI,AM,2,6,,,2,6,2018-11-16T19:45:00Z,Group D4,Victoria Stadium,GI
+SI,NO,1,1,,,1,1,2018-11-16T19:45:00Z,Group C3,Stadion Stožice,Ljubljana
+CY,BG,1,1,,,1,1,2018-11-16T19:45:00Z,Group C3,GSP,Nicosia
+BE,IS,2,0,,,2,0,2018-11-15T19:45:00Z,Group A2,King Baudouin Stadium,Brussels
+HR,ES,3,2,,,3,2,2018-11-15T19:45:00Z,Group A4,Stadion Maksimir,Zagreb
+AD,GE,1,1,,,1,1,2018-11-15T19:45:00Z,Group D1,Estadi Nacional,AD la Vella
+SM,MD,0,1,,,0,1,2018-11-15T19:45:00Z,Group D2,SM Stadium,Serravalle
+LU,BY,0,2,,,0,2,2018-11-15T19:45:00Z,Group D2,Stade Josy Barthel,LU
+AT,BA,0,0,,,0,0,2018-11-15T19:45:00Z,Group B3,Ernst-Happel-Stadion,Vienna
+GR,FI,1,0,,,1,0,2018-11-15T19:45:00Z,Group C2,Olympic Athletic Center of Athens,Athens
+HU,EE,2,0,,,2,0,2018-11-15T19:45:00Z,Group C2,Ferencváros Stadion,Budapest
+KZ,LV,1,1,,,1,1,2018-11-15T15:00:00Z,Group D1,Astana Arena,Astana
+FR,DE,2,1,,,2,1,2018-10-16T18:45:00Z,Group A1,Stade de FR,Saint-Denis
+UA,CZ,1,0,,,1,0,2018-10-16T18:45:00Z,Group B1,OSC Metalist,Kharkiv
+LV,GE,0,3,,,0,3,2018-10-16T18:45:00Z,Group D1,Daugava,Riga
+IE,GB-WLS,0,1,,,0,1,2018-10-16T18:45:00Z,Group B4,Dublin Arena,Dublin
+GI,LI,2,1,,,2,1,2018-10-16T18:45:00Z,Group D4,Victoria Stadium,GI
+NO,BG,1,0,,,1,0,2018-10-16T18:45:00Z,Group C3,Ullevaal Stadion,Oslo
+SI,CY,1,1,,,1,1,2018-10-16T18:45:00Z,Group C3,Stadion Stožice,Ljubljana
+AM,MK,4,0,,,4,0,2018-10-16T16:00:00Z,Group D4,Republican Stadium after Vazgen Sargsyan,Yerevan
+KZ,AD,4,0,,,4,0,2018-10-16T14:00:00Z,Group D1,Astana Arena,Astana
+IS,CH,1,2,,,1,2,2018-10-15T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavík
+ES,GB-ENG,2,3,,,2,3,2018-10-15T18:45:00Z,Group A4,Estadio Benito Villamarín,Seville
+BY,MD,0,0,,,0,0,2018-10-15T18:45:00Z,Group D2,National Olympic Stadium Dinamo,Minsk
+LU,SM,3,0,,,3,0,2018-10-15T18:45:00Z,Group D2,Stade Josy Barthel,LU
+BA,GB-NIR,2,0,,,2,0,2018-10-15T18:45:00Z,Group B3,Stadion Grbavica,Sarajevo
+EE,HU,3,3,,,3,3,2018-10-15T18:45:00Z,Group C2,Lilleküla Stadium,Tallinn
+FI,GR,2,0,,,2,0,2018-10-15T18:45:00Z,Group C2,Tampere Stadion,Tampere
+PL,IT,0,1,,,0,1,2018-10-14T18:45:00Z,Group A3,Silesian Stadium,Chorzow
+IL,AL,2,0,,,2,0,2018-10-14T18:45:00Z,Group C1,Turner Stadium,Beer Sheva
+LT,ME,1,4,,,1,4,2018-10-14T18:45:00Z,Group C4,LFF stadionas,Vilnius
+RU,TR,2,0,,,2,0,2018-10-14T16:00:00Z,Group B2,Fisht Stadium,Sochi
+FO,XK,1,1,,,1,1,2018-10-14T16:00:00Z,Group D3,Tórsvøllur,Torshavn
+AZ,MT,1,1,,,1,1,2018-10-14T16:00:00Z,Group D3,Baku Olympic Stadium,Baku
+RO,RS,0,0,,,0,0,2018-10-14T13:00:00Z,Group C4,National Arena,Bucharest
+NL,DE,3,0,,,3,0,2018-10-13T18:45:00Z,Group A1,Johan Cruijff ArenA,Amsterdam
+IE,DK,0,0,,,0,0,2018-10-13T18:45:00Z,Group B4,Dublin Arena,Dublin
+MK,LI,4,1,,,4,1,2018-10-13T18:45:00Z,Group D4,National Arena Todor Proeski,Skopje
+BG,CY,2,1,,,2,1,2018-10-13T18:45:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
+GE,AD,3,0,,,3,0,2018-10-13T16:00:00Z,Group D1,Boris Paichadze National Stadium Dinamo Arena,Tbilisi
+LV,KZ,1,1,,,1,1,2018-10-13T16:00:00Z,Group D1,Daugava,Riga
+AM,GI,0,1,,,0,1,2018-10-13T16:00:00Z,Group D4,Republican Stadium after Vazgen Sargsyan,Yerevan
+NO,SI,1,0,,,1,0,2018-10-13T16:00:00Z,Group C3,Ullevaal Stadion,Oslo
+SK,CZ,1,2,,,1,2,2018-10-13T13:00:00Z,Group B1,Štadión Antona Malatinského,Trnava
+BE,CH,2,1,,,2,1,2018-10-12T18:45:00Z,Group A2,King Baudouin Stadium,Brussels
+HR,GB-ENG,0,0,,,0,0,2018-10-12T18:45:00Z,Group A4,Stadion HNK Rijeka,Rijeka
+BY,LU,1,0,,,1,0,2018-10-12T18:45:00Z,Group D2,National Olympic Stadium Dinamo,Minsk
+MD,SM,2,0,,,2,0,2018-10-12T18:45:00Z,Group D2,Stadionul Zimbru,Chișinău
+AT,GB-NIR,1,0,,,1,0,2018-10-12T18:45:00Z,Group B3,Ernst-Happel-Stadion,Vienna
+GR,HU,1,0,,,1,0,2018-10-12T18:45:00Z,Group C2,Olympic Athletic Center of Athens,Athens
+EE,FI,0,1,,,0,1,2018-10-12T18:45:00Z,Group C2,Lilleküla Stadium,Tallinn
+RU,SE,0,0,,,0,0,2018-10-11T19:45:00Z,Group B2,Kaliningrad Stadium,Kaliningrad
+PL,PT,2,3,,,2,3,2018-10-11T18:45:00Z,Group A3,Silesian Stadium,Chorzow
+IL,GB-SCT,2,1,,,2,1,2018-10-11T18:45:00Z,Group C1,Sammy Ofer Stadium,Haifa
+XK,MT,3,1,,,3,1,2018-10-11T18:45:00Z,Group D3,Stadiumi Fadil Vokrri,Pristina
+FO,AZ,0,3,,,0,3,2018-10-11T18:45:00Z,Group D3,Tórsvøllur,Torshavn
+LT,RO,1,2,,,1,2,2018-10-11T18:45:00Z,Group C4,LFF stadionas,Vilnius
+ME,RS,0,2,,,0,2,2018-10-11T18:45:00Z,Group C4,Gradski Stadion Podgorica,Podgorica
+IS,BE,0,3,,,0,3,2018-09-11T18:45:00Z,Group A2,Laugardalsvöllur,Reykjavík
+ES,HR,6,0,,,6,0,2018-09-11T18:45:00Z,Group A4,Estadio Manuel Martínez Valero,Elche
+SM,LU,0,3,,,0,3,2018-09-11T18:45:00Z,Group D2,SM Stadium,Serravalle
+MD,BY,0,0,,,0,0,2018-09-11T18:45:00Z,Group D2,Stadionul Zimbru,Chișinău
+BA,AT,1,0,,,1,0,2018-09-11T18:45:00Z,Group B3,Stadion Bilino Polje,Zenica
+HU,GR,2,1,,,2,1,2018-09-11T18:45:00Z,Group C2,Ferencváros Stadion,Budapest
+FI,EE,1,0,,,1,0,2018-09-11T18:45:00Z,Group C2,Veritas Stadion,Turku
+PT,IT,1,0,,,1,0,2018-09-10T18:45:00Z,Group A3,Estádio do SL Benfica,Lisbon
+GB-SCT,AL,2,0,,,2,0,2018-09-10T18:45:00Z,Group C1,Hampden Park,Glasgow
+AD,KZ,1,1,,,1,1,2018-09-10T18:45:00Z,Group D1,Estadi Nacional,AD la Vella
+SE,TR,2,3,,,2,3,2018-09-10T18:45:00Z,Group B2,Friends Arena,Solna
+XK,FO,2,0,,,2,0,2018-09-10T18:45:00Z,Group D3,Stadiumi Fadil Vokrri,Pristina
+MT,AZ,1,1,,,1,1,2018-09-10T18:45:00Z,Group D3,National Stadium,Ta' Qali
+ME,LT,2,0,,,2,0,2018-09-10T18:45:00Z,Group C4,Gradski Stadion Podgorica,Podgorica
+RS,RO,2,2,,,2,2,2018-09-10T18:45:00Z,Group C4,Stadion FK Partizan,Belgrade
+FR,NL,2,1,,,2,1,2018-09-09T18:45:00Z,Group A1,Stade de FR,Saint-Denis
+LI,GI,2,0,,,2,0,2018-09-09T18:45:00Z,Group D4,Rheinpark Stadion,Vaduz
+CY,SI,2,1,,,2,1,2018-09-09T18:45:00Z,Group C3,GSP,Nicosia
+GE,LV,1,0,,,1,0,2018-09-09T16:00:00Z,Group D1,Boris Paichadze National Stadium Dinamo Arena,Tbilisi
+DK,GB-WLS,2,0,,,2,0,2018-09-09T16:00:00Z,Group B4,Aarhus Stadium,Aarhus
+MK,AM,2,0,,,2,0,2018-09-09T16:00:00Z,Group D4,National Arena Todor Proeski,Skopje
+BG,NO,1,0,,,1,0,2018-09-09T16:00:00Z,Group C3,Natsionalen Stadion Vasil Levski,Sofia
+UA,SK,1,0,,,1,0,2018-09-09T13:00:00Z,Group B1,Arena Lviv,Lviv
+GB-ENG,ES,1,2,,,1,2,2018-09-08T18:45:00Z,Group A4,Wembley Stadium,London
+LU,MD,4,0,,,4,0,2018-09-08T18:45:00Z,Group D2,Stade Josy Barthel,LU
+EE,GR,0,1,,,0,1,2018-09-08T18:45:00Z,Group C2,Lilleküla Stadium,Tallinn
+CH,IS,6,0,,,6,0,2018-09-08T16:00:00Z,Group A2,Arena St. Gallen,St Gallen
+BY,SM,5,0,,,5,0,2018-09-08T16:00:00Z,Group D2,National Olympic Stadium Dinamo,Minsk
+FI,HU,1,0,,,1,0,2018-09-08T16:00:00Z,Group C2,Tampere Stadion,Tampere
+GB-NIR,BA,1,2,,,1,2,2018-09-08T13:00:00Z,Group B3,Windsor Park,Belfast
+IT,PL,1,1,,,1,1,2018-09-07T18:45:00Z,Group A3,Renato Dall'Ara,Bologna
+AL,IL,1,0,,,1,0,2018-09-07T18:45:00Z,Group C1,Elbasan Arena,Elbasan
+TR,RU,1,2,,,1,2,2018-09-07T18:45:00Z,Group B2,Şenol Güneş Spor Kompleksi,Trabzon
+FO,MT,3,1,,,3,1,2018-09-07T18:45:00Z,Group D3,Tórsvøllur,Torshavn
+RO,ME,0,0,,,0,0,2018-09-07T18:45:00Z,Group C4,Stadionul Ilie Oană,Ploiesti
+LT,RS,0,1,,,0,1,2018-09-07T18:45:00Z,Group C4,LFF stadionas,Vilnius
+AZ,XK,0,0,,,0,0,2018-09-07T16:00:00Z,Group D3,Baku Olympic Stadium,Baku
+DE,FR,0,0,,,0,0,2018-09-06T18:45:00Z,Group A1,Fußball Arena München,Munich
+CZ,UA,1,2,,,1,2,2018-09-06T18:45:00Z,Group B1,City Stadium,Uherske Hradiste
+LV,AD,0,0,,,0,0,2018-09-06T18:45:00Z,Group D1,Daugava,Riga
+GB-WLS,IE,4,1,,,4,1,2018-09-06T18:45:00Z,Group B4,Cardiff City Stadium,Cardiff
+GI,MK,0,2,,,0,2,2018-09-06T18:45:00Z,Group D4,Victoria Stadium,GI
+NO,CY,2,0,,,2,0,2018-09-06T18:45:00Z,Group C3,Ullevaal Stadion,Oslo
+SI,BG,1,2,,,1,2,2018-09-06T18:45:00Z,Group C3,Stadion Stožice,Ljubljana
+AM,LI,2,1,,,2,1,2018-09-06T16:00:00Z,Group D4,Republican Stadium after Vazgen Sargsyan,Yerevan
+KZ,GE,0,2,,,0,2,2018-09-06T14:00:00Z,Group D1,Astana Arena,Astana
