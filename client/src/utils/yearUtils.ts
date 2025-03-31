@@ -1,6 +1,5 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
-import countryCodesData from './countryCodes.json';
 
 type CountryCodes = {
   [key: string]: string;
@@ -10,48 +9,46 @@ export const useCountries = (year: number) => {
   const t = useTranslations('Country');
 
   const uefaChanges = {
-    1960: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Czechia', 'Denmark', 'East Germany', 'England', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Luxembourg', 'Netherlands', 'Northern Ireland', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'Scotland', 'Serbia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Wales'],
-    1964: ['Cyprus', 'Malta'],
-    1984: ['Liechtenstein'],
-    1992: ['Faroe Islands', 'San Marino', '-East Germany'],
-    1996: ['Armenia', 'Azerbaijan', 'Belarus', 'Croatia', 'Estonia', 'Georgia', 'Israel', 'Latvia', 'Lithuania', 'Moldova', 'North Macedonia', 'Slovakia', 'Slovenia', 'Ukraine'],
-    2000: ['Andorra', 'Bosnia and Herzegovina'],
-    2004: ['Kazakhstan'],
-    2008: ['Montenegro'],
-    2016: ['Gibraltar'],
-    2020: ['Kosovo']
+    1960: ['AL', 'AT', 'BE', 'BG', 'CZ', 'DK', 'DD', 'GB-ENG', 'FI', 'FR', 'DE', 'GR', 'HU', 'IS', 'IE', 'IT', 'LU', 'NL', 'GB-NIR', 'NO', 'PL', 'PT', 'RO', 'RU', 'GB-SCT', 'RS', 'ES', 'SE', 'CH', 'TR', 'GB-WLS'],
+    1964: ['CY', 'MT'],
+    1984: ['LI'],
+    1992: ['FO', 'SM', '-DD'],
+    1996: ['AM', 'AZ', 'BY', 'HR', 'EE', 'GE', 'IL', 'LV', 'LT', 'MD', 'MK', 'SK', 'SI', 'UA'],
+    2000: ['AD', 'BA'],
+    2004: ['KZ'],
+    2008: ['ME'],
+    2016: ['GI'],
+    2020: ['XK']
   };
 
   const historicalNames: { [country: string]: ({ year: number; name: string; })[]; } = {
-    'Germany': [{ year: 1992, name: 'West Germany' }],
-    'Russia': [
-      { year: 1992, name: 'Soviet Union' },
+    'DE': [{ year: 1992, name: 'DEU' }],
+    'RU': [
+      { year: 1992, name: 'SU' },
       { year: 1996, name: 'CIS' }
     ],
-    'Czechia': [{ year: 1996, name: 'Czechoslovakia' }],
-    'Serbia': [{ year: 2008, name: 'Yugoslavia' }]
+    'CZ': [{ year: 1996, name: 'CS' }],
+    'RS': [{ year: 2008, name: 'YU' }]
   };
 
   const historicalFlags: { [country: string]: { year: number; flagUrl: string; }[]; } = {
-    'Russia': [
+    'RU': [
       { year: 1992, flagUrl: 'https://cdn.britannica.com/36/22536-050-E22B1D13/Flag-Union-of-Soviet-Socialist-Republics.jpg?w=400&h=300&c=crop' },
       { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_the_CIS.svg' }
     ],
-    'Serbia': [
+    'RS': [
       { year: 1996, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Civil_Ensign_of_Yugoslavia_%281950%E2%80%931992%29.svg' },
       { year: 2008, flagUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Flag_of_Yugoslavia_%281918%E2%80%931941%29.svg' },
     ]
   };
 
   const historicCountriesCodes: CountryCodes = {
-    'Czechoslovakia': 'cz',
-    'Soviet Union': 'su',
-    'Yugoslavia': 'yu',
-    'East Germany': 'de',
-    'West Germany': 'de'
+    'CS': 'CZ',
+    'DD': 'DE',
+    'DEU': 'DE'
   };
 
-  const countryCodes: CountryCodes = { ...countryCodesData, ...historicCountriesCodes };
+  const countryCodes: CountryCodes = { ...historicCountriesCodes };
 
   const getFlag = (country: string, circle: boolean) => {
     const customFlag = Object.keys(historicalFlags).some(countryKey =>
@@ -59,10 +56,15 @@ export const useCountries = (year: number) => {
         country === countryKey && year >= flag.year && year < (historicalFlags[countryKey].find(nextFlag => nextFlag.year > flag.year)?.year || Infinity)
       )
     ) || !circle ? historicalFlags[country]?.find(entry => year < entry.year) : undefined;
+
+    const histName = getHistoricalNameEnglish(country);
+    // Use mapping if available, else use histName, else fallback to country
+    const flagCode = countryCodes[histName] || histName || country;
+
     return customFlag ? customFlag.flagUrl : `${circle
       ? 'https://hatscripts.github.io/circle-flags/flags/'
       : 'https://raw.githubusercontent.com/lipis/flag-icons/b919a036693ee1ee0434ef5ae05f93543fc4f437/flags/4x3/'
-      }${countryCodes[getHistoricalNameEnglish(country) || country].toLowerCase()}.svg`;
+      }${flagCode.toLowerCase()}.svg`;
   };
 
   const getUefaCountries = (): string[] => {
