@@ -1,4 +1,5 @@
-import { useTranslations } from 'next-intl';
+import { Locale } from '@/i18n/routing';
+import { useLocale, useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 type CountryCodes = {
@@ -7,6 +8,7 @@ type CountryCodes = {
 
 export const useCountries = (year: number) => {
   const t = useTranslations('Country');
+  const locale = useLocale() as Locale;
 
   const uefaChanges = {
     1960: ['AL', 'AT', 'BE', 'BG', 'CZ', 'DK', 'DD', 'GB-ENG', 'FI', 'FR', 'DE', 'GR', 'HU', 'IS', 'IE', 'IT', 'LU', 'NL', 'GB-NIR', 'NO', 'PL', 'PT', 'RO', 'RU', 'GB-SCT', 'RS', 'ES', 'SE', 'CH', 'TR', 'GB-WLS'],
@@ -94,7 +96,18 @@ export const useCountries = (year: number) => {
   };
 
   const getHistoricalName = (country: string): string => {
-    return t(`${getHistoricalNameEnglish(country)}` as any);
+    const histCode = getHistoricalNameEnglish(country);
+    // Try to get translation, fallback to Intl if not found
+    if (t.has(histCode as any)) {
+      return t(histCode as any);
+    } else {
+      try {
+        const displayNames = new Intl.DisplayNames(locale, { type: 'region' });
+        return displayNames.of(histCode) || histCode;
+      } catch {
+        return histCode;
+      }
+    }
   };
 
   return { getFlag, getUefaCountries, getHistoricalName };
