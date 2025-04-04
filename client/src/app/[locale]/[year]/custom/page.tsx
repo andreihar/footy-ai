@@ -1,12 +1,12 @@
 'use client';
-import { Avatar, Box, CardContent, Typography, TextField, MenuItem, FormControlLabel, Switch, CircularProgress, Autocomplete } from '@mui/material';
-import Grid from '@mui/material/Grid2';
 import DashboardCard from '@/components/shared/DashboardCard';
-import { useState, useEffect, useCallback, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { useCountries } from '@/utils/yearUtils';
-import { useTranslations } from 'next-intl';
 import fetchMatch from '@/utils/fetchMatch';
+import { useCountries } from '@/utils/yearUtils';
+import { Autocomplete, Avatar, Box, CardContent, CircularProgress, FormControlLabel, MenuItem, Switch, TextField, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
+import { useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 
 function CustomPage({ params: { year } }: { params: { year: string; }; }) {
   const { getFlag, getUefaCountries, getHistoricalName } = useCountries(Number(year));
@@ -14,8 +14,8 @@ function CustomPage({ params: { year } }: { params: { year: string; }; }) {
   const t = useTranslations('Custom');
   const searchParams = useSearchParams();
   const [preds, setPreds] = useState([0, 0, 0]);
-  const [home, setHome] = useState(countries.find(c => c.country === 'England') || null);
-  const [away, setAway] = useState(countries.find(c => c.country === 'France') || null);
+  const [home, setHome] = useState(countries.find(c => c.country === 'GB-ENG') || null);
+  const [away, setAway] = useState(countries.find(c => c.country === 'FR') || null);
   const [allowDraw, setAllowDraw] = useState(true);
   const [homeScore, setHomeScore] = useState(1);
   const [awayScore, setAwayScore] = useState(2);

@@ -1,9 +1,9 @@
 'use client';
-import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
-import { useTheme } from '@mui/material/styles';
-import { useCountries } from '@/utils/yearUtils';
 import Match from '@/types/match';
+import { useCountries } from '@/utils/yearUtils';
+import { Box, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import Image from 'next/image';
 
 const MatchBracket: React.FC<{ match: Match; year: number; }> = ({ match, year }) => {
   const { getFlag, getHistoricalName } = useCountries(year);
