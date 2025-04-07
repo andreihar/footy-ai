@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-teams_list = ["Albania","Andorra","Armenia","Austria","Azerbaijan","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czechia","Denmark","England","Estonia","Faroe Islands","Finland","France","Georgia","Germany","Gibraltar","Greece","Hungary","Iceland","Israel","Italy","Kazakhstan","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Moldova","Monaco","Montenegro","Netherlands","North Macedonia","Northern Ireland","Norway","Poland","Portugal","Ireland","Romania","Russia","San Marino","Scotland","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Turkey","Ukraine","Wales"]
+teams_list = ["AL","AD","AM","AT","AZ","BY","BE","BA","BG","HR","CY","CZ","DK","GB-ENG","EE","FO","FI","FR","GE","DE","GI","GR","HU","IS","IL","IT","KZ","XK","LV","LI","LT","LU","MT","MD","Monaco","ME","NL","MK","GB-NIR","NO","PL","PT","IE","RO","RU","SM","GB-SCT","RS","SK","SI","ES","SE","CH","TR","UA","GB-WLS"]
 
 reg = None
 xG = {}
