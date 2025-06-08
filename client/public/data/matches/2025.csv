@@ -1,6 +1,6 @@
 home_team,away_team,home_score,away_score,home_penalty,away_penalty,home_score_total,away_score_total,date,stage,stadium,city
-Portugal,Spain,,,,,,,2025-06-08T19:00:00Z,Final,Munich Football Arena,Munich
-Germany,France,,,,,,,2025-06-08T13:00:00Z,Third-place play-off,Stuttgart Arena,Stuttgart
+Portugal,Spain,2,2,5,3,7,5,2025-06-08T19:00:00Z,Final,Munich Football Arena,Munich
+Germany,France,0,2,,,0,2,2025-06-08T13:00:00Z,Third-place play-off,Stuttgart Arena,Stuttgart
 Germany,Portugal,1,2,,,1,2,2025-06-04T19:00:00Z,Semi-finals,Munich Football Arena,Munich
 Spain,France,5,4,,,5,4,2025-06-05T19:00:00Z,Semi-finals,Stuttgart Arena,Stuttgart
 Spain,Netherlands,3,3,5,4,8,7,2025-03-23T20:45:00Z,Quarter-finals,Estadio La Cartuja de Sevilla,Seville
